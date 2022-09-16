@@ -13,7 +13,7 @@
       let exprecion = /(\w+.)/gi;
       
 if(exprecion.test(nombre)){
-const padre = document.querySelector(".invisible");
+const padre = document.querySelector(".sech");
    let list = document.createElement("p");
 
    list.textContent = nombre;
