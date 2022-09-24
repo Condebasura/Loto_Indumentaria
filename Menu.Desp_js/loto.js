@@ -26,25 +26,3 @@ btnNinio.addEventListener("click" , () =>{
   const desp = document.querySelector(".desp-niño");
   desp.classList.toggle("desplegable_ninio");
 })
-
-
-
-
-
-
-    
-        
-
-
-
-
-
- 
-    
-
-    
-    
-
-
-
-
