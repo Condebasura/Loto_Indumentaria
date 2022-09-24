@@ -1,6 +1,6 @@
  let buscarPrenda =  document.querySelector("#buscPr");
 
- buscarPrenda.addEventListener("keyup",  function () {
+ buscarPrenda.addEventListener("input",  function () {
   
     let productos = document.querySelectorAll(".box-item");
 
