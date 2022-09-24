@@ -61,11 +61,17 @@
         }
         
         .desp-hom{display:none;
+            
+        }
+             
+        .desplegable_homb{
+            display: flex;
             max-width:100%;
            padding: 4px;
             position: absolute;;left: 1.8em;top: 1.2em
             ;margin-top: 0.6em;z-index: 1;
         }
+
         .homb-R{display: block;
             text-decoration: none;
             padding: 15px;
@@ -98,7 +104,7 @@
              
          .homb:hover{box-shadow: 0px 1px 0px #cc8a8a;}
         
-        .hombre:hover .desp-hom{display: flex;}
+        
         
         .hombre:hover{box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
         background-color: #fffaf56e;
@@ -118,12 +124,15 @@
        font-size:  20px;}
         
         .desp-muj{display:none;
+            }
+         
+         .desplegable_muj{
+            display: flex;
             max-width:100%;
             padding: 4px;
              position: absolute;right:13.3em;top: 1.2em;
-             ;margin-top:0.6em;z-index: 1;}
-         
-         
+             ;margin-top:0.6em;z-index: 1;
+         }
         
         
         .muj{display: flex;
@@ -145,7 +154,7 @@
         
         .wom:hover{box-shadow: 0px 1px 0px #cc8a8a;}
         
-        .mujer:hover .desp-muj{display: flex;}
+        
         
         .mujer:hover{box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
         background-color: #fffaf56e;
@@ -166,12 +175,15 @@
         
         
         .desp-niña{display:none;
+            }
+         
+         .desplegable_ninia{
+            display: flex;
             max-width:100%;
             padding: 4px;
              position: absolute;;right: 6.9em;top: 1.2em
-             ;margin-top:0.6em;z-index: 1;}
-         
-         
+             ;margin-top:0.6em;z-index: 1;
+         }
         
         .girl{display: flex;
             flex-direction: column;
@@ -192,8 +204,7 @@
         font-size: 17px;}
         
         .g:hover{box-shadow: 0px 1px 0px #cc8a8a;}
-        
-        .niña:hover .desp-niña{display: block;}
+    
         
         .niña:hover{box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
         background-color: #fffaf56e;
@@ -213,12 +224,15 @@
        font-size:  20px;}
         
         .desp-niño{display:none;
+          }
+         
+         .desplegable_ninio{
+            display: flex;
             max-width: 100%;
             padding: 4px;
              position: absolute;;right: 0.7em;top:1.2em
-             ;margin-top:0.6em;z-index: 1;}
-         
-         
+             ;margin-top:0.6em;z-index: 1;
+         }
         
         
         .child{display: flex;
@@ -239,7 +253,7 @@
         
         .ch:hover{box-shadow: 0px 1px 0px #cc8a8a;}
         
-        .niño:hover .desp-niño{display: block;}
+  
         
         .niño:hover{box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
         background-color: #fffaf56e;
