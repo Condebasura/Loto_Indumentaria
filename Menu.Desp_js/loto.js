@@ -22,7 +22,15 @@ btnNinia.addEventListener("click" , () =>{
   desp.classList.toggle("desplegable_ninia");
 })
 
-btnNinio.addEventListener("click" , () =>{
+btnNinio.addEventListener("click" , (event) =>{
   const desp = document.querySelector(".desp-niño");
   desp.classList.toggle("desplegable_ninio");
-})
+  
+    console.log(event.target)
+    
+    })
+
+
+
+
+

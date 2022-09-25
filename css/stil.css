@@ -290,10 +290,41 @@ img{max-width: 8em;
         
         
         
-        .cont-flex{display: flex;
-        margin-top: 18em;
-        flex-direction: row;
-        justify-content: space-evenly; }
+        .cont-flex{display: grid;
+        grid-template-columns: 33.33% 33.33% 33.33%;
+        grid-template-rows: 33.33% 33.33% 33.33%;
+        height: calc(170vh - 50px); 
+        gap: 3rem;
+        margin-top:  13rem;  
+
+        
+        
+    }
+
+        .slider-1{
+           background: url(/fondo/mujer-comprando.jpg) top / cover no-repeat;
+           grid-column: 1/ 4;
+           grid-row: 1 / 1;
+           box-shadow: 2px 2px 13px #1e201f;
+          
+          }
+          
+          
+          .slider-2{
+           background: url(/fondo/hombre-comprando.jpg) center / cover no-repeat;
+             grid-column: 1 /4;
+             grid-row:  2 / 2;
+             box-shadow: 2px 2px 13px #1e201f;
+        }
+          
+              .slider-3{
+              background: url(/fondo/nina-comprando.jpg) center / cover no-repeat;
+              grid-column: 1 / 4;
+              grid-row: 3/ 3;
+              box-shadow: 2px 2px 13px #1e201f;
+    }
+
+        
         
 
         @media (max-width: 1385px) {
@@ -342,7 +373,7 @@ img{max-width: 8em;
         .cont-flex{flex-wrap: wrap;}
         }
         
-        .slider-1{height: 40em;
+      /*  .slider-1{height: 40em;
           width: 40em;
          background-image: url(/fondo/mujer-comprando.jpg);
          background-position-x: right;
@@ -370,7 +401,7 @@ img{max-width: 8em;
         margin-right: 3em;
         margin-left: 3em;
         }
-        
+*/        
         @media(max-width: 600px){
             .slider-1, .slider-2, .slider-3{
                 margin-left: -1px;
