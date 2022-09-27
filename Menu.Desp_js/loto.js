@@ -4,31 +4,48 @@ const btnMuj = document.querySelector(".mujer");
 const btnNinia = document.querySelector(".niña");
 const btnNinio = document.querySelector(".niño");
 
-const desp = document.querySelector(".desp-hom");
+const despH = document.querySelector(".desp-hom");
 btnHomb.addEventListener("click" ,(event) => {
-    desp.classList.toggle("desplegable_homb");
- console.log(event.target)
+    despH.classList.toggle("desplegable_homb");
+    document.addEventListener("click", (event)=>{
+      if( event.target != btnHomb ){
+        despH.setAttribute("class" ,"desp-hom");
+      }
+    })
+    console.log(event.target);
   });
 
 
+  const despM = document.querySelector(".desp-muj");
 btnMuj.addEventListener("click" , () =>{
-  const desp = document.querySelector(".desp-muj");
-  desp.classList.toggle("desplegable_muj");
+  despM.classList.toggle("desplegable_muj");
+  document.addEventListener("click", (event)=>{
+    if( event.target != btnMuj ){
+      despM.setAttribute("class" ,"desp-muj");
+    }
+  })
 });
  
     
+const despNi = document.querySelector(".desp-niña");
 btnNinia.addEventListener("click" , () =>{
-  const desp = document.querySelector(".desp-niña");
-  desp.classList.toggle("desplegable_ninia");
+  despNi.classList.toggle("desplegable_ninia");
+  document.addEventListener("click", (event)=>{
+    if( event.target != btnNinia){
+      despNi.setAttribute("class" ,"desp-niña");
+    }
+  })
 })
 
+const despChi = document.querySelector(".desp-niño");
 btnNinio.addEventListener("click" , () =>{
-  const desp = document.querySelector(".desp-niño");
-  desp.classList.toggle("desplegable_ninio");
-  
-    
-    
-    })
+  despChi.classList.toggle("desplegable_ninio");
+  document.addEventListener("click", (event)=>{
+    if( event.target != btnNinio ){
+      despChi.setAttribute("class" ,"desp-niño");
+    }
+  })
+ })
 
 
 
