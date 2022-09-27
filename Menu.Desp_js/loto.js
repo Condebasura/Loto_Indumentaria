@@ -12,7 +12,7 @@ btnHomb.addEventListener("click" ,(event) => {
         despH.setAttribute("class" ,"desp-hom");
       }
     })
-    console.log(event.target);
+    
   });
 
 
