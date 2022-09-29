@@ -1,30 +1,16 @@
- let buscarPrenda =  document.querySelector("#buscPr");
+let datos = document.querySelectorAll(".name");
+ let search = document.querySelector(".input");
+let lista = document.querySelector(".result");
 
- buscarPrenda.addEventListener("input",  function () {
-  
-    let productos = document.querySelectorAll(".box-item");
 
-    
-    
-   for(let i = 0; i < productos.length; i++){
-      let producto = productos[i];
-      let prNombre = producto.querySelector(".name");
-      let nombre = prNombre.textContent; 
-      let exprecion = /(\w+.)/gi;
-if(exprecion.test(nombre)){
-const padre = document.querySelector(".result");
-     let list = document.createElement("li");
+search.addEventListener("input", () => {
+   for(let texto of datos){
+      let nombres = texto.textContent;
+      let dif = /\w.+/g;
+      if(dif.test(nombres)){
+       console.log(nombres)
+      }
+   }
 
-   
-   list.textContent = nombre;
-   padre.style.display = "block";
-   padre.style.backgroundColor = "white";
-   padre.appendChild(list);   
-
-   
-}
-}
-}
-
-)
+})
 
