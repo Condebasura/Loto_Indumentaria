@@ -155,32 +155,48 @@ box-shadow: -3px -3px  0.01px #e9e7e7;
     height: auto;
     object-fit: contain;
     width: 100%;
-    
-    
-    
-    
 }
 
-
-  
-     .datos{
-box-shadow: -0.1px 1px 2px 3px rgba(92, 89, 89, 0.2);
+.datos{display: flex;
+        flex-direction: column;
+        gap: 1em;
+       box-shadow: 1px 1px 1px 3px rgba(92, 89, 89, 0.2);
+       padding: 1em;
 }  
+
+.con_Stock{display: flex;
+    color: rgb(17, 177, 17);}
+
+.sin_Stock{display:none;
+    color: red;
+}
  
 .titulo{text-decoration: none;
     color: rgba(0,0,0,.9);
-    font-family:  'Times New Roman', Times, serif, 'Arial Narrow', Arial, sans-serif;
-font-size:  27px  sans-serif;
+    font-family:  'Ibarra Real Nova', serif;
+    
+    font-size:  24px ;
 }
-    
-        .precio{display: flex;
+    .precio_cuotas{
+        display: flex;
         flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center; 
-    text-align: center;
-margin: 3px;}
+        gap: 0.4em;
+    }
+        .precio{
+            font-size: 36px;
+            font-weight: 300;
+        }
         
-    
+    .cuotas{
+        color: rgb(17, 177, 17);
+        font-size: 19px;
+    }
+
+    .cond_Pago{
+        color: rgb(71, 71, 248);
+        font-size: 14px;
+        
+    }
 
  hr{color: rgba(217, 219, 219, 0.932);
     padding:  0px;
