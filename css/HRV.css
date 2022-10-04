@@ -1,4 +1,4 @@
-.contenedor{background-color: rgb(223, 223, 235)
+.contenedor{background-color: rgb(251, 246, 252)
     ;max-width: 100%;
     overflow-x: hidden;}
     
@@ -129,18 +129,17 @@
     gap: 1em;
 max-width:80% ;
 height:100em;
-background-color:rgb(255, 255, 255);
 margin-left: 10em;
 margin-top: 10em;
-box-shadow: 0.1px 0.1px 1px 1px #bebdbd;
 
 
 }
 
-.img-prod{
+.img-prod{background-color:rgb(255, 255, 255);
     grid-column: 1/ 2;
     grid-row: 1/1;
-box-shadow: -3px -3px  0.01px #e9e7e7;
+    box-shadow: 1px 1px 15px 1px rgba(116, 114, 114, 0.2);
+
 
 }
 
@@ -158,9 +157,10 @@ box-shadow: -3px -3px  0.01px #e9e7e7;
 }
 
 .datos{display: flex;
+    background-color:rgb(255, 255, 255);
         flex-direction: column;
         gap: 1em;
-       box-shadow: 1px 1px 1px 3px rgba(92, 89, 89, 0.2);
+       box-shadow: 1px 1px 15px 1px rgba(116, 114, 114, 0.2);
        padding: 1em;
 }  
 
@@ -207,7 +207,7 @@ box-shadow: -3px -3px  0.01px #e9e7e7;
          
             color: rgb(17, 177, 17);
          }
-.polit , .cond{
+.polit , .form_Env{
     font-size: 13px;
     color: rgb(71, 71, 248);
 }
