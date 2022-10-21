@@ -157,10 +157,11 @@ margin-top: 10em;
     align-items: center;
     grid-column: 1/2;
     grid-row: 1/2;
+    border-style: solid;
 }
 
 
-.box_img{
+.box_img {
     max-width: 100%;
     border: solid .1px;
     margin-top: 15px;
@@ -168,34 +169,11 @@ margin-top: 10em;
     height: 6vh;
 }
 
-.box_img:nth-child(1){
-    background: url("/Imagen_producto/Hombre/remeras-chombas/chomba-1.jpg") center / cover no-repeat;
-    
+.image{
+    max-width: 100%;
+    width: 6vh;
+    height: 6vh;
 }
-
-.box_img:nth-child(2){
-   background: red center / cover no-repeat;
-}
-
-.box_img:nth-child(3){
-    background: yellow center / cover no-repeat;
-}
-
-.box_img:nth-child(4){
-    background: green center / cover no-repeat;
-}
-
-.box_img:nth-child(5){
-    background: blue center / cover no-repeat;
-}
-
-
-.imag{
-   width: 8vh;
-   height: 8vh;
-   padding-top: 0.3em;
-}
-
 
 
 
@@ -213,7 +191,7 @@ height: 500px;
 }
 
 .box_img:hover{
-    border:greenyellow solid 4px;
+    border:blue solid 3px;
 }
 
 .datos{display: flex;
