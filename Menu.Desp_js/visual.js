@@ -1,13 +1,14 @@
-const miniImg = document.querySelectorAll(".box_img");
-const imgZoom = document.querySelector(".box_img__zoom");
-const contImagen = document.querySelector(".img_cont");
+let miniImg = document.querySelector(".img_cont");
+const imgZoom = document.querySelector(".image__zoom");
+let foto  = document.querySelectorAll(".image");
 
-contImagen.addEventListener("click" , (e)=>{
+miniImg.addEventListener("mouseup", (e) =>{
+  
+let im = e.target;
 
- for(let content in contImagen){
-   
-   return console.log(miniImg.valueOf());
- }
- 
+let src  = im.getAttribute("src");
+  
+console.log(src);
+
+  
 })
-
