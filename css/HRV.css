@@ -157,7 +157,6 @@ margin-top: 10em;
     align-items: center;
     grid-column: 1/1;
     grid-row: 1/1;
-    border-style: solid;
     margin-top: 3em;
     
     
@@ -189,9 +188,16 @@ margin-top: 10em;
 }
 
 .box_img__zoom{
-    border-style: solid;
+   
     width: 90%;
 height: 90%;    
+}
+
+.image_zoom{
+    padding-top: 3em;
+    max-width: 90%;
+    max-height: 60%;
+   
 }
 
 .box_img:hover{

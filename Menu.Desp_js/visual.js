@@ -1,14 +1,13 @@
 let miniImg = document.querySelector(".img_cont");
-const imgZoom = document.querySelector(".image__zoom");
-let foto  = document.querySelectorAll(".image");
+const imgZoom = document.querySelector(".image_zoom");
+let foto  = document.querySelector(".image");
 
-miniImg.addEventListener("mouseup", (e) =>{
+miniImg.addEventListener("mouseover" , (e) =>{
   
-let im = e.target;
+foto = e.target;
 
-let src  = im.getAttribute("src");
-  
-console.log(src);
+let im = foto.getAttribute("src");
 
-  
+imgZoom.setAttribute("src", im);
+ 
 })
