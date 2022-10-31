@@ -2,7 +2,7 @@ let miniImg = document.querySelector(".img_cont");
 const imgZoom = document.querySelector(".image_zoom");
 let foto  = document.querySelector(".image");
 
-miniImg.addEventListener("mouseover" , (e) =>{
+miniImg.addEventListener("mousedown" , (e) =>{
   
 foto = e.target;
 
