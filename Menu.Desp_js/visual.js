@@ -18,7 +18,6 @@ if(imgZoom.getAttribute("src") == "null" ){
     return imgZoom.setAttribute("src", img_defect);
 }
 
-
 });
 
 
