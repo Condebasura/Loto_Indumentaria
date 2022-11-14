@@ -1,4 +1,4 @@
-let miniImg = document.querySelector(".img_cont");
+const miniImg = document.querySelector(".img_cont");
 let imgZoom = document.querySelector(".image_zoom");
 let foto  = document.querySelector(".image");
 let box = document.querySelector(".box_img");
