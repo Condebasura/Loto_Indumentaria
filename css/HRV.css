@@ -182,6 +182,10 @@ margin-top: 10em;
 }
 
 .box_color{
+    max-width: 100em;
+    border: solid 2.8px;
+    margin-top: 15px;
+    height: 50px;
     border-color:blue ;
     
 }
