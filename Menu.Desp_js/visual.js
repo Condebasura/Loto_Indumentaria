@@ -14,14 +14,14 @@ let im = foto.getAttribute("src");
 imgZoom.setAttribute("src", im);
 
 if(imgZoom.getAttribute("src") == "null" ){
-    return imgZoom.setAttribute("src", img_defect);
+    imgZoom.setAttribute("src", img_defect); 
 }
 
 });
 
 let changeColorBox = () =>{
     for(let  p = 0; p <= miniImg.children.length - 1; p++){
-        miniImg.children[p].addEventListener("mousedown", (event) =>{ 
+        miniImg.children[p].addEventListener("mousedown", () =>{ 
              
             if(p == 0)
             miniImg.children[p].classList.toggle("box_color");
@@ -52,7 +52,7 @@ let changeColorBox = () =>{
             
         if(p != 4)
                 box[4].setAttribute("class","box_img"); 
-                
+                           
         })
     }
 }
