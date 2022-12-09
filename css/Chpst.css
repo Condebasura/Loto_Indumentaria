@@ -127,7 +127,8 @@
         justify-content: space-evenly;
         align-content: space-between;}
         
-         .Remeras{order: 0;width: 17em;
+         .Remeras{
+            width: 13em;
             margin: 2em;
             box-shadow: 2px 2px 10px #b3b3b3
             ;border-radius: 6px;
@@ -136,10 +137,10 @@
         
             .Remeras:hover{box-shadow: 3px 2px 25px #7e7979;}
         
-        img{width: 100% ;
-             flex-wrap: wrap;
-            height: 330px ;
-        border-radius:  6px;}
+            .image{width: 100% ;
+                flex-wrap: wrap;
+               height: 200px ;
+           border-radius:  6px;}
         
           
              .datos{display: flex;
