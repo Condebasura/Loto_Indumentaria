@@ -60,7 +60,7 @@ let changeColorBox = () =>{
             
         if(p != 4)
                 box[4].setAttribute("class","box_img"); 
-                return console.log(p)
+                return console.log(event.target)
                            
         }) }};
 
