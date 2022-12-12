@@ -1,0 +1,57 @@
+.brra-cont{ max-width: 102% ;
+    height:7em  ;
+    background:linear-gradient(to right , #4169e1b9, #ff4400a1 ) ;
+     box-shadow: 1px 1px 8px rgb(141, 139, 139);
+    margin-top: -1.3em;
+    margin-left: -1em ;
+    margin-right: -1em ; 
+    }
+
+    .logo{max-width: 8em;
+        position: relative; top: -3.6em;
+        margin-left: 3em;
+    }
+
+    .caja_cont{
+        margin: 5em;
+        padding: 3em;
+        
+    }
+
+    
+    .cont_flex{ display: flex;
+        flex-direction: column;
+        box-shadow: 2px 2px 8px 2px rgba(126, 124, 124, 0.747) ;
+        margin: 1em;
+       max-height: 100%;
+    }
+
+    .titulo{
+        padding-top: 2em;
+        text-align: center;
+
+    }
+
+    .tarj_cred{
+        margin:  2em;
+    font-size: 22px;
+    }
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.t_cards{
+    margin: 2em;
+}
+
+.tarj_dev{
+    margin:  2em;
+    font-size: 22px;
+}
+
+.card_dev{
+    margin: 2em;
+}
