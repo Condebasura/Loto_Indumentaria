@@ -1,4 +1,6 @@
-.brra-cont{ max-width: 102% ;
+.brra-cont{
+    
+    max-width: 102% ;
     height:7em  ;
     background:linear-gradient(to right , #4169e1b9, #ff4400a1 ) ;
      box-shadow: 1px 1px 8px rgb(141, 139, 139);
@@ -16,31 +18,76 @@
         margin: 5em;
         padding: 3em;
         
+        
     }
 
     
     .cont_flex{ display: flex;
         flex-direction: column;
         box-shadow: 2px 2px 8px 2px rgba(126, 124, 124, 0.747) ;
+        border-radius: 1em;
         margin: 1em;
        max-height: 100%;
     }
 
+    .box_back{display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1em;
+        margin: 2em;
+    }
+
+    .fa-circle-arrow-left{
+        font-size: 25px;
+        color: green;
+    }
+    .fa-circle-arrow-left:active{
+     box-shadow: 1px 2px 6px #9ea0a1e7;
+     color: rgb(25, 194, 33);
+     border-radius: 2em;
+    }
+
     .titulo{
+        font-family: cursive;
+        font-size: 29px;
+        color:black;
         padding-top: 2em;
         text-align: center;
 
+    }
+    .line{
+        font-size: 16px;
+        width: 70%;
+    
+    text-shadow: 2px 2px 12px 12px #838485b9;
     }
 
     .tarj_cred{
         margin:  2em;
     font-size: 22px;
     }
+
+
 .cards{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2em;
+    margin-bottom: 2em;
+}
+
+.card_cuo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.cuote{
+    color:green;
+    font-size: 13px;
+    
+    
 }
 
 .t_cards{
@@ -55,3 +102,28 @@
 .card_dev{
     margin: 2em;
 }
+
+footer{max-width: 160%;
+    height: 8em;
+    background-color: #000000c9;
+    margin-top: 14em;
+    margin-bottom: -3em;
+    margin-left: -1em;
+    margin-right: -2em;
+    text-align: center;
+    border-top-style: solid;
+    border-top-color: rgb(241, 102, 10);
+    color: cornsilk;}
+    
+    .fa-twitter-square, .fa-facebook-square, .fa-hashtag{font-size:  30px;
+    position: relative;left: 1em;
+    top: 5px;
+    margin-right: 5px;
+    color: white;
+    text-decoration: none;}
+    
+    .sig{font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+    
+    .der{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+

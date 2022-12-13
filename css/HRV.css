@@ -201,8 +201,14 @@ height: 90%;
     .cond_Pago{
         color: rgb(71, 71, 248);
         font-size: 13px;
-      }
-
+    }
+    .med_pago{
+    text-decoration: none;
+    list-style-type: none;
+}
+.med_pago:visited{
+    color: rgb(71, 71, 248);
+}
       .box_Envios{
         display: flex;
         flex-direction: column;
