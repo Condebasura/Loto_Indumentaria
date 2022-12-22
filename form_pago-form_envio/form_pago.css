@@ -1,5 +1,8 @@
-.brra-cont{
+.contenedor{background-color: rgb(251, 246, 252)
+    ;max-width: 100%;
+    overflow-x: hidden;}
     
+.brra-cont{
     max-width: 102% ;
     height:7em  ;
     background:linear-gradient(to right , #4169e1b9, #ff4400a1 ) ;
@@ -10,9 +13,50 @@
     }
 
     .logo{max-width: 8em;
-        position: relative; top: -3.6em;
+        position: relative; top: -3.3em;
         margin-left: 3em;
     }
+
+    .sech{float: right;
+        display: flex;
+        position: relative;top: -21em;}
+    
+        .fa-search , .input{
+            border-style: none;
+              height: 30px;
+               }
+
+               .fa-search{display: flex;
+                flex-wrap: wrap;
+                position: relative;right: 2em;top: 1px;
+                align-items: center;
+            background:#f7f6f4;
+            color:rgba(36, 37, 37, 0.932);
+            text-shadow: 1px 1px 2px rgb(218, 216, 216);
+            font-size: 12px;
+            cursor: pointer;
+            outline-style: none;
+            border-radius:  10px 1px 1px 10px;
+            
+            }
+            
+            .input{display: flex
+                ;background: #faf8f8;
+            outline-style: none;
+            box-shadow: 0px 0.1px 0px  #954353;
+            color: #1e201f;
+            text-shadow: 2px 2px 2px  #9e9fa0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-radius: 10px 1px 1px 10px;}
+         
+
+        .fa-search:focus{box-shadow:0px 1px 5px#8b8a8a;} 
+        
+        .input:focus{box-shadow: 1px 5px 15px  #88878452;}
+    
+    .fa-search:hover{box-shadow:0px 1px 5px#8b8a8a;}
+    
+    
 
     .caja_cont{display: flex;
         flex-direction: row;
