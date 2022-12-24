@@ -83,10 +83,10 @@
      <h1 class="card__title">Ingresar Producto </h1>
      <form class="flex-column" data-form>
          <div class="input-container">
-             <label class="input-label" for="Nombre Del Producto">Nombre Del Producto</label>
+             <label class="input-label" for="producto">Nombre Del Producto</label>
             <input 
             name="nombre del producto"
-            id="nombre del producto"
+            id="producto"
             class="input"
             type="text"
             placeholder="Nombre Del Producto"
@@ -96,54 +96,61 @@
             <span class="input-message-error">Este campo es requerido</span>
         </div>
         <div class="input-container">
-            <label class="input-label" for="Precio">Precio</label>
+            <label class="input-label" for="precio">Precio</label>
+            
             <input 
             name="precio"
             id="precio"
             class="input"
-            type="text"
-            placeholder="Precio"
+            type="number"
+            step=".01"
+            placeholder= "Precio"
             required
             data-precio
             />
             <span class="input-message-error">Este campo es requerido</span>
         </div>
+        
         <div class="input-container_row">
-        <label class="input-cuotas" for="cuotas">Cuotas</label>
-        <select 
+            <div class="content_select">
+            <label class="input-cuotas" for="cuotas">Cuotas</label>
+            <select 
             name="cuotas" 
             id="cuotas"
             class="cuotas"
             data-cuotas
             
             >
-           <option value="1-cuota">1</option>
-           <option value="2-cuotas">2</option>
-           <option value="3-cuotas">3 </option>
-           <option value="6-cuotas">6 </option>
-            
-            </select>
-            
-            <label class="input-interes" for="interes">interes</label>
-            <select 
-            name="interes" 
-            id="interes"
-            class="interes"
-            data-interes
-            >
-            <option value="cero">0%</option>
-            <option value="cinco">5%</option>
-            <option value="diez">10%</option>
-            <option value="quince">15%</option>
-            <option value="veinte">20%</option>
-            <option value="treinta">30%</option>
-            <option value="cincuenta">50%</option>
+            <option value="1-cuota">1</option>
+            <option value="2-cuotas">2</option>
+            <option value="3-cuotas">3 </option>
+            <option value="6-cuotas">6 </option>
             
         </select>
+            </div>
+            <div class="content_select">
+        <label class="input-interes" for="interes">Interes</label>
             
-           </div>
+        <select 
+        name="interes" 
+        id="interes"
+        class="interes"
+        data-interes
+        >
+        <option  value="cero">0%</option>
+        <option  value="cinco">5%</option>
+        <option value="diez">10%</option>
+        <option value="quince">15%</option>
+        <option value="veinte">20%</option>
+        <option value="treinta">30%</option>
+        <option value="cincuenta">50%</option>
+        
+    </select>
+            </div>
+        </div>
+        
            <div class="input-container_flex">
-            <label class="input-archivo" for="archivos">max 5 archivos</label>
+            <label class="input-archivo" for="archivos">max 5 imagenes</label>
             <input 
             name="archivos"
             id="archivos"
