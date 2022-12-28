@@ -143,13 +143,10 @@
     height: 2em;
     justify-content:space-around;
     }
-.input-cuotas , .input-interes{
+.input-select{
     font-size: 18px;
     margin-right: 2px;
 }
 
-.cuotas:focus {
-border: solid #13d85f ;
-}
 
  

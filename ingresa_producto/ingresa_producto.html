@@ -85,7 +85,7 @@
          <div class="input-container">
              <label class="input-label" for="producto">Nombre Del Producto</label>
             <input 
-            name="nombre del producto"
+            name="producto"
             id="producto"
             class="input"
             type="text"
@@ -113,10 +113,10 @@
         
         <div class="input-container_row">
             <div class="content_select">
-            <label class="input-cuotas" for="cuotas">Cuotas</label>
+            <label class="input-select" for="cuota">Cuotas</label>
             <select 
             name="cuotas" 
-            id="cuotas"
+            id="cuota"
             class="cuotas"
             data-cuotas
             
@@ -129,7 +129,7 @@
         </select>
             </div>
             <div class="content_select">
-        <label class="input-interes" for="interes">Interes</label>
+        <label class="input-select" for="interes">Interes</label>
             
         <select 
         name="interes" 
@@ -148,13 +148,43 @@
     </select>
             </div>
         </div>
-        
+        <div class="input-container_row">
+            <div class="content_select">
+                <label class="input-select" for="seccion">Seccion</label>
+                <select 
+                name="seccion" 
+                id="seccion"
+                required
+                data-seccion>
+                <option value="Hombres">Hombres</option>
+                <option value="Mujeres">Mujeres</option>
+                <option value="Niñas">Niñas</option>
+                <option value="Niños">Niños</option>
+                </select>
+            </div>
+            <div class="content_select">
+                <label class="input-select" for="sub_seccion">Prenda</label>
+                <select 
+                name="Sub_seccion" 
+                id="sub_seccion"
+                class="sub_seccion"
+                required
+                data-sub_seccion
+                >
+                <option value="Remeras">Remeras</option>
+                <option value="Pantalones">Pantalones</option>
+                <option value="Vestidos">Vestidos</option>
+                <option value="Accesorios">Accesorios</option>
+            
+            </select>
+            </div>
+        </div>
            <div class="input-container_flex">
-            <label class="input-archivo" for="archivos">max 5 imagenes</label>
+            <label class="input-archivo" for="archivos"></label>
             <input 
             name="archivos"
             id="archivos"
-            class="input"
+            class="imagen"
             type="file"
             required
             data-archivo
@@ -167,7 +197,7 @@
 </main>
 
 
-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js" integrity="sha512-UNM1njAgOFUa74Z0bADwAq8gbTcqZC8Ej4xPSzpnh0l6KMevwvkBvbldF9uR++qKeJ+MOZHRjV1HZjoRvjDfNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/Menu.Desp_js/loto.js"></script>
 </body>
 </html>
