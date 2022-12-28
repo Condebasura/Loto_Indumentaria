@@ -91,7 +91,7 @@
             type="text"
             placeholder="Nombre Del Producto"
             required
-            data-nombre-del-producto
+            data-producto
             />
             <span class="input-message-error">Este campo es requerido</span>
         </div>
@@ -154,7 +154,6 @@
                 <select 
                 name="seccion" 
                 id="seccion"
-                required
                 data-seccion>
                 <option value="Hombres">Hombres</option>
                 <option value="Mujeres">Mujeres</option>
@@ -168,7 +167,6 @@
                 name="Sub_seccion" 
                 id="sub_seccion"
                 class="sub_seccion"
-                required
                 data-sub_seccion
                 >
                 <option value="Remeras">Remeras</option>
@@ -186,11 +184,10 @@
             id="archivos"
             class="imagen"
             type="file"
-            required
             data-archivo
             />
            </div>
-           
+           <button type="submit" class=" button">Agregar Producto</button>
      </form>
 
      </section>
@@ -199,5 +196,6 @@
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js" integrity="sha512-UNM1njAgOFUa74Z0bADwAq8gbTcqZC8Ej4xPSzpnh0l6KMevwvkBvbldF9uR++qKeJ+MOZHRjV1HZjoRvjDfNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/Menu.Desp_js/loto.js"></script>
+    <script type="module" src="ingreso_controller.js"></script>
 </body>
 </html>

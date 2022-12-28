@@ -1,7 +1,7 @@
-const listaProductos = () => fetch("http://localhost:3001/perfil").then(respuesta => respuesta.json());
+const listaProductos = () => fetch("http://localhost:3000/perfil").then(respuesta => respuesta.json());
 
 const addProducto = (producto , precio)=>{
- return fetch("http://localhost:3001/perfil", {
+ return fetch("http://localhost:3000/perfil", {
     method: "POST",
     headers:{
         "Content-Type": "application/json"},
@@ -10,19 +10,19 @@ const addProducto = (producto , precio)=>{
 }
 
 const eliminarProducto = (id) =>{
-    return fetch(`http://localhost:3001/perfil/${id}`,{
+    return fetch(`http://localhost:3000/perfil/${id}`,{
         method: "DELETE"
     })
 }
 
 const detalleProducto = (id) =>{
-    return fetch(`http://localhost:3001/perfil/${id}`).then((respuesta)=>
+    return fetch(`http://localhost:3000/perfil/${id}`).then((respuesta)=>
     respuesta.json()
     
     )}
 
     const actualizarProducto =(producto, precio, id)=>{
-        return fetch(`http://localhost:3001/perfil/${id}`,{
+        return fetch(`http://localhost:3000/perfil/${id}`,{
             method: "PUT", 
             headers:{
                 "Content-type": "application/json"

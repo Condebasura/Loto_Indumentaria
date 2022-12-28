@@ -127,7 +127,7 @@
         justify-content: space-evenly;
         align-content: space-between;}
         
-         .Remeras{
+         .Pantalones{
             width: 13em;
             margin: 2em;
             box-shadow: 2px 2px 10px #b3b3b3
@@ -135,7 +135,7 @@
         background-color: white;
         }
         
-            .Remeras:hover{box-shadow: 3px 2px 25px #7e7979;}
+            .Pantalones:hover{box-shadow: 3px 2px 25px #7e7979;}
         
             .image{width: 100% ;
                 flex-wrap: wrap;
