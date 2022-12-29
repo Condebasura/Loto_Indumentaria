@@ -1,13 +1,14 @@
 import { inService } from "../service/in-service.js";
-console.log(inService);
-const crearnuevoProducto = (producto, precio, id) =>{
-    const linea = document.createElement("li");
-    linea.setAttribute("class", "Pantalones")
-     const contenido = `
+
+const crearnuevoProducto = (producto, precio, cuotas, interes,
+    seccion,sub_seccion,archivo, id) =>{
+        const linea = document.createElement("li");
+        linea.setAttribute("class", "Pantalones")
+        const contenido = `
     <div class="box-item" >
         <div class="productimag">
              <a class="img-prod" href="">
-                 <img class="image" src="/Imagen_Producto/Hombre/remeras-chombas/chomba-1.jpg"  alt="" title="Chomba Polo"  >
+                 <img class="image" src= ${archivo} title=${producto}  >
              </a>
              <div class="datos">
               <a class="name" href="" title="${producto}">${producto}</a>
@@ -16,22 +17,23 @@ const crearnuevoProducto = (producto, precio, id) =>{
                   <span class="bestprecio">$ ${precio}</span>
                   <div class="control-cuotas">
                       <span class="cuotas" >
-                          6 cuotas de 
+                          ${cuotas} cuotas de 
                           <b>$183,16</b>
                       </span>
                     <br>    
                       <span class="int">
-                          sin interés
+                          ${interes}
                       </span>
                       <button class="fas fa-shopping-cart" title="Agregar al carrito"></button>
                   </div>
               </div>
              </div>
-        </div>
-        </div> `;
-
-        linea.innerHTML = contenido;
-        const btn = linea.querySelector("button");
+             </div>
+             </div> `;
+            
+             
+             linea.innerHTML = contenido;
+             const btn = linea.querySelector("button");
         btn.addEventListener("click", () =>{
          const id = btn.id;
          clientServices.eliminarCliente(id).then( respuesta => {
@@ -44,8 +46,8 @@ const crearnuevoProducto = (producto, precio, id) =>{
         const ul = document.querySelector("[data-ul]");
 
         inService.listaProductos().then((data) =>{
-            data.forEach(({producto ,precio , id}) => {
-                const nuevoProducto = crearnuevoProducto(producto, precio, id);
+            data.forEach(({producto ,precio ,cuotas, interes , archivo, id}) => {
+                const nuevoProducto = crearnuevoProducto(producto, precio,cuotas, interes,archivo, id);
                 ul.appendChild(nuevoProducto);
             });
         })

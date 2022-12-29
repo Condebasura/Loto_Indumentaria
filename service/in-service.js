@@ -1,11 +1,11 @@
 const listaProductos = () => fetch("http://localhost:3000/perfil").then(respuesta => respuesta.json());
 
-const addProducto = (producto , precio)=>{
+const addProducto = (producto , precio, cuotas, interes, archivo)=>{
  return fetch("http://localhost:3000/perfil", {
     method: "POST",
     headers:{
         "Content-Type": "application/json"},
-        body: JSON.stringify({producto, precio , id: uuid.v4()})
+        body: JSON.stringify({producto, precio ,cuotas, interes, archivo, id: uuid.v4()})
  })
 }
 
@@ -21,13 +21,13 @@ const detalleProducto = (id) =>{
     
     )}
 
-    const actualizarProducto =(producto, precio, id)=>{
+    const actualizarProducto =(producto, precio,cuotas,interes, archivo, id)=>{
         return fetch(`http://localhost:3000/perfil/${id}`,{
             method: "PUT", 
             headers:{
                 "Content-type": "application/json"
             },
-            body: JSON.stringify({producto, precio})
+            body: JSON.stringify({producto, precio, cuotas, interes, archivo})
         })
         .then(respuesta => respuesta)
         .catch(err => console.error(err));

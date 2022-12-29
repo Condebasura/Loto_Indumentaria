@@ -2,18 +2,19 @@
   "perfil": [
     {
       "producto": "pantalon con tiras",
-      "precio": "45584.01",
-      "id": "795f8eb3-e302-4e92-a7dc-9acff9cb22b1"
+      "precio": "1998.55",
+      "cuotas": "3",
+      "interes": "10",
+      "archivo": "Hombres",
+      "id": "d78320c7-3345-4de2-8124-d0cbb5a0c660"
     },
     {
       "producto": "pantalon con cosas",
-      "precio": "458458.5",
-      "id": "408c78d9-ecde-443d-8dbb-c4382f98e57d"
-    },
-    {
-      "producto": "pantalon con caca",
-      "precio": "4582.55",
-      "id": "0fac5299-e496-4c29-80b8-673effdfa786"
+      "precio": "45.88",
+      "cuotas": "9",
+      "interes": "0",
+      "archivo": "Hombres",
+      "id": "18c89f49-f22e-4f78-96d0-0162f05fbd73"
     }
   ]
 }
