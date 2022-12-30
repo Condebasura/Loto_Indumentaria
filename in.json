@@ -10,11 +10,43 @@
     },
     {
       "producto": "pantalon con cosas",
-      "precio": "45.88",
-      "cuotas": "9",
+      "precio": "6687",
+      "cuotas": "1",
       "interes": "0",
       "archivo": "Hombres",
-      "id": "18c89f49-f22e-4f78-96d0-0162f05fbd73"
+      "id": "37624824-9c63-4b41-a7ed-4e6b71fedffb"
+    },
+    {
+      "producto": "pantalon con caca",
+      "precio": "4556",
+      "cuotas": "1",
+      "interes": "10",
+      "archivo": "Hombres",
+      "id": "816b04fe-d275-4d8c-a39b-c0b9e70dd9e0"
+    },
+    {
+      "producto": "pantalon con caca",
+      "precio": "1988",
+      "cuotas": "1",
+      "interes": "15",
+      "archivo": "Hombres",
+      "id": "fb6abe80-403e-4eb0-b650-7d3b21b89120"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "1988",
+      "cuotas": "1",
+      "interes": "5%",
+      "archivo": "Hombres",
+      "id": "6f2d0b0e-0df1-4173-9d70-94fd5b44dad6"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "1988.55",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "Hombres",
+      "id": "bc197b4f-e444-4511-973e-57d9d4694d6c"
     }
   ]
 }

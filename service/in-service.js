@@ -34,7 +34,7 @@ const detalleProducto = (id) =>{
     }
 
     export const inService = {
-listaProductos,
+ listaProductos,
 addProducto,
 eliminarProducto,
 detalleProducto,

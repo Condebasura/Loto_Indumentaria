@@ -3,7 +3,9 @@ import { inService } from "../service/in-service.js";
 const crearnuevoProducto = (producto, precio, cuotas, interes,
     seccion,sub_seccion,archivo, id) =>{
         const linea = document.createElement("li");
-        linea.setAttribute("class", "Pantalones")
+        linea.setAttribute("class", "Pantalones");
+        let enCuotas = precio / cuotas;
+       
         const contenido = `
     <div class="box-item" >
         <div class="productimag">
@@ -18,11 +20,11 @@ const crearnuevoProducto = (producto, precio, cuotas, interes,
                   <div class="control-cuotas">
                       <span class="cuotas" >
                           ${cuotas} cuotas de 
-                          <b>$183,16</b>
+                          <b>${enCuotas.toFixed(2)}</b>
                       </span>
                     <br>    
                       <span class="int">
-                          ${interes}
+                          sin interes
                       </span>
                       <button class="fas fa-shopping-cart" title="Agregar al carrito"></button>
                   </div>
