@@ -13,15 +13,14 @@ formulario.addEventListener("submit", (evento)=>{
     let archivo = document.querySelector("[data-archivo]").value;
 
 
-  
-    
     console.log(producto , "---" , precio);
-
+    
     inService.addProducto(producto, precio, cuotas,interes,
-         seccion , sub_seccion ,archivo)
-         
-    .then(() =>{
-     alert("producto agregado");
-    }).catch(err => console.log(err))
-
-})
+        seccion , sub_seccion ,archivo)
+        
+        .then(() =>{
+            alert("producto agregado");
+        }).catch(err => console.log(err))
+        
+    })
+    
