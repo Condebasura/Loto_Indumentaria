@@ -10,10 +10,12 @@ formulario.addEventListener("submit", (evento)=>{
     const interes = document.querySelector("[data-interes]").value;
     const seccion = document.querySelector("[data-seccion]").value;
     const sub_seccion = document.querySelector("[data-sub_seccion]").value;
-    let archivo = document.querySelector("[data-archivo]").value;
+    const archivo = document.querySelector("[data-archivo]").value;
+  
 
+    
 
-    console.log(producto , "---" , precio);
+    console.log(producto , "---" , precio, "---" , seccion, "---", sub_seccion, "--", archivo);
     
     inService.addProducto(producto, precio, cuotas,interes,
         seccion , sub_seccion ,archivo)

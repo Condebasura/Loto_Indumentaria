@@ -23,6 +23,166 @@
       "interes": "10",
       "archivo": "Hombres",
       "id": "816b04fe-d275-4d8c-a39b-c0b9e70dd9e0"
+    },
+    {
+      "producto": "presnt",
+      "precio": "4581",
+      "cuotas": "9",
+      "interes": "0",
+      "archivo": "Niñas",
+      "id": "09cd79cb-7208-4cb3-8389-96872b7a0635"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "554",
+      "cuotas": "12",
+      "interes": "0",
+      "archivo": "Niñas",
+      "id": "b05873fe-8267-4209-addc-9e0dd5f6ffd5"
+    },
+    {
+      "producto": "pantalon con caca",
+      "precio": "4557",
+      "cuotas": "2",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "fbcdbf29-d311-43f0-8941-5ac9f3a44b78"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "65465",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "631be8f7-8e91-447d-bb51-b555cf314aeb"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "57412",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "c1e37351-a653-4eba-bc6f-6c0cbec837d0"
+    },
+    {
+      "producto": "presnt",
+      "precio": "574",
+      "cuotas": "2",
+      "interes": "0",
+      "archivo": "Niñas",
+      "id": "6402004c-b409-4ea1-a305-4762e20467ee"
+    },
+    {
+      "producto": "pantalon con caca",
+      "precio": "5465",
+      "cuotas": "6",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "44faa147-11a9-4cc4-b92d-d2b81f73c384"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "35465",
+      "cuotas": "9",
+      "interes": "0",
+      "archivo": "Niñas",
+      "id": "7a37c495-b538-443b-a3f5-1f621ef4cd54"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "2154",
+      "cuotas": "2",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "2f83f1c0-e031-4ba9-9f3f-1df507fe58a6"
+    },
+    {
+      "producto": "presnt",
+      "precio": "5546",
+      "cuotas": "6",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "73b7a378-17ef-4647-9467-551853816ba9"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "23465",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "82fd64dc-54ec-48ef-9711-502072e186e0"
+    },
+    {
+      "producto": "pantalon con caca",
+      "precio": "54",
+      "cuotas": "2",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "6b65e51a-63f5-47b1-b6a9-0de37b3d102c"
+    },
+    {
+      "producto": "deds",
+      "precio": "56467",
+      "cuotas": "9",
+      "interes": "0",
+      "archivo": "Niñas",
+      "id": "597c03fb-50df-42cc-a000-d5b8aa4a81cd"
+    },
+    {
+      "producto": "pantalon con caca",
+      "precio": "4654",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "Niñas",
+      "id": "b2bc4d42-1113-4fbd-8f86-dfa9bbb5a915"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "5465",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "Niñas",
+      "id": "3f7af253-9af2-4366-8855-169cffd55277"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "12465",
+      "cuotas": "6",
+      "interes": "0",
+      "archivo": "Niñas",
+      "id": "f8144ba1-f700-4151-90e0-3f08b5a25e2f"
+    },
+    {
+      "producto": "tres",
+      "precio": "412",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "e3b75369-3ca6-4649-85a4-7bddeb06497c"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "65456",
+      "cuotas": "6",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "231460e3-79dd-42c7-956c-fdef4be5329d"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "-0.01",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "0c5ef069-d0ec-41bd-9c24-de6deb8514ba"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "5465",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "Mujeres",
+      "id": "143f45ff-c9b8-4f25-9642-98ce663ff7b0"
     }
   ]
 }

@@ -1,11 +1,14 @@
 import { inService } from "../service/in-service.js";
-
-const crearnuevoProducto = (producto, precio, cuotas, interes,
-    seccion,sub_seccion,archivo, id) =>{
+let hombres = document.querySelector(".hombre");
+let mujeres = document.querySelector(".mujer");
+let niña = document.querySelector(".niña");
+let niño = document.querySelector(".niño");
+console.log(hombres.innerText)
+const crearnuevoProducto = (producto, precio, cuotas,archivo,id, seccion, sub_seccion, interes) =>{
         const linea = document.createElement("li");
         linea.setAttribute("class", "Pantalones");
         let enCuotas = precio / cuotas;
-       
+        
         const contenido = `
     <div class="box-item" >
         <div class="productimag">
@@ -22,11 +25,12 @@ const crearnuevoProducto = (producto, precio, cuotas, interes,
                           ${cuotas} cuotas de 
                           <b>${enCuotas.toFixed(2)}</b>
                       </span>
-                    <br>    
+                      <br>    
                       <span class="int">
                           sin interes
                       </span>
                       <button class="fas fa-shopping-cart" title="Agregar al carrito"></button>
+                      <button  class="fa-solid fa-trash-can" title="Eliminar" id= "${id}"></button>
                   </div>
               </div>
              </div>
@@ -35,10 +39,10 @@ const crearnuevoProducto = (producto, precio, cuotas, interes,
             
              
              linea.innerHTML = contenido;
-             const btn = linea.querySelector("button");
+             const btn = linea.querySelector(".fa-trash-can");
         btn.addEventListener("click", () =>{
          const id = btn.id;
-         clientServices.eliminarCliente(id).then( respuesta => {
+         inService.eliminarProducto(id).then( respuesta => {
           
          }).catch(err => alert("Error al querer borrar"));
         })
@@ -48,8 +52,8 @@ const crearnuevoProducto = (producto, precio, cuotas, interes,
         const ul = document.querySelector("[data-ul]");
 
         inService.listaProductos().then((data) =>{
-            data.forEach(({producto ,precio ,cuotas, interes , archivo, id}) => {
-                const nuevoProducto = crearnuevoProducto(producto, precio,cuotas, interes,archivo, id);
+            data.forEach(({producto ,precio ,cuotas, interes , archivo, id }) => {
+                const nuevoProducto = crearnuevoProducto(producto, precio,cuotas, interes,archivo, id );
                 ul.appendChild(nuevoProducto);
             });
         })
