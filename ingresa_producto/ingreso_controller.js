@@ -17,8 +17,7 @@ formulario.addEventListener("submit", (evento)=>{
 
     console.log(producto , "---" , precio, "---" , seccion, "---", sub_seccion, "--", archivo);
     
-    inService.addProducto(producto, precio, cuotas,interes,
-        seccion , sub_seccion ,archivo)
+    inService.addProducto(producto, precio, cuotas,interes,archivo)
         
         .then(() =>{
             alert("producto agregado");

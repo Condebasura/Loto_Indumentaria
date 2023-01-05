@@ -1,14 +1,10 @@
 import { inService } from "../service/in-service.js";
-let hombres = document.querySelector(".hombre");
-let mujeres = document.querySelector(".mujer");
-let niña = document.querySelector(".niña");
-let niño = document.querySelector(".niño");
-console.log(hombres.innerText)
-const crearnuevoProducto = (producto, precio, cuotas,archivo,id, seccion, sub_seccion, interes) =>{
+
+const crearnuevoProducto = (producto, precio, cuotas, interes , archivo,id,) =>{
         const linea = document.createElement("li");
         linea.setAttribute("class", "Pantalones");
         let enCuotas = precio / cuotas;
-        
+        console.log(id)
         const contenido = `
     <div class="box-item" >
         <div class="productimag">
@@ -31,6 +27,7 @@ const crearnuevoProducto = (producto, precio, cuotas,archivo,id, seccion, sub_se
                       </span>
                       <button class="fas fa-shopping-cart" title="Agregar al carrito"></button>
                       <button  class="fa-solid fa-trash-can" title="Eliminar" id= "${id}"></button>
+                      <a href="/ingresa_producto/ingresa_producto.html?id=${id}" class="fa-solid fa-pen-to-square" title="Editar"></a>
                   </div>
               </div>
              </div>
