@@ -13,6 +13,30 @@
       "cuotas": "2",
       "interes": "0",
       "id": "c9212eec-25cc-42d3-aa43-5ed2d5d4d54f"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "6545",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\calsa-frozen.jpg",
+      "id": "1f783cf4-f547-4de4-8048-20d791979850"
+    },
+    {
+      "producto": "pantalon con caca",
+      "precio": "454",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\calsa-frozen-elsa.jpg",
+      "id": "a0e1fbf0-6e81-4507-9cb1-c9445ff54fcd"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "4552",
+      "cuotas": "2",
+      "interes": "10",
+      "archivo": "C:\\fakepath\\camiseta-spiderman.jpg",
+      "id": "93bfa501-d146-4656-9b91-39ba027e3f50"
     }
   ]
 }

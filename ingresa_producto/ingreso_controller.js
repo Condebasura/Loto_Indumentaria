@@ -13,8 +13,6 @@ formulario.addEventListener("submit", (evento)=>{
     const archivo = document.querySelector("[data-archivo]").value;
   
 
-    
-
     console.log(producto , "---" , precio, "---" , seccion, "---", sub_seccion, "--", archivo);
     
     inService.addProducto(producto, precio, cuotas,interes,archivo)
