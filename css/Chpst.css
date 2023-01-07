@@ -180,8 +180,31 @@
     
     .fa-shopping-cart:focus{outline-style: none;}
 
+    .fa-trash-can{
+        border-style: none;
+        font-size: 1em;
+        padding: 6px;
+    }
     
+    .fa-trash-can:hover{
+        cursor: pointer;
+        color: red;
+        text-shadow: 2px 2px 2px  #b3b3b3;
+      
+    }
+.fa-pen-to-square{
+    list-style-type: none;
+    color: black;
+    font-size:  1em;
+    padding: 6px;
+    
+}
 
+.fa-pen-to-square:hover{
+    cursor: pointer;
+    color: blue;
+    
+}
     footer{max-width: 160%;
         height: 8em;
         background-color: #000000c9;

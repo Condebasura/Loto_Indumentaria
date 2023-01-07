@@ -27,7 +27,7 @@ const crearnuevoProducto = (producto, precio, cuotas, interes , archivo,id,) =>{
                       </span>
                       <button class="fas fa-shopping-cart" title="Agregar al carrito"></button>
                       <button  class="fa-solid fa-trash-can" title="Eliminar" id= "${id}"></button>
-                      <a href="/ingresa_producto/ingresa_producto.html?id=${id}" class="fa-solid fa-pen-to-square" title="Editar"></a>
+                      <a href="/ingresa_producto/editar_producto.html?id=${id}" class="fa-solid fa-pen-to-square" title="Editar"></a>
                   </div>
               </div>
              </div>

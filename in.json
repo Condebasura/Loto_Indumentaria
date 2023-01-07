@@ -1,20 +1,18 @@
 {
   "perfil": [
     {
-      "producto": "pantalon con caca",
-      "precio": "45644",
-      "cuotas": "1",
+      "producto": "pantalon con caras",
+      "precio": "1343.99",
+      "cuotas": "3",
       "interes": "0",
-      "archivo": {},
       "id": "d2250695-6af5-401f-8a1f-b6f561cde79b"
     },
     {
-      "producto": "pantalon con tiras",
-      "precio": "1988.5",
+      "producto": "pantalon con trapos",
+      "precio": "1558.22",
       "cuotas": "2",
       "interes": "0",
-      "archivo": "C:\\fakepath\\calsas-model-varios.jpg",
-      "id": "b915b40c-50e8-4c0c-800d-7e0b83f8682b"
+      "id": "c9212eec-25cc-42d3-aa43-5ed2d5d4d54f"
     }
   ]
 }
