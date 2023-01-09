@@ -54,4 +54,4 @@ const crearnuevoProducto = (producto, precio, cuotas, interes , archivo,id,) =>{
                 ul.appendChild(nuevoProducto);
             });
         })
-        .catch((error)=> alert("Ocurrio un error!!"))
+        .catch((error)=> window.location.href = "../ingresa_producto/Error.html")

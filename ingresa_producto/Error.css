@@ -14,19 +14,21 @@
 
     .logo{max-width: 8em;
         position: relative; top: -3.3em;
+        max-height: 30%;
         margin-left: 3em;
     }
 
     .sech{float: right;
         display: flex;
-        position: relative;top: -21em;}
+        }
     
         .fa-search , .input-search{
             border-style: none;
               height: 30px;
                }
 
-               .fa-search{display: flex;
+               .fa-search{
+                display: flex;
                 flex-wrap: wrap;
                 position: relative;right: 2em;top: 1px;
                 align-items: center;
@@ -57,16 +59,24 @@
     .fa-search:hover{box-shadow:0px 1px 5px#8b8a8a;}
 
 
-    .cont_error{
+    .err_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10em;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    }
+
+.cont_error{
     box-shadow: 2px 2px 12px #000000c9;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -10%;
-    position: relative;left: 30%;
-    width: 40%;
-    margin-right: 50%;
-    }
+    padding: 2em;
+    border-radius: 5px; 
+}
 
     .fa-triangle-exclamation{
         color:red ;
@@ -80,7 +90,19 @@
     text-shadow: 1px 1px 1px #1e201f;
 }
 
-
+.boton_volver{
+    height: 2.5em;
+    background-color: blue;
+    border-style: none;
+    font-size: 17px;
+    color: whitesmoke;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px #1e201f;
+}
+.boton_volver:active{
+    box-shadow: none;
+}
     footer{max-width: 160%;
         height: 8em;
         background-color: #000000c9;

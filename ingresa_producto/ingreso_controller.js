@@ -1,5 +1,10 @@
 import { inService } from "../service/in-service.js";
 const formulario = document.querySelector("[data-form]");
+const volver = document.querySelector(".boton_volver");
+
+
+
+volver =  history.go(-1);
 
 
 formulario.addEventListener("submit", (evento)=>{
@@ -19,7 +24,7 @@ formulario.addEventListener("submit", (evento)=>{
         
         .then(() =>{
             alert("producto agregado");
-        }).catch(err => console.log(err))
+        }).catch(err => window.location.href = "../ingresa_producto/Error.html")
         
     })
     

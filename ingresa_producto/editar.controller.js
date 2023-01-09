@@ -32,7 +32,7 @@ const obtenerInformacion = async () =>{
             }
              catch(error){
                 console.error("Catch Error -" , error);
-                alert("Ocurrio un error al querer cargar los datos del producto!!");
+                window.location.href = "../ingresa_producto/Error.html";
              }};
 
              obtenerInformacion();
