@@ -37,6 +37,158 @@
       "interes": "10",
       "archivo": "C:\\fakepath\\camiseta-spiderman.jpg",
       "id": "93bfa501-d146-4656-9b91-39ba027e3f50"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "457",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-dragonball.jpg",
+      "id": "d7076afc-412b-427c-8b8f-c35e13b7aef5"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "554",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-batman.jpg",
+      "id": "d95e5b79-fb8e-4ddc-8a31-4c1e8d9cd49b"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "4546",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\camiseta-spiderman.jpg",
+      "id": "75bb9be0-3cc5-42c0-a919-25731a23991f"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "4544",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-hulk.png",
+      "id": "0f0ef42b-3b08-4e7b-9099-429d919b5297"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "5545",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-hulk.png",
+      "id": "7b5d2311-eaf7-4772-b331-ed81cb5c02be"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "54456",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera- jurassic park.jpg",
+      "id": "2d633b7e-f1fa-4b83-8d0d-5f8ded811d8f"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "454",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-dragonball.jpg",
+      "id": "b6e81929-bb42-4117-91c7-8c02136d4523"
+    },
+    {
+      "producto": "pantalon con trapos",
+      "precio": "554",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-batman.jpg",
+      "id": "c26691f8-eb7b-4018-aeac-8bbd10f8c3b2"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "445",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-cars.jpg",
+      "id": "386d8e53-e407-4905-8b1c-badd4575d1af"
+    },
+    {
+      "producto": "pantalon con trapos",
+      "precio": "32155",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-hulk.png",
+      "id": "2c71b4d6-0726-4e24-a5a8-cc097bed2ee1"
+    },
+    {
+      "producto": "pantalon con trapos",
+      "precio": "554",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-hulk.png",
+      "id": "c286f84c-9606-4e8a-9f07-06ab64d3237c"
+    },
+    {
+      "producto": "pantalon con trapos",
+      "precio": "4565",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-hulk.png",
+      "id": "d0efb07a-fae7-409e-9cf0-ec25529a8821"
+    },
+    {
+      "producto": "pantalon con trapos",
+      "precio": "2135",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera- jurassic park.jpg",
+      "id": "7b48c3af-7ba8-404d-99ee-fa947d008220"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "3544",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-hulk.png",
+      "id": "f8095687-db6f-4259-9ce2-902163be9299"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "56465",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-hulk.png",
+      "id": "0ebb7b60-250d-428e-8bb9-fc41731e0f1d"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "655",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-batman.jpg",
+      "id": "6f5b93a6-29cc-4dd4-83de-43c2b58434fe"
+    },
+    {
+      "producto": "pantalon con cosas",
+      "precio": "5465",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-dragonball.jpg",
+      "id": "e0124732-99cc-4ed1-b48f-5195181611ef"
+    },
+    {
+      "producto": "pantalon con tiras",
+      "precio": "5465",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-hulk.png",
+      "id": "b3668c9c-596d-4b54-8cc5-17bff2b20024"
+    },
+    {
+      "producto": "ffffghh",
+      "precio": "4353",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera- jurassic park.jpg",
+      "id": "4ef3a7c5-cd1a-4e43-9501-9e81b90e934f"
     }
   ]
 }

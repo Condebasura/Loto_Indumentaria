@@ -1,10 +1,5 @@
 import { inService } from "../service/in-service.js";
 const formulario = document.querySelector("[data-form]");
-const volver = document.querySelector(".boton_volver");
-
-
-
-volver =  history.go(-1);
 
 
 formulario.addEventListener("submit", (evento)=>{
@@ -16,7 +11,7 @@ formulario.addEventListener("submit", (evento)=>{
     const seccion = document.querySelector("[data-seccion]").value;
     const sub_seccion = document.querySelector("[data-sub_seccion]").value;
     const archivo = document.querySelector("[data-archivo]").value;
-  
+    
 
     console.log(producto , "---" , precio, "---" , seccion, "---", sub_seccion, "--", archivo);
     
