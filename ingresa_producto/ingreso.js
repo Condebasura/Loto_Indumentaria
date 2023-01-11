@@ -41,7 +41,7 @@ const crearnuevoProducto = (producto, precio, cuotas, interes , archivo,id,) =>{
          const id = btn.id;
          inService.eliminarProducto(id).then( respuesta => {
           
-         }).catch(err => alert("Error al querer borrar"));
+         }).catch(err =>  window.location.href = "../ingresa_producto/Error.html");
         })
         return linea;
      }
