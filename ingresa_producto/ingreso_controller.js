@@ -8,24 +8,38 @@ formulario.addEventListener("submit", (evento)=>{
     const precio = document.querySelector("[data-precio]").value;
     const cuotas = document.querySelector("[data-cuotas]").value;
     const interes = document.querySelector("[data-interes]").value;
-    const seccion = document.querySelector("[data-seccion]").options[document.querySelector("[data-seccion]").selectedIndex];
-    const sub_seccion = document.querySelector("[data-sub_seccion]").value;
-    const archivo = document.querySelector("[data-archivo]").value;
-   const nodeList = document.querySelector("[data-li]");
+    let seccion = document.querySelector("[data-seccion]").options[document.querySelector("[data-seccion]").selectedIndex];
+    let sub_seccion = document.querySelector("[data-sub_seccion]").options[document.querySelector("[data-sub_seccion]").selectedIndex];
+    let archivo = document.querySelector("[data-archivo]").value;
+   let hom = document.querySelector(".hom")
+    let muj = document.querySelector(".muj");
+    let girl = document.querySelector(".girl");
+    let child = document.querySelector(".child");
+   let remeras = document.querySelectorAll("[data-Remeras]")
+console.log(remeras)
+   function laSeccion (){
+    if(seccion.value == "Hombres")
+        seccion = hom;
+               
+         if(seccion.value == "Mujeres")
+        seccion = muj;
 
-   console.log(nodeList.firstChild.textContent);
-   
+         if(seccion.value == "Niñas")
+        seccion = girl;
 
-console.log(seccion.textContent)
-    if(seccion.selectedIndex == nodeList.firstChild.textContent){
-         console.log("es igual")
+         if(seccion.value == "Niños")
+        seccion = child;
+
     }
-
+    laSeccion();
     
+console.log(seccion)
+    
+
 
     console.log(producto , "---" , precio, "---" , seccion, "---", sub_seccion, "--", archivo);
     
-    inService.addProducto(producto, precio, cuotas,interes,archivo)
+    inService.addProducto(producto, precio, cuotas,interes, archivo)
         
         .then(() =>{
             window.location.href = "../ingresa_producto/prod_end.html";
