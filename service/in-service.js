@@ -1,11 +1,11 @@
 const listaProductos = () => fetch("http://localhost:3000/perfil").then(respuesta => respuesta.json());
 
-const addProducto = (producto , precio, cuotas, interes, archivo)=>{
+const addProducto = (producto, precio, cuotas, interes, archivo , seccion, sub_seccion)=>{
  return fetch("http://localhost:3000/perfil", {
     method: "POST",
     headers:{
         "Content-Type": "application/json"},
-        body: JSON.stringify({producto, precio ,cuotas, interes, archivo, id: uuid.v4()})
+        body: JSON.stringify({producto, precio ,cuotas, interes, archivo, id: uuid.v4(),seccion,sub_seccion})
  })
 }
 

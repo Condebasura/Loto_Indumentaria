@@ -11,12 +11,29 @@ formulario.addEventListener("submit", (evento)=>{
     let seccion = document.querySelector("[data-seccion]").options[document.querySelector("[data-seccion]").selectedIndex];
     let sub_seccion = document.querySelector("[data-sub_seccion]").options[document.querySelector("[data-sub_seccion]").selectedIndex];
     let archivo = document.querySelector("[data-archivo]").value;
-   let hom = document.querySelector(".hom")
-    let muj = document.querySelector(".muj");
-    let girl = document.querySelector(".girl");
-    let child = document.querySelector(".child");
-   let remeras = document.querySelectorAll("[data-Remeras]")
-console.log(remeras)
+   let hom = document.querySelector(".hombre")
+    let muj = document.querySelector(".mujer");
+    let girl = document.querySelector(".niña");
+    let child = document.querySelector(".niño");
+   let subHombres = document.querySelectorAll(".homb");
+
+
+    switch(sub_seccion.value){
+        case "Remeras":
+            sub_seccion = subHombres[0];
+            
+            break;
+
+        case "Pantalones":
+            sub_seccion = subHombres[1];
+            break;
+
+            case "Accesorios":
+                sub_seccion = subHombres[2];
+                break;
+    }
+
+
    function laSeccion (){
     if(seccion.value == "Hombres")
         seccion = hom;
@@ -39,7 +56,7 @@ console.log(seccion)
 
     console.log(producto , "---" , precio, "---" , seccion, "---", sub_seccion, "--", archivo);
     
-    inService.addProducto(producto, precio, cuotas,interes, archivo)
+    inService.addProducto(producto, precio, cuotas,interes,seccion,sub_seccion, archivo)
         
         .then(() =>{
             window.location.href = "../ingresa_producto/prod_end.html";

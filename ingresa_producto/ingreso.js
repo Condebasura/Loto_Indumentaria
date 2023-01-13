@@ -1,8 +1,9 @@
 import { inService } from "../service/in-service.js";
 
-const crearnuevoProducto = (producto, precio, cuotas, interes , archivo,id,) =>{
+
+const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id , seccion, sub_seccion) =>{
         const linea = document.createElement("li");
-        linea.setAttribute("class", "Pantalones");
+        linea.setAttribute("class", sub_seccion);
         let enCuotas = precio / cuotas;
         console.log(id)
         const contenido = `
