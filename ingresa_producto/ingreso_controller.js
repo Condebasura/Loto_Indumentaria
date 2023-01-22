@@ -8,31 +8,39 @@ formulario.addEventListener("submit", (evento)=>{
     const precio = document.querySelector("[data-precio]").value;
     const cuotas = document.querySelector("[data-cuotas]").value;
     const interes = document.querySelector("[data-interes]").value;
+    let archivo = document.querySelector("[data-archivo]").value;
     let seccion = document.querySelector("[data-seccion]").options[document.querySelector("[data-seccion]").selectedIndex];
     let sub_seccion = document.querySelector("[data-sub_seccion]").options[document.querySelector("[data-sub_seccion]").selectedIndex];
-    let archivo = document.querySelector("[data-archivo]").value;
-   let hom = document.querySelector(".hombre")
+    let hom = document.querySelector(".hombre");
     let muj = document.querySelector(".mujer");
     let girl = document.querySelector(".niña");
     let child = document.querySelector(".niño");
-   let subHombres = document.querySelectorAll(".homb");
+    let subHombres = document.querySelectorAll(".homb");
+    
+    
 
-
-    switch(sub_seccion.value){
-        case "Remeras":
-            sub_seccion = subHombres[0];
-            
-            break;
-
-        case "Pantalones":
-            sub_seccion = subHombres[1];
-            break;
-
-            case "Accesorios":
-                sub_seccion = subHombres[2];
-                break;
-    }
-
+   
+   switch(sub_seccion.value){
+       case "Remeras":
+           sub_seccion = subHombres[0];
+           
+           break;
+           
+           case "Pantalones":
+               sub_seccion = subHombres[1];
+               break;
+               
+               case "Accesorios":
+                   sub_seccion = subHombres[2];
+                   break;
+                   
+                }
+                let subSecHref = sub_seccion.getAttribute("href");
+                
+                let sub_class = sub_seccion.innerText;
+               
+            console.log(subSecHref);
+console.log(sub_class);            
 
    function laSeccion (){
     if(seccion.value == "Hombres")
@@ -56,11 +64,11 @@ console.log(seccion)
 
     console.log(producto , "---" , precio, "---" , seccion, "---", sub_seccion, "--", archivo);
     
-    inService.addProducto(producto, precio, cuotas,interes,seccion,sub_seccion, archivo)
+    inService.addProducto(producto, precio, cuotas,interes, sub_seccion, archivo)
         
         .then(() =>{
             window.location.href = "../ingresa_producto/prod_end.html";
         }).catch(err => window.location.href = "../ingresa_producto/Error.html")
         
-    })
+    });
     

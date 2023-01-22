@@ -8,7 +8,7 @@ const obtenerInformacion = async () =>{
     const id = url.searchParams.get("id");
 
     if(id == null){
-        alert("Ocurrio un error al querer cargar los datos del producto!!");
+      window.location.href = "../ingresa_producto/Error.html";
     }
 
     const producto = document.querySelector("[data-producto]");
@@ -50,7 +50,7 @@ const obtenerInformacion = async () =>{
                 
 
                 inService.actualizarProducto(producto , precio , cuotas, interes, id).then(()=>{
-                    window.location.href = "/html/Ch-Pant.html";
+                    window.location.href = "";
                 })
 
              });
