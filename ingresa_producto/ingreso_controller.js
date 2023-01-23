@@ -1,7 +1,8 @@
 import { inService } from "../service/in-service.js";
+
 const formulario = document.querySelector("[data-form]");
 
-
+let sub_seccion;
 formulario.addEventListener("submit", (evento)=>{
     evento.preventDefault();
     const producto = document.querySelector("[data-producto]").value;
@@ -10,7 +11,7 @@ formulario.addEventListener("submit", (evento)=>{
     const interes = document.querySelector("[data-interes]").value;
     let archivo = document.querySelector("[data-archivo]").value;
     let seccion = document.querySelector("[data-seccion]").options[document.querySelector("[data-seccion]").selectedIndex];
-    let sub_seccion = document.querySelector("[data-sub_seccion]").options[document.querySelector("[data-sub_seccion]").selectedIndex];
+    sub_seccion = document.querySelector("[data-sub_seccion]").options[document.querySelector("[data-sub_seccion]").selectedIndex];
     let hom = document.querySelector(".hombre");
     let muj = document.querySelector(".mujer");
     let girl = document.querySelector(".niña");
@@ -23,7 +24,7 @@ formulario.addEventListener("submit", (evento)=>{
    switch(sub_seccion.value){
        case "Remeras":
            sub_seccion = subHombres[0];
-           
+                    
            break;
            
            case "Pantalones":
@@ -72,3 +73,4 @@ console.log(seccion)
         
     });
     
+    export {sub_seccion};

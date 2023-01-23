@@ -1,7 +1,8 @@
 import { inService } from "../service/in-service.js";
+import { sub_seccion } from "./ingreso_controller.js";
+let linea;
 const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id , seccion, sub_seccion) =>{
-        const linea = document.createElement("li");
-      
+         linea = document.createElement("li");
         let enCuotas = precio / cuotas;
         console.log(id)
         const contenido = `
@@ -44,6 +45,21 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id , secc
         })
         return linea;
      }
+     switch(sub_seccion.value){
+        case "Remeras":
+            linea.className.add("Remeras")
+                     
+            break;
+            
+            case "Pantalones":
+                sub_seccion = subHombres[1];
+                break;
+                
+                case "Accesorios":
+                    sub_seccion = subHombres[2];
+                    break;
+                    
+                 }
         
         const ul = document.querySelector("[data-ul]");
 
@@ -54,3 +70,5 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id , secc
             });
         })
         .catch((error)=> window.location.href = "../ingresa_producto/Error.html")
+
+        
