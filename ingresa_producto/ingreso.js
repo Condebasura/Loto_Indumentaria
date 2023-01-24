@@ -1,8 +1,10 @@
 import { inService } from "../service/in-service.js";
-import { sub_seccion } from "./ingreso_controller.js";
-let linea;
-const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id , seccion, sub_seccion) =>{
-         linea = document.createElement("li");
+
+
+const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id ) =>{
+    let  linea = document.createElement("li");
+    linea.setAttribute("class", "box_pilcha");
+
         let enCuotas = precio / cuotas;
         console.log(id)
         const contenido = `
@@ -34,7 +36,6 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id , secc
              </div>
              </div> `;
             
-             
              linea.innerHTML = contenido;
              const btn = linea.querySelector(".fa-trash-can");
         btn.addEventListener("click", () =>{
@@ -44,23 +45,10 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id , secc
          }).catch(err =>  window.location.href = "../ingresa_producto/Error.html");
         })
         return linea;
-     }
-     switch(sub_seccion.value){
-        case "Remeras":
-            linea.className.add("Remeras")
-                     
-            break;
-            
-            case "Pantalones":
-                sub_seccion = subHombres[1];
-                break;
-                
-                case "Accesorios":
-                    sub_seccion = subHombres[2];
-                    break;
-                    
-                 }
-        
+     
+                }   
+
+
         const ul = document.querySelector("[data-ul]");
 
         inService.listaProductos().then((data) =>{

@@ -1,22 +1,52 @@
 {
   "perfil": [
     {
-      "producto": "pantalon con caca",
-      "precio": "1457",
+      "producto": "pantalon con cosas",
+      "precio": "1234",
       "cuotas": "1",
       "interes": "0",
-      "archivo": {},
-      "id": "fa9c9909-1634-45ee-85bc-7db84d75561b",
-      "seccion": "C:\\fakepath\\remera-hulk.png"
+      "archivo": "C:\\fakepath\\vest-cort-blanc.jpeg",
+      "id": "fce23c56-9a12-4704-81b2-61c8b88d8b79"
     },
     {
-      "producto": "pantalon con cosas",
-      "precio": "323",
+      "producto": "pantalon con tiras",
+      "precio": "123",
       "cuotas": "1",
       "interes": "0",
-      "archivo": {},
-      "id": "5e2280c6-b192-4985-9c97-bffcf870cc1f",
-      "seccion": "C:\\fakepath\\remera-hulk.png"
+      "archivo": "C:\\fakepath\\vest-cort-blanc.jpeg",
+      "id": "a73892ad-07e2-437b-ab01-99367c401b65"
+    },
+    {
+      "producto": "pantalon con dibujos",
+      "precio": "1234",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-cuell-redondo-1.jpg",
+      "id": "6a35c4f9-b196-4e8a-a194-455b31e70497"
+    },
+    {
+      "producto": "presnt",
+      "precio": "454",
+      "cuotas": "3",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-cuell-redondo-1.jpg",
+      "id": "b848b4b8-0dea-417f-8755-bd5056abd314"
+    },
+    {
+      "producto": "persi",
+      "precio": "456",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-con-botones-1.jpg",
+      "id": "ca835f94-f054-454b-bd9b-1777b06851f1"
+    },
+    {
+      "producto": "peteco",
+      "precio": "1452",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-cuell-redondo-1.jpg",
+      "id": "d2a0c986-8199-479e-af27-c498b6080a97"
     }
   ]
 }
