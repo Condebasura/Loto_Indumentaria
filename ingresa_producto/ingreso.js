@@ -1,6 +1,6 @@
 import { inService } from "../service/in-service.js";
-
-
+import { subHref} from "./sub_seccionhref.js";
+console.log(subHref);
 const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id ) =>{
     let  linea = document.createElement("li");
     linea.setAttribute("class", "box_pilcha");
@@ -37,6 +37,7 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id ) =>{
              </div> `;
             
              linea.innerHTML = contenido;
+             
              const btn = linea.querySelector(".fa-trash-can");
         btn.addEventListener("click", () =>{
          const id = btn.id;
@@ -53,8 +54,8 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id ) =>{
 
         inService.listaProductos().then((data) =>{
             data.forEach(({producto ,precio ,cuotas, interes , archivo, id }) => {
-                const nuevoProducto = crearnuevoProducto(producto, precio,cuotas, interes,archivo, id );
-                ul.appendChild(nuevoProducto);
+                const nuevoProducto = crearnuevoProducto( producto, precio,cuotas, interes,archivo, id );
+               ul.appendChild(nuevoProducto);
             });
         })
         .catch((error)=> window.location.href = "../ingresa_producto/Error.html")
