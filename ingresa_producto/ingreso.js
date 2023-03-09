@@ -1,7 +1,6 @@
 import { inService } from "../service/in-service.js";
-import { subHref} from "./sub_seccionhref.js";
-console.log(subHref);
-const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id ) =>{
+import { laS } from "./ingreso_controller.js"
+ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id ) =>{
     let  linea = document.createElement("li");
     linea.setAttribute("class", "box_pilcha");
 
@@ -51,13 +50,14 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id ) =>{
 
 
         const ul = document.querySelector("[data-ul]");
-
         inService.listaProductos().then((data) =>{
-            data.forEach(({producto ,precio ,cuotas, interes , archivo, id }) => {
-                const nuevoProducto = crearnuevoProducto( producto, precio,cuotas, interes,archivo, id );
-               ul.appendChild(nuevoProducto);
+            data.forEach(({producto ,precio ,cuotas, interes , archivo ,  id }) => {
+                const nuevoProducto = crearnuevoProducto( producto, precio,cuotas, interes,archivo , id );
+                
+               laS.laSeccion.appendChild(ul);
+                ul.appendChild(nuevoProducto);
             });
         })
         .catch((error)=> window.location.href = "../ingresa_producto/Error.html")
-
+        
         
