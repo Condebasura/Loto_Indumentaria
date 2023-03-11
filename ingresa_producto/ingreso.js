@@ -1,7 +1,9 @@
 import { inService } from "../service/in-service.js";
-const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id , seccion, sub_seccion) =>{
-        const linea = document.createElement("li");
-      
+import { laS } from "./ingreso_controller.js"
+ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id ) =>{
+    let  linea = document.createElement("li");
+    linea.setAttribute("class", "box_pilcha");
+
         let enCuotas = precio / cuotas;
         console.log(id)
         const contenido = `
@@ -33,8 +35,8 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id , secc
              </div>
              </div> `;
             
-             
              linea.innerHTML = contenido;
+             
              const btn = linea.querySelector(".fa-trash-can");
         btn.addEventListener("click", () =>{
          const id = btn.id;
@@ -43,14 +45,19 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo,id , secc
          }).catch(err =>  window.location.href = "../ingresa_producto/Error.html");
         })
         return linea;
-     }
-        
-        const ul = document.querySelector("[data-ul]");
+     
+                }   
 
+
+        const ul = document.querySelector("[data-ul]");
         inService.listaProductos().then((data) =>{
-            data.forEach(({producto ,precio ,cuotas, interes , archivo, id }) => {
-                const nuevoProducto = crearnuevoProducto(producto, precio,cuotas, interes,archivo, id );
+            data.forEach(({producto ,precio ,cuotas, interes , archivo ,  id }) => {
+                const nuevoProducto = crearnuevoProducto( producto, precio,cuotas, interes,archivo , id );
+                
+               laS.laSeccion.appendChild(ul);
                 ul.appendChild(nuevoProducto);
             });
         })
         .catch((error)=> window.location.href = "../ingresa_producto/Error.html")
+        
+        
