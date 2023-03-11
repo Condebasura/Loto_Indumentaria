@@ -1,5 +1,5 @@
 import { inService } from "../service/in-service.js";
-import { laS } from "./ingreso_controller.js"
+
  const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id ) =>{
     let  linea = document.createElement("li");
     linea.setAttribute("class", "box_pilcha");
@@ -54,7 +54,7 @@ import { laS } from "./ingreso_controller.js"
             data.forEach(({producto ,precio ,cuotas, interes , archivo ,  id }) => {
                 const nuevoProducto = crearnuevoProducto( producto, precio,cuotas, interes,archivo , id );
                 
-               laS.laSeccion.appendChild(ul);
+               
                 ul.appendChild(nuevoProducto);
             });
         })

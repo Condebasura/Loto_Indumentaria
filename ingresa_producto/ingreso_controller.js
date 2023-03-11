@@ -11,7 +11,7 @@ formulario.addEventListener("submit", (evento)=>{
     const interes = document.querySelector("[data-interes]").value;
     let archivo = document.querySelector("[data-archivo]").value;
    
-    function laSeccion (){
+     function laSeccion () {
         let seccion = document.querySelector("[data-seccion]");
         let hom = document.querySelector(".hombre");
         let muj = document.querySelector(".mujer");
@@ -70,11 +70,11 @@ formulario.addEventListener("submit", (evento)=>{
     
     }
 
-            laSeccion();
+       laSeccion();
             console.log(laSeccion());
             
-           
-            console.log(producto , "---" , precio, "---" , laSeccion(), "---",  "--", archivo);
+     
+            console.log(producto , "---" , precio, "---" , laS, "---",  "--", archivo);
             
             
     inService.addProducto(producto, precio, cuotas,interes, archivo,seccion,sub_seccion )
@@ -85,6 +85,5 @@ formulario.addEventListener("submit", (evento)=>{
         
         
     });
-    
-    
-export const laS = {laSeccion};
+  
+
