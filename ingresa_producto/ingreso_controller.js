@@ -74,7 +74,7 @@ formulario.addEventListener("submit", (evento)=>{
             console.log(laSeccion());
             
      
-            console.log(producto , "---" , precio, "---" , laS, "---",  "--", archivo);
+            console.log(producto , "---" , precio,  "---",  "--", archivo);
             
             
     inService.addProducto(producto, precio, cuotas,interes, archivo,seccion,sub_seccion )

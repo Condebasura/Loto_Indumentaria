@@ -1,0 +1,67 @@
+{
+    "Hombres":[{
+
+        "Remeras":[
+
+        ]
+    },
+    {
+        "Pantalones":[
+
+        ]
+
+        
+    },
+    {
+        "Accesorios":[
+
+        ]
+    }
+    ],
+"Mujeres":[
+    {
+        "Remeras":[
+
+        ]
+    },
+    {
+        "Pantalones":[
+
+        ]
+    },
+    {
+        "Vestidos":[
+
+        ]
+    },
+    {
+        "Accesorios":[
+
+        ]
+    }
+],
+"Niñas":[{
+     
+    "Remeras":[]
+},
+
+{
+    "Pantalones":[]
+},
+
+{
+    "Vestidos":[]
+}
+
+
+],
+"Niños":[{
+     
+    "Remeras":[]
+},
+{
+"Pantalones":[]
+
+}
+]
+}
