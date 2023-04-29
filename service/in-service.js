@@ -7,7 +7,7 @@ const addProducto = (producto, precio, cuotas, interes,archivo )=>{
  return fetch("http://localhost:3000/perfil", {
     method: "POST",
     headers:{   
-        "Content-Type": "application/json"},
+        'Content-Type': 'application/json'},
         body: JSON.stringify({producto, precio ,cuotas, interes, archivo, id: uuid.v4()})
  })
 }
