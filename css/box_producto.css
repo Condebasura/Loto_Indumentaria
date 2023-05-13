@@ -70,6 +70,7 @@ font-size: 17px;}
       
     }
 .fa-pen-to-square{
+    border-style: none;
     list-style-type: none;
     color: black;
     font-size:  1em;
@@ -80,5 +81,7 @@ font-size: 17px;}
 .fa-pen-to-square:hover{
     cursor: pointer;
     color: blue;
+    border-color: beige;
+    text-shadow: 2px 2px 2px #dbdadd;
     
 }

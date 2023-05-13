@@ -1,6 +1,4 @@
-import { inService } from "../service/in-service.js";
-
- const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id ) =>{
+const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id ) =>{
     let  linea = document.createElement("li");
     linea.setAttribute("class", "box_pilcha");
 
@@ -10,10 +8,10 @@ import { inService } from "../service/in-service.js";
     <div class="box-item" >
         <div class="productimag">
              <a class="img-prod" href="">
-                 <img class="image" src= ${archivo} title=${producto}  >
+                 <img class="image" src= ${archivo} title=${archivo.location}  >
              </a>
              <div class="datos">
-              <a class="name" href="" title="${producto}">${producto}</a>
+              <a  class="name" href="" title="${producto}">${producto}</a>
               <hr>
               <div class=" precio">
                   <span class="bestprecio">$ ${precio}</span>
@@ -28,29 +26,40 @@ import { inService } from "../service/in-service.js";
                       </span>
                       <button class="fas fa-shopping-cart" title="Agregar al carrito"></button>
                       <button  class="fa-solid fa-trash-can" title="Eliminar" id= "${id}"></button>
-                      <a href="/ingresa_producto/editar_producto.html?id=${id}" class="fa-solid fa-pen-to-square" title="Editar"></a>
+                      <button class="fa-solid fa-pen-to-square" title="Editar"></button>
                   </div>
               </div>
              </div>
              </div>
              </div> `;
+             
             
              linea.innerHTML = contenido;
              
-             const btn = linea.querySelector(".fa-trash-can");
+            
+             const eliminarProducto = (id) =>{
+                 return fetch(`http://localhost:3000/Hom_Remeras/${id}`,{
+                     method: "DELETE"
+                    })
+                }
+                const btn = linea.querySelector(".fa-trash-can");
         btn.addEventListener("click", () =>{
          const id = btn.id;
-         inService.eliminarProducto(id).then( respuesta => {
+         eliminarProducto(id).then( respuesta => {
           
          }).catch(err =>  window.location.href = "../ingresa_producto/Error.html");
         })
+       
         return linea;
+        
      
                 }   
+                
+                const ul = document.querySelector("[data-ul]");
 
-
-        const ul = document.querySelector("[data-ul]");
-        inService.listaProductos().then((data) =>{
+                const listaProductos = () => fetch(`http://localhost:3000/Hom_Remeras`)
+                .then(respuesta => respuesta.json())
+        listaProductos().then((data) =>{
             data.forEach(({producto ,precio ,cuotas, interes , archivo ,  id }) => {
                 const nuevoProducto = crearnuevoProducto( producto, precio,cuotas, interes,archivo , id );
                 
@@ -58,6 +67,12 @@ import { inService } from "../service/in-service.js";
                 ul.appendChild(nuevoProducto);
             });
         })
-        .catch((error)=> window.location.href = "../ingresa_producto/Error.html")
+        .catch((error)=> window.location.href = "../ingresa_producto/Error.html");
+
+ 
+
+
+    
         
-        
+
+    

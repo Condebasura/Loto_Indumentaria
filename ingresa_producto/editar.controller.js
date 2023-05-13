@@ -1,12 +1,14 @@
-import { inService } from "../service/in-service.js";
+import { inService } from "./ingreso"; 
 
+// Nesesito encontrar la forma de colocar lo de in-service aca y obtener los datos del producto por su id!!!
 const formulario = document.querySelector("[data-form]");
 
 const obtenerInformacion = async () =>{
-
-    const url =  new URL(window.location);
-    const id = url.searchParams.get("id");
-
+   
+   const url =  new URL(window.location);
+   const id = url.searchParams.get("id");
+   
+   
     if(id == null){
       window.location.href = "../ingresa_producto/Error.html";
     }

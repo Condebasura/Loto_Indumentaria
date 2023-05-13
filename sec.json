@@ -1,20 +1,28 @@
 {
   "Hom_Remeras": [
     {
-      "producto": "remera descargada",
-      "precio": "1454",
-      "cuotas": "2",
-      "interes": "5",
-      "archivo": "C:\\fakepath\\remera-con-botones-1.jpg",
-      "id": "a0587372-f8ab-4460-8848-c15c2c01184e"
+      "producto": "Remera con tiras",
+      "precio": "4585",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\chomba-clara-1.jpeg",
+      "id": "2b436201-7861-4318-b76b-d356a2f341e2"
     },
     {
-      "producto": "remera soga",
-      "precio": "4584.9",
-      "cuotas": "3",
+      "producto": "Remera con solapa",
+      "precio": "4545",
+      "cuotas": "1",
       "interes": "0",
-      "archivo": "C:\\fakepath\\remera-cuell-redondo-1.jpg",
-      "id": "8ced3a9a-940c-491b-aa92-800816aae543"
+      "archivo": "C:\\fakepath\\remera-tricolor-1.jpg",
+      "id": "cf7f8431-7cc4-423c-83a5-8c7eb9ef2b06"
+    },
+    {
+      "producto": "Remera rallada",
+      "precio": "1245",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\chomba-polo-rall-1.jpg",
+      "id": "748ab24f-81b1-4a3c-8f67-0e9e13650885"
     }
   ],
   "Hom_Pantalones": [
