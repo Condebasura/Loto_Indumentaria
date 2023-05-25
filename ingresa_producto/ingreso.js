@@ -1,10 +1,14 @@
-const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id ) =>{
-    let  linea = document.createElement("li");
+import { inService } from "../service/in-service.js";
+
+
+
+const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
+    let linea = document.createElement("li");
     linea.setAttribute("class", "box_pilcha");
-      let EstaPagina = window.location.pathname;
-        let enCuotas = precio / cuotas;
-        console.log(id)
-        const contenido = `
+    let EstaPagina = window.location.pathname;
+    let enCuotas = precio / cuotas;
+    console.log(id)
+    const contenido = `
     <div class="box-item" >
         <div class="productimag">
              <a class="img-prod" href="">
@@ -26,53 +30,62 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id ) =>{
                       </span>
                       <button class="fas fa-shopping-cart" title="Agregar al carrito"></button>
                       <button  class="fa-solid fa-trash-can" title="Eliminar" id= "${id}"></button>
-                      <a class="fa-solid fa-pen-to-square"  title="Editar" href= /ingresa_producto/editar_producto.html?id=${id}& estapagina=${EstaPagina}></a>
+                      <a class="fa-solid fa-pen-to-square"  title="Editar" href= /ingresa_producto/editar_producto.html?id=${id}&estapagina=${EstaPagina}></a>
                   </div>
               </div>
              </div>
              </div>
              </div> `;
-             
-            
-             linea.innerHTML = contenido;
-             
-            
-             const eliminarProducto = (id) =>{
-                 return fetch(`http://localhost:3000/Hom_Remeras/${id}`,{
-                     method: "DELETE"
-                    })
-                }
-                const btn = linea.querySelector(".fa-trash-can");
-        btn.addEventListener("click", () =>{
-         const id = btn.id;
-         eliminarProducto(id).then( respuesta => {
-          
-         }).catch(err =>  window.location.href = "../ingresa_producto/Error.html");
+
+
+    linea.innerHTML = contenido;
+
+
+    const eliminarProducto = (id) => {
+        return fetch(`http://localhost:3000/Hom_Remeras/${id}`, {
+            method: "DELETE"
         })
-       
-        return linea;
-        
-     
-                }   
-                
-                const ul = document.querySelector("[data-ul]");
+    }
+    const btn = linea.querySelector(".fa-trash-can");
+    btn.addEventListener("click", () => {
+        const id = btn.id;
+        eliminarProducto(id).then(respuesta => {
 
-                const listaProductos = () => fetch(`http://localhost:3000/Hom_Remeras`)
-                .then(respuesta => respuesta.json())
-        listaProductos().then((data) =>{
-            data.forEach(({producto ,precio ,cuotas, interes , archivo ,  id }) => {
-                const nuevoProducto = crearnuevoProducto( producto, precio,cuotas, interes,archivo , id );
-                
-               
-                ul.appendChild(nuevoProducto);
-            });
-        })
-        .catch((error)=> window.location.href = "../ingresa_producto/Error.html");
+        }).catch(err => window.location.href = "../ingresa_producto/Error.html");
+    })
 
- 
+    return linea;
 
 
+}
+
+const ul = document.querySelector("[data-ul]");
+let EstaPagina = window.location.pathname;
+
+    if(EstaPagina == "/html/H-Rem.html"){
+inService.listaProductosH_R().then((data) => {
+    data.forEach(({ producto, precio, cuotas, interes, archivo, id }) => {
+        const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, interes, archivo, id);
+
+
+        ul.appendChild(nuevoProducto);
+    });
+})
+    .catch((error) => window.location.href = "../ingresa_producto/Error.html");
+    };
+
+    if(EstaPagina == "/html/H-Pant.html"){
+    inService.listaProductosH_P().then((data) => {
+        data.forEach(({ producto, precio, cuotas, interes, archivo, id }) => {
+            const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, interes, archivo, id);
     
-        
-
     
+            ul.appendChild(nuevoProducto);
+        });
+    })
+        .catch((error) => window.location.href = "../ingresa_producto/Error.html");
+    }
+
+
+
+
