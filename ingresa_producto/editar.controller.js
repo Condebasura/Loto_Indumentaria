@@ -1,6 +1,6 @@
 import { inService } from "/service/in-service.js";
 
-// Nesesito encontrar la forma de colocar lo de in-service aca y obtener los datos del producto por su id!!!
+
 const formulario = document.querySelector("[data-form]");
 
 const obtenerInformacion = async () => {
@@ -11,6 +11,10 @@ const obtenerInformacion = async () => {
 
 
    if (id == null) {
+      window.location.href = "../ingresa_producto/Error.html";
+   }
+
+   if(EstaPagina == null){
       window.location.href = "../ingresa_producto/Error.html";
    }
 
@@ -76,7 +80,7 @@ const obtenerInformacion = async () => {
    }
 
 
-   if (EstaPagina == "/html/H-Acce") {
+   if (EstaPagina == "/html/H-Acce.html") {
 
 
 
@@ -302,7 +306,7 @@ const obtenerInformacion = async () => {
 
 
       try {
-         const perfil = await inService.detalleProductoCh_R(id);
+         const perfil = await inService.detalleProductoCH_R(id);
          console.log(perfil);
          if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
             producto.value = perfil.producto;
@@ -329,10 +333,10 @@ const obtenerInformacion = async () => {
 
    if (EstaPagina == "/html/Ch-Pant.html") {
 
-
+console.log(EstaPagina)
 
       try {
-         const perfil = await inService.detalleProductoCh_P(id);
+         const perfil = await inService.detalleProductoCH_P(id);
          console.log(perfil);
          if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
             producto.value = perfil.producto;
@@ -363,20 +367,19 @@ formulario.addEventListener("submit", (e) => {
    const url = new URL(window.location);
    const id = url.searchParams.get("id");
    let EstaPagina = url.searchParams.get("estapagina");
-
-
+   
    const producto = document.querySelector("[data-producto]").value;
    const precio = document.querySelector("[data-precio]").value;
    const cuotas = document.querySelector("[data-cuotas]").value;
    const interes = document.querySelector("[data-interes]").value;
    const archivo = document.querySelector("[data-archivo]").value;
-
-
+  
    if(EstaPagina == "/html/H-Rem.html"){
    inService.actualizarProductoH_R(producto, precio, cuotas, interes, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
+
 
 if(EstaPagina == "/html/H-Pant.html"){
    inService.actualizarProductoH_P(producto, precio, cuotas, interes, archivo, id).then(() => {
@@ -396,7 +399,7 @@ if(EstaPagina == "/html/M-Rem.html"){
    }).catch(err => console.log(err))
 };
 
-if(EstaPagina == "/html/m-Pant.html"){
+if(EstaPagina == "/html/M-Pant.html"){
    inService.actualizarProductoW_P(producto, precio, cuotas, interes, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
@@ -421,7 +424,7 @@ if(EstaPagina == "/html/N-Rem.html"){
    }).catch(err => console.log(err))
 };
 
-if(EstaPagina == "/html/N-Pant"){
+if(EstaPagina == "/html/N-Pant.html"){
    inService.actualizarProductoN_P(producto, precio, cuotas, interes, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
@@ -435,14 +438,14 @@ if(EstaPagina == "/html/N-Vest.html"){
 
 
 if(EstaPagina == "/html/Ch-Rem.html"){
-   inService.actualizarProductoCh_R(producto, precio, cuotas, interes, archivo, id).then(() => {
+   inService.actualizarProductoCH_R(producto, precio, cuotas, interes, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 
-if(EstaPagina == "/html/Ch-Pant"){
-   inService.actualizarProductoCh_P(producto, precio, cuotas, interes, archivo, id).then(() => {
+if(EstaPagina == "/html/Ch-Pant.html"){
+   inService.actualizarProductoCH_P(producto, precio, cuotas, interes, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };

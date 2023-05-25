@@ -9,11 +9,11 @@
       "id": "2b436201-7861-4318-b76b-d356a2f341e2"
     },
     {
-      "producto": "remera con caca",
+      "producto": "Remera con cosas",
       "precio": "4545",
       "cuotas": "1",
       "interes": "0",
-      "archivo": "C:\\fakepath\\remera-con-botones-1.jpg",
+      "archivo": "C:\\fakepath\\remera-estamp-4.jpg",
       "id": "cf7f8431-7cc4-423c-83a5-8c7eb9ef2b06"
     },
     {
@@ -35,17 +35,17 @@
   ],
   "Hom_Pantalones": [
     {
-      "producto": "pantalon con diagramas",
+      "producto": "pantalon con diagramas de Flujo",
       "precio": "1245",
-      "cuotas": "1",
+      "cuotas": "3",
       "interes": "5",
-      "archivo": "C:\\fakepath\\cargo-1.jpg",
+      "archivo": "C:\\fakepath\\cargo-camuf-1.jpeg",
       "id": "10c39102-91e4-4ed1-93f0-ab5bb5a974dd"
     }
   ],
   "Hom_Accesorios": [
     {
-      "producto": "mariconera",
+      "producto": "mariconera de chulo",
       "precio": "4570",
       "cuotas": "1",
       "interes": "0",
@@ -55,7 +55,7 @@
   ],
   "Wom_Remeras": [
     {
-      "producto": "Remera Tejida",
+      "producto": "Remera Tejida a mano",
       "precio": "454",
       "cuotas": "1",
       "interes": "0",
@@ -66,39 +66,39 @@
   "Wom_Pantalones": [
     {
       "producto": "pantalon Apretado",
-      "precio": "5214",
-      "cuotas": "1",
-      "interes": "0",
-      "archivo": "C:\\fakepath\\jean-gastado.jpg",
+      "precio": "4533",
+      "cuotas": "2",
+      "interes": "10",
+      "archivo": "C:\\fakepath\\chupin-de-vestir.jpg",
       "id": "75064c6d-e839-4b36-8d82-89c4aee80a73"
     }
   ],
   "Wom_Vestidos": [
     {
-      "producto": "vestido largo",
+      "producto": "vestido largo colorido",
       "precio": "3214",
-      "cuotas": "1",
-      "interes": "0",
+      "cuotas": "2",
+      "interes": "5",
       "archivo": "C:\\fakepath\\vest-larg-colorid.jpg",
       "id": "c81bafa9-eb07-400a-af50-669f234fb6d2"
     }
   ],
   "Wom_Accesorios": [
     {
-      "producto": "Cartera de caca",
+      "producto": "Cartera de estras",
       "precio": "1454",
       "cuotas": "1",
-      "interes": "0",
+      "interes": "5",
       "archivo": "C:\\fakepath\\pierre-cardin-x-4.webp",
       "id": "c342059a-74de-4e38-915e-559dd111ff0e"
     }
   ],
   "Nena_Remeras": [
     {
-      "producto": "Remera unicornio",
+      "producto": "Remera unicornio blanco",
       "precio": "3214",
-      "cuotas": "1",
-      "interes": "0",
+      "cuotas": "6",
+      "interes": "10",
       "archivo": "C:\\fakepath\\rem-unicornio.jpg",
       "id": "aa546285-991a-4a44-8593-44d4c14d7af5"
     }
@@ -106,9 +106,9 @@
   "Nena_Pantalones": [
     {
       "producto": "Calsa frozen / Ana",
-      "precio": "1245",
-      "cuotas": "1",
-      "interes": "0",
+      "precio": "1545",
+      "cuotas": "2",
+      "interes": "10",
       "archivo": "C:\\fakepath\\calsa-frozen-elsa.jpg",
       "id": "b2f9f8c8-8104-4a58-a875-4524a61d43c8"
     }
@@ -117,8 +117,8 @@
     {
       "producto": "vestido blaco/negro mariposas",
       "precio": "1254.22",
-      "cuotas": "1",
-      "interes": "0",
+      "cuotas": "2",
+      "interes": "5",
       "archivo": "C:\\fakepath\\vest-blan-negr-mariposas.jpg",
       "id": "ee092613-7be4-4b6a-9e17-8529383c41fd"
     }
@@ -126,20 +126,20 @@
   "Nene_Remeras": [
     {
       "producto": "Remera Batman",
-      "precio": "4587.33",
-      "cuotas": "1",
-      "interes": "0",
+      "precio": "6587.33",
+      "cuotas": "2",
+      "interes": "5",
       "archivo": "C:\\fakepath\\remera-batman.jpg",
       "id": "c814dd15-af77-47ca-b6d0-24c03deb18cc"
     }
   ],
   "Nene_Pantalones": [
     {
-      "producto": "Pantalon Raro",
+      "producto": "Pantalon Rarisimo",
       "precio": "2145",
       "cuotas": "1",
       "interes": "0",
-      "archivo": "C:\\fakepath\\jean-roto-2.jpg",
+      "archivo": "C:\\fakepath\\babucha-gris-puño-1.jpeg",
       "id": "3f57d3f1-cd96-4b5c-9f8a-edf930379836"
     }
   ]
