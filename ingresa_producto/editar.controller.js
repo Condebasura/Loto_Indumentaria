@@ -1,6 +1,7 @@
 import { inService } from "/service/in-service.js";
 
 
+
 const formulario = document.querySelector("[data-form]");
 
 const obtenerInformacion = async () => {

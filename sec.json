@@ -2,10 +2,10 @@
   "Hom_Remeras": [
     {
       "producto": "Remera con tina",
-      "precio": "4585",
+      "precio": "4590",
       "cuotas": "1",
       "interes": "0",
-      "archivo": "C:\\fakepath\\chomba-polo-rall-1.jpg",
+      "archivo": "",
       "id": "2b436201-7861-4318-b76b-d356a2f341e2"
     },
     {
@@ -21,15 +21,15 @@
       "precio": "1245",
       "cuotas": "1",
       "interes": "0",
-      "archivo": "C:\\fakepath\\chomba-1.jpg",
+      "archivo": "",
       "id": "748ab24f-81b1-4a3c-8f67-0e9e13650885"
     },
     {
       "producto": "remera sur",
-      "precio": "1145",
+      "precio": "1144",
       "cuotas": "2",
       "interes": "5",
-      "archivo": "C:\\fakepath\\remera-cuell-redondo-1.jpg",
+      "archivo": "",
       "id": "e59e2f18-c561-4149-bb69-86500b357b47"
     }
   ],
@@ -39,7 +39,7 @@
       "precio": "1245",
       "cuotas": "3",
       "interes": "5",
-      "archivo": "C:\\fakepath\\cargo-camuf-1.jpeg",
+      "archivo": "",
       "id": "10c39102-91e4-4ed1-93f0-ab5bb5a974dd"
     }
   ],
@@ -128,8 +128,8 @@
       "producto": "Remera Batman",
       "precio": "6587.33",
       "cuotas": "2",
-      "interes": "5",
-      "archivo": "C:\\fakepath\\remera-batman.jpg",
+      "interes": "0",
+      "archivo": "",
       "id": "c814dd15-af77-47ca-b6d0-24c03deb18cc"
     }
   ],
