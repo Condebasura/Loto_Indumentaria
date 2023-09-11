@@ -1,0 +1,19 @@
+{
+  "name": "loto_indumentaria",
+  "version": "1.0.0",
+  "description": "Pagina web la cual uso para hacer pruebas mientras voy aprendiendo los lenguajes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Condebasura/Loto_Indumentaria.git"
+  },
+  "author": "Pablo C. Zabala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Condebasura/Loto_Indumentaria/issues"
+  },
+  "homepage": "https://github.com/Condebasura/Loto_Indumentaria#readme"
+}
