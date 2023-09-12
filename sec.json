@@ -5,7 +5,7 @@
       "precio": "4590",
       "cuotas": "1",
       "interes": "0",
-      "archivo": "",
+      "archivo": "C:\\fakepath\\remera-estamp-4.jpg",
       "id": "2b436201-7861-4318-b76b-d356a2f341e2"
     },
     {
@@ -17,11 +17,11 @@
       "id": "cf7f8431-7cc4-423c-83a5-8c7eb9ef2b06"
     },
     {
-      "producto": "remera sur",
+      "producto": "remera norte",
       "precio": "1144",
       "cuotas": "2",
       "interes": "5",
-      "archivo": "",
+      "archivo": "C:\\fakepath\\remera-estamp-2.jpg",
       "id": "e59e2f18-c561-4149-bb69-86500b357b47"
     },
     {
@@ -39,7 +39,7 @@
       "precio": "1245",
       "cuotas": "3",
       "interes": "5",
-      "archivo": "",
+      "archivo": "C:\\fakepath\\bolso-hombre.png",
       "id": "10c39102-91e4-4ed1-93f0-ab5bb5a974dd"
     }
   ],
@@ -129,7 +129,7 @@
       "precio": "6587.33",
       "cuotas": "2",
       "interes": "0",
-      "archivo": "",
+      "archivo": "C:\\fakepath\\bolso-hombre.png",
       "id": "c814dd15-af77-47ca-b6d0-24c03deb18cc"
     }
   ],
