@@ -1,15 +1,20 @@
-import { inService } from "/service/in-service.js";
-
-
-
+import { inService } from "../service/in-service.js";
+// queda por verificar el problema en Hom_pantalones y niños_Remeras
 const formulario = document.querySelector("[data-form]");
+const producto = document.querySelector(".name");
+const precio = document.querySelector(".bestprecio");
+const cuotas = document.querySelector(".cuotas");
+const interes = document.querySelector(".int");
+let archivo = document.querySelector(".image");
+
 
 const obtenerInformacion = async () => {
 
    const url = new URL(window.location);
    const id = url.searchParams.get("id");
+   console.log(id);
    let EstaPagina = url.searchParams.get("estapagina");
-
+console.log(EstaPagina);
 
    if (id == null) {
       window.location.href = "../ingresa_producto/Error.html";
@@ -19,17 +24,7 @@ const obtenerInformacion = async () => {
       window.location.href = "../ingresa_producto/Error.html";
    }
 
-   const producto = document.querySelector("[data-producto]");
-   const precio = document.querySelector("[data-precio]");
-   const cuotas = document.querySelector("[data-cuotas]");
-   const interes = document.querySelector("[data-interes]");
-   let archivo = document.querySelector("[data-archivo]");
-
-
-  
-
-
-   if (EstaPagina == "/html/H-Rem.html") {
+   if (EstaPagina == "H-Rem.html") {
 
 
 
@@ -55,7 +50,7 @@ const obtenerInformacion = async () => {
    };
 
 
-   if (EstaPagina == "/html/H-Pant.html") {
+   if (EstaPagina == "H-Pant.html") {
 
 
 
@@ -81,7 +76,7 @@ const obtenerInformacion = async () => {
    }
 
 
-   if (EstaPagina == "/html/H-Acce.html") {
+   if (EstaPagina == "H-Acce.html") {
 
 
 
@@ -108,7 +103,7 @@ const obtenerInformacion = async () => {
 
 
 
-   if (EstaPagina == "/html/M-Rem.html") {
+   if (EstaPagina == "M-Rem.html") {
 
 
 
@@ -135,7 +130,7 @@ const obtenerInformacion = async () => {
 
 
 
-   if (EstaPagina == "/html/M-Pant.html") {
+   if (EstaPagina == "M-Pant.html") {
 
 
 
@@ -162,7 +157,7 @@ const obtenerInformacion = async () => {
 
 
 
-   if (EstaPagina == "/html/M-Vest.html") {
+   if (EstaPagina == "M-Vest.html") {
 
 
 
@@ -190,7 +185,7 @@ const obtenerInformacion = async () => {
 
 
 
-   if (EstaPagina == "/html/M-Acce.html") {
+   if (EstaPagina == "M-Acce.html") {
 
 
 
@@ -217,7 +212,7 @@ const obtenerInformacion = async () => {
 
 
 
-   if (EstaPagina == "/html/N-Rem.html") {
+   if (EstaPagina == "N-Rem.html") {
 
 
 
@@ -245,7 +240,7 @@ const obtenerInformacion = async () => {
 
 
 
-   if (EstaPagina == "/html/N-Pant.html") {
+   if (EstaPagina == "N-Pant.html") {
 
 
 
@@ -274,7 +269,7 @@ const obtenerInformacion = async () => {
 
 
 
-   if (EstaPagina == "/html/N-Vest.html") {
+   if (EstaPagina == "N-Vest.html") {
 
 
 
@@ -302,7 +297,7 @@ const obtenerInformacion = async () => {
 
 
 
-   if (EstaPagina == "/html/Ch-Rem.html") {
+   if (EstaPagina == "Ch-Rem.html") {
 
 
 
@@ -332,7 +327,7 @@ const obtenerInformacion = async () => {
 
 
 
-   if (EstaPagina == "/html/Ch-Pant.html") {
+   if (EstaPagina == "Ch-Pant.html") {
 
 console.log(EstaPagina)
 
@@ -369,84 +364,80 @@ formulario.addEventListener("submit", (e) => {
    const id = url.searchParams.get("id");
    let EstaPagina = url.searchParams.get("estapagina");
    
-   const producto = document.querySelector("[data-producto]").value;
-   const precio = document.querySelector("[data-precio]").value;
-   const cuotas = document.querySelector("[data-cuotas]").value;
-   const interes = document.querySelector("[data-interes]").value;
-   const archivo = document.querySelector("[data-archivo]").value;
+   
   
-   if(EstaPagina == "/html/H-Rem.html"){
-   inService.actualizarProductoH_R(producto, precio, cuotas, interes, archivo, id).then(() => {
+   if(EstaPagina == "H-Rem.html"){
+   inService.actualizarProductoH_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 
-if(EstaPagina == "/html/H-Pant.html"){
-   inService.actualizarProductoH_P(producto, precio, cuotas, interes, archivo, id).then(() => {
+if(EstaPagina == "H-Pant.html"){
+   inService.actualizarProductoH_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
-if(EstaPagina == "/html/H-Acce.html"){
-   inService.actualizarProductoH_A(producto, precio, cuotas, interes, archivo, id).then(() => {
+if(EstaPagina == "H-Acce.html"){
+   inService.actualizarProductoH_A(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
-if(EstaPagina == "/html/M-Rem.html"){
-   inService.actualizarProductoW_R(producto, precio, cuotas, interes, archivo, id).then(() => {
+if(EstaPagina == "M-Rem.html"){
+   inService.actualizarProductoW_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
-if(EstaPagina == "/html/M-Pant.html"){
-   inService.actualizarProductoW_P(producto, precio, cuotas, interes, archivo, id).then(() => {
+if(EstaPagina == "M-Pant.html"){
+   inService.actualizarProductoW_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
-if(EstaPagina == "/html/M-Vest.html"){
-   inService.actualizarProductoW_V(producto, precio, cuotas, interes, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
-};
-
-
-if(EstaPagina == "/html/M-Acce.html"){
-   inService.actualizarProductoW_A(producto, precio, cuotas, interes, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
-};
-
-if(EstaPagina == "/html/N-Rem.html"){
-   inService.actualizarProductoN_R(producto, precio, cuotas, interes, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
-};
-
-if(EstaPagina == "/html/N-Pant.html"){
-   inService.actualizarProductoN_P(producto, precio, cuotas, interes, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
-};
-
-if(EstaPagina == "/html/N-Vest.html"){
-   inService.actualizarProductoN_V(producto, precio, cuotas, interes, archivo, id).then(() => {
+if(EstaPagina == "M-Vest.html"){
+   inService.actualizarProductoW_V(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 
-if(EstaPagina == "/html/Ch-Rem.html"){
-   inService.actualizarProductoCH_R(producto, precio, cuotas, interes, archivo, id).then(() => {
+if(EstaPagina == "M-Acce.html"){
+   inService.actualizarProductoW_A(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+      window.location.href = "/ingresa_producto/prod_end.html";
+   }).catch(err => console.log(err))
+};
+
+if(EstaPagina == "N-Rem.html"){
+   inService.actualizarProductoN_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+      window.location.href = "/ingresa_producto/prod_end.html";
+   }).catch(err => console.log(err))
+};
+
+if(EstaPagina == "N-Pant.html"){
+   inService.actualizarProductoN_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+      window.location.href = "/ingresa_producto/prod_end.html";
+   }).catch(err => console.log(err))
+};
+
+if(EstaPagina == "N-Vest.html"){
+   inService.actualizarProductoN_V(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 
-if(EstaPagina == "/html/Ch-Pant.html"){
-   inService.actualizarProductoCH_P(producto, precio, cuotas, interes, archivo, id).then(() => {
+if(EstaPagina == "Ch-Rem.html"){
+   inService.actualizarProductoCH_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+      window.location.href = "/ingresa_producto/prod_end.html";
+   }).catch(err => console.log(err))
+};
+
+
+if(EstaPagina == "Ch-Pant.html"){
+   inService.actualizarProductoCH_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };

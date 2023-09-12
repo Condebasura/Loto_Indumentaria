@@ -122,7 +122,7 @@
 
     
 
-.input{
+.name, .bestprecio{
     margin-bottom: 2em;
     cursor: text;
     font-size: 16px;

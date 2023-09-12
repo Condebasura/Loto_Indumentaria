@@ -1,12 +1,16 @@
+const producto = document.querySelector(".name");
+   const precio = document.querySelector(".bestprecio");
+   const cuotas = document.querySelector(".cuotas");
+   const interes = document.querySelector(".int");
+   let archivo = document.querySelector(".image");
+
 const listaProductosH_R = () => fetch(`http://localhost:3000/Hom_Remeras`)
-    .then(res => res.json())
+    .then(res =>  res.json())
 
 
 const detalleProductoH_R = (id) => {
-    return fetch(`http://localhost:3000/Hom_Remeras/${id}`)
-        .then((res) =>
-            res.json()
-
+    return fetch(`http://localhost:3000/Hom_Remeras/${id}`).then((res) =>  res.json()
+            
         )
 }
 
@@ -18,7 +22,9 @@ const actualizarProductoH_R = (producto, precio, cuotas, interes, archivo, id) =
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res =>{
+            res.json();
+        } )
         .catch(err => console.error(err));
 };
 
@@ -43,7 +49,7 @@ const actualizarProductoH_P = (producto, precio, cuotas, interes, archivo, id) =
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res => res.json())
         .catch(err => console.error(err));
 };
 
@@ -68,7 +74,7 @@ const actualizarProductoH_A = (producto, precio, cuotas, interes, archivo, id) =
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res => res.json())
         .catch(err => console.error(err));
 }
 
@@ -93,7 +99,7 @@ const actualizarProductoW_R = (producto, precio, cuotas, interes, archivo, id) =
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res => res.json())
         .catch(err => console.error(err));
 }
 
@@ -118,7 +124,7 @@ const actualizarProductoW_P = (producto, precio, cuotas, interes, archivo, id) =
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res => res.json())
         .catch(err => console.error(err));
 }
 
@@ -143,7 +149,7 @@ const actualizarProductoW_V = (producto, precio, cuotas, interes, archivo, id) =
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res => res.json())
         .catch(err => console.error(err));
 }
 
@@ -168,7 +174,7 @@ const actualizarProductoW_A = (producto, precio, cuotas, interes, archivo, id) =
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res => res.json())
         .catch(err => console.error(err));
 }
 
@@ -192,7 +198,7 @@ const actualizarProductoN_R = (producto, precio, cuotas, interes, archivo, id) =
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res => res.json())
         .catch(err => console.error(err));
 }
 
@@ -218,7 +224,7 @@ const actualizarProductoN_P = (producto, precio, cuotas, interes, archivo, id) =
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res => res.json())
         .catch(err => console.error(err));
 }
 
@@ -245,7 +251,7 @@ const actualizarProductoN_V = (producto, precio, cuotas, interes, archivo, id) =
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res => res.json())
         .catch(err => console.error(err));
 }
 
@@ -272,7 +278,7 @@ const actualizarProductoCH_R = (producto, precio, cuotas, interes, archivo, id) 
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res => res.json())
         .catch(err => console.error(err));
 }
 
@@ -300,7 +306,7 @@ const actualizarProductoCH_P = (producto, precio, cuotas, interes, archivo, id) 
         },
         body: JSON.stringify({ producto, precio, cuotas, interes, archivo })
     })
-        .then(respuesta => respuesta)
+        .then(res => res.json())
         .catch(err => console.error(err));
 }
 
