@@ -1,5 +1,4 @@
 import { inService } from "../service/in-service.js";
-// queda por verificar el problema en Hom_pantalones y niños_Remeras
 const formulario = document.querySelector("[data-form]");
 const producto = document.querySelector(".name");
 const precio = document.querySelector(".bestprecio");

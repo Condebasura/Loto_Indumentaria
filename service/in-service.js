@@ -5,7 +5,12 @@ const producto = document.querySelector(".name");
    let archivo = document.querySelector(".image");
 
 const listaProductosH_R = () => fetch(`http://localhost:3000/Hom_Remeras`)
-    .then(res =>  res.json())
+    .then(res => res.json()
+    )
+    
+     
+    
+        
 
 
 const detalleProductoH_R = (id) => {
