@@ -12,7 +12,7 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
     <div class="box-item" >
         <div class="productimag">
              <a class="img-prod" href="">
-                 <img class="image" src= ${archivo} title=${archivo.location}  >
+                 <img class="image" src= ${archivo} title=${producto}  >
              </a>
              <div class="datos">
               <a  class="name" href="" title="${producto}">${producto}</a>
@@ -64,6 +64,7 @@ let EstaPagina = window.location.pathname;
 
 if (EstaPagina == "/html/H-Rem.html") {
     inService.listaProductosH_R().then((data) => {
+        
         data.forEach(({ producto, precio, cuotas, interes, archivo, id }) => {
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, interes, archivo, id);
 
@@ -76,7 +77,9 @@ if (EstaPagina == "/html/H-Rem.html") {
 
 if (EstaPagina == "/html/H-Pant.html") {
     inService.listaProductosH_P().then((data) => {
+       
         data.forEach(({ producto, precio, cuotas, interes, archivo, id }) => {
+            console.log(archivo)
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, interes, archivo, id);
 
 
