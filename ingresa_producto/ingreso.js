@@ -6,12 +6,13 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
     let linea = document.createElement("li");
     linea.setAttribute("class", "box_pilcha");
     let EstaPagina = window.location.href;
+    let EstaImg = window.location.href;
     let enCuotas = precio / cuotas;
     console.log(id)
     const contenido = `
     <div class="box-item" >
         <div class="productimag">
-             <a class="img-prod" href="">
+             <a class="img-prod" href=/html/H-Rem-visu.html?id=${id}&estaimg=${EstaImg}>
                  <img class="image" src= ${archivo} title=${producto}  >
              </a>
              <div class="datos">

@@ -5,6 +5,7 @@ let box = document.querySelectorAll(".box_img");
 let img_defect = foto.getAttribute("src");
 imgZoom.setAttribute("src", img_defect);
  box[0].setAttribute("class" , "box_color");
+
 miniImg.addEventListener("mousedown" , (event) =>{
   
 foto = event.target;
