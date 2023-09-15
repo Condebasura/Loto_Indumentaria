@@ -15,6 +15,8 @@ const obtenerInformacion = async () => {
    let EstaPagina = url.searchParams.get("estapagina");
 console.log(EstaPagina);
 
+
+
    if (id == null) {
       window.location.href = "../ingresa_producto/Error.html";
    }
