@@ -1,4 +1,4 @@
-import { inService } from "../service/in-service";
+//import { inService } from "../service/in-service";
 
 const producto = document.querySelector(".name");
 let archivo = document.querySelector(".image");
@@ -26,7 +26,7 @@ const informeImg = async () =>{
 if(EstaImg == "H-Pant.html"){
 
     try{
-      const perfil = await inService.detalleProductoH_P(id);
+      const perfil = await fetch(`http://localhost:3000/Hom_Pantalones/${id}`).then((res) => res.json());
       console.log(perfil);
       if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
          producto.value = perfil.producto;
@@ -34,7 +34,7 @@ if(EstaImg == "H-Pant.html"){
          cuotas.value = perfil.cuotas;
          interes.value = perfil.interes;
          archivo = perfil.archivo;
-
+       
       }
       else {
          throw new Error();
@@ -48,15 +48,3 @@ if(EstaImg == "H-Pant.html"){
 };
 informeImg();
 
-
-let url = new URL(window.location);
-   const id = url.searchParams.get("id");
-      console.log(id);
-      let EstaImg = url.searchParams.get("estaimg");
-   console.log(EstaImg);
-   
-   if(EstaImg == "H-Pant.html"){
-      inService.listaProductosH_P().then((data) =>{
-         console.log(data.json())
-      })
-   }
