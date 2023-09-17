@@ -19,7 +19,10 @@ imgZoom.setAttribute("src", im);
 document.addEventListener("mousedown", (event)=>{
     
 if( event.target !=  foto ||  imgZoom.getAttribute("src") == "null" ){
-    imgZoom.setAttribute("src", img_defect); 
+    imgZoom.setAttribute("src", img_defect);
+
+    console.log(imgZoom);
+    console.log(img_defect);
     box[0].setAttribute("class" , "box_color");
     box[1].setAttribute("class" , "box_img") &  
     box[2].setAttribute("class" , "box_img")&
@@ -63,7 +66,7 @@ let changeColorBox = () =>{
             
         if(p != 4)
                 box[4].setAttribute("class","box_img"); 
-                return console.log(event.target)
+                return console.log(event.target, imgZoom)
                            
         }) }};
 
