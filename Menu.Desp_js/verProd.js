@@ -1,5 +1,6 @@
 import { inService } from "../service/in-service.js";
-
+         
+import { imgZoom } from "./visual.js";
 const producto = document.querySelector(".name");
 let archivo = document.querySelector(".image");
 const precio = document.querySelector(".bestprecio");
@@ -43,6 +44,7 @@ const informeImg = async () => {
             interes.value = precio.value / cuotas.value;
             interes.textContent = interes.textContent + interes.value;
             foto.src = archivo;
+            imgZoom.src = archivo;
          }
          else {
             throw new Error();
@@ -66,14 +68,15 @@ const informeImg = async () => {
             cuotas.value = perfil.cuotas;
             interes.value = perfil.interes;
             archivo = perfil.archivo;
-            //queda arreglar el problema de la imagen por defecto y las cuotas 
+           
             let foto = document.querySelector(".image");
             producto.textContent = producto.value;
             precio.textContent = precio.textContent + precio.value;
             cuotas.textContent = cuotas.value + cuotas.textContent;
             interes.value = precio.value / cuotas.value;
-            interes.textContent = interes.textContent + interes.value;
+            interes.textContent = interes.textContent + interes.value.toFixed(2);
             foto.src = archivo;
+            imgZoom.src = archivo;
          }
          else {
             throw new Error();
@@ -87,3 +90,4 @@ const informeImg = async () => {
 };
 informeImg();
 
+export {archivo};
