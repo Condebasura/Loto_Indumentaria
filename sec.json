@@ -77,8 +77,8 @@
     {
       "producto": "vestido largo colorido",
       "precio": "3214",
-      "cuotas": "2",
-      "interes": "5",
+      "cuotas": "3",
+      "interes": "0",
       "archivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/vestidos/vest-larg-colorid.jpg",
       "id": "c81bafa9-eb07-400a-af50-669f234fb6d2"
     }

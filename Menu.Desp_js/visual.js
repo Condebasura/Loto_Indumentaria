@@ -2,12 +2,9 @@ import { archivo } from "./verProd.js";
 let miniImg = document.querySelector(".img_cont");
 let imgZoom = document.querySelector(".image_zoom");
 let foto  = document.querySelector(".image");
-//foto.setAttribute("src", archivo);
 let box = document.querySelectorAll(".box_img");
-//imgZoom.setAttribute("src",foto);
  box[0].setAttribute("class" , "box_color");
-console.log(foto);
-console.log(imgZoom);
+
 
 miniImg.addEventListener("mousedown" , (event) =>{
   
@@ -21,7 +18,7 @@ document.addEventListener("mousedown", (event)=>{
     
 if( event.target !=  foto ||  imgZoom.getAttribute("src") == "null" ){
     imgZoom.setAttribute("src", archivo);
-    console.log(imgZoom);
+    
     box[0].setAttribute("class" , "box_color");
     box[1].setAttribute("class" , "box_img") &  
     box[2].setAttribute("class" , "box_img")&
@@ -65,7 +62,7 @@ let changeColorBox = () =>{
             
         if(p != 4)
                 box[4].setAttribute("class","box_img"); 
-                return console.log(event.target, imgZoom)
+                
                            
         }) }};
 
