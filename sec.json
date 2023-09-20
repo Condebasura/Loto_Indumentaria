@@ -5,7 +5,7 @@
       "precio": "4590",
       "cuotas": "1",
       "interes": "0",
-      "archivo": "C:\\fakepath\\remera-estamp-4.jpg",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/remeras-chombas/remera-estamp-1.jpg",
       "id": "2b436201-7861-4318-b76b-d356a2f341e2"
     },
     {
@@ -13,7 +13,7 @@
       "precio": "2415",
       "cuotas": "3",
       "interes": "0",
-      "archivo": "C:\\fakepath\\remera-estamp-4.jpg",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/remeras-chombas/remera-estamp-4.jpg",
       "id": "cf7f8431-7cc4-423c-83a5-8c7eb9ef2b06"
     },
     {
@@ -21,7 +21,7 @@
       "precio": "1144",
       "cuotas": "2",
       "interes": "5",
-      "archivo": "C:\\fakepath\\remera-estamp-2.jpg",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/remeras-chombas/remera-estamp-2.jpg",
       "id": "e59e2f18-c561-4149-bb69-86500b357b47"
     },
     {
@@ -29,7 +29,7 @@
       "precio": "4581.55",
       "cuotas": "2",
       "interes": "5",
-      "archivo": "C:\\fakepath\\remera-estamp-2.jpg",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/remeras-chombas/remera-estamp-3.png",
       "id": "44c042eb-4e61-4b47-85b9-1429cb8e5699"
     }
   ],
@@ -49,7 +49,7 @@
       "precio": "4570",
       "cuotas": "3",
       "interes": "10",
-      "archivo": "C:\\fakepath\\bolso-hombre.png",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/accesorios/bolso-hombre.png",
       "id": "650586c8-40e6-475a-9bae-656e59aabfe1"
     }
   ],
@@ -59,7 +59,7 @@
       "precio": "454",
       "cuotas": "1",
       "interes": "0",
-      "archivo": "C:\\fakepath\\r-con-encaje.jpg",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/remeras/r-con-encaje.jpg",
       "id": "2e4ab548-01b6-4335-bb2a-45ce60ed3a01"
     }
   ],
@@ -69,7 +69,7 @@
       "precio": "4533",
       "cuotas": "2",
       "interes": "10",
-      "archivo": "C:\\fakepath\\chupin-de-vestir.jpg",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/pantalon/chupin-de-vestir.jpg",
       "id": "75064c6d-e839-4b36-8d82-89c4aee80a73"
     }
   ],
@@ -79,7 +79,7 @@
       "precio": "3214",
       "cuotas": "2",
       "interes": "5",
-      "archivo": "C:\\fakepath\\vest-larg-colorid.jpg",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/vestidos/vest-larg-colorid.jpg",
       "id": "c81bafa9-eb07-400a-af50-669f234fb6d2"
     }
   ],
@@ -89,7 +89,7 @@
       "precio": "1454",
       "cuotas": "1",
       "interes": "5",
-      "archivo": "C:\\fakepath\\pierre-cardin-x-4.webp",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/accesorios/carteras/pierre-cardin-x-4.webp",
       "id": "c342059a-74de-4e38-915e-559dd111ff0e"
     }
   ],
@@ -99,7 +99,7 @@
       "precio": "3214",
       "cuotas": "6",
       "interes": "10",
-      "archivo": "C:\\fakepath\\rem-unicornio.jpg",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Remeras/rem-unicornio.jpg",
       "id": "aa546285-991a-4a44-8593-44d4c14d7af5"
     }
   ],
@@ -109,7 +109,7 @@
       "precio": "1545",
       "cuotas": "2",
       "interes": "10",
-      "archivo": "C:\\fakepath\\calsa-frozen-elsa.jpg",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Pantalones/calsa-frozen-elsa.jpg",
       "id": "b2f9f8c8-8104-4a58-a875-4524a61d43c8"
     }
   ],
@@ -119,7 +119,7 @@
       "precio": "1254.22",
       "cuotas": "2",
       "interes": "5",
-      "archivo": "C:\\fakepath\\vest-blan-negr-mariposas.jpg",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Vestidos/vest-blan-negr-mariposas.jpg",
       "id": "ee092613-7be4-4b6a-9e17-8529383c41fd"
     }
   ],
@@ -129,7 +129,7 @@
       "precio": "6587.33",
       "cuotas": "2",
       "interes": "0",
-      "archivo": "C:\\fakepath\\bolso-hombre.png",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1o/remeras/remera-batman.jpg",
       "id": "c814dd15-af77-47ca-b6d0-24c03deb18cc"
     }
   ],
@@ -139,7 +139,7 @@
       "precio": "2145",
       "cuotas": "1",
       "interes": "0",
-      "archivo": "C:\\fakepath\\babucha-gris-puño-1.jpeg",
+      "archivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1o/pantalon/Pant_Catboy.jpg",
       "id": "3f57d3f1-cd96-4b5c-9f8a-edf930379836"
     }
   ]

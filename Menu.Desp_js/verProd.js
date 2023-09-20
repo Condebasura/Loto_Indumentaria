@@ -14,41 +14,45 @@ const informeImg = async () => {
    console.log(id);
    let EstaImg = url.searchParams.get("estaimg");
    console.log(EstaImg);
-
+function GetDatos(perfil){
+   if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+      producto.value = perfil.producto;
+      precio.value = perfil.precio;
+      cuotas.value = perfil.cuotas;
+      interes.value = perfil.interes;
+      archivo = perfil.archivo;
+     
+      let foto = document.querySelector(".image");
+      producto.textContent = producto.value;
+      precio.textContent = precio.textContent + precio.value;
+      cuotas.textContent = cuotas.value + cuotas.textContent;
+      interes.value = precio.value / cuotas.value;
+      interes.textContent = interes.textContent + interes.value.toFixed(2);
+      foto.src = archivo;
+      imgZoom.src = archivo;
+   }
+   else {
+      throw new Error();
+   }
+};
 
    if (id == null) {
       window.location.href = "../ingresa_producto/Error.html";
    }
-
+   
+   
+ 
    if (EstaImg == null) {
       window.location.href = "../ingresa_producto/Error.html";
    }
+   
+   
    if (EstaImg == "H-Rem.html") {
-
-
 
       try {
          const perfil = await inService.detalleProductoH_R(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
-            producto.value = perfil.producto;
-            precio.value = perfil.precio;
-            cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
-            archivo = perfil.archivo;
-
-            let foto = document.querySelector(".image");
-            producto.textContent = producto.value;
-            precio.textContent = precio.textContent + precio.value;
-            cuotas.textContent = cuotas.value + cuotas.textContent;
-            interes.value = precio.value / cuotas.value;
-            interes.textContent = interes.textContent + interes.value;
-            foto.src = archivo;
-            imgZoom.src = archivo;
-         }
-         else {
-            throw new Error();
-         }
+         GetDatos(perfil);
       }
       catch (error) {
          console.error("Catch Error -", error);
@@ -62,31 +66,138 @@ const informeImg = async () => {
       try {
          const perfil = await inService.detalleProductoH_P(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
-            producto.value = perfil.producto;
-            precio.value = perfil.precio;
-            cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
-            archivo = perfil.archivo;
-           
-            let foto = document.querySelector(".image");
-            producto.textContent = producto.value;
-            precio.textContent = precio.textContent + precio.value;
-            cuotas.textContent = cuotas.value + cuotas.textContent;
-            interes.value = precio.value / cuotas.value;
-            interes.textContent = interes.textContent + interes.value.toFixed(2);
-            foto.src = archivo;
-            imgZoom.src = archivo;
-         }
-         else {
-            throw new Error();
-         }
+         GetDatos(perfil);
       }
       catch (error) {
          console.error("Catch Error -", error);
          window.location.href = "../ingresa_producto/Error.html";
       }
    }
+
+if(EstaImg == "H-Acce.html"){
+   try {
+      const perfil = await inService.detalleProductoH_A(id);
+      console.log(perfil);
+      GetDatos(perfil);
+   }
+   catch (error) {
+      console.error("Catch Error -", error);
+      window.location.href = "../ingresa_producto/Error.html";
+   }
+};
+
+if(EstaImg == "M-Rem.html"){
+   try {
+      const perfil = await inService.detalleProductoW_R(id);
+      console.log(perfil);
+      GetDatos(perfil);
+   }
+   catch (error) {
+      console.error("Catch Error -", error);
+      window.location.href = "../ingresa_producto/Error.html";
+   }
+};
+
+if(EstaImg == "M-Pant.html"){
+   try {
+      const perfil = await inService.detalleProductoW_P(id);
+      console.log(perfil);
+      GetDatos(perfil);
+   }
+   catch (error) {
+      console.error("Catch Error -", error);
+      window.location.href = "../ingresa_producto/Error.html";
+   }
+};
+
+if(EstaImg == "M-Vest.html"){
+   try {
+      const perfil = await inService.detalleProductoW_V(id);
+      console.log(perfil);
+      GetDatos(perfil);
+   }
+   catch (error) {
+      console.error("Catch Error -", error);
+      window.location.href = "../ingresa_producto/Error.html";
+   }
+};
+
+if(EstaImg == "M-Acce.html"){
+   try {
+      const perfil = await inService.detalleProductoW_A(id);
+      console.log(perfil);
+      GetDatos(perfil);
+   }
+   catch (error) {
+      console.error("Catch Error -", error);
+      window.location.href = "../ingresa_producto/Error.html";
+   }
+};
+
+if(EstaImg == "N-Rem.html"){
+   try {
+      const perfil = await inService.detalleProductoN_R(id);
+      console.log(perfil);
+      GetDatos(perfil);
+   }
+   catch (error) {
+      console.error("Catch Error -", error);
+      window.location.href = "../ingresa_producto/Error.html";
+   }
+};
+
+
+if(EstaImg == "N-Pant.html"){
+   try {
+      const perfil = await inService.detalleProductoN_P(id);
+      console.log(perfil);
+      GetDatos(perfil);
+   }
+   catch (error) {
+      console.error("Catch Error -", error);
+      window.location.href = "../ingresa_producto/Error.html";
+   }
+};
+
+if(EstaImg == "N-Vest.html"){
+   try {
+      const perfil = await inService.detalleProductoN_V(id);
+      console.log(perfil);
+      GetDatos(perfil);
+   }
+   catch (error) {
+      console.error("Catch Error -", error);
+      window.location.href = "../ingresa_producto/Error.html";
+   }
+};
+
+if(EstaImg == "Ch-Rem.html"){
+   try {
+      const perfil = await inService.detalleProductoCH_R(id);
+      console.log(perfil);
+      GetDatos(perfil);
+   }
+   catch (error) {
+      console.error("Catch Error -", error);
+      window.location.href = "../ingresa_producto/Error.html";
+   }
+};
+
+if(EstaImg == "Ch-Pant.html"){
+   try {
+      const perfil = await inService.detalleProductoCH_P(id);
+      console.log(perfil);
+      GetDatos(perfil);
+   }
+   catch (error) {
+      console.error("Catch Error -", error);
+      window.location.href = "../ingresa_producto/Error.html";
+   }
+};
+
+
+
+
 };
 informeImg();
 
