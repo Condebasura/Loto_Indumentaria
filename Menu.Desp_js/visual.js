@@ -9,7 +9,7 @@ let box = document.querySelectorAll(".box_img");
 
 
 miniImg.addEventListener("mousedown" , (e) =>{
-//le asignamos el  evento a la variable foto. 
+//le asignamos el  evento a la variable foto.   
 foto = e.target;
 
 let im = foto.getAttribute("src");
