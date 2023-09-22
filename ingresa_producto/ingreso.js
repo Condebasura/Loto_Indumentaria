@@ -12,7 +12,7 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
     const contenido = `
     <div class="box-item" >
         <div class="productimag">
-             <a class="img-prod" href=/html/H-Rem-visu.html?id=${id}&estaimg=${EstaImg.split('/').pop()}>
+             <a class="img-prod" href=/html/visualProducto.html?id=${id}&estaimg=${EstaImg.split('/').pop()}>
                  <img class="image" src= ${archivo} title=${producto}  >
              </a>
              <div class="datos">
