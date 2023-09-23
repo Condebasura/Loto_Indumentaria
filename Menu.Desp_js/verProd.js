@@ -29,6 +29,7 @@ function GetDatos(perfil){
       interes.value = precio.value / cuotas.value;
       interes.textContent = interes.textContent + interes.value.toFixed(2);
       foto.src = archivo;
+     // al importar "imgZoom" hace que el zoom de la imagen muestre la imagen por defecto al cargar la pagina
       imgZoom.src = archivo;
    }
    else {
