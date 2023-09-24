@@ -1,36 +1,12 @@
 {
   "Hom_Remeras": [
     {
-      "producto": "Remera con tina",
-      "precio": "4590",
-      "cuotas": "1",
-      "interes": "0",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/remeras-chombas/remera-estamp-1.jpg",
-      "id": "2b436201-7861-4318-b76b-d356a2f341e2"
-    },
-    {
       "producto": "Remera con mocos",
       "precio": "2415",
       "cuotas": "3",
       "interes": "0",
       "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/remeras-chombas/remera-estamp-4.jpg",
       "id": "cf7f8431-7cc4-423c-83a5-8c7eb9ef2b06"
-    },
-    {
-      "producto": "remera norte",
-      "precio": "1144",
-      "cuotas": "2",
-      "interes": "5",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/remeras-chombas/remera-estamp-2.jpg",
-      "id": "e59e2f18-c561-4149-bb69-86500b357b47"
-    },
-    {
-      "producto": "remera cosco",
-      "precio": "4581.55",
-      "cuotas": "2",
-      "interes": "5",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/remeras-chombas/remera-estamp-3.png",
-      "id": "44c042eb-4e61-4b47-85b9-1429cb8e5699"
     }
   ],
   "Hom_Pantalones": [

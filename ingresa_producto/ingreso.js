@@ -41,17 +41,20 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
 
     linea.innerHTML = contenido;
 
-
+// configutar el boton de eliminado
     const eliminarProducto = (id) => {
         return fetch(`http://localhost:3000/Hom_Remeras/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers:{
+                'Content-Type': 'application/json'
+            }
         })
     }
     const btn = linea.querySelector(".fa-trash-can");
     btn.addEventListener("click", () => {
         const id = btn.id;
-        eliminarProducto(id).then(respuesta => {
-
+        eliminarProducto(id).then(res => {
+      console.log( res.json());
         }).catch(err => window.location.href = "../ingresa_producto/Error.html");
     })
 
