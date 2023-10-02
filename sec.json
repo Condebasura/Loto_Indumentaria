@@ -17,6 +17,20 @@
       "interes": "0",
       "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/pantalones/babucha-gris-pu%C3%B1o-1.jpeg",
       "id": "10c39102-91e4-4ed1-93f0-ab5bb5a974dd"
+    },
+    {
+      "producto": "pantalon con cosas1234",
+      "precio": "4581.55",
+      "cuotas": "1",
+      "interes": "0",
+      "id": "69680e6c-e92a-477a-bd2b-4cb2fb1bcd52"
+    },
+    {
+      "producto": "prueba",
+      "precio": "2415",
+      "cuotas": "1",
+      "interes": "0",
+      "id": "9ae1e0db-1e23-48e9-bd5b-e95c81217b8c"
     }
   ],
   "Hom_Accesorios": [
