@@ -41,7 +41,9 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
 
     linea.innerHTML = contenido;
 
-// configutar el boton de eliminado
+// Ahora que ya funciona eliminarproducto tendriamos que ver si un Promise.all funciona para alojar todas de las urls que van al archivo json.
+
+
     const eliminarProducto = (id) => {
         return fetch(`http://localhost:3000/Hom_Remeras/${id}`, {
             method: "DELETE",
@@ -51,11 +53,19 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
         })
     }
     const btn = linea.querySelector(".fa-trash-can");
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
         const id = btn.id;
-        eliminarProducto(id).then(res => {
-      console.log( res.json());
-        }).catch(err => window.location.href = "../ingresa_producto/Error.html");
+        if(e.target.matches(".fa-trash-can")){
+            let eliminar = confirm(`Estas por eliminar el producto ${producto}`)
+            if(eliminar){
+
+                eliminarProducto(id).then(res => {
+                 
+              console.log( res.json());
+                }).catch(err => window.location.href = "../ingresa_producto/Error.html");
+            }
+        }
     })
 
     return linea;

@@ -1,14 +1,5 @@
 {
-  "Hom_Remeras": [
-    {
-      "producto": "Remera con mocos",
-      "precio": "2415",
-      "cuotas": "3",
-      "interes": "0",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/remeras-chombas/remera-estamp-4.jpg",
-      "id": "cf7f8431-7cc4-423c-83a5-8c7eb9ef2b06"
-    }
-  ],
+  "Hom_Remeras": [],
   "Hom_Pantalones": [
     {
       "producto": "pantalon gris",
