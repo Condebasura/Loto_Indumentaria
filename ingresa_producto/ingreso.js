@@ -57,16 +57,35 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
         e.preventDefault();
         const id = btn.id;
         if(e.target.matches(".fa-trash-can")){
-            let eliminar = confirm(`Estas por eliminar el producto ${producto}`)
-            if(eliminar){
+            let aceptar = document.getElementById("confirm");
+            let cancelar = document.getElementById("cancel");
+            let parrafoModal = document.querySelector(".p_modal");
+            parrafoModal.textContent = `Se va a eliminar el producto ${producto}`;
+            let modal = document.getElementById("modal");
+            modal.showModal();
+            if(aceptar){
+                aceptar.addEventListener("click", ()=>{
 
-                eliminarProducto(id).then(res => {
-                 
-              console.log( res.json());
-                }).catch(err => window.location.href = "../ingresa_producto/Error.html");
-            }
-        }
-    })
+                  eliminarProducto(id).then(res => {
+                   modal.close();
+                console.log( res.json());
+  
+                  })
+                  .catch(err =>{
+              
+  
+                      modal.close();
+                      window.location.href = "../ingresa_producto/Error.html"});
+                  })
+               
+      
+                }cancelar.addEventListener("click", () => {
+                    modal.close();
+                   });
+       
+            
+            }    
+})
 
     return linea;
 
