@@ -45,33 +45,7 @@
                 
                 }
                 
-#modal{
-    border-style: none;
-    height: 16%;
-    width: 30%;
-    color: #d61e1e;
-    text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    box-shadow: 2px 2px 12px 2px #292929c9 ;
-}
 
-#confirm {
-    text-align: center;
-    border-style: none;
-    height: 20%;
-    margin: 1em;
-    box-shadow: 2px 2px 8px 2px;
-
-}
-
-#cancel{
-    border-style: none;
-    height: 20%;
-    margin: 1em;
-    box-shadow: 2px 2px 8px 2px;
-    
-}
 
                 .input{
                     background: #faf8f8;

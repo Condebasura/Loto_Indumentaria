@@ -41,21 +41,48 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
 
     linea.innerHTML = contenido;
 
-// Ahora que ya funciona eliminarproducto tendriamos que ver si un Promise.all funciona para alojar todas de las urls que van al archivo json.
+// creamos un array que contenga todas las rutas.
+    const urls =[
+        'Hom_Remeras',
+        'Hom_Pantalones',
+        'Hom_Accesorios',
+        'Wom_Remeras',
+        'Wom_Pantalones',
+        'Wom_Vestidos',
+        'Wom_Accesorios',
+        'Nena_Remeras',
+        'Nena_Pantalones',
+        'Nena_Vestidos',
+        'Nene_Remeras',
+        'Nene_Pantalones'
+];
+  // funcion para eliminar el producto por medio de su id.
+    const eliminarProducto =  async (id) => {
+        for(let url of urls){
+       // hacemos una peticion get para comprobar si el id existe
+            const response = await fetch(`http://localhost:3000/${url}/${id}`)
 
+            if(response.ok){
+               // si el id existe (la respuesta es ok "status = 200"), se pasa la peticion delete para eliminar el producto
+           try{
 
-    const eliminarProducto = (id) => {
-        return fetch(`http://localhost:3000/Hom_Remeras/${id}`, {
-            method: "DELETE",
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        })
+               await fetch(`http://localhost:3000/${url}/${id}`, {
+                   method: "DELETE",
+                   headers:{
+                       'Content-Type': 'application/json'
+                    }
+                })
+            }catch(error){
+                console.log(`No se pudo eliminar el producto de la url ${url}`)
+            } 
+    }
+}
     }
     const btn = linea.querySelector(".fa-trash-can");
     btn.addEventListener("click", (e) => {
         e.preventDefault();
         const id = btn.id;
+        // Al hacer click en el boton de eliminacion se crea un cuadro de dialogo que determina si en realidad queremos eliminarlo
         if(e.target.matches(".fa-trash-can")){
             let aceptar = document.getElementById("confirm");
             let cancelar = document.getElementById("cancel");
@@ -64,6 +91,7 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
             let modal = document.getElementById("modal");
             modal.showModal();
             if(aceptar){
+                // Al aceptar se elimina el prodicto, sale del cuadro de dialogo y se recarga la pagina.
                 aceptar.addEventListener("click", ()=>{
 
                   eliminarProducto(id).then(res => {
@@ -80,6 +108,7 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
                
       
                 }cancelar.addEventListener("click", () => {
+                    // si se cancela solamente se cierra el cuadro de dialogo.
                     modal.close();
                    });
        
