@@ -7,6 +7,54 @@
       "interes": "0",
       "archivo": "C:\\fakepath\\chomba-clara-1.jpeg",
       "id": "a33e24e1-ad43-45b6-894a-e15a42a2571d"
+    },
+    {
+      "producto": "Remera trucha",
+      "precio": "1245",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-estamp-1.jpg",
+      "id": "83adce8e-7793-43d9-85dd-6a3905fc032e"
+    },
+    {
+      "producto": "Remera Morada",
+      "precio": "1545",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-estamp-2.jpg",
+      "id": "1bb5b4dd-300e-4d1f-b721-d132404a9bb1"
+    },
+    {
+      "producto": "Remera cocida",
+      "precio": "4577",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\chomba-polo-rall-1.jpg",
+      "id": "3d969741-e693-4f57-a346-57371baba192"
+    },
+    {
+      "producto": "remera colgada",
+      "precio": "4545",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\chomba-polo-rall-1.jpg",
+      "id": "61ef1647-4605-4b6b-988d-18a1f3353754"
+    },
+    {
+      "producto": "pero muerto",
+      "precio": "2415",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-cuell-redondo-1.jpg",
+      "id": "4085ac75-a103-4e9d-b32d-c4c2bd4fd469"
+    },
+    {
+      "producto": "remera rota",
+      "precio": "4587",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-estamp-2.jpg",
+      "id": "e76024a3-c7a5-442f-92b3-5d5e328b9cae"
     }
   ],
   "Hom_Pantalones": [

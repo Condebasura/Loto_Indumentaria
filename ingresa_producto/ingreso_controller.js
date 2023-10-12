@@ -20,6 +20,8 @@ let archivo = document.querySelector("[data-archivo]");
        formulario.addEventListener("submit", (e)=>{
        e.preventDefault();
   
+  
+  
        
      const laSeccion = (producto, precio, cuotas, interes,archivo) => {
         if(seccion.value == "Hombres" && sub_seccion.value == "Remeras"){
@@ -35,7 +37,11 @@ let archivo = document.querySelector("[data-archivo]");
          }
        
        })
-       .then(res => res.json())
+       .then(res =>
+          res.json()
+          
+          
+         )
        .catch(err => console.log(err))};
        
        if(seccion.value == "Hombres" && sub_seccion.value == "Pantalones"  ){
@@ -205,9 +211,22 @@ let archivo = document.querySelector("[data-archivo]");
         
         console.log(producto , "---" , precio,  archivo);
         
+
+
+
         laSeccion(producto.value, precio.value,cuotas.value, interes.value, archivo.value);
 
-  
+        if(e.target.matches(".form")){
+      
+         let parrafoModal = document.querySelector(".p_modal-in");
+         parrafoModal.textContent = `El producto ${producto.value} se ingreso correctamente !!`; 
+         let modal = document.getElementById("modal");
+         modal.showModal();
+         setTimeout(function(){
+            modal.close();
+            location.reload();
+         }, 5000);
+      }
         
        
         
