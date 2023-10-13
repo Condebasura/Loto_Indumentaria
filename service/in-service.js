@@ -4,6 +4,8 @@ const producto = document.querySelector(".name");
    const interes = document.querySelector(".int");
    let archivo = document.querySelector(".image");
 
+
+
 const listaProductosH_R = () => fetch(`http://localhost:3000/Hom_Remeras`)
     .then(res => res.json()
     )
@@ -29,6 +31,7 @@ const actualizarProductoH_R = (producto, precio, cuotas, interes, archivo, id) =
     })
         .then(res =>{
             res.json();
+        
         } )
         .catch(err => console.error(err));
 };

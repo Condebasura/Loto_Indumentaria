@@ -364,12 +364,24 @@ formulario.addEventListener("submit", (e) => {
    const url = new URL(window.location);
    const id = url.searchParams.get("id");
    let EstaPagina = url.searchParams.get("estapagina");
-   
+   const EdicionFin = ()=>{
+
+      if(e.target.matches(".form") ){
+          let parrafoModal = document.querySelector(".p_modal-edit");
+          parrafoModal.textContent = `Edición Finalizada!!`;
+           let modal = document.getElementById("modal");
+          modal.showModal();
+          setTimeout(function(){
+              modal.close();
+          }, 5000)
+          }
+  }
    
   
    if(EstaPagina == "H-Rem.html"){
    inService.actualizarProductoH_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+     EdicionFin();
+    //   window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 

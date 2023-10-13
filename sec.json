@@ -2,7 +2,7 @@
   "Hom_Remeras": [
     {
       "producto": "Remera larga",
-      "precio": "14544",
+      "precio": "1454",
       "cuotas": "1",
       "interes": "0",
       "archivo": "C:\\fakepath\\chomba-clara-1.jpeg",
@@ -34,7 +34,7 @@
     },
     {
       "producto": "remera colgada",
-      "precio": "4545",
+      "precio": "4520",
       "cuotas": "1",
       "interes": "0",
       "archivo": "C:\\fakepath\\chomba-polo-rall-1.jpg",
@@ -219,6 +219,30 @@
       "interes": "0",
       "archivo": "C:\\fakepath\\remera-batman.jpg",
       "id": "f4c2daaa-cbeb-486b-823b-0648cbc5f405"
+    },
+    {
+      "producto": "Remera con caca",
+      "precio": "1243",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-dragonball.jpg",
+      "id": "37109b67-2640-47a2-a744-02257fe36cbf"
+    },
+    {
+      "producto": "Remera con caca",
+      "precio": "1243",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-dragonball.jpg",
+      "id": "b60f9f59-d64e-4867-8605-5300aed9de08"
+    },
+    {
+      "producto": "Remera con caca",
+      "precio": "1243",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remera-dragonball.jpg",
+      "id": "fadb3fb6-a545-45bd-8669-448b0b2919b3"
     }
   ],
   "Nene_Pantalones": [

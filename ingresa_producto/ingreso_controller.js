@@ -215,11 +215,10 @@ let archivo = document.querySelector("[data-archivo]");
 
 
         laSeccion(producto.value, precio.value,cuotas.value, interes.value, archivo.value);
-
         if(e.target.matches(".form")){
       
          let parrafoModal = document.querySelector(".p_modal-in");
-         parrafoModal.textContent = `El producto ${producto.value} se ingreso correctamente !!`; 
+         parrafoModal.textContent = `El producto "${producto.value}" ingreso correctamente!!`;
          let modal = document.getElementById("modal");
          modal.showModal();
          setTimeout(function(){
