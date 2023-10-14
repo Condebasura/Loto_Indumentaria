@@ -367,14 +367,16 @@ formulario.addEventListener("submit", (e) => {
    const EdicionFin = ()=>{
 
       if(e.target.matches(".form") ){
+         
+         
           let parrafoModal = document.querySelector(".p_modal-edit");
-          parrafoModal.textContent = `Edición Finalizada!!`;
+          parrafoModal.textContent = `Edición Finalizada!! Volviendo al Listado` ;
            let modal = document.getElementById("modal");
           modal.showModal();
-          setTimeout(function(){
-              modal.close();
-          }, 5000)
-          }
+          e.preventDefault();
+          return window.location.href = `/html/${EstaPagina}`;
+         }
+        
   }
    
   
@@ -388,19 +390,22 @@ formulario.addEventListener("submit", (e) => {
 
 if(EstaPagina == "H-Pant.html"){
    inService.actualizarProductoH_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+      EdicionFin();
+      // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 if(EstaPagina == "H-Acce.html"){
    inService.actualizarProductoH_A(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+      EdicionFin();
+      //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 if(EstaPagina == "M-Rem.html"){
    inService.actualizarProductoW_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+      EdicionFin();
+     // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
@@ -412,46 +417,53 @@ if(EstaPagina == "M-Pant.html"){
 
 if(EstaPagina == "M-Vest.html"){
    inService.actualizarProductoW_V(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+      EdicionFin();
+      //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 
 if(EstaPagina == "M-Acce.html"){
    inService.actualizarProductoW_A(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+      EdicionFin();
+      //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 if(EstaPagina == "N-Rem.html"){
    inService.actualizarProductoN_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+      EdicionFin();
+     // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 if(EstaPagina == "N-Pant.html"){
    inService.actualizarProductoN_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+      EdicionFin();
+      // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 if(EstaPagina == "N-Vest.html"){
    inService.actualizarProductoN_V(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+      EdicionFin();
+      // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 
 if(EstaPagina == "Ch-Rem.html"){
    inService.actualizarProductoCH_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+      EdicionFin();
+      //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
 
 if(EstaPagina == "Ch-Pant.html"){
    inService.actualizarProductoCH_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+      EdicionFin();
+     // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => console.log(err))
 };
 
