@@ -4,7 +4,22 @@ const producto = document.querySelector(".name");
    const interes = document.querySelector(".int");
    let archivo = document.querySelector(".image");
 
+const   CodeError = (data) =>{
+if(data.status >= 400 ){
+    const dialog = document.createElement("dialog");
+    dialog.getAttribute("id", "modal");
+    const modal = document.getElementById("modal");
+    const spanTriengle = document.createElement("span");
+    spanTriengle.getAttribute("class", "fa-solid fa-triangle-exclamation");
+    const Mensaje = document.createElement("h1");
+    Mensaje.getAttribute("class", "text_prin");
+    Mensaje.textContent = "Ocurrio un Error, Pruebe denuevo";
+    dialog.appendChild(spanTriengle);
+    dialog.appendChild(Mensaje);
+    modal.showModal();
 
+}
+};
 
 const listaProductosH_R = () => fetch(`http://localhost:3000/Hom_Remeras`)
     .then(res => res.json()
@@ -356,5 +371,7 @@ export const inService = {
     actualizarProductoCH_R,
     listaProductosCH_P,
     detalleProductoCH_P,
-    actualizarProductoCH_P
+    actualizarProductoCH_P,
+    CodeError
 };
+

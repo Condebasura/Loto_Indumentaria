@@ -132,9 +132,13 @@ if (EstaPagina == "/html/H-Rem.html") {
 
 
             ul.appendChild(nuevoProducto);
+            
         });
     })
-        .catch((err) => window.location.href = "../ingresa_producto/Error.html");
+        .catch((err) => 
+       
+            window.location = inService.CodeError());
+        ; 
 };
 
 if (EstaPagina == "/html/H-Pant.html") {
