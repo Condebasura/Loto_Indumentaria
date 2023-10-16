@@ -1,5 +1,5 @@
 import { inService } from "../service/in-service.js";
-
+// la funcion modifica el cuadro de dialogo que usamos para eliminar un producto y crea uno para los errores.
 const   CodeError = () =>{
 
     const modal = document.getElementById("modal");
@@ -50,17 +50,18 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
                   <span class="bestprecio">$ ${precio}</span>
                   <div class="control-cuotas">
                       <span class="cuotas" >
-                          ${cuotas} cuotas de 
-                          <b>${enCuotas.toFixed(2)}</b>
-                      </span>
-                      <br>    
-                      <span class="int">
+                        Hasta en  ${cuotas} cuotas de 
+                          <b><br>$ ${enCuotas.toFixed(2)}</b>
                           sin interes
                       </span>
+                      <br>  
+                      <hr>
+                      <div class="accesos">  
                       <button class="fas fa-shopping-cart" title="Agregar al carrito"></button>
                       <button  class="fa-solid fa-trash-can" title="Eliminar" id= "${id}"></button>
                       <a class="fa-solid fa-pen-to-square"  title="Editar" href= /ingresa_producto/editar_producto.html?id=${id}&estapagina=${EstaPagina.split('/').pop()}></a>
-                  </div>
+                      </div>
+                      </div>
               </div>
              </div>
              </div>

@@ -95,7 +95,11 @@
         
         .der{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif};
 
-
+        .accesos{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+         }
         
         @media (max-width: 1385px) {
             

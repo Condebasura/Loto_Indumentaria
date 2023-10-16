@@ -69,7 +69,7 @@
     {
       "producto": "Pantalon coso",
       "precio": "5646",
-      "cuotas": "1",
+      "cuotas": "3",
       "interes": "0",
       "archivo": "C:\\fakepath\\babucha-gris-puño-1.jpeg",
       "id": "d0d807d4-0c40-4ca5-a9fb-4814c3addbdc"
@@ -77,7 +77,7 @@
     {
       "producto": "paco jerlo",
       "precio": "4570",
-      "cuotas": "1",
+      "cuotas": "3",
       "interes": "0",
       "archivo": "C:\\fakepath\\cargo-1.jpg",
       "id": "cfeb2489-99fa-4676-a963-2e1d976a83aa"
@@ -257,7 +257,7 @@
     {
       "producto": "Pantalon Rarisimo",
       "precio": "2145",
-      "cuotas": "1",
+      "cuotas": "3",
       "interes": "0",
       "archivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1o/pantalon/Pant_Catboy.jpg",
       "id": "3f57d3f1-cd96-4b5c-9f8a-edf930379836"
@@ -265,7 +265,7 @@
     {
       "producto": "Pantalon producto",
       "precio": "2415",
-      "cuotas": "1",
+      "cuotas": "3",
       "interes": "0",
       "archivo": "C:\\fakepath\\remera-cars.jpg",
       "id": "9de9eb97-aa95-4f39-ac40-5b2aea58811a"

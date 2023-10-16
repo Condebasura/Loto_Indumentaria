@@ -60,7 +60,11 @@
             flex-direction: row;
             justify-content: space-evenly; }
             
-    
+            .accesos{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+             }
             @media (max-width: 1385px) {
                 
                 header{ position: absolute; top: 3.7em}
