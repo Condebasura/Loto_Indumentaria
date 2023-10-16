@@ -1,4 +1,4 @@
-const volver = document.querySelector("[data-volver]");
+const volver = document.querySelector(".boton_volver");
 volver.addEventListener("click", (e)=>{
 /*if(e.target){
     let newWindow = open("", "", 

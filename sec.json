@@ -10,7 +10,7 @@
     },
     {
       "producto": "Remera trucha",
-      "precio": "1248",
+      "precio": "1243",
       "cuotas": "1",
       "interes": "0",
       "archivo": "C:\\fakepath\\remera-estamp-1.jpg",
@@ -55,6 +55,14 @@
       "interes": "0",
       "archivo": "C:\\fakepath\\remera-estamp-2.jpg",
       "id": "e76024a3-c7a5-442f-92b3-5d5e328b9cae"
+    },
+    {
+      "producto": "rege",
+      "precio": "2415",
+      "cuotas": "1",
+      "interes": "0",
+      "archivo": "C:\\fakepath\\remer-esc-v-3.jpg",
+      "id": "54286a36-9aa8-478c-8203-757eb00f9639"
     }
   ],
   "Hom_Pantalones": [

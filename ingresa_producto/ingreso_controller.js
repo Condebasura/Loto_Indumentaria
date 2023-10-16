@@ -17,6 +17,48 @@ let archivo = document.querySelector("[data-archivo]");
        let ch = document.querySelectorAll("[data-child]");
        let sub_seccion = document.querySelector("[data-sub_seccion]");
        let seccion = document.querySelector("[data-seccion]");
+      const IngresoEnd = () =>{
+         const spanCheck = document.createElement("span");
+         spanCheck.setAttribute("class", "fa-sharp fa-solid fa-check");
+         let parrafoModal = document.querySelector(".p_modal-in");
+         parrafoModal.textContent = `El producto "${producto.value}" ingreso correctamente!!`;
+         let modal = document.getElementById("modal");
+         modal.appendChild(spanCheck);
+         modal.showModal();
+         setTimeout(function(){
+            modal.close();
+            location.reload();
+         }, 5000);
+      }
+      
+      
+       const   CodeError = () =>{
+
+         const modal = document.getElementById("modal");
+         const volver = document.createElement("button");
+         volver.setAttribute("class", "boton_volver");
+         volver.textContent = "Aceptar";
+         modal.getElementsByClassName("cont_error");
+         const spanTriengle = document.createElement("span");
+         spanTriengle.setAttribute("class", "fa-solid fa-triangle-exclamation");
+         const Mensaje = document.createElement("h1");
+         Mensaje.getAttribute("class", "text_prin");
+         Mensaje.classList.toggle("text_prin");
+         Mensaje.textContent = "Ocurrio un Error!! Pruebe denuevo";
+         modal.showModal();
+         modal.appendChild(spanTriengle);
+         modal.appendChild(Mensaje);
+         modal.appendChild(volver);
+         
+         
+      
+         volver.addEventListener("click", (e)=>{
+             modal.close();
+             location.reload();
+             
+             });
+            }
+      
        formulario.addEventListener("submit", (e)=>{
        e.preventDefault();
   
@@ -37,12 +79,14 @@ let archivo = document.querySelector("[data-archivo]");
          }
        
        })
-       .then(res =>
-          res.json()
+       .then(res =>{
           
+          res.json();
+          IngresoEnd();
+       }
           
          )
-       .catch(err => console.log(err))};
+       .catch(err => CodeError())};
        
        if(seccion.value == "Hombres" && sub_seccion.value == "Pantalones"  ){
        sub_seccion = Homb[1]
@@ -215,21 +259,6 @@ let archivo = document.querySelector("[data-archivo]");
 
 
         laSeccion(producto.value, precio.value,cuotas.value, interes.value, archivo.value);
-        if(e.target.matches(".form")){
-      
-         let parrafoModal = document.querySelector(".p_modal-in");
-         parrafoModal.textContent = `El producto "${producto.value}" ingreso correctamente!!`;
-         let modal = document.getElementById("modal");
-         modal.showModal();
-         setTimeout(function(){
-            modal.close();
-            location.reload();
-         }, 5000);
-      }
-        
-       
-        
-        
-    });
+     
   
-
+      });

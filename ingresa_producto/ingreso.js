@@ -1,6 +1,34 @@
 import { inService } from "../service/in-service.js";
 
+const   CodeError = () =>{
 
+    const modal = document.getElementById("modal");
+    let aceptar = document.getElementById("confirm");
+    let cancelar = document.getElementById("cancel");
+    const volver = document.createElement("button");
+    volver.setAttribute("class", "boton_volver");
+    volver.textContent = "Aceptar";
+    modal.getElementsByClassName("cont_error");
+    const spanTriengle = document.createElement("span");
+    spanTriengle.setAttribute("class", "fa-solid fa-triangle-exclamation");
+    const Mensaje = document.createElement("h1");
+    Mensaje.getAttribute("class", "text_prin");
+    Mensaje.classList.toggle("text_prin");
+    Mensaje.textContent = "Ocurrio un Error!! Pruebe denuevo";
+    modal.showModal();
+    modal.removeChild(aceptar);
+    modal.removeChild(cancelar);
+    
+    modal.appendChild(spanTriengle);
+    modal.appendChild(Mensaje);
+    modal.appendChild(volver);
+
+    volver.addEventListener("click", (e)=>{
+        modal.close();
+        location.reload();
+        
+        });
+};
 
 const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
     let linea = document.createElement("li");
@@ -97,13 +125,16 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
                   eliminarProducto(id).then(res => {
                    modal.close();
                 console.log( res.json());
+                if(res.status >= 400){
+                    CodeError();
+                }
   
                   })
                   .catch(err =>{
               
-  
+                      
                       modal.close();
-                      window.location.href = "../ingresa_producto/Error.html"});
+                      });
                   })
                
       
@@ -135,10 +166,8 @@ if (EstaPagina == "/html/H-Rem.html") {
             
         });
     })
-        .catch((err) => 
-       
-            window.location = inService.CodeError());
-        ; 
+        .catch((err) => CodeError());
+    
 };
 
 if (EstaPagina == "/html/H-Pant.html") {
@@ -152,7 +181,7 @@ if (EstaPagina == "/html/H-Pant.html") {
             ul.appendChild(nuevoProducto);
         });
     })
-        .catch((err) => window.location.href = "../ingresa_producto/Error.html");
+        .catch((err) => CodeError());
 };
 
 if (EstaPagina == "/html/H-Acce.html") {
@@ -176,7 +205,7 @@ if (EstaPagina == "/html/M-Rem.html") {
             ul.appendChild(nuevoProducto);
         });
     })
-        .catch((error) => window.location.href = "../ingresa_producto/Error.html");
+        .catch((error) => CodeError());
 };
 
 
@@ -189,7 +218,7 @@ if (EstaPagina == "/html/M-Pant.html") {
             ul.appendChild(nuevoProducto);
         });
     })
-        .catch((error) => window.location.href = "../ingresa_producto/Error.html");
+        .catch((error) => CodeError());
 };
 
 if (EstaPagina == "/html/M-Vest.html") {
@@ -201,7 +230,7 @@ if (EstaPagina == "/html/M-Vest.html") {
             ul.appendChild(nuevoProducto);
         });
     })
-        .catch((error) => window.location.href = "../ingresa_producto/Error.html");
+        .catch((error) =>CodeError());
 };
 
 if (EstaPagina == "/html/M-Acce.html") {
@@ -213,7 +242,7 @@ if (EstaPagina == "/html/M-Acce.html") {
             ul.appendChild(nuevoProducto);
         });
     })
-        .catch((error) => window.location.href = "../ingresa_producto/Error.html");
+        .catch((error) => CodeError());
 };
 
 if (EstaPagina == "/html/N-Rem.html") {
@@ -225,7 +254,7 @@ if (EstaPagina == "/html/N-Rem.html") {
             ul.appendChild(nuevoProducto);
         });
     })
-        .catch((error) => window.location.href = "../ingresa_producto/Error.html");
+        .catch((error) => CodeError());
 };
 
 if (EstaPagina == "/html/N-Pant.html") {
@@ -237,7 +266,7 @@ if (EstaPagina == "/html/N-Pant.html") {
             ul.appendChild(nuevoProducto);
         });
     })
-        .catch((error) => window.location.href = "../ingresa_producto/Error.html");
+        .catch((error) => CodeError());
 };
 
 if (EstaPagina == "/html/N-Vest.html") {
@@ -249,7 +278,7 @@ if (EstaPagina == "/html/N-Vest.html") {
             ul.appendChild(nuevoProducto);
         });
     })
-        .catch((error) => window.location.href = "../ingresa_producto/Error.html");
+        .catch((error) => CodeError());
 };
 
 if (EstaPagina == "/html/Ch-Rem.html") {
@@ -261,7 +290,7 @@ if (EstaPagina == "/html/Ch-Rem.html") {
             ul.appendChild(nuevoProducto);
         });
     })
-        .catch((error) => window.location.href = "../ingresa_producto/Error.html");
+        .catch((error) => CodeError());
 };
 
 if (EstaPagina == "/html/Ch-Pant.html") {
@@ -273,7 +302,7 @@ if (EstaPagina == "/html/Ch-Pant.html") {
             ul.appendChild(nuevoProducto);
         });
     })
-        .catch((error) => window.location.href = "../ingresa_producto/Error.html");
+        .catch((error) => CodeError());
 };
 
 

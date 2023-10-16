@@ -1,12 +1,38 @@
 import { inService } from "../service/in-service.js";
+
 const formulario = document.querySelector("[data-form]");
 const producto = document.querySelector(".name");
 const precio = document.querySelector(".bestprecio");
 const cuotas = document.querySelector(".cuotas");
 const interes = document.querySelector(".int");
 let archivo = document.querySelector(".image");
+const   CodeError = () =>{
 
+   const modal = document.getElementById("modal");
+   const volver = document.createElement("button");
+   const FaCheck = document.querySelector(".fa-solid.fa-check");
+   volver.setAttribute("class", "boton_volver");
+   volver.textContent = "Aceptar";
+   modal.getElementsByClassName("cont_error");
+   const spanTriengle = document.createElement("span");
+   spanTriengle.setAttribute("class", "fa-solid fa-triangle-exclamation");
+   const Mensaje = document.createElement("h1");
+   Mensaje.getAttribute("class", "text_prin");
+   Mensaje.classList.toggle("text_prin");
+   Mensaje.textContent = "Ocurrio un Error!! Pruebe denuevo";
+   modal.showModal();
+   modal.removeChild(FaCheck);
+   
+   modal.appendChild(spanTriengle);
+   modal.appendChild(Mensaje);
+   modal.appendChild(volver);
 
+   volver.addEventListener("click", (e)=>{
+       modal.close();
+       location.reload();
+       
+       });
+      }
 const obtenerInformacion = async () => {
 
    const url = new URL(window.location);
@@ -18,11 +44,11 @@ console.log(EstaPagina);
 
 
    if (id == null) {
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 
    if(EstaPagina == null){
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 
    if (EstaPagina == "H-Rem.html") {
@@ -46,7 +72,7 @@ console.log(EstaPagina);
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    };
 
@@ -72,7 +98,7 @@ console.log(EstaPagina);
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -98,7 +124,7 @@ console.log(EstaPagina);
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -125,7 +151,7 @@ console.log(EstaPagina);
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -152,7 +178,7 @@ console.log(EstaPagina);
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -179,7 +205,7 @@ console.log(EstaPagina);
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -207,7 +233,7 @@ console.log(EstaPagina);
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -234,7 +260,7 @@ console.log(EstaPagina);
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -262,7 +288,7 @@ console.log(EstaPagina);
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -291,7 +317,7 @@ console.log(EstaPagina);
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -319,7 +345,7 @@ console.log(EstaPagina);
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -349,7 +375,7 @@ console.log(EstaPagina)
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -384,7 +410,7 @@ formulario.addEventListener("submit", (e) => {
    inService.actualizarProductoH_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
      EdicionFin();
     //   window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 
@@ -392,34 +418,34 @@ if(EstaPagina == "H-Pant.html"){
    inService.actualizarProductoH_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       EdicionFin();
       // window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 if(EstaPagina == "H-Acce.html"){
    inService.actualizarProductoH_A(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 if(EstaPagina == "M-Rem.html"){
    inService.actualizarProductoW_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       EdicionFin();
      // window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 if(EstaPagina == "M-Pant.html"){
    inService.actualizarProductoW_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 if(EstaPagina == "M-Vest.html"){
    inService.actualizarProductoW_V(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 
@@ -427,28 +453,28 @@ if(EstaPagina == "M-Acce.html"){
    inService.actualizarProductoW_A(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 if(EstaPagina == "N-Rem.html"){
    inService.actualizarProductoN_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       EdicionFin();
      // window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 if(EstaPagina == "N-Pant.html"){
    inService.actualizarProductoN_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       EdicionFin();
       // window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 if(EstaPagina == "N-Vest.html"){
    inService.actualizarProductoN_V(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       EdicionFin();
       // window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 
@@ -456,7 +482,7 @@ if(EstaPagina == "Ch-Rem.html"){
    inService.actualizarProductoCH_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 
@@ -464,7 +490,7 @@ if(EstaPagina == "Ch-Pant.html"){
    inService.actualizarProductoCH_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
       EdicionFin();
      // window.location.href = "/ingresa_producto/prod_end.html";
-   }).catch(err => console.log(err))
+   }).catch(err => CodeError())
 };
 
 });
