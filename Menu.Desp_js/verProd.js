@@ -6,7 +6,35 @@ let archivo = document.querySelector(".image");
 const precio = document.querySelector(".bestprecio");
 const cuotas = document.querySelector(".cuotas");
 const interes = document.querySelector(".int");
-;
+
+
+// Creamos una funcion para que se muestre un cuadro de dialogo al producirse un error.
+const   CodeError = () =>{
+
+   const modal = document.getElementById("modal");
+   const volver = document.createElement("button");
+   volver.setAttribute("class", "boton_volver");
+   volver.textContent = "Aceptar";
+   modal.getElementsByClassName("cont_error");
+   const spanTriengle = document.createElement("span");
+   spanTriengle.setAttribute("class", "fa-solid fa-triangle-exclamation");
+   const Mensaje = document.createElement("h1");
+   Mensaje.getAttribute("class", "text_prin");
+   Mensaje.classList.toggle("text_prin");
+   Mensaje.textContent = "Ocurrio un Error!! Pruebe denuevo";
+   modal.showModal();
+   modal.appendChild(spanTriengle);
+   modal.appendChild(Mensaje);
+   modal.appendChild(volver);
+   
+   
+
+   volver.addEventListener("click", (e)=>{
+       modal.close();
+       location.reload();
+       
+       });
+      }
 
 const informeImg = async () => {
    let url = new URL(window.location);
@@ -33,18 +61,18 @@ function GetDatos(perfil){
       imgZoom.src = archivo;
    }
    else {
-      throw new Error();
+      throw CodeError();
    }
 };
 
    if (id == null) {
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
    
    
  
    if (EstaImg == null) {
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
    
    
@@ -57,7 +85,7 @@ function GetDatos(perfil){
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    };
 
@@ -71,7 +99,7 @@ function GetDatos(perfil){
       }
       catch (error) {
          console.error("Catch Error -", error);
-         window.location.href = "../ingresa_producto/Error.html";
+         CodeError();
       }
    }
 
@@ -83,7 +111,7 @@ if(EstaImg == "H-Acce.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 };
 
@@ -95,7 +123,7 @@ if(EstaImg == "M-Rem.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 };
 
@@ -107,7 +135,7 @@ if(EstaImg == "M-Pant.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 };
 
@@ -119,7 +147,7 @@ if(EstaImg == "M-Vest.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 };
 
@@ -131,7 +159,7 @@ if(EstaImg == "M-Acce.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 };
 
@@ -143,7 +171,7 @@ if(EstaImg == "N-Rem.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 };
 
@@ -156,7 +184,7 @@ if(EstaImg == "N-Pant.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 };
 
@@ -168,7 +196,7 @@ if(EstaImg == "N-Vest.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 };
 
@@ -180,7 +208,7 @@ if(EstaImg == "Ch-Rem.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 };
 
@@ -192,7 +220,7 @@ if(EstaImg == "Ch-Pant.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      window.location.href = "../ingresa_producto/Error.html";
+      CodeError();
    }
 };
 
