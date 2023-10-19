@@ -103,37 +103,30 @@
         font-family: cursive;
         font-size: 29px;
         color:black;
-        padding-top: 2em;
+        margin-bottom: 2em;
         text-align: center;
 
     }
-    .line{
-        font-size: 16px;
-        width: 70%;
-    
-    text-shadow: 2px 2px 12px 12px #838485b9;
-    }
+  
 
-    .tarj_cred{
-        margin:  2em;
-    font-size: 22px;
-    }
-
-
-.cards{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+/*.cards{
+    display: grid;
+    grid-template-columns: repeat(2fr);
+    text-align: center;
     gap: 2em;
-    margin-bottom: 2em;
-    margin-left: 1.5em;
-}
-
-.card_cuo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     
+    
+    
+   
+}*/
+.card_cuo{
+    display: grid;
+    grid-template-columns: repeat(2fr);
+    gap: 2em;
+    text-align: center;
+    
+    
+   
 }
 
 .cuote{
@@ -143,18 +136,8 @@
     
 }
 
-.t_cards{
-    margin: 2em;
-}
 
-.tarj_dev{
-    margin:  2em;
-    font-size: 22px;
-}
 
-.card_dev{
-    margin: 2em;
-}
 
 footer{max-width: 160%;
     height: 8em;
