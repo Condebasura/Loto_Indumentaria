@@ -1,153 +1,66 @@
-.contenedor{background-color: rgb(251, 246, 252)
-    ;max-width: 100%;
-    overflow-x: hidden;}
-    
-.brra-cont{
-    max-width: 102% ;
-    height:7em  ;
-    background:linear-gradient(to right , #4169e1b9, #ff4400a1 ) ;
-     box-shadow: 1px 1px 8px rgb(141, 139, 139);
-    margin-top: -1.3em;
-    margin-left: -1em ;
-    margin-right: -1em ; 
-    }
+#modal {
+    border: none;
+    overflow: hidden;
 
-    .logo{max-width: 8em;
-        position: relative; top: -3.3em;
-        margin-left: 3em;
-    }
+}
 
-    .sech{float: right;
-        display: flex;
-        position: relative;top: -21em;}
-    
-        .fa-search , .input{
-            border-style: none;
-              height: 30px;
-               }
+.fa-circle-xmark {
+    color: rgb(114, 110, 110);
+    float: right;
+    margin: -17px;
+    position: relative;
+    z-index: 1;
+}
 
-               .fa-search{display: flex;
-                flex-wrap: wrap;
-                position: relative;right: 2em;top: 1px;
-                align-items: center;
-            background:#f7f6f4;
-            color:rgba(36, 37, 37, 0.932);
-            text-shadow: 1px 1px 2px rgb(218, 216, 216);
-            font-size: 12px;
-            cursor: pointer;
-            outline-style: none;
-            border-radius:  10px 1px 1px 10px;
-            
-            }
-            
-            .input{display: flex
-                ;background: #faf8f8;
-            outline-style: none;
-            box-shadow: 0px 0.1px 0px  #954353;
-            color: #1e201f;
-            text-shadow: 2px 2px 2px  #9e9fa0;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        border-radius: 10px 1px 1px 10px;}
-         
+.fa-circle-xmark:hover {
+    color: red;
+}
 
-        .fa-search:focus{box-shadow:0px 1px 5px#8b8a8a;} 
-        
-        .input:focus{box-shadow: 1px 5px 15px  #88878452;}
-    
-    .fa-search:hover{box-shadow:0px 1px 5px#8b8a8a;}
-    
-    
+.titulo {
+    font-family: cursive;
+    font-size: 29px;
+    color: black;
+    margin-bottom: .3em;
+    padding: .6em;
+    text-align: center;
 
-    .caja_cont{display: flex;
-        flex-direction: row;
-        justify-content: center;
-        max-width: 100%;
-        margin: 5em;
-        padding: 3em;
-        
-                  
-        
-    }
-
-    
-    .cont_flex{ display: flex;
-        flex-direction: column;
-        box-shadow: 2px 2px 8px 2px rgba(126, 124, 124, 0.747) ;
-        border-radius: 1em;
-        margin: 1em;
-       max-height: 100%;
-       
-       
-       
-       
-    }
-
-    .box_back{display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 1em;
-        margin: 2em;
-    }
-
-    .fa-circle-arrow-left{
-        font-size: 25px;
-        color: green;
-    }
-    .fa-circle-arrow-left:active{
-     box-shadow: 1px 2px 6px #9ea0a1e7;
-     color: rgb(25, 194, 33);
-     border-radius: 2em;
-    }
+}
 
 
-    #modal{
-
-        overflow: hidden;
-    
-    }
-    .titulo{
-        font-family: cursive;
-        font-size: 29px;
-        color:black;
-        margin-bottom: .3em;
-        text-align: center;
-
-    }
-  
-
-.cards{
-    display: fgrid;
+.cards {
+    display: grid;
     grid-template-columns: repeat(2fr);
     text-align: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     gap: 2em;
-    
-    
-    
-   
+    margin: 1em;
+
+
+
+
 }
-.card_cuo{
+
+/*.card_cuo{
     display: grid;
     grid-template-columns: repeat(2fr);
     gap: 2em;
     text-align: center;
+  
+}*/
 
-    
-    
-   
+.cuote {
+    color: green;
+    font-size: 13px;
+    padding: 5px;
+
+
 }
 
-.cuote{
-    color:green;
-    font-size: 13px;  
-padding: 5px;  
-    
-}
 
 
 
-
-footer{max-width: 160%;
+footer {
+    max-width: 160%;
     height: 8em;
     background-color: #000000c9;
     margin-top: 14em;
@@ -157,17 +70,26 @@ footer{max-width: 160%;
     text-align: center;
     border-top-style: solid;
     border-top-color: rgb(241, 102, 10);
-    color: cornsilk;}
-    
-    .fa-twitter-square, .fa-facebook-square, .fa-hashtag{font-size:  30px;
-    position: relative;left: 1em;
+    color: cornsilk;
+}
+
+.fa-twitter-square,
+.fa-facebook-square,
+.fa-hashtag {
+    font-size: 30px;
+    position: relative;
+    left: 1em;
     top: 5px;
     margin-right: 5px;
     color: white;
-    text-decoration: none;}
-    
-    .sig{font-size: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
-    
-    .der{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+    text-decoration: none;
+}
 
+.sig {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.der {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

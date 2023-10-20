@@ -20,22 +20,22 @@ e.preventDefault();
       ];
       const modal = document.getElementById("modal");
       modal.innerHTML = "";
-   
+   const salir = document.createElement("i");
    const titulo = document.createElement("h1");
-
    const cards = document.createElement("div");
-   cards.setAttribute("class", "cards");
    const cuote = document.createElement("span");
    
+   cards.setAttribute("class", "cards");
    titulo.setAttribute("class", "titulo");
-   
    cuote.setAttribute("class", "cuote");
+   salir.setAttribute("class", "fa-solid fa-circle-xmark");
    
    
    titulo.textContent = "Medios de pago y promociones";
    cuote.textContent = "Hasta 3 cuotas sin interes";
    
    modal.showModal();
+   modal.appendChild(salir);
    modal.appendChild(titulo);
    modal.appendChild(cuote);
 
@@ -56,12 +56,15 @@ e.preventDefault();
    
    
   
+   salir.addEventListener("click", (e)=>{
+      if(e.target){
+         modal.close();
+         modal.innerHTML = "";
+         
+      }
+      
+   })
 }
- else{
-   modal.close();
-    modal.innerHTML = "";
-
- }
 
 }); 
 
