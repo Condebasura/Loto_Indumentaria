@@ -99,31 +99,39 @@
      border-radius: 2em;
     }
 
+
+    #modal{
+
+        overflow: hidden;
+    
+    }
     .titulo{
         font-family: cursive;
         font-size: 29px;
         color:black;
-        margin-bottom: 2em;
+        margin-bottom: .3em;
         text-align: center;
 
     }
   
 
-/*.cards{
-    display: grid;
+.cards{
+    display: fgrid;
     grid-template-columns: repeat(2fr);
     text-align: center;
+    justify-content: space-around;
     gap: 2em;
     
     
     
    
-}*/
+}
 .card_cuo{
     display: grid;
     grid-template-columns: repeat(2fr);
     gap: 2em;
     text-align: center;
+
     
     
    
@@ -131,8 +139,8 @@
 
 .cuote{
     color:green;
-    font-size: 13px;
-    
+    font-size: 13px;  
+padding: 5px;  
     
 }
 

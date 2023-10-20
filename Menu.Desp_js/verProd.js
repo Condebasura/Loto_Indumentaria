@@ -25,33 +25,34 @@ e.preventDefault();
 
    const cards = document.createElement("div");
    cards.setAttribute("class", "cards");
+   const cuote = document.createElement("span");
    
    titulo.setAttribute("class", "titulo");
    
+   cuote.setAttribute("class", "cuote");
    
    
    titulo.textContent = "Medios de pago y promociones";
+   cuote.textContent = "Hasta 3 cuotas sin interes";
    
    modal.showModal();
    modal.appendChild(titulo);
+   modal.appendChild(cuote);
+
    modal.appendChild(cards);
+  
    urls.forEach(url =>{
       const divCard = document.createElement("div");
       const imgCard = document.createElement("img")
-      const cuote = document.createElement("span");
       imgCard.src = url;
       console.log(url);
       divCard.setAttribute("class", "card_cuo");
-      cuote.setAttribute("class", "cuote");
       imgCard.setAttribute("class", "t_cards");
-      cuote.textContent = "Hasta 3 cuotas sin interes";
-      cards.appendChild(divCard);
+      
      // modal.appendChild(divCard); 
-      divCard.appendChild(imgCard);
-
-      divCard.appendChild(cuote);
+     cards.appendChild(divCard);
+     divCard.appendChild(imgCard);
    })
-
    
    
   
