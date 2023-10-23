@@ -10,7 +10,7 @@
     },
     {
       "producto": "Remera trucha",
-      "precio": "1243",
+      "precio": "1245",
       "cuotas": "1",
       "interes": "0",
       "archivo": "C:\\fakepath\\remera-estamp-1.jpg",
@@ -66,14 +66,6 @@
     }
   ],
   "Hom_Pantalones": [
-    {
-      "producto": "Pantalon coso",
-      "precio": "5646",
-      "cuotas": "3",
-      "interes": "0",
-      "archivo": "C:\\fakepath\\babucha-gris-puño-1.jpeg",
-      "id": "d0d807d4-0c40-4ca5-a9fb-4814c3addbdc"
-    },
     {
       "producto": "paco jerlo",
       "precio": "4570",

@@ -116,7 +116,7 @@ const crearnuevoProducto = (producto, precio, cuotas, interes, archivo, id) => {
             let aceptar = document.getElementById("confirm");
             let cancelar = document.getElementById("cancel");
             let parrafoModal = document.querySelector(".p_modal");
-            parrafoModal.textContent = `Se va a eliminar el producto ${producto}`;
+            parrafoModal.textContent = `Se va a eliminar el producto: ${producto} !!`;
             let modal = document.getElementById("modal");
             modal.showModal();
             if(aceptar){
