@@ -1,4 +1,6 @@
-    header{display: flex;
+    header{ 
+        align-content: center;
+        display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             align-items: baseline;
@@ -11,6 +13,9 @@
             border-bottom-right-radius: 2em;
         box-shadow: 0.7px 0px 0.6px #5454558c;
     border-collapse: separate;}
+   
+
+    
          
     .fa-home{position: relative;left: 1em;
         font-size:  20px;
@@ -34,7 +39,7 @@
        cursor: pointer;
        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
        color: #F5FFFA;
-       font-size:  20px;
+       font-size:  2vh;
         }
         
         .desp-hom{display:none;
@@ -45,7 +50,7 @@
             display: flex;
             max-width:100%;
            padding: 4px;
-            position: absolute;;left: 1.8em;top: 1.2em
+            position: absolute;;left: 1em;top: 3.2em
             ;margin-top: 0.6em;z-index: 1;
            
         }
@@ -75,18 +80,18 @@
         text-decoration: none;
         padding: 15px;
         color: black;
-        font-size: 17px;
+        font-size: 2vh;
         }
         
         
        
              
-         .homb:hover{box-shadow: 0px 1px 0px #cc8a8a;}
+         .homb:hover{box-shadow: 0px 1px 0px #e64d4d;}
         
         
         
         .hombre:hover{box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
-        background-color: #fffaf56e;
+        
         color: black;
         }
         
@@ -100,7 +105,7 @@
        cursor: pointer;
        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
        color: #F5FFFA;
-       font-size:  20px;}
+       font-size:  2vh;}
         
         .desp-muj{display:none;
             }
@@ -109,8 +114,8 @@
             display: flex;
             max-width:100%;
             padding: 4px;
-             position: absolute;right:13.3em;top: 1.2em;
-             ;margin-top:0.6em;z-index: 1;
+             position: absolute;right: 13em;top: 3.2em;
+             margin-top:0.6em;z-index: 1;
          }
         
       
@@ -129,14 +134,14 @@
             padding: 15px;
             max-width: 100%;
             color: black;
-        font-size: 17px;}
+        font-size: 2vh;}
         
         .wom:hover{box-shadow: 0px 1px 0px #cc8a8a;}
         
         
         
         .mujer:hover{box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
-        background-color: #fffaf56e;
+       
         color: black;
         }
         
@@ -150,7 +155,7 @@
        cursor: pointer;
        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
        color: #F5FFFA;
-       font-size:  20px;}
+       font-size:  2vh;}
         
         
         .desp-niña{display:none;
@@ -160,7 +165,7 @@
             display: flex;
             max-width:100%;
             padding: 4px;
-             position: absolute;;right: 6.9em;top: 1.2em
+             position: absolute;;right: 6em;top: 3.2em
              ;margin-top:0.6em;z-index: 1;
          }
         
@@ -180,13 +185,13 @@
             padding: 15px;
             max-width: 100%;
             color: black;
-        font-size: 17px;}
+        font-size: 2vh;}
         
         .g:hover{box-shadow: 0px 1px 0px #cc8a8a;}
     
         
         .niña:hover{box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
-        background-color: #fffaf56e;
+       
         color: black;
         }
         
@@ -200,7 +205,7 @@
        cursor: pointer;
        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
        color: #F5FFFA;
-       font-size:  20px;}
+       font-size:  2vh;}
         
         .desp-niño{display:none;
           }
@@ -209,7 +214,7 @@
             display: flex;
             max-width: 100%;
             padding: 4px;
-             position: absolute;;right: 0.7em;top:1.2em
+             position: absolute;;right: -0.7em;top:3.2em
              ;margin-top:0.6em;z-index: 1;
          }
         
@@ -228,14 +233,14 @@
             text-decoration: none;
             padding: 15px;
             color: black;
-        font-size: 17px;}
+        font-size: 2vh;}
         
         .ch:hover{box-shadow: 0px 1px 0px #cc8a8a;}
         
   
         
         .niño:hover{box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
-        background-color: #fffaf56e;
+        
         color: black;
         }
 

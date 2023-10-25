@@ -14,7 +14,9 @@
     .logo{max-width: 8em;
         position: absolute;top: -3.3em;
         margin-left: 3em;} 
-        
+
+       
+      
 
         
         .sech{float: right;
@@ -64,7 +66,14 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-evenly;
-             }
+            }
+            /* ajustamos el contenedor de los productos para que no quede tan pegado a la barra de navegacion      */
+
+            .cont-ul{
+                margin-top:  7em;
+            }
+
+
             @media (max-width: 1385px) {
                 
                 header{ position: absolute; top: 3.7em}

@@ -239,7 +239,7 @@ height: 90%;
     color: #f7f6f4;
     font-size: 2vh;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-    width: 100%;
+    width: 90%;
     height: 3em;
     overflow: hidden;
     white-space: wrap;
@@ -253,12 +253,12 @@ height: 90%;
     background-color: rgb(217, 219, 243);
     cursor: pointer;
     color: rgb(71, 71, 248);
-    font-size: 2vh;
+    font-size: 1.7vh;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-    width: 100%;
+    width: 90%;
     height: 3em;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: none;
     white-space: wrap;
     
 }
