@@ -260,6 +260,12 @@
             color: #444444;
 
         }
+
+        .p_modal{
+            color: rgba(172, 168, 168, 0.541);
+            text-shadow: 1px 1px 1px rgb(250, 30, 30) ;
+            font-size: 33px;
+        }
         
         #confirm {
             text-align: center;
@@ -267,10 +273,12 @@
             height: 20%;
             margin: 1em;
             box-shadow: .2px .2px 8px .2px #444444;
+            padding: .7em;
         
         }
         
         #cancel{
+            padding: .7em;
             border-style: none;
             height: 20%;
             margin: 1em;
@@ -278,12 +286,15 @@
             
         }
 
-        #cancel:hover , #confirm:hover{
+        #cancel:hover{
             color: white;
             background-color: green;
         }
 
-       
+        #confirm:hover{
+            color: white;
+            background-color: red;
+        }
 
         @media (max-width: 1385px) {
                 
