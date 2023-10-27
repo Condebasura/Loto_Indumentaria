@@ -2,7 +2,7 @@ const formulario = document.querySelector("[data-form]");
 let producto = document.querySelector("[data-producto]");
 let precio = document.querySelector("[data-precio]");
 let cuotas = document.querySelector("[data-cuotas]");
-let interes = document.querySelector("[data-interes]");
+
 let archivo = document.querySelector("[data-archivo]");
    
         let hom = document.querySelector(".hombre");
@@ -65,7 +65,7 @@ let archivo = document.querySelector("[data-archivo]");
   
   
        
-     const laSeccion = (producto, precio, cuotas, interes,archivo) => {
+     const laSeccion = (producto, precio, cuotas,archivo) => {
         if(seccion.value == "Hombres" && sub_seccion.value == "Remeras"){
         seccion = hom; 
         sub_seccion = Homb[0];
@@ -73,7 +73,7 @@ let archivo = document.querySelector("[data-archivo]");
 
        return fetch("http://localhost:3000/Hom_Remeras",{
          method: "POST",
-         body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+         body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
          headers:{
             'Content-Type': 'application/json'
          }
@@ -92,7 +92,7 @@ let archivo = document.querySelector("[data-archivo]");
        sub_seccion = Homb[1]
        return fetch("http://localhost:3000/Hom_Pantalones",{
          method: "POST",
-         body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+         body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
          headers:{
             'Content-Type': 'application/json'
          }
@@ -105,7 +105,7 @@ let archivo = document.querySelector("[data-archivo]");
         sub_seccion = Homb[3];    
         return fetch("http://localhost:3000/Hom_Accesorios",{
          method: "POST",
-         body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+         body: JSON.stringify({producto, precio, cuotas, archivo, id: uuid.v4()}),
          headers:{
             'Content-Type': 'application/json'
          }
@@ -122,7 +122,7 @@ let archivo = document.querySelector("[data-archivo]");
         sub_seccion = Wom[0];
         return fetch("http://localhost:3000/Wom_Remeras",{
          method: "POST",
-         body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+         body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
          headers:{
             'Content-Type': 'application/json'
          }
@@ -135,7 +135,7 @@ let archivo = document.querySelector("[data-archivo]");
            sub_seccion = Wom[1];
            return fetch("http://localhost:3000/Wom_Pantalones",{
             method: "POST",
-            body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+            body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
                'Content-Type': 'application/json'
             }
@@ -149,7 +149,7 @@ let archivo = document.querySelector("[data-archivo]");
            sub_seccion = Wom[2];
            return fetch("http://localhost:3000/Wom_Vestidos",{
             method: "POST",
-            body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+            body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
                'Content-Type': 'application/json'
             }
@@ -162,7 +162,7 @@ let archivo = document.querySelector("[data-archivo]");
             sub_seccion = Wom[3];
             return fetch("http://localhost:3000/Wom_Accesorios",{
                method: "POST",
-               body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+               body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
                headers:{
                   'Content-Type': 'application/json'
                }
@@ -180,7 +180,7 @@ let archivo = document.querySelector("[data-archivo]");
            sub_seccion = g[0];
            return fetch("http://localhost:3000/Nena_Remeras",{
             method: "POST",
-            body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+            body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
                'Content-Type': 'application/json'
             }
@@ -194,7 +194,7 @@ let archivo = document.querySelector("[data-archivo]");
            sub_seccion = g[1];
            return fetch("http://localhost:3000/Nena_Pantalones",{
             method: "POST",
-            body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+            body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
                'Content-Type': 'application/json'
             }
@@ -208,7 +208,7 @@ let archivo = document.querySelector("[data-archivo]");
            sub_seccion = g[2];
            return fetch("http://localhost:3000/Nena_Vestidos",{
             method: "POST",
-            body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+            body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
                'Content-Type': 'application/json'
             }
@@ -224,7 +224,7 @@ let archivo = document.querySelector("[data-archivo]");
                sub_seccion = ch[0];
                return fetch("http://localhost:3000/Nene_Remeras",{
             method: "POST",
-            body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+            body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
                'Content-Type': 'application/json'
             }
@@ -238,7 +238,7 @@ let archivo = document.querySelector("[data-archivo]");
             sub_seccion = ch[1];
             return fetch("http://localhost:3000/Nene_Pantalones",{
                method: "POST",
-               body: JSON.stringify({producto, precio, cuotas, interes,archivo, id: uuid.v4()}),
+               body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
                headers:{
                   'Content-Type': 'application/json'
                }
@@ -258,7 +258,7 @@ let archivo = document.querySelector("[data-archivo]");
 
 
 
-        laSeccion(producto.value, precio.value,cuotas.value, interes.value, archivo.value);
+        laSeccion(producto.value, precio.value,cuotas.value, archivo.value);
      
   
       });

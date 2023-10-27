@@ -4,7 +4,6 @@ const formulario = document.querySelector("[data-form]");
 const producto = document.querySelector(".name");
 const precio = document.querySelector(".bestprecio");
 const cuotas = document.querySelector(".cuotas");
-const interes = document.querySelector(".int");
 let archivo = document.querySelector(".image");
 const   CodeError = () =>{
 
@@ -58,11 +57,11 @@ console.log(EstaPagina);
       try {
          const perfil = await inService.detalleProductoH_R(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas &&  perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
+            
             archivo = perfil.archivo;
 
          }
@@ -84,11 +83,10 @@ console.log(EstaPagina);
       try {
          const perfil = await inService.detalleProductoH_P(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas  && perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
             archivo = perfil.archivo;
 
          }
@@ -110,11 +108,10 @@ console.log(EstaPagina);
       try {
          const perfil = await inService.detalleProductoH_A(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas &&  perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
             archivo = perfil.archivo;
 
          }
@@ -137,11 +134,10 @@ console.log(EstaPagina);
       try {
          const perfil = await inService.detalleProductoW_R(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas &&  perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
             archivo = perfil.archivo;
 
          }
@@ -164,11 +160,10 @@ console.log(EstaPagina);
       try {
          const perfil = await inService.detalleProductoW_P(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas &&  perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
             archivo = perfil.archivo;
 
          }
@@ -191,11 +186,10 @@ console.log(EstaPagina);
       try {
          const perfil = await inService.detalleProductoW_V(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas &&  perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
             archivo = perfil.archivo;
 
          }
@@ -219,11 +213,10 @@ console.log(EstaPagina);
       try {
          const perfil = await inService.detalleProductoW_A(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas  && perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
             archivo = perfil.archivo;
 
          }
@@ -246,11 +239,10 @@ console.log(EstaPagina);
       try {
          const perfil = await inService.detalleProductoN_R(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas &&  perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
             archivo = perfil.archivo;
 
          }
@@ -274,11 +266,10 @@ console.log(EstaPagina);
       try {
          const perfil = await inService.detalleProductoN_P(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas &&  perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
             archivo = perfil.archivo;
 
          }
@@ -303,11 +294,10 @@ console.log(EstaPagina);
       try {
          const perfil = await inService.detalleProductoN_V(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas &&  perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
             archivo = perfil.archivo;
 
          }
@@ -331,11 +321,10 @@ console.log(EstaPagina);
       try {
          const perfil = await inService.detalleProductoCH_R(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas &&  perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
             archivo = perfil.archivo;
 
          }
@@ -361,11 +350,10 @@ console.log(EstaPagina)
       try {
          const perfil = await inService.detalleProductoCH_P(id);
          console.log(perfil);
-         if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
+         if (perfil.producto && perfil.precio && perfil.cuotas  && perfil.archivo) {
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            interes.value = perfil.interes;
             archivo = perfil.archivo;
 
          }
@@ -407,7 +395,7 @@ formulario.addEventListener("submit", (e) => {
    
   
    if(EstaPagina == "H-Rem.html"){
-   inService.actualizarProductoH_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoH_R(producto.value, precio.value, cuotas.value, archivo, id).then(() => {
      EdicionFin();
     //   window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
@@ -415,34 +403,34 @@ formulario.addEventListener("submit", (e) => {
 
 
 if(EstaPagina == "H-Pant.html"){
-   inService.actualizarProductoH_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoH_P(producto.value, precio.value, cuotas.value, archivo, id).then(() => {
       EdicionFin();
       // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "H-Acce.html"){
-   inService.actualizarProductoH_A(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoH_A(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "M-Rem.html"){
-   inService.actualizarProductoW_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoW_R(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
       EdicionFin();
      // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "M-Pant.html"){
-   inService.actualizarProductoW_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoW_P(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "M-Vest.html"){
-   inService.actualizarProductoW_V(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoW_V(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
@@ -450,28 +438,28 @@ if(EstaPagina == "M-Vest.html"){
 
 
 if(EstaPagina == "M-Acce.html"){
-   inService.actualizarProductoW_A(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoW_A(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "N-Rem.html"){
-   inService.actualizarProductoN_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoN_R(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
       EdicionFin();
      // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "N-Pant.html"){
-   inService.actualizarProductoN_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoN_P(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
       EdicionFin();
       // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "N-Vest.html"){
-   inService.actualizarProductoN_V(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoN_V(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
       EdicionFin();
       // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
@@ -479,7 +467,7 @@ if(EstaPagina == "N-Vest.html"){
 
 
 if(EstaPagina == "Ch-Rem.html"){
-   inService.actualizarProductoCH_R(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoCH_R(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
@@ -487,7 +475,7 @@ if(EstaPagina == "Ch-Rem.html"){
 
 
 if(EstaPagina == "Ch-Pant.html"){
-   inService.actualizarProductoCH_P(producto.value, precio.value, cuotas.value, interes.value, archivo, id).then(() => {
+   inService.actualizarProductoCH_P(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
       EdicionFin();
      // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
