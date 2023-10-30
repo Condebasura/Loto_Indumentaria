@@ -25,7 +25,11 @@ search.addEventListener("keypress", async (e) => {
       fetch(prod).then(res => res.json())
       .then(data =>{
          let datos = data;
-         console.log(datos)
+         datos.forEach(el => {
+         if(el.producto.toLowerCase().includes(search.value.toLowerCase())){
+            console.log(el.producto, el.precio);
+         }
+         });
       })
         
    
