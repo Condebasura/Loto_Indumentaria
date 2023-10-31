@@ -34,8 +34,13 @@ img{max-width: 8em;
         box-shadow: 0.7px 0px 0.6px #5454558c;
     border-collapse: separate;}
          
-    
-
+  
+    .result{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+        
+    }
+   
 
          .hombre{margin-right: 3em;
             margin-left: 2em;
