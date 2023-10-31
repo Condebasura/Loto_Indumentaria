@@ -35,13 +35,18 @@ img{max-width: 8em;
     border-collapse: separate;}
          
   
-    .result{
+    #product{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-        
-    }
+      z-index: 1;
+     
+   }
    
-
+.box-prod{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
          .hombre{margin-right: 3em;
             margin-left: 2em;
             padding: 6px;

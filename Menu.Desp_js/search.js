@@ -1,8 +1,9 @@
 
  const search = document.querySelector(".input");
- const cajaProd = document.querySelector(".caja-prod");
-const lista = document.getElementById("result").content;
-const modal = document.getElementById("modal");
+ 
+const template = document.getElementById("result").content;
+const Prod = document.getElementById("product");
+
 const fragment = document.createDocumentFragment(); 
 const urls =[
    'Hom_Remeras',
@@ -30,26 +31,27 @@ search.addEventListener("keypress", async (e) => {
             let datos = data;
             datos.forEach(el => {
             if(el.producto.toLowerCase().includes(search.value.toLowerCase())){
-               lista.querySelector("h3").textContent = el.producto;
-               lista.querySelector("img").src = el.archivo;
-             
+              template.querySelector("h3").textContent = el.producto;
+              template.querySelector("h3").style.fontSize = "16px";
+              template.querySelector("img").src = el.archivo;
 
            
-            let clone = document.importNode(lista,true);
+            let clone = document.importNode(template,true);
            fragment.appendChild(clone);
-          
-           modal.appendChild(fragment);
-        ;
-           
-           
-         
-           console.log(fragment)
-         }
-      });
-   })
-   modal.showModal();
    
+            }
+      });
+     
+      Prod.appendChild(fragment);
+      
+})
+
 }
+
+
+    
+
+
 
    
 
@@ -63,15 +65,15 @@ search.addEventListener("keypress", async (e) => {
          
        salir.addEventListener("click", e =>{
          if(e.target){
-            modal.close();
-            modal.innerHTML = "";
+           
+            Prod.innerHTML = "";
             search.value = "";
          }
        });
        window.addEventListener("keyup", e =>{
          if(e.key === "Escape") {
-            modal.close();
-            modal.innerHTML = "";
+            
+            Prod.innerHTML = "";
             search.value = "";
          }
        });
