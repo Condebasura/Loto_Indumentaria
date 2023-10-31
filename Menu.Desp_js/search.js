@@ -34,7 +34,7 @@ search.addEventListener("keypress", async (e) => {
               template.querySelector("h3").textContent = el.producto;
               template.querySelector("h3").style.fontSize = "16px";
               template.querySelector("img").src = el.archivo;
-
+               template.querySelector("img").setAttribute("class", "img_search");
            
             let clone = document.importNode(template,true);
            fragment.appendChild(clone);
