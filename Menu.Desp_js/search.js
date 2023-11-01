@@ -21,8 +21,13 @@ const urls =[
 ];
 // en camino a que funcione el buscador, falta tiempo ,!!!
 search.addEventListener("keypress", async (e) => {
-   if(e.key === "Enter"){  
-     
+   
+        if(search.value == "" && e.key == "Enter"){
+         Prod.style.display = "none";
+
+        }
+    if(e.key === "Enter" && search.value != ""){  
+      Prod.style.display = "flex";
      
       for(let url of urls){
          let prod = `http://localhost:3000/${url}`;
@@ -31,15 +36,18 @@ search.addEventListener("keypress", async (e) => {
             let datos = data;
             datos.forEach(el => {
             if(el.producto.toLowerCase().includes(search.value.toLowerCase())){
-              template.querySelector("h3").textContent = el.producto;
-              template.querySelector("h3").style.fontSize = "16px";
-              template.querySelector("img").src = el.archivo;
+                Prod.innerHTML = "";
+               template.querySelector("h3").textContent = el.producto;
+               template.querySelector("h3").style.fontSize = "16px";
+               template.querySelector("img").src = el.archivo;
                template.querySelector("img").setAttribute("class", "img_search");
-           
-            let clone = document.importNode(template,true);
-           fragment.appendChild(clone);
-   
+               
+              
+               let clone = document.importNode(template,true);
+               fragment.appendChild(clone);
+               
             }
+          
       });
      
       Prod.appendChild(fragment);
@@ -47,7 +55,37 @@ search.addEventListener("keypress", async (e) => {
 })
 
 }
+  }
 
+ 
+
+     let salir = document.createElement("button");
+salir.textContent = "salir";
+
+salir.addEventListener("click", e =>{
+   if(e.target || search.value == ""){
+      
+      Prod.innerHTML = "";
+      Prod.style.display = "none";
+      
+}
+});
+window.addEventListener("keyup", e =>{
+if(e.key === "Escape" || search.value == "") {
+   
+   Prod.innerHTML = "";
+   Prod.style.display = "none";
+   
+   
+}
+})
+
+     
+
+
+
+   
+})
 
     
 
@@ -60,27 +98,4 @@ search.addEventListener("keypress", async (e) => {
       
       
          
-         let salir = document.createElement("button");
-         salir.textContent = "salir";
-         
-       salir.addEventListener("click", e =>{
-         if(e.target){
-           
-            Prod.innerHTML = "";
-            search.value = "";
-         }
-       });
-       window.addEventListener("keyup", e =>{
-         if(e.key === "Escape") {
-            
-            Prod.innerHTML = "";
-            search.value = "";
-         }
-       });
-   }
-  
-
-
-
-})
 

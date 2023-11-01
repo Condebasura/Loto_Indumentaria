@@ -36,16 +36,28 @@ overflow-x: hidden;}
          
   
     #product{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-      z-index: 1;
+        box-shadow: 2px 2px 12px ;
+       display: flex;
+       flex-direction: column;
+       max-width: 15vh;
+       padding: 2em;
+       position: absolute;right: 1em;
+       margin-top: 6px;
+       background-color: whitesmoke;
+   max-height: 40%;
+    overflow-y: scroll;
+       
      
    }
-   
+ 
 .box-prod{
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+    box-shadow: 1px 1px 11px #797878;
+    margin-top:  2em;
 }
          .hombre{margin-right: 3em;
             margin-left: 2em;
