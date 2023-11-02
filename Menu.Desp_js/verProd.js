@@ -99,12 +99,12 @@ const   CodeError = () =>{
        
        });
       }
-
-const informeImg = async () => {
-   let url = new URL(window.location);
-   const id = url.searchParams.get("id");
-   console.log(id);
-   let EstaImg = url.searchParams.get("estaimg");
+      
+      const informeImg = async () => {
+         let url = new URL(window.location);
+         const id = url.searchParams.get("id");
+         console.log(id);
+   let  EstaImg = url.searchParams.get("estaimg");
    console.log(EstaImg);
 function GetDatos(perfil){
    if (perfil.producto && perfil.precio && perfil.cuotas && perfil.interes && perfil.archivo) {
@@ -294,4 +294,4 @@ if(EstaImg == "Ch-Pant.html"){
 };
 informeImg();
 
-export {archivo};
+export {archivo };

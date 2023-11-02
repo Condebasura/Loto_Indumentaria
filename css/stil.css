@@ -33,9 +33,11 @@ overflow-x: hidden;}
             border-bottom-right-radius: 2em;
         box-shadow: 0.7px 0px 0.6px #5454558c;
     border-collapse: separate;}
-         
+         .product{
+            display: none;
+         }
   
-    #product{
+    .product_search{
         box-shadow: 2px 2px 12px ;
        display: flex;
        flex-direction: column;
@@ -58,6 +60,12 @@ overflow-x: hidden;}
     text-align: center;
     box-shadow: 1px 1px 11px #797878;
     margin-top:  2em;
+    gap: 1em;
+    width: 100%;
+}
+
+.ver_prod{
+    font-size: 13px;
 }
          .hombre{margin-right: 3em;
             margin-left: 2em;
