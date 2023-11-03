@@ -5,7 +5,7 @@ const producto = document.querySelector(".name");
 
 
 
-const listaProductosH_R = () => fetch(`http://localhost:3000/Hom_Remeras`)
+const listaProductosH_R = () => fetch(`http://localhost:3000/H-Rem`)
     .then(res => res.json()
     )
     
@@ -15,13 +15,13 @@ const listaProductosH_R = () => fetch(`http://localhost:3000/Hom_Remeras`)
 
 
 const detalleProductoH_R = (id) => {
-    return fetch(`http://localhost:3000/Hom_Remeras/${id}`).then((res) =>  res.json()
+    return fetch(`http://localhost:3000/H-Rem/${id}`).then((res) =>  res.json()
             
         )
 }
 
 const actualizarProductoH_R = (producto, precio, cuotas, archivo, id) => {
-    return fetch(`http://localhost:3000/Hom_Remeras/${id}`, {
+    return fetch(`http://localhost:3000/H-Rem/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -36,12 +36,12 @@ const actualizarProductoH_R = (producto, precio, cuotas, archivo, id) => {
 };
 
 
-const listaProductosH_P = () => fetch(`http://localhost:3000/Hom_Pantalones`)
+const listaProductosH_P = () => fetch(`http://localhost:3000/H-Pant`)
     .then(res => res.json())
 
 
 const detalleProductoH_P = (id) => {
-    return fetch(`http://localhost:3000/Hom_Pantalones/${id}`)
+    return fetch(`http://localhost:3000/H-Pant/${id}`)
         .then((res) =>
             res.json()
 
@@ -49,7 +49,7 @@ const detalleProductoH_P = (id) => {
 }
 
 const actualizarProductoH_P = (producto, precio, cuotas, archivo, id) => {
-    return fetch(`http://localhost:3000/Hom_Pantalones/${id}`, {
+    return fetch(`http://localhost:3000/H-Pant/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -61,12 +61,12 @@ const actualizarProductoH_P = (producto, precio, cuotas, archivo, id) => {
 };
 
 
-const listaProductosH_A = () => fetch(`http://localhost:3000/Hom_Accesorios`)
+const listaProductosH_A = () => fetch(`http://localhost:3000/H-Acce`)
     .then(res => res.json())
 
 
 const detalleProductoH_A = (id) => {
-    return fetch(`http://localhost:3000/Hom_Accesorios/${id}`)
+    return fetch(`http://localhost:3000/H-Acce/${id}`)
         .then((res) =>
             res.json()
 
@@ -74,7 +74,7 @@ const detalleProductoH_A = (id) => {
 }
 
 const actualizarProductoH_A = (producto, precio, cuotas,  archivo, id) => {
-    return fetch(`http://localhost:3000/Hom_Accesorios/${id}`, {
+    return fetch(`http://localhost:3000/H-Acce/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -86,12 +86,12 @@ const actualizarProductoH_A = (producto, precio, cuotas,  archivo, id) => {
 }
 
 
-const listaProductosW_R = () => fetch(`http://localhost:3000/Wom_Remeras`)
+const listaProductosW_R = () => fetch(`http://localhost:3000/M-Rem`)
     .then(res => res.json())
 
 
 const detalleProductoW_R = (id) => {
-    return fetch(`http://localhost:3000/Wom_Remeras/${id}`)
+    return fetch(`http://localhost:3000/M-Rem/${id}`)
         .then((res) =>
             res.json()
 
@@ -99,7 +99,7 @@ const detalleProductoW_R = (id) => {
 }
 
 const actualizarProductoW_R = (producto, precio, cuotas,  archivo, id) => {
-    return fetch(`http://localhost:3000/Wom_Remeras/${id}`, {
+    return fetch(`http://localhost:3000/M-Rem/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -111,12 +111,12 @@ const actualizarProductoW_R = (producto, precio, cuotas,  archivo, id) => {
 }
 
 
-const listaProductosW_P = () => fetch(`http://localhost:3000/Wom_Pantalones`)
+const listaProductosW_P = () => fetch(`http://localhost:3000/M-Pant`)
     .then(res => res.json())
 
 
 const detalleProductoW_P = (id) => {
-    return fetch(`http://localhost:3000/Wom_Pantalones/${id}`)
+    return fetch(`http://localhost:3000/M-Pant/${id}`)
         .then((res) =>
             res.json()
 
@@ -124,7 +124,7 @@ const detalleProductoW_P = (id) => {
 }
 
 const actualizarProductoW_P = (producto, precio, cuotas,  archivo, id) => {
-    return fetch(`http://localhost:3000/Wom_Pantalones/${id}`, {
+    return fetch(`http://localhost:3000/M-Pant/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -136,12 +136,12 @@ const actualizarProductoW_P = (producto, precio, cuotas,  archivo, id) => {
 }
 
 
-const listaProductosW_V = () => fetch(`http://localhost:3000/Wom_Vestidos`)
+const listaProductosW_V = () => fetch(`http://localhost:3000/M-Vest`)
     .then(res => res.json())
 
 
 const detalleProductoW_V = (id) => {
-    return fetch(`http://localhost:3000/Wom_Vestidos/${id}`)
+    return fetch(`http://localhost:3000/M-Vest/${id}`)
         .then((res) =>
             res.json()
 
@@ -149,7 +149,7 @@ const detalleProductoW_V = (id) => {
 }
 
 const actualizarProductoW_V = (producto, precio, cuotas,  archivo, id) => {
-    return fetch(`http://localhost:3000/Wom_Vestidos/${id}`, {
+    return fetch(`http://localhost:3000/M-Vest/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -161,12 +161,12 @@ const actualizarProductoW_V = (producto, precio, cuotas,  archivo, id) => {
 }
 
 
-const listaProductosW_A = () => fetch(`http://localhost:3000/Wom_Accesorios`)
+const listaProductosW_A = () => fetch(`http://localhost:3000/M-Acce`)
     .then(res => res.json())
 
 
 const detalleProductoW_A = (id) => {
-    return fetch(`http://localhost:3000/Wom_Accesorios/${id}`)
+    return fetch(`http://localhost:3000/M-Acce/${id}`)
         .then((res) =>
             res.json()
 
@@ -174,7 +174,7 @@ const detalleProductoW_A = (id) => {
 }
 
 const actualizarProductoW_A = (producto, precio, cuotas, archivo, id) => {
-    return fetch(`http://localhost:3000/Wom_Accesorios/${id}`, {
+    return fetch(`http://localhost:3000/M-Acce/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -185,12 +185,12 @@ const actualizarProductoW_A = (producto, precio, cuotas, archivo, id) => {
         .catch(err => console.error(err));
 }
 
-const listaProductosN_R = () => fetch(`http://localhost:3000/Nena_Remeras`)
+const listaProductosN_R = () => fetch(`http://localhost:3000/N-Rem`)
     .then(res => res.json())
 
 
 const detalleProductoN_R = (id) => {
-    return fetch(`http://localhost:3000/Nena_Remeras/${id}`)
+    return fetch(`http://localhost:3000/N-Rem/${id}`)
         .then((res) =>
             res.json()
 
@@ -198,7 +198,7 @@ const detalleProductoN_R = (id) => {
 }
 
 const actualizarProductoN_R = (producto, precio, cuotas,  archivo, id) => {
-    return fetch(`http://localhost:3000/Nena_Remeras/${id}`, {
+    return fetch(`http://localhost:3000/N-Rem/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -211,12 +211,12 @@ const actualizarProductoN_R = (producto, precio, cuotas,  archivo, id) => {
 
 
 
-const listaProductosN_P = () => fetch(`http://localhost:3000/Nena_Pantalones`)
+const listaProductosN_P = () => fetch(`http://localhost:3000/N-Pant`)
     .then(res => res.json())
 
 
 const detalleProductoN_P = (id) => {
-    return fetch(`http://localhost:3000/Nena_Pantalones/${id}`)
+    return fetch(`http://localhost:3000/N-Pant/${id}`)
         .then((res) =>
             res.json()
 
@@ -224,7 +224,7 @@ const detalleProductoN_P = (id) => {
 }
 
 const actualizarProductoN_P = (producto, precio, cuotas,  archivo, id) => {
-    return fetch(`http://localhost:3000/Nena_Pantalones/${id}`, {
+    return fetch(`http://localhost:3000/N-Pant/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -238,12 +238,12 @@ const actualizarProductoN_P = (producto, precio, cuotas,  archivo, id) => {
 
 
 
-const listaProductosN_V = () => fetch(`http://localhost:3000/Nena_Vestidos`)
+const listaProductosN_V = () => fetch(`http://localhost:3000/N-Vest`)
     .then(res => res.json())
 
 
 const detalleProductoN_V = (id) => {
-    return fetch(`http://localhost:3000/Nena_Vestidos/${id}`)
+    return fetch(`http://localhost:3000/N-Vest/${id}`)
         .then((res) =>
             res.json()
 
@@ -251,7 +251,7 @@ const detalleProductoN_V = (id) => {
 }
 
 const actualizarProductoN_V = (producto, precio, cuotas,  archivo, id) => {
-    return fetch(`http://localhost:3000/Nena_Vestidos/${id}`, {
+    return fetch(`http://localhost:3000/N-Vest/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -265,12 +265,12 @@ const actualizarProductoN_V = (producto, precio, cuotas,  archivo, id) => {
 
 
 
-const listaProductosCH_R = () => fetch(`http://localhost:3000/Nene_Remeras`)
+const listaProductosCH_R = () => fetch(`http://localhost:3000/Ch-Rem`)
     .then(res => res.json())
 
 
 const detalleProductoCH_R = (id) => {
-    return fetch(`http://localhost:3000/Nene_Remeras/${id}`)
+    return fetch(`http://localhost:3000/Ch-Rem/${id}`)
         .then((res) =>
             res.json()
 
@@ -278,7 +278,7 @@ const detalleProductoCH_R = (id) => {
 }
 
 const actualizarProductoCH_R = (producto, precio, cuotas,  archivo, id) => {
-    return fetch(`http://localhost:3000/Nene_Remeras/${id}`, {
+    return fetch(`http://localhost:3000/Ch-Rem/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
@@ -293,12 +293,12 @@ const actualizarProductoCH_R = (producto, precio, cuotas,  archivo, id) => {
 
 
 
-const listaProductosCH_P = () => fetch(`http://localhost:3000/Nene_Pantalones`)
+const listaProductosCH_P = () => fetch(`http://localhost:3000/Ch-Pant`)
     .then(res => res.json())
 
 
 const detalleProductoCH_P = (id) => {
-    return fetch(`http://localhost:3000/Nene_Pantalones/${id}`)
+    return fetch(`http://localhost:3000/Ch-Pant/${id}`)
         .then((res) =>
             res.json()
 
@@ -306,7 +306,7 @@ const detalleProductoCH_P = (id) => {
 }
 
 const actualizarProductoCH_P = (producto, precio, cuotas, archivo, id) => {
-    return fetch(`http://localhost:3000/Nene_Pantalones/${id}`, {
+    return fetch(`http://localhost:3000/Ch-Pant/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"

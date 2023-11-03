@@ -313,6 +313,36 @@
         
         color: black;
         }
+        .product_search{
+            box-shadow: 2px 2px 12px ;
+           display: flex;
+           flex-direction: column;
+           max-width: 15vh;
+           padding: 2em;
+           position: absolute;right: 1em;
+           margin-top: 6px;
+           background-color: whitesmoke;
+       max-height: 40%;
+        overflow-y: scroll;
+           
+         
+       }
+     
+    .box-prod{
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 1px 1px 11px #797878;
+        margin-top:  2em;
+        gap: 1em;
+        width: 100%;
+    }
+    
+    .ver_prod{
+        font-size: 13px;
+    }
 
         #modal{
             border-style: none;

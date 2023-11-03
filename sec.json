@@ -1,5 +1,5 @@
 {
-  "Hom_Remeras": [
+  "H-Rem": [
     {
       "producto": "Remera larga",
       "precio": "1451",
@@ -50,7 +50,7 @@
       "id": "54286a36-9aa8-478c-8203-757eb00f9639"
     }
   ],
-  "Hom_Pantalones": [
+  "H-Pant": [
     {
       "producto": "paco jerlo",
       "precio": "4570",
@@ -67,7 +67,7 @@
       "id": "f8eeab30-9f6a-4b84-a6e3-233f95820af4"
     }
   ],
-  "Hom_Accesorios": [
+  "H-Acce": [
     {
       "producto": "mariconera de chulo",
       "precio": "4570",
@@ -93,7 +93,7 @@
       "id": "e567b898-e80b-41a9-83c2-a3858f5fd29b"
     }
   ],
-  "Wom_Remeras": [
+  "M-Rem": [
     {
       "producto": "Remera Tejida a mano",
       "precio": "454",
@@ -119,7 +119,7 @@
       "id": "5337e33c-9734-4232-8e58-a082845c6824"
     }
   ],
-  "Wom_Pantalones": [
+  "M-Pant": [
     {
       "producto": "pantalon Apretado",
       "precio": "4533",
@@ -129,7 +129,7 @@
       "id": "75064c6d-e839-4b36-8d82-89c4aee80a73"
     }
   ],
-  "Wom_Vestidos": [
+  "M-Vest": [
     {
       "producto": "vestido largo colorido",
       "precio": "3214",
@@ -139,7 +139,7 @@
       "id": "c81bafa9-eb07-400a-af50-669f234fb6d2"
     }
   ],
-  "Wom_Accesorios": [
+  "M-Acce": [
     {
       "producto": "Cartera de estras",
       "precio": "1454",
@@ -149,7 +149,7 @@
       "id": "c342059a-74de-4e38-915e-559dd111ff0e"
     }
   ],
-  "Nena_Remeras": [
+  "N-Rem": [
     {
       "producto": "Remera unicornio blanco",
       "precio": "3214",
@@ -167,7 +167,7 @@
       "id": "37a4a369-4d94-4f45-94ad-6a3ae5a6be6a"
     }
   ],
-  "Nena_Pantalones": [
+  "N-Pant": [
     {
       "producto": "Calsa frozen / Ana",
       "precio": "1545",
@@ -185,7 +185,7 @@
       "id": "2b3c6ada-13a0-4b8e-884e-a02d0d2f4125"
     }
   ],
-  "Nena_Vestidos": [
+  "N-Vest": [
     {
       "producto": "vestido blaco/negro mariposas",
       "precio": "1254.22",
@@ -195,7 +195,7 @@
       "id": "ee092613-7be4-4b6a-9e17-8529383c41fd"
     }
   ],
-  "Nene_Remeras": [
+  "Ch-Rem": [
     {
       "producto": "Remera Batman",
       "precio": "6587.33",
@@ -237,7 +237,7 @@
       "id": "fadb3fb6-a545-45bd-8669-448b0b2919b3"
     }
   ],
-  "Nene_Pantalones": [
+  "Ch-Pant": [
     {
       "producto": "Pantalon Rarisimo",
       "precio": "2145",

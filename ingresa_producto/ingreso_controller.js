@@ -71,7 +71,7 @@ let archivo = document.querySelector("[data-archivo]");
         sub_seccion = Homb[0];
           
 
-       return fetch("http://localhost:3000/Hom_Remeras",{
+       return fetch("http://localhost:3000/H-Rem",{
          method: "POST",
          body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
          headers:{
@@ -90,7 +90,7 @@ let archivo = document.querySelector("[data-archivo]");
        
        if(seccion.value == "Hombres" && sub_seccion.value == "Pantalones"  ){
        sub_seccion = Homb[1]
-       return fetch("http://localhost:3000/Hom_Pantalones",{
+       return fetch("http://localhost:3000/H-Pant",{
          method: "POST",
          body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
          headers:{
@@ -103,7 +103,7 @@ let archivo = document.querySelector("[data-archivo]");
       }
         if( seccion.value == "Hombres" && sub_seccion.value == "Accesorios"){
         sub_seccion = Homb[3];    
-        return fetch("http://localhost:3000/Hom_Accesorios",{
+        return fetch("http://localhost:3000/H-Acce",{
          method: "POST",
          body: JSON.stringify({producto, precio, cuotas, archivo, id: uuid.v4()}),
          headers:{
@@ -120,7 +120,7 @@ let archivo = document.querySelector("[data-archivo]");
        
         if(seccion.value == "Mujeres" && sub_seccion.value == "Remeras"){
         sub_seccion = Wom[0];
-        return fetch("http://localhost:3000/Wom_Remeras",{
+        return fetch("http://localhost:3000/M-Rem",{
          method: "POST",
          body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
          headers:{
@@ -133,7 +133,7 @@ let archivo = document.querySelector("[data-archivo]");
       }
         if(seccion.value == "Mujeres" && sub_seccion.value == "Pantalones"){
            sub_seccion = Wom[1];
-           return fetch("http://localhost:3000/Wom_Pantalones",{
+           return fetch("http://localhost:3000/M-Pant",{
             method: "POST",
             body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
@@ -147,7 +147,7 @@ let archivo = document.querySelector("[data-archivo]");
        
         if(seccion.value == "Mujeres" && sub_seccion.value == "Vestidos"){
            sub_seccion = Wom[2];
-           return fetch("http://localhost:3000/Wom_Vestidos",{
+           return fetch("http://localhost:3000/M-Vest",{
             method: "POST",
             body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
@@ -160,7 +160,7 @@ let archivo = document.querySelector("[data-archivo]");
        
          if(seccion.value == "Mujeres" && sub_seccion.value == "Accesorios"){
             sub_seccion = Wom[3];
-            return fetch("http://localhost:3000/Wom_Accesorios",{
+            return fetch("http://localhost:3000/M-Acce",{
                method: "POST",
                body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
                headers:{
@@ -178,7 +178,7 @@ let archivo = document.querySelector("[data-archivo]");
        
         if(seccion.value == "Niñas" && sub_seccion.value == "Remeras"){
            sub_seccion = g[0];
-           return fetch("http://localhost:3000/Nena_Remeras",{
+           return fetch("http://localhost:3000/N-Rem",{
             method: "POST",
             body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
@@ -192,7 +192,7 @@ let archivo = document.querySelector("[data-archivo]");
        
         if(seccion.value == "Niñas" && sub_seccion.value == "Pantalones"){
            sub_seccion = g[1];
-           return fetch("http://localhost:3000/Nena_Pantalones",{
+           return fetch("http://localhost:3000/N-Pant",{
             method: "POST",
             body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
@@ -206,7 +206,7 @@ let archivo = document.querySelector("[data-archivo]");
        
         if(seccion.value == "Niñas" && sub_seccion.value == "Vestidos"){
            sub_seccion = g[2];
-           return fetch("http://localhost:3000/Nena_Vestidos",{
+           return fetch("http://localhost:3000/N-Vest",{
             method: "POST",
             body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
@@ -222,7 +222,7 @@ let archivo = document.querySelector("[data-archivo]");
        
             if(seccion.value == "Niños" && sub_seccion.value == "Remeras"){
                sub_seccion = ch[0];
-               return fetch("http://localhost:3000/Nene_Remeras",{
+               return fetch("http://localhost:3000/Ch-Rem",{
             method: "POST",
             body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
             headers:{
@@ -236,7 +236,7 @@ let archivo = document.querySelector("[data-archivo]");
        
          if(seccion.value == "Niños" && sub_seccion.value == "Pantalones"){
             sub_seccion = ch[1];
-            return fetch("http://localhost:3000/Nene_Pantalones",{
+            return fetch("http://localhost:3000/Ch-Pant",{
                method: "POST",
                body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
                headers:{

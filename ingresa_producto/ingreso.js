@@ -72,18 +72,18 @@ const crearnuevoProducto = (producto, precio, cuotas, archivo, id) => {
 
 // creamos un array que contenga todas las rutas.
     const urls =[
-        'Hom_Remeras',
-        'Hom_Pantalones',
-        'Hom_Accesorios',
-        'Wom_Remeras',
-        'Wom_Pantalones',
-        'Wom_Vestidos',
-        'Wom_Accesorios',
-        'Nena_Remeras',
-        'Nena_Pantalones',
-        'Nena_Vestidos',
-        'Nene_Remeras',
-        'Nene_Pantalones'
+        'H-Rem',
+        'H-Pant',
+        'H-Acce',
+        'M-Rem',
+        'M-Pant',
+        'M-Vest',
+        'M-Acce',
+        'N-Rem',
+        'N-Pant',
+        'N-Vest',
+        'Ch-Rem',
+        'Ch-Pant'
 ];
   // funcion para eliminar el producto por medio de su id.
     const eliminarProducto =  async (id) => {
