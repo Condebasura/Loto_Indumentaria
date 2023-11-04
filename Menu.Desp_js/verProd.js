@@ -123,12 +123,11 @@ function GetDatos(perfil){
       foto.src = archivo;
      // al importar "imgZoom" hace que el zoom de la imagen muestre la imagen por defecto al cargar la pagina
       imgZoom.src = archivo;
+   }else{
+    throw new Error();
+    
    }
-   else {
- 
- throw new   CodeError();
- }
-};
+     }
 
    if (id == null) {
       CodeError();
@@ -292,7 +291,8 @@ if(EstaImg == "Ch-Pant.html"){
 
 
 
-};
+}
+      
 informeImg();
 
 export {archivo };

@@ -6,8 +6,8 @@ const producto = document.querySelector(".name");
 
 
 const listaProductosH_R = () => fetch(`http://localhost:3000/H-Rem`)
-    .then(res => res.json()
-    ).catch(err => console.log(err))
+    .then(res => res.json())
+    .catch(err => console.log(err));
     
      
     
@@ -17,7 +17,7 @@ const listaProductosH_R = () => fetch(`http://localhost:3000/H-Rem`)
 const detalleProductoH_R = (id) => {
     return fetch(`http://localhost:3000/H-Rem/${id}`).then((res) =>  res.json()
             
-        )
+        ).catch(err => console.log(err))
 }
 
 const actualizarProductoH_R = (producto, precio, cuotas, archivo, id) => {
@@ -28,10 +28,7 @@ const actualizarProductoH_R = (producto, precio, cuotas, archivo, id) => {
         },
         body: JSON.stringify({ producto, precio, cuotas, archivo })
     })
-        .then(res =>{
-            res.json();
-        
-        } )
+        .then(res => res.json() )
         .catch(err => console.error(err));
 };
 

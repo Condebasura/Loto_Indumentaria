@@ -160,6 +160,7 @@ if (EstaPagina == "/html/H-Rem.html") {
     inService.listaProductosH_R().then((data) => {
         
         data.forEach(({ producto, precio, cuotas, archivo, id }) => {
+            console.log(archivo)
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, archivo, id);
 
 
