@@ -7,7 +7,7 @@ const producto = document.querySelector(".name");
 
 const listaProductosH_R = () => fetch(`http://localhost:3000/H-Rem`)
     .then(res => res.json()
-    )
+    ).catch(err => console.log(err))
     
      
     

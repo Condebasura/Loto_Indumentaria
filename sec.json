@@ -2,17 +2,10 @@
   "H-Rem": [
     {
       "producto": "Remera larga",
-      "precio": "1451",
+      "precio": "1452",
       "cuotas": "3",
       "archivo": "C:\\fakepath\\chomba-clara-1.jpeg",
       "id": "a33e24e1-ad43-45b6-894a-e15a42a2571d"
-    },
-    {
-      "producto": "Remera trucha",
-      "precio": "1248",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\remera-estamp-1.jpg",
-      "id": "83adce8e-7793-43d9-85dd-6a3905fc032e"
     },
     {
       "producto": "Remera cocida",
@@ -48,6 +41,13 @@
       "cuotas": "3",
       "archivo": "C:\\fakepath\\remer-esc-v-3.jpg",
       "id": "54286a36-9aa8-478c-8203-757eb00f9639"
+    },
+    {
+      "producto": "La remera",
+      "precio": "1245.5",
+      "cuotas": "1",
+      "archivo": "C:\\fakepath\\remera-tricolor-1.jpg",
+      "id": "6ebec0bd-bf44-4abd-a724-dd14ea819ba5"
     }
   ],
   "H-Pant": [

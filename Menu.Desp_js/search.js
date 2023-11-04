@@ -43,7 +43,7 @@ search.addEventListener("keypress", async (e) => {
             let datos = data;
             datos.forEach(el => {
             if(el.producto.toLowerCase().includes(search.value.toLowerCase())){
-      
+               
    
                Prod.innerHTML = "";
                template.querySelector("h3").textContent = el.producto;
@@ -53,7 +53,7 @@ search.addEventListener("keypress", async (e) => {
                template.querySelector("a").textContent = "Ver";
                template.querySelector("a").setAttribute("class", "ver_prod");
                // encontrar la manera de que se carguen los datos al ingresar al producto en la busqueda
-              template.querySelector("a").href = `/html/visualProducto.html?id=${el.id}&estaimg=${el.href}`
+              template.querySelector("a").href = `/html/visualProducto.html?id=${el.id}&estaimg=${url}.html`;
                
               
                let clone = document.importNode(template,true);

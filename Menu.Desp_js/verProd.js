@@ -125,8 +125,9 @@ function GetDatos(perfil){
       imgZoom.src = archivo;
    }
    else {
-      throw CodeError();
-   }
+ 
+ throw new   CodeError();
+ }
 };
 
    if (id == null) {
