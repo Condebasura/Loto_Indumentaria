@@ -313,11 +313,11 @@
         
         color: black;
         }
-        .product_search{
+       .product_search{
             box-shadow: 2px 2px 12px ;
            display: flex;
            flex-direction: column;
-           max-width: 15vh;
+           max-width: 18vh;
            padding: 2em;
            position: absolute;right: 1em;
            margin-top: 6px;
@@ -335,13 +335,17 @@
         justify-content: center;
         text-align: center;
         box-shadow: 1px 1px 11px #797878;
-        margin-top:  2em;
+        margin-top:2em;
         gap: 1em;
         width: 100%;
+        
     }
     
     .ver_prod{
-        font-size: 13px;
+        font-size: 15px;
+        list-style-type: none;
+        color: blue;
+        text-decoration: none;
     }
 
         #modal{

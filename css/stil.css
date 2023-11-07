@@ -41,7 +41,7 @@ overflow-x: hidden;}
         box-shadow: 2px 2px 12px ;
        display: flex;
        flex-direction: column;
-       max-width: 15vh;
+       max-width: 18vh;
        padding: 2em;
        position: absolute;right: 1em;
        margin-top: 6px;
@@ -65,7 +65,10 @@ overflow-x: hidden;}
 }
 
 .ver_prod{
-    font-size: 13px;
+    font-size: 15px;
+    list-style-type: none;
+    color: blue;
+    text-decoration: none;
 }
          .hombre{margin-right: 3em;
             margin-left: 2em;
