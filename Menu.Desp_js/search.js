@@ -23,7 +23,7 @@ const urls =[
    'Ch-Pant'
 ];
 // en camino a que funcione el buscador, falta tiempo ,!!!
-search.addEventListener("keypress", async (e) => {
+search.addEventListener("keypress", async (e, el) => {
  
         if(search.value == "" && e.key == "Enter"){
          Prod.classList.remove("product_search");
@@ -31,6 +31,7 @@ search.addEventListener("keypress", async (e) => {
 
         }
     if(e.key === "Enter" && search.value != ""){  
+     
       Prod.classList.add("product_search");
       Prod.classList.remove("product");
       
@@ -43,9 +44,14 @@ search.addEventListener("keypress", async (e) => {
             
             let datos = data;
         
+            let found = false;
+            const noResult = document.createElement("div");
+            noResult.innerHTML = `<h3> No se encontro resultado para: ${search.value}<h3>`;
+
             datos.forEach(el => {
+
             if(el.producto.toLowerCase().includes(search.value.toLowerCase())){
-              
+              found = true;
                template.querySelector("h3").textContent = el.producto;
                template.querySelector("h3").style.fontSize = "16px";
                template.querySelector("img").src = el.archivo;
@@ -60,11 +66,21 @@ search.addEventListener("keypress", async (e) => {
                
                fragment.appendChild(clone);
                
-            }
+            } 
       });
      
-      Prod.appendChild(fragment);
+    
+
+    /*  if(!found){
+         Prod.innerHTML = "";
+         Prod.appendChild(noResult);
+         
+      }else{
+         Prod.removeChild(noResult);
+         
+      }*/
       
+      Prod.appendChild(fragment);
 })
 
 }

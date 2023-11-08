@@ -33,7 +33,9 @@ overflow-x: hidden;}
             border-bottom-right-radius: 2em;
         box-shadow: 0.7px 0px 0.6px #5454558c;
     border-collapse: separate;}
-         .product{
+     
+    
+    .product{
             display: none;
          }
   
