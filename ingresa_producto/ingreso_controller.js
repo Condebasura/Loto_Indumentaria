@@ -17,7 +17,7 @@ let archivo = document.querySelector("[data-archivo]");
        let ch = document.querySelectorAll("[data-child]");
        let sub_seccion = document.querySelector("[data-sub_seccion]");
        let seccion = document.querySelector("[data-seccion]");
-      const IngresoEnd = () =>{
+        const IngresoEnd = () =>{
          const spanCheck = document.createElement("span");
          spanCheck.setAttribute("class", "fa-sharp fa-solid fa-check");
          let parrafoModal = document.querySelector(".p_modal-in");
@@ -29,7 +29,7 @@ let archivo = document.querySelector("[data-archivo]");
             modal.close();
             location.reload();
          }, 5000);
-      }
+        }
       
       
        const   CodeError = () =>{
@@ -61,19 +61,20 @@ let archivo = document.querySelector("[data-archivo]");
       
        formulario.addEventListener("submit", (e)=>{
        e.preventDefault();
-  
-  
+        let ip = window.location.hostname;
+        let port = window.location.port;
+       let newArchivo = archivo.value.replace("C:\\fakepath\\" ,`http://${ip}:${port}/Imagen_producto/${seccion.value}/${sub_seccion.value}/` );
   
        
-     const laSeccion = (producto, precio, cuotas,archivo) => {
-        if(seccion.value == "Hombres" && sub_seccion.value == "Remeras"){
+       const laSeccion = (producto, precio, cuotas,newArchivo) => {
+        if(seccion.value == "Hombre" && sub_seccion.value == "Remeras"){
         seccion = hom; 
         sub_seccion = Homb[0];
           
 
        return fetch("http://localhost:3000/H-Rem",{
          method: "POST",
-         body: JSON.stringify({producto, precio, cuotas,archivo, id: uuid.v4()}),
+         body: JSON.stringify({producto, precio, cuotas,newArchivo, id: uuid.v4()}),
          headers:{
             'Content-Type': 'application/json'
          }
@@ -88,7 +89,7 @@ let archivo = document.querySelector("[data-archivo]");
          )
        .catch(err => CodeError())};
        
-       if(seccion.value == "Hombres" && sub_seccion.value == "Pantalones"  ){
+       if(seccion.value == "Hombre" && sub_seccion.value == "Pantalones"  ){
        sub_seccion = Homb[1]
        return fetch("http://localhost:3000/H-Pant",{
          method: "POST",
@@ -100,8 +101,8 @@ let archivo = document.querySelector("[data-archivo]");
        })
        .then(res => res.json())
        .catch(err => console.log(err))
-      }
-        if( seccion.value == "Hombres" && sub_seccion.value == "Accesorios"){
+       }
+        if( seccion.value == "Hombre" && sub_seccion.value == "Accesorios"){
         sub_seccion = Homb[3];    
         return fetch("http://localhost:3000/H-Acce",{
          method: "POST",
@@ -118,7 +119,7 @@ let archivo = document.querySelector("[data-archivo]");
            
         
        
-        if(seccion.value == "Mujeres" && sub_seccion.value == "Remeras"){
+        if(seccion.value == "Mujer" && sub_seccion.value == "Remeras"){
         sub_seccion = Wom[0];
         return fetch("http://localhost:3000/M-Rem",{
          method: "POST",
@@ -130,8 +131,8 @@ let archivo = document.querySelector("[data-archivo]");
        })
        .then(res => res.json())
        .catch(err => console.log(err))  
-      }
-        if(seccion.value == "Mujeres" && sub_seccion.value == "Pantalones"){
+       }
+        if(seccion.value == "Mujer" && sub_seccion.value == "Pantalones"){
            sub_seccion = Wom[1];
            return fetch("http://localhost:3000/M-Pant",{
             method: "POST",
@@ -145,7 +146,7 @@ let archivo = document.querySelector("[data-archivo]");
           .catch(err => console.log(err))
         };
        
-        if(seccion.value == "Mujeres" && sub_seccion.value == "Vestidos"){
+        if(seccion.value == "Mujer" && sub_seccion.value == "Vestidos"){
            sub_seccion = Wom[2];
            return fetch("http://localhost:3000/M-Vest",{
             method: "POST",
@@ -158,7 +159,7 @@ let archivo = document.querySelector("[data-archivo]");
           .then(res => res.json())
           .catch(err => console.log(err))};
        
-         if(seccion.value == "Mujeres" && sub_seccion.value == "Accesorios"){
+         if(seccion.value == "Mujer" && sub_seccion.value == "Accesorios"){
             sub_seccion = Wom[3];
             return fetch("http://localhost:3000/M-Acce",{
                method: "POST",
@@ -176,7 +177,7 @@ let archivo = document.querySelector("[data-archivo]");
     
       
        
-        if(seccion.value == "Niñas" && sub_seccion.value == "Remeras"){
+        if(seccion.value == "Niña" && sub_seccion.value == "Remeras"){
            sub_seccion = g[0];
            return fetch("http://localhost:3000/N-Rem",{
             method: "POST",
@@ -190,7 +191,7 @@ let archivo = document.querySelector("[data-archivo]");
           .catch(err => console.log(err))
         };
        
-        if(seccion.value == "Niñas" && sub_seccion.value == "Pantalones"){
+        if(seccion.value == "Niña" && sub_seccion.value == "Pantalones"){
            sub_seccion = g[1];
            return fetch("http://localhost:3000/N-Pant",{
             method: "POST",
@@ -204,7 +205,7 @@ let archivo = document.querySelector("[data-archivo]");
           .catch(err => console.log(err))
         };
        
-        if(seccion.value == "Niñas" && sub_seccion.value == "Vestidos"){
+        if(seccion.value == "Niña" && sub_seccion.value == "Vestidos"){
            sub_seccion = g[2];
            return fetch("http://localhost:3000/N-Vest",{
             method: "POST",
@@ -220,7 +221,7 @@ let archivo = document.querySelector("[data-archivo]");
      
     
        
-            if(seccion.value == "Niños" && sub_seccion.value == "Remeras"){
+            if(seccion.value == "Niño" && sub_seccion.value == "Remeras"){
                sub_seccion = ch[0];
                return fetch("http://localhost:3000/Ch-Rem",{
             method: "POST",
@@ -234,7 +235,7 @@ let archivo = document.querySelector("[data-archivo]");
           .catch(err => console.log(err))
             };
        
-         if(seccion.value == "Niños" && sub_seccion.value == "Pantalones"){
+         if(seccion.value == "Niño" && sub_seccion.value == "Pantalones"){
             sub_seccion = ch[1];
             return fetch("http://localhost:3000/Ch-Pant",{
                method: "POST",
@@ -253,12 +254,12 @@ let archivo = document.querySelector("[data-archivo]");
         console.log(sub_seccion.value)
         
         
-        console.log(producto , "---" , precio,  archivo);
+        console.log(producto , "---" , precio,  newArchivo);
         
 
 
 
-        laSeccion(producto.value, precio.value,cuotas.value, archivo.value);
+        laSeccion(producto.value, precio.value,cuotas.value, newArchivo);
      
   
       });

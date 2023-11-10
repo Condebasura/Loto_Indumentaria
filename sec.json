@@ -1,53 +1,18 @@
 {
   "H-Rem": [
     {
-      "producto": "Remera larga",
-      "precio": "1452",
+      "producto": "Remera a rayas",
+      "precio": "4585",
       "cuotas": "3",
-      "archivo": "C:\\fakepath\\chomba-clara-1.jpeg",
-      "id": "a33e24e1-ad43-45b6-894a-e15a42a2571d"
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/chomba-clara-1.jpeg",
+      "id": "5e2f1bd0-33d6-452f-9965-3e8b582eab14"
     },
     {
-      "producto": "Remera cocida",
-      "precio": "4570",
+      "producto": "Remera Roja",
+      "precio": "4577",
       "cuotas": "3",
-      "archivo": "C:\\fakepath\\chomba-polo-rall-1.jpg",
-      "id": "3d969741-e693-4f57-a346-57371baba192"
-    },
-    {
-      "producto": "remera colgada",
-      "precio": "4524",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\chomba-polo-rall-1.jpg",
-      "id": "61ef1647-4605-4b6b-988d-18a1f3353754"
-    },
-    {
-      "producto": "pero muerto",
-      "precio": "2413",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\remera-cuell-redondo-1.jpg",
-      "id": "4085ac75-a103-4e9d-b32d-c4c2bd4fd469"
-    },
-    {
-      "producto": "remera rota",
-      "precio": "4587",
-      "cuotas": "3",
-      "archivo": "C:\\fakepath\\remera-estamp-2.jpg",
-      "id": "e76024a3-c7a5-442f-92b3-5d5e328b9cae"
-    },
-    {
-      "producto": "rege",
-      "precio": "2415",
-      "cuotas": "3",
-      "archivo": "C:\\fakepath\\remer-esc-v-3.jpg",
-      "id": "54286a36-9aa8-478c-8203-757eb00f9639"
-    },
-    {
-      "producto": "La remera",
-      "precio": "1245.5",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\remera-tricolor-1.jpg",
-      "id": "6ebec0bd-bf44-4abd-a724-dd14ea819ba5"
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-estamp-2.jpg",
+      "id": "ac26d5f1-fd09-435e-a038-b212080446f8"
     }
   ],
   "H-Pant": [

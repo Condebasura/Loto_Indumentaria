@@ -1,7 +1,7 @@
 const producto = document.querySelector(".name");
    const precio = document.querySelector(".bestprecio");
    const cuotas = document.querySelector(".cuotas");
-   let archivo = document.querySelector(".image");
+   let newArchivo = document.querySelector(".image");
 
 
 
@@ -13,7 +13,6 @@ const listaProductosH_R = () => fetch(`http://localhost:3000/H-Rem`)
     
         
 
-
 const detalleProductoH_R = (id) => {
     return fetch(`http://localhost:3000/H-Rem/${id}`)
     .then((res) => 
@@ -22,13 +21,13 @@ const detalleProductoH_R = (id) => {
         )
 }
 
-const actualizarProductoH_R = (producto, precio, cuotas, archivo, id) => {
+const actualizarProductoH_R = (producto, precio, cuotas, newArchivo, id) => {
     return fetch(`http://localhost:3000/H-Rem/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas, archivo })
+        body: JSON.stringify({ producto, precio, cuotas, newArchivo })
     })
         .then(res => res.json() )
         .catch(err => console.error(err));

@@ -30,7 +30,7 @@ const   CodeError = () =>{
         });
 };
 
-const crearnuevoProducto = (producto, precio, cuotas, archivo, id) => {
+const crearnuevoProducto = (producto, precio, cuotas, newArchivo, id) => {
     let linea = document.createElement("li");
     linea.setAttribute("class", "box_pilcha");
     let EstaPagina = window.location.href;
@@ -41,7 +41,7 @@ const crearnuevoProducto = (producto, precio, cuotas, archivo, id) => {
     <div class="box-item" >
         <div class="productimag">
              <a class="img-prod" href=/html/visualProducto.html?id=${id}&estaimg=${EstaImg.split('/').pop()}>
-                 <img class="image" src= ${archivo} title=${producto}  >
+                 <img class="image" src= ${newArchivo} title=${producto}  >
              </a>
              <div class="datos">
               <a  class="name" href="" title="${producto}">${producto}</a>
@@ -159,9 +159,9 @@ let EstaPagina = window.location.pathname;
 if (EstaPagina == "/html/H-Rem.html") {
     inService.listaProductosH_R().then((data) => {
         
-        data.forEach(({ producto, precio, cuotas, archivo, id }) => {
-            console.log(archivo)
-            const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, archivo, id);
+        data.forEach(({ producto, precio, cuotas, newArchivo, id }) => {
+            console.log(newArchivo)
+            const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, newArchivo, id);
 
 
             ul.appendChild(nuevoProducto);
