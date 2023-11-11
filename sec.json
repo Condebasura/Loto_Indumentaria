@@ -13,36 +13,29 @@
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-estamp-2.jpg",
       "id": "ac26d5f1-fd09-435e-a038-b212080446f8"
+    },
+    {
+      "producto": "Chomba lisa con cuello",
+      "precio": "6500",
+      "cuotas": "3",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Remeras/chomba-1.jpg",
+      "id": "e7a00b50-b637-480d-a5a6-6e37f5f4b98f"
     }
   ],
   "H-Pant": [
-    {
-      "producto": "paco jerlo",
-      "precio": "4570",
-      "cuotas": "3",
-      "archivo": "C:\\fakepath\\cargo-1.jpg",
-      "id": "cfeb2489-99fa-4676-a963-2e1d976a83aa"
-    },
-    {
-      "producto": "Remera cagada",
-      "precio": "4570",
-      "cuotas": "2",
-      "archivo": "C:\\fakepath\\cargo-1.jpg",
-      "id": "f8eeab30-9f6a-4b84-a6e3-233f95820af4"
-    },
-    {
-      "producto": "Pantalon azul",
-      "precio": "4584",
-      "cuotas": "3",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Pantalones/remera-estamp-1.jpg",
-      "id": "a767ccd0-f7c7-4086-b7d0-ab1ae4aa9f76"
-    },
     {
       "producto": "Pantalon camuflado ",
       "precio": "2415",
       "cuotas": "3",
       "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Pantalones/babucha-gris-puño-1.jpeg",
       "id": "5be8ac14-9f79-4844-8f91-e8933f1e8287"
+    },
+    {
+      "producto": "pantalon Apretado",
+      "precio": "4581.55",
+      "cuotas": "3",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Pantalones/babucha-deport-2.jpg",
+      "id": "02d75741-4a37-455e-b047-9ec26c304309"
     }
   ],
   "H-Acce": [

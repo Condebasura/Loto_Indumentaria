@@ -60,6 +60,8 @@ const CodeError = () => {
 
 formulario.addEventListener("submit", (e) => {
    e.preventDefault();
+
+
    let ip = window.location.hostname;
    let port = window.location.port;
    let newArchivo = archivo.value.replace("C:\\fakepath\\", `http://${ip}:${port}/Imagen_producto/${seccion.value}/${sub_seccion.value}/`);
@@ -183,7 +185,7 @@ formulario.addEventListener("submit", (e) => {
          sub_seccion = g[0];
          return fetch("http://localhost:3000/N-Rem", {
             method: "POST",
-            body: JSON.stringify({ producto, precio, cuotas, anewArchivo, id: uuid.v4() }),
+            body: JSON.stringify({ producto, precio, cuotas, newArchivo, id: uuid.v4() }),
             headers: {
                'Content-Type': 'application/json'
             }

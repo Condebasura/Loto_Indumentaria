@@ -107,11 +107,11 @@ const   CodeError = () =>{
    let  EstaImg = url.searchParams.get("estaimg");
    console.log(EstaImg);
 function GetDatos(perfil){
-   if (perfil.producto && perfil.precio && perfil.cuotas && perfil.archivo) {
+   if (perfil.producto && perfil.precio && perfil.cuotas && perfil.newArchivo) {
       producto.value = perfil.producto;
       precio.value = perfil.precio;
       cuotas.value = perfil.cuotas;
-      archivo = perfil.archivo;
+      archivo = perfil.newArchivo;
      
       let foto = document.querySelector(".image");
       producto.textContent = producto.value;

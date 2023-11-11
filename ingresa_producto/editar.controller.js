@@ -6,15 +6,19 @@ const precio = document.querySelector(".bestprecio");
 const cuotas = document.querySelector(".cuotas");
 let newArchivo = document.querySelector(".image");
 
+
+
+
+
 newArchivo.addEventListener("change", (e)=>{
 e.preventDefault();
 if(e.target){
    //  ASI SE INGRESA AL NOMBRE DE LA IMG, VEAMOS SI LA PODEMOS HACER CAMBIAR AL EDITAR UN PRODUCTO!!!
 let imgChang  =  e.target.files[0].name;
-console.log(imgChang)
+
+ console.log(imgChang);
 }
 })
-
 
 const   CodeError = () =>{
 
