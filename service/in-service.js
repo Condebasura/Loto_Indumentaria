@@ -46,13 +46,13 @@ const detalleProductoH_P = (id) => {
         )  
 }
 
-const actualizarProductoH_P = (producto, precio, cuotas, archivo, id) => {
+const actualizarProductoH_P = (producto, precio, cuotas, newArchivo, id) => {
     return fetch(`http://localhost:3000/H-Pant/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas, archivo })
+        body: JSON.stringify({ producto, precio, cuotas, newArchivo })
     })
         .then(res => res.json())
         .catch(err => console.error(err));
@@ -71,13 +71,13 @@ const detalleProductoH_A = (id) => {
         )
 }
 
-const actualizarProductoH_A = (producto, precio, cuotas,  archivo, id) => {
+const actualizarProductoH_A = (producto, precio, cuotas,  newArchivo, id) => {
     return fetch(`http://localhost:3000/H-Acce/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas,  archivo })
+        body: JSON.stringify({ producto, precio, cuotas,  newArchivo })
     })
         .then(res => res.json())
         .catch(err => console.error(err));
@@ -96,13 +96,13 @@ const detalleProductoW_R = (id) => {
         )
 }
 
-const actualizarProductoW_R = (producto, precio, cuotas,  archivo, id) => {
+const actualizarProductoW_R = (producto, precio, cuotas,  newArchivo, id) => {
     return fetch(`http://localhost:3000/M-Rem/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas, archivo })
+        body: JSON.stringify({ producto, precio, cuotas, newArchivo })
     })
         .then(res => res.json())
         .catch(err => console.error(err));
@@ -121,13 +121,13 @@ const detalleProductoW_P = (id) => {
         )
 }
 
-const actualizarProductoW_P = (producto, precio, cuotas,  archivo, id) => {
+const actualizarProductoW_P = (producto, precio, cuotas,  newArchivo, id) => {
     return fetch(`http://localhost:3000/M-Pant/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas,  archivo })
+        body: JSON.stringify({ producto, precio, cuotas,  newArchivo })
     })
         .then(res => res.json())
         .catch(err => console.error(err));
@@ -146,13 +146,13 @@ const detalleProductoW_V = (id) => {
         )
 }
 
-const actualizarProductoW_V = (producto, precio, cuotas,  archivo, id) => {
+const actualizarProductoW_V = (producto, precio, cuotas,  newArchivo, id) => {
     return fetch(`http://localhost:3000/M-Vest/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas,  archivo })
+        body: JSON.stringify({ producto, precio, cuotas,  newArchivo })
     })
         .then(res => res.json())
         .catch(err => console.error(err));
@@ -171,13 +171,13 @@ const detalleProductoW_A = (id) => {
         )
 }
 
-const actualizarProductoW_A = (producto, precio, cuotas, archivo, id) => {
+const actualizarProductoW_A = (producto, precio, cuotas, newArchivo, id) => {
     return fetch(`http://localhost:3000/M-Acce/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas,  archivo })
+        body: JSON.stringify({ producto, precio, cuotas,  newArchivo })
     })
         .then(res => res.json())
         .catch(err => console.error(err));
@@ -195,13 +195,13 @@ const detalleProductoN_R = (id) => {
         )
 }
 
-const actualizarProductoN_R = (producto, precio, cuotas,  archivo, id) => {
+const actualizarProductoN_R = (producto, precio, cuotas, newArchivo, id) => {
     return fetch(`http://localhost:3000/N-Rem/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas,  archivo })
+        body: JSON.stringify({ producto, precio, cuotas,  newArchivo })
     })
         .then(res => res.json())
         .catch(err => console.error(err));
@@ -221,13 +221,13 @@ const detalleProductoN_P = (id) => {
         )
 }
 
-const actualizarProductoN_P = (producto, precio, cuotas,  archivo, id) => {
+const actualizarProductoN_P = (producto, precio, cuotas,  newArchivo, id) => {
     return fetch(`http://localhost:3000/N-Pant/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas,  archivo })
+        body: JSON.stringify({ producto, precio, cuotas, newArchivo })
     })
         .then(res => res.json())
         .catch(err => console.error(err));
@@ -248,13 +248,13 @@ const detalleProductoN_V = (id) => {
         )
 }
 
-const actualizarProductoN_V = (producto, precio, cuotas,  archivo, id) => {
+const actualizarProductoN_V = (producto, precio, cuotas, newArchivo, id) => {
     return fetch(`http://localhost:3000/N-Vest/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas,  archivo })
+        body: JSON.stringify({ producto, precio, cuotas,  newArchivo })
     })
         .then(res => res.json())
         .catch(err => console.error(err));
@@ -275,13 +275,13 @@ const detalleProductoCH_R = (id) => {
         )
 }
 
-const actualizarProductoCH_R = (producto, precio, cuotas,  archivo, id) => {
+const actualizarProductoCH_R = (producto, precio, cuotas, newArchivo, id) => {
     return fetch(`http://localhost:3000/Ch-Rem/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas,  archivo })
+        body: JSON.stringify({ producto, precio, cuotas,  newArchivo })
     })
         .then(res => res.json())
         .catch(err => console.error(err));
@@ -303,13 +303,13 @@ const detalleProductoCH_P = (id) => {
         )
 }
 
-const actualizarProductoCH_P = (producto, precio, cuotas, archivo, id) => {
+const actualizarProductoCH_P = (producto, precio, cuotas, newArchivo, id) => {
     return fetch(`http://localhost:3000/Ch-Pant/${id}`, {
         method: "PUT",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ producto, precio, cuotas,  archivo })
+        body: JSON.stringify({ producto, precio, cuotas, newArchivo })
     })
         .then(res => res.json())
         .catch(err => console.error(err));

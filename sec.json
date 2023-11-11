@@ -29,6 +29,20 @@
       "cuotas": "2",
       "archivo": "C:\\fakepath\\cargo-1.jpg",
       "id": "f8eeab30-9f6a-4b84-a6e3-233f95820af4"
+    },
+    {
+      "producto": "Pantalon azul",
+      "precio": "4584",
+      "cuotas": "3",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Pantalones/remera-estamp-1.jpg",
+      "id": "a767ccd0-f7c7-4086-b7d0-ab1ae4aa9f76"
+    },
+    {
+      "producto": "Pantalon camuflado ",
+      "precio": "2415",
+      "cuotas": "3",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Pantalones/babucha-gris-puño-1.jpeg",
+      "id": "5be8ac14-9f79-4844-8f91-e8933f1e8287"
     }
   ],
   "H-Acce": [
