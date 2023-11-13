@@ -100,7 +100,15 @@
       "id": "75064c6d-e839-4b36-8d82-89c4aee80a73"
     }
   ],
-  "M-Vest": [],
+  "M-Vest": [
+    {
+      "producto": "vestido largo",
+      "precio": "1454",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Vestidos/vest-amarillo.jpg",
+      "id": "b541e90d-5eb0-4ad2-a408-07fbac85a6c5"
+    }
+  ],
   "M-Acce": [
     {
       "producto": "Cartera de estras",

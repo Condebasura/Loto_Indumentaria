@@ -10,15 +10,9 @@ let newArchivo = document.querySelector(".image");
 
 
 
-newArchivo.addEventListener("change", (e)=>{
-e.preventDefault();
-if(e.target){
-   //  ASI SE INGRESA AL NOMBRE DE LA IMG, VEAMOS SI LA PODEMOS HACER CAMBIAR AL EDITAR UN PRODUCTO!!!
-let imgChang  =  e.target.files[0].name;
 
- console.log(imgChang);
-}
-})
+
+
 
 const   CodeError = () =>{
 
@@ -393,9 +387,31 @@ console.log(EstaPagina)
 
 obtenerInformacion();
 
+
+newArchivo.addEventListener("change", (e)=>{
+   e.preventDefault();
+   
+   
+      if(e.target){
+         //  ASI SE INGRESA AL NOMBRE DE LA IMG, VEAMOS SI LA PODEMOS HACER CAMBIAR AL EDITAR UN PRODUCTO!!!
+         const url = new URL(newArchivo);
+         let ip = window.location.hostname;
+         let port = window.location.port;
+         let carpeta =  url.pathname.split("/")[1]
+         let seccion = url.pathname.split("/")[2];
+         let sub_seccion = url.pathname.split("/")[3];
+        
+       let imgChang  =  e.target.files[0].name;
+       
+    let cambioArchivo =   newArchivo.replace(newArchivo, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${imgChang}`);
+
+   
 formulario.addEventListener("submit", (e) => {
    // Evitar que el formulario haga la petición , nosotros la hacemos con javascript
    e.preventDefault();
+   const producto = document.querySelector(".name");
+const precio = document.querySelector(".bestprecio");
+const cuotas = document.querySelector(".cuotas");
    const url = new URL(window.location);
    const id = url.searchParams.get("id");
    let EstaPagina = url.searchParams.get("estapagina");
@@ -416,10 +432,12 @@ formulario.addEventListener("submit", (e) => {
         
   }
    
-
+ 
+       
+    
   
    if(EstaPagina == "H-Rem.html"){
-   inService.actualizarProductoH_R(producto.value, precio.value, cuotas.value, archivo, id).then(() => {
+   inService.actualizarProductoH_R(producto.value, precio.value, cuotas.value, cambioArchivo, id).then(() => {
      EdicionFin();
     //   window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
@@ -428,34 +446,34 @@ formulario.addEventListener("submit", (e) => {
 
 if(EstaPagina == "H-Pant.html"){
 
-   inService.actualizarProductoH_P(producto.value, precio.value, cuotas.value, newArchivo, id).then(() => {
+   inService.actualizarProductoH_P(producto.value, precio.value, cuotas.value, cambioArchivo, id).then(() => {
       EdicionFin();
       // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "H-Acce.html"){
-   inService.actualizarProductoH_A(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
+   inService.actualizarProductoH_A(producto.value, precio.value, cuotas.value,cambioArchivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "M-Rem.html"){
-   inService.actualizarProductoW_R(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
+   inService.actualizarProductoW_R(producto.value, precio.value, cuotas.value,  cambioArchivo, id).then(() => {
       EdicionFin();
      // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "M-Pant.html"){
-   inService.actualizarProductoW_P(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
+   inService.actualizarProductoW_P(producto.value, precio.value, cuotas.value,  cambioArchivo, id).then(() => {
       window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "M-Vest.html"){
-   inService.actualizarProductoW_V(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
+   inService.actualizarProductoW_V(producto.value, precio.value, cuotas.value,  cambioArchivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
@@ -463,28 +481,28 @@ if(EstaPagina == "M-Vest.html"){
 
 
 if(EstaPagina == "M-Acce.html"){
-   inService.actualizarProductoW_A(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
+   inService.actualizarProductoW_A(producto.value, precio.value, cuotas.value,  cambioArchivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "N-Rem.html"){
-   inService.actualizarProductoN_R(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
+   inService.actualizarProductoN_R(producto.value, precio.value, cuotas.value,  cambioArchivo, id).then(() => {
       EdicionFin();
      // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "N-Pant.html"){
-   inService.actualizarProductoN_P(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
+   inService.actualizarProductoN_P(producto.value, precio.value, cuotas.value,  cambioArchivo, id).then(() => {
       EdicionFin();
       // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 if(EstaPagina == "N-Vest.html"){
-   inService.actualizarProductoN_V(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
+   inService.actualizarProductoN_V(producto.value, precio.value, cuotas.value,  cambioArchivo, id).then(() => {
       EdicionFin();
       // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
@@ -492,7 +510,7 @@ if(EstaPagina == "N-Vest.html"){
 
 
 if(EstaPagina == "Ch-Rem.html"){
-   inService.actualizarProductoCH_R(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
+   inService.actualizarProductoCH_R(producto.value, precio.value, cuotas.value,  cambioArchivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
@@ -500,10 +518,12 @@ if(EstaPagina == "Ch-Rem.html"){
 
 
 if(EstaPagina == "Ch-Pant.html"){
-   inService.actualizarProductoCH_P(producto.value, precio.value, cuotas.value,  archivo, id).then(() => {
+   inService.actualizarProductoCH_P(producto.value, precio.value, cuotas.value,  cambioArchivo, id).then(() => {
       EdicionFin();
      // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 
 });
+}
+})
