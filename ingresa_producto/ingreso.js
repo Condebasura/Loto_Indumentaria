@@ -125,7 +125,7 @@ const crearnuevoProducto = (producto, precio, cuotas, newArchivo, id) => {
 
                   eliminarProducto(id).then(res => {
                    modal.close();
-                console.log( res.json());
+                
                 if(res.status >= 400){
                     CodeError();
                 }
@@ -151,16 +151,24 @@ const crearnuevoProducto = (producto, precio, cuotas, newArchivo, id) => {
     return linea;
 
 
-}
+};
 
 const ul = document.querySelector("[data-ul]");
 let EstaPagina = window.location.pathname;
 
 if (EstaPagina == "/html/H-Rem.html") {
     inService.listaProductosH_R().then((data) => {
-        
         data.forEach(({ producto, precio, cuotas, newArchivo, id }) => {
-            console.log(newArchivo)
+            
+            let ip = window.location.hostname;
+            console.log(ip)
+            let url = new URL(newArchivo);
+            let urlJson = url.hostname;
+            if(ip != urlJson){
+                let CambioIp =   urlJson.replace(urlJson, ip);
+                console.log(CambioIp);
+            };   
+            
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, newArchivo, id);
 
 
@@ -176,7 +184,14 @@ if (EstaPagina == "/html/H-Pant.html") {
     inService.listaProductosH_P().then((data) => {
        
         data.forEach(({ producto, precio, cuotas, newArchivo, id }) => {
-            console.log(newArchivo)
+            let ip = window.location.hostname;
+            console.log(ip)
+            let url = new URL(newArchivo);
+            let urlJson = url.hostname;
+            if(ip != urlJson){
+                let CambioIp =   urlJson.replace(urlJson, ip);
+                console.log(CambioIp);
+            };  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,newArchivo, id);
 
 
@@ -189,6 +204,14 @@ if (EstaPagina == "/html/H-Pant.html") {
 if (EstaPagina == "/html/H-Acce.html") {
     inService.listaProductosH_A().then((data) => {
         data.forEach(({ producto, precio, cuotas, newArchivo, id }) => {
+            let ip = window.location.hostname;
+            console.log(ip)
+            let url = new URL(newArchivo);
+            let urlJson = url.hostname;
+            if(ip != urlJson){
+                let CambioIp =   urlJson.replace(urlJson, ip);
+                console.log(CambioIp);
+            };  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
 
 
@@ -201,6 +224,14 @@ if (EstaPagina == "/html/H-Acce.html") {
 if (EstaPagina == "/html/M-Rem.html") {
     inService.listaProductosW_R().then((data) => {
         data.forEach(({ producto, precio, cuotas,  newArchivo, id }) => {
+            let ip = window.location.hostname;
+            console.log(ip)
+            let url = new URL(newArchivo);
+            let urlJson = url.hostname;
+            if(ip != urlJson){
+                let CambioIp =   urlJson.replace(urlJson, ip);
+                console.log(CambioIp);
+            };  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, newArchivo, id);
 
 
@@ -214,6 +245,14 @@ if (EstaPagina == "/html/M-Rem.html") {
 if (EstaPagina == "/html/M-Pant.html") {
     inService.listaProductosW_P().then((data) => {
         data.forEach(({ producto, precio, cuotas,  newArchivo, id }) => {
+            let ip = window.location.hostname;
+            console.log(ip)
+            let url = new URL(newArchivo);
+            let urlJson = url.hostname;
+            if(ip != urlJson){
+                let CambioIp =   urlJson.replace(urlJson, ip);
+                console.log(CambioIp);
+            };  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, newArchivo, id);
 
 
@@ -226,6 +265,14 @@ if (EstaPagina == "/html/M-Pant.html") {
 if (EstaPagina == "/html/M-Vest.html") {
     inService.listaProductosW_V().then((data) => {
         data.forEach(({ producto, precio, cuotas,  newArchivo, id }) => {
+            let ip = window.location.hostname;
+            console.log(ip)
+            let url = new URL(newArchivo);
+            let urlJson = url.hostname;
+            if(ip != urlJson){
+                let CambioIp =   urlJson.replace(urlJson, ip);
+                console.log(CambioIp);
+            };  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
 
 
@@ -250,6 +297,14 @@ if (EstaPagina == "/html/M-Acce.html") {
 if (EstaPagina == "/html/N-Rem.html") {
     inService.listaProductosN_R().then((data) => {
         data.forEach(({ producto, precio, cuotas, newArchivo, id }) => {
+            let ip = window.location.hostname;
+            console.log(ip)
+            let url = new URL(newArchivo);
+            let urlJson = url.hostname;
+            if(ip != urlJson){
+                let CambioIp =   urlJson.replace(urlJson, ip);
+                console.log(CambioIp);
+            };  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
 
 
@@ -262,6 +317,14 @@ if (EstaPagina == "/html/N-Rem.html") {
 if (EstaPagina == "/html/N-Pant.html") {
     inService.listaProductosN_P().then((data) => {
         data.forEach(({ producto, precio, cuotas,  newArchivo, id }) => {
+            let ip = window.location.hostname;
+            console.log(ip)
+            let url = new URL(newArchivo);
+            let urlJson = url.hostname;
+            if(ip != urlJson){
+                let CambioIp =   urlJson.replace(urlJson, ip);
+                console.log(CambioIp);
+            };  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, newArchivo, id);
 
 
@@ -274,6 +337,14 @@ if (EstaPagina == "/html/N-Pant.html") {
 if (EstaPagina == "/html/N-Vest.html") {
     inService.listaProductosN_V().then((data) => {
         data.forEach(({ producto, precio, cuotas, newArchivo, id }) => {
+            let ip = window.location.hostname;
+            console.log(ip)
+            let url = new URL(newArchivo);
+            let urlJson = url.hostname;
+            if(ip != urlJson){
+                let CambioIp =   urlJson.replace(urlJson, ip);
+                console.log(CambioIp);
+            };  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
 
 
@@ -286,6 +357,14 @@ if (EstaPagina == "/html/N-Vest.html") {
 if (EstaPagina == "/html/Ch-Rem.html") {
     inService.listaProductosCH_R().then((data) => {
         data.forEach(({ producto, precio, cuotas,  newArchivo, id }) => {
+            let ip = window.location.hostname;
+            console.log(ip)
+            let url = new URL(newArchivo);
+            let urlJson = url.hostname;
+            if(ip != urlJson){
+                let CambioIp =   urlJson.replace(urlJson, ip);
+                console.log(CambioIp);
+            };  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
 
 
@@ -298,6 +377,14 @@ if (EstaPagina == "/html/Ch-Rem.html") {
 if (EstaPagina == "/html/Ch-Pant.html") {
     inService.listaProductosCH_P().then((data) => {
         data.forEach(({ producto, precio, cuotas,  newArchivo, id }) => {
+            let ip = window.location.hostname;
+            console.log(ip)
+            let url = new URL(newArchivo);
+            let urlJson = url.hostname;
+            if(ip != urlJson){
+                let CambioIp =   urlJson.replace(urlJson, ip);
+                console.log(CambioIp);
+            };  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
 
 

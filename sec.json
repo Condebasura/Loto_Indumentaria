@@ -15,10 +15,10 @@
       "id": "ac26d5f1-fd09-435e-a038-b212080446f8"
     },
     {
-      "producto": "Chomba lisa con cuello",
+      "producto": "Remera lisa escote en v",
       "precio": "6500",
       "cuotas": "3",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Remeras/chomba-1.jpg",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remer-esc-v-1.jpg",
       "id": "e7a00b50-b637-480d-a5a6-6e37f5f4b98f"
     }
   ],
@@ -50,22 +50,15 @@
       "producto": "mariconera de chulo",
       "precio": "4570",
       "cuotas": "3",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/accesorios/bolso-hombre.png",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Accesorios/bolso-hombre.png",
       "id": "650586c8-40e6-475a-9bae-656e59aabfe1"
     },
     {
-      "producto": "bolso cosc",
-      "precio": "3249",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\cargo-1.jpg",
-      "id": "34e52d4f-2581-4738-afcc-2ec7e5c29e1d"
-    },
-    {
-      "producto": "diresd",
-      "precio": "4581.55",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\cinto-1.jpg",
-      "id": "e567b898-e80b-41a9-83c2-a3858f5fd29b"
+      "producto": "mariconera de chulo",
+      "precio": "4577",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Accesorios/bolso-hombre.png",
+      "id": "ebe69990-6cce-45e3-a217-081259e60fdc"
     }
   ],
   "M-Rem": [
@@ -73,22 +66,15 @@
       "producto": "Remera Tejida a mano",
       "precio": "454",
       "cuotas": "1",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/remeras/r-con-encaje.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/Remeras/r-con-encaje.jpg",
       "id": "2e4ab548-01b6-4335-bb2a-45ce60ed3a01"
     },
     {
-      "producto": "remera sur",
-      "precio": "5464",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\r-s-m.jpg",
-      "id": "193cbfb9-1a83-4414-b5a0-89f17e08678a"
-    },
-    {
-      "producto": "Remera gorda",
-      "precio": "34543",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\tres-cuarta-1.jpg",
-      "id": "5337e33c-9734-4232-8e58-a082845c6824"
+      "producto": "Musculosa deportiva",
+      "precio": "2454",
+      "cuotas": "3",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/Remeras/musc-deportiva.jpg",
+      "id": "e8f88ae0-3f9e-4d47-80c1-72af6a125643"
     }
   ],
   "M-Pant": [
@@ -96,17 +82,32 @@
       "producto": "pantalon Apretado",
       "precio": "4533",
       "cuotas": "2",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/pantalon/chupin-de-vestir.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/Pantalones/chupin-de-vestir.jpg",
       "id": "75064c6d-e839-4b36-8d82-89c4aee80a73"
     }
   ],
-  "M-Vest": [],
+  "M-Vest": [
+    {
+      "producto": "vestido largo colorido",
+      "precio": "4577",
+      "cuotas": "2",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Vestidos/vest-larg-colorid.jpg",
+      "id": "e007c933-c6f7-4b05-b933-9e6e910640c8"
+    },
+    {
+      "producto": "vestido corto sin mangas",
+      "precio": "6588",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Vestidos/vest-celeste.jpg",
+      "id": "a929d57e-169d-41bb-a691-ba49cd499ab5"
+    }
+  ],
   "M-Acce": [
     {
       "producto": "Cartera de estras",
       "precio": "1454",
       "cuotas": "1",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/accesorios/carteras/pierre-cardin-x-4.webp",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/Accesorios/pierre-cardin-x-4.webp",
       "id": "c342059a-74de-4e38-915e-559dd111ff0e"
     }
   ],
@@ -115,15 +116,15 @@
       "producto": "Remera unicornio blanco",
       "precio": "3214",
       "cuotas": "6",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Remeras/rem-unicornio.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Remeras/rem-unicornio.jpg",
       "id": "aa546285-991a-4a44-8593-44d4c14d7af5"
     },
     {
-      "producto": "REmera frozen",
-      "precio": "15464",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\rem-bella.jpg",
-      "id": "37a4a369-4d94-4f45-94ad-6a3ae5a6be6a"
+      "producto": "Remera Elsa",
+      "precio": "3214",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Niña/Remeras/rem-elsa.jpg",
+      "id": "b4daa742-3e23-4940-b1eb-a4706ff09e7a"
     }
   ],
   "N-Pant": [
@@ -131,15 +132,15 @@
       "producto": "Calsa frozen / Ana",
       "precio": "1545",
       "cuotas": "2",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Pantalones/calsa-frozen-elsa.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Pantalones/calsa-frozen-elsa.jpg",
       "id": "b2f9f8c8-8104-4a58-a875-4524a61d43c8"
     },
     {
-      "producto": "pantalon Apretado",
-      "precio": "56465",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\pantalon-de-vestir-2.jpg",
-      "id": "2b3c6ada-13a0-4b8e-884e-a02d0d2f4125"
+      "producto": "pantalón lindo",
+      "precio": "2322",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Niña/Pantalones/calsa-perritos.jpg",
+      "id": "969148b6-0878-44b3-8df5-4738098d4e3f"
     }
   ],
   "N-Vest": [
@@ -147,7 +148,7 @@
       "producto": "vestido blaco/negro mariposas",
       "precio": "1254.22",
       "cuotas": "2",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Vestidos/vest-blan-negr-mariposas.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Vestidos/vest-blan-negr-mariposas.jpg",
       "id": "ee092613-7be4-4b6a-9e17-8529383c41fd"
     }
   ],
@@ -156,36 +157,15 @@
       "producto": "Remera Batman",
       "precio": "6587.33",
       "cuotas": "2",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1o/remeras/remera-batman.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Niño/Remeras/remera-batman.jpg",
       "id": "c814dd15-af77-47ca-b6d0-24c03deb18cc"
     },
     {
-      "producto": "Remera batman",
-      "precio": "4454",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\remera-batman.jpg",
-      "id": "f4c2daaa-cbeb-486b-823b-0648cbc5f405"
-    },
-    {
-      "producto": "Remera con caca",
-      "precio": "1243",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\remera-dragonball.jpg",
-      "id": "37109b67-2640-47a2-a744-02257fe36cbf"
-    },
-    {
-      "producto": "Remera con caca",
-      "precio": "1243",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\remera-dragonball.jpg",
-      "id": "b60f9f59-d64e-4867-8605-5300aed9de08"
-    },
-    {
-      "producto": "Remera con caca",
-      "precio": "1243",
-      "cuotas": "1",
-      "archivo": "C:\\fakepath\\remera-dragonball.jpg",
-      "id": "fadb3fb6-a545-45bd-8669-448b0b2919b3"
+      "producto": "Remera Hulk",
+      "precio": "1244",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Niño/Remeras/remera-hulk.png",
+      "id": "fa06fed3-b9cc-4aeb-9ec4-4e9609849139"
     }
   ],
   "Ch-Pant": [
@@ -193,15 +173,15 @@
       "producto": "Pantalon Rarisimo",
       "precio": "2145",
       "cuotas": "3",
-      "archivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1o/pantalon/Pant_Catboy.jpg",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Ni%C3%B1o/Pantalones/Pant_Catboy.jpg",
       "id": "3f57d3f1-cd96-4b5c-9f8a-edf930379836"
     },
     {
-      "producto": "Pantalon producto",
-      "precio": "2415",
+      "producto": "Pantalon con tirantes",
+      "precio": "1244",
       "cuotas": "3",
-      "archivo": "C:\\fakepath\\remera-cars.jpg",
-      "id": "9de9eb97-aa95-4f39-ac40-5b2aea58811a"
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Niño/Pantalones/Pantalon_tirantes.jpeg",
+      "id": "ff19fc06-ce46-49e7-b524-0bbecc5fc7b3"
     }
   ]
 }

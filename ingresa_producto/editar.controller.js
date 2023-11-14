@@ -127,7 +127,7 @@ console.log(EstaPagina);
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            archivo = perfil.newArchivo;
+            newArchivo = perfil.newArchivo;
 
          }
          else {
@@ -153,7 +153,7 @@ console.log(EstaPagina);
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            archivo = perfil.newArchivo;
+            newArchivo = perfil.newArchivo;
 
          }
          else {
@@ -179,7 +179,7 @@ console.log(EstaPagina);
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            archivo = perfil.newArchivo;
+            newArchivo = perfil.newArchivo;
 
          }
          else {
@@ -205,7 +205,7 @@ console.log(EstaPagina);
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            archivo = perfil.newArchivo;
+             newArchivo = perfil.newArchivo;
 
          }
          else {
@@ -232,7 +232,7 @@ console.log(EstaPagina);
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            archivo = perfil.newArchivo;
+            newArchivo = perfil.newArchivo;
 
          }
          else {
@@ -258,7 +258,7 @@ console.log(EstaPagina);
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            archivo = perfil.newArchivo;
+            newArchivo = perfil.newArchivo;
 
          }
          else {
@@ -285,7 +285,7 @@ console.log(EstaPagina);
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            archivo = perfil.newArchivo;
+            newArchivo = perfil.newArchivo;
 
          }
          else {
@@ -313,7 +313,7 @@ console.log(EstaPagina);
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            archivo = perfil.newArchivo;
+            newArchivo = perfil.newArchivo;
 
          }
          else {
@@ -340,7 +340,7 @@ console.log(EstaPagina);
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            archivo = perfil.newArchivo;
+            newArchivo = perfil.newArchivo;
 
          }
          else {
@@ -369,7 +369,7 @@ console.log(EstaPagina)
             producto.value = perfil.producto;
             precio.value = perfil.precio;
             cuotas.value = perfil.cuotas;
-            archivo = perfil.newArchivo;
+            newArchivo = perfil.newArchivo;
 
          }
          else {

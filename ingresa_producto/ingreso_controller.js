@@ -101,8 +101,14 @@ formulario.addEventListener("submit", (e) => {
             }
 
          })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+            .then(res => {
+
+               res.json();
+               IngresoEnd();
+            }
+
+            )
+            .catch(err => CodeError())
       }
       if (seccion.value == "Hombre" && sub_seccion.value == "Accesorios") {
          sub_seccion = Homb[3];
@@ -114,8 +120,14 @@ formulario.addEventListener("submit", (e) => {
             }
 
          })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+            .then(res => {
+
+               res.json();
+               IngresoEnd();
+            }
+
+            )
+            .catch(err => CodeError())
       };
 
 
@@ -132,8 +144,14 @@ formulario.addEventListener("submit", (e) => {
             }
 
          })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+            .then(res => {
+
+               res.json();
+               IngresoEnd();
+            }
+
+            )
+            .catch(err => CodeError())
       }
       if (seccion.value == "Mujer" && sub_seccion.value == "Pantalones") {
          sub_seccion = Wom[1];
@@ -145,8 +163,14 @@ formulario.addEventListener("submit", (e) => {
             }
 
          })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+            .then(res => {
+
+               res.json();
+               IngresoEnd();
+            }
+
+            )
+            .catch(err => CodeError())
       };
 
       if (seccion.value == "Mujer" && sub_seccion.value == "Vestidos") {
@@ -159,8 +183,14 @@ formulario.addEventListener("submit", (e) => {
             }
 
          })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+            .then(res => {
+
+               res.json();
+               IngresoEnd();
+            }
+
+            )
+            .catch(err => CodeError())
       };
 
       if (seccion.value == "Mujer" && sub_seccion.value == "Accesorios") {
@@ -173,8 +203,14 @@ formulario.addEventListener("submit", (e) => {
             }
 
          })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+            .then(res => {
+
+               res.json();
+               IngresoEnd();
+            }
+
+            )
+            .catch(err => CodeError())
       };
 
 
@@ -191,8 +227,14 @@ formulario.addEventListener("submit", (e) => {
             }
 
          })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+            .then(res =>{
+
+               res.json();
+               IngresoEnd();
+            }
+
+            )
+            .catch(err => CodeError())
       };
 
       if (seccion.value == "Niña" && sub_seccion.value == "Pantalones") {
@@ -205,8 +247,14 @@ formulario.addEventListener("submit", (e) => {
             }
 
          })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+            .then(res => {
+
+               res.json();
+               IngresoEnd();
+            }
+
+            )
+            .catch(err => CodeError())
       };
 
       if (seccion.value == "Niña" && sub_seccion.value == "Vestidos") {
@@ -219,8 +267,14 @@ formulario.addEventListener("submit", (e) => {
             }
 
          })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+            .then(res => {
+
+               res.json();
+               IngresoEnd();
+            }
+
+            )
+            .catch(err => CodeError())
       };
 
 
@@ -235,8 +289,14 @@ formulario.addEventListener("submit", (e) => {
             }
 
          })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+            .then(res => {
+
+               res.json();
+               IngresoEnd();
+            }
+
+            )
+            .catch(err => CodeError())
       };
 
       if (seccion.value == "Niño" && sub_seccion.value == "Pantalones") {
@@ -249,8 +309,14 @@ formulario.addEventListener("submit", (e) => {
             }
 
          })
-            .then(res => res.json())
-            .catch(err => console.log(err))
+            .then(res => {
+
+               res.json();
+               IngresoEnd();
+            }
+
+            )
+            .catch(err => CodeError())
       };
 
    };

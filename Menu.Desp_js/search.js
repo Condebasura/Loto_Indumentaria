@@ -54,7 +54,7 @@ search.addEventListener("keypress", async (e, el) => {
               found = true;
                template.querySelector("h3").textContent = el.producto;
                template.querySelector("h3").style.fontSize = "16px";
-               template.querySelector("img").src = el.archivo;
+               template.querySelector("img").src = el.newArchivo;
                template.querySelector("img").setAttribute("class", "img_search");
                template.querySelector("a").textContent = "Ver";
                template.querySelector("a").setAttribute("class", "ver_prod");
