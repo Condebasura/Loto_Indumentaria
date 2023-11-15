@@ -207,10 +207,15 @@ if (EstaPagina == "/html/H-Acce.html") {
             let ip = window.location.hostname;
             console.log(ip)
             let url = new URL(newArchivo);
+            let port = window.location.port;
+            let carpeta =  url.pathname.split("/")[1]
+            let seccion = url.pathname.split("/")[2];
+            let sub_seccion = url.pathname.split("/")[3];
+            let img = url.pathname.split("/")[4];
             let urlJson = url.hostname;
             if(ip != urlJson){
-                let CambioIp =   urlJson.replace(urlJson, ip);
-                console.log(CambioIp);
+                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+                console.log(newArchivo.replace(newArchivo, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`))
             };  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
 
