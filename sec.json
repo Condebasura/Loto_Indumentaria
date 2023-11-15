@@ -1,25 +1,95 @@
 {
   "H-Rem": [
     {
-      "producto": "Remera a rayas",
-      "precio": "4585",
+      "producto": "Chomba varios colores",
+      "precio": "4589",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/chomba-1.jpg",
+      "id": "11b9814b-d7f2-4570-bd25-043a349b6603"
+    },
+    {
+      "producto": "Chomba a rallas",
+      "precio": "5644",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/chomba-clara-1.jpeg",
-      "id": "5e2f1bd0-33d6-452f-9965-3e8b582eab14"
+      "id": "4a009323-d445-4956-b9d7-616b265af894"
     },
     {
-      "producto": "Remera Roja",
-      "precio": "4577",
+      "producto": "Chomba polo a rallas",
+      "precio": "7988",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/chomba-polo-rall-1.jpg",
+      "id": "4493718a-7a0b-4fb8-8be1-439b1b9e341c"
+    },
+    {
+      "producto": "Remera con botones",
+      "precio": "4599",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-con-botones-1.jpg",
+      "id": "4ba76baf-877c-4588-8335-b936b9e9f9d5"
+    },
+    {
+      "producto": "remera lisa cuello redondo",
+      "precio": "3899",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-cuell-redondo-1.jpg",
+      "id": "b959a6d3-5bd8-4657-9362-5dd098e388a1"
+    },
+    {
+      "producto": "Remera estampada",
+      "precio": "3499",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-estamp-1.jpg",
+      "id": "25f2e7f7-2985-4822-bb14-0cf037e4d634"
+    },
+    {
+      "producto": "Remera estampada VANS",
+      "precio": "5499",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-estamp-2.jpg",
-      "id": "ac26d5f1-fd09-435e-a038-b212080446f8"
+      "id": "381a08dc-e36a-4269-b6f8-ed432c0d0b37"
     },
     {
-      "producto": "Remera lisa escote en v",
-      "precio": "6500",
+      "producto": "Remera estampada TRAINS",
+      "precio": "5399",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-estamp-3.png",
+      "id": "a68ded7b-6cd4-4c0d-9c9b-b278bd234a8d"
+    },
+    {
+      "producto": "Remera estampada SCARY",
+      "precio": "6589",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-estamp-4.jpg",
+      "id": "06ed3f9b-fafe-4102-bb41-2944fe60cca6"
+    },
+    {
+      "producto": "Remera estampada amarilla",
+      "precio": "4899",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-estamp-5.jpg",
+      "id": "5dd5afdf-ec0e-499c-9fc2-dfd92b040591"
+    },
+    {
+      "producto": "Remera tricoor",
+      "precio": "6599",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-tricolor-1.jpg",
+      "id": "0b529b4f-6616-4aa7-bdb9-e64e222807ce"
+    },
+    {
+      "producto": "Remera escote en V varios colores",
+      "precio": "6599",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remer-esc-v-2.jpg",
+      "id": "a7bcf81e-c627-4e02-a4b3-d223cda3093e"
+    },
+    {
+      "producto": "Remera blanca escote en V",
+      "precio": "4581.55",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remer-esc-v-1.jpg",
-      "id": "e7a00b50-b637-480d-a5a6-6e37f5f4b98f"
+      "id": "e74f78b6-e1ff-4513-b29d-44d7d61f917a"
     }
   ],
   "H-Pant": [
@@ -43,6 +113,62 @@
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/cargo-1.jpg",
       "id": "0e1eba20-3805-4fee-8595-602bce7d612a"
+    },
+    {
+      "producto": "Babuchas Deportivas",
+      "precio": "3455",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/babucha-deport-1.jpg",
+      "id": "3d89052c-6694-4bfb-bed4-0ee5a24c0f28"
+    },
+    {
+      "producto": "Pantalon cargo con b- laterales",
+      "precio": "6544",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/cargo-2.jpg",
+      "id": "8b75a41f-7e4b-404b-acfd-93eac60d2d5b"
+    },
+    {
+      "producto": "Pantalon cargo camuflado",
+      "precio": "5799",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/cargo-camuf-1.jpeg",
+      "id": "f40a2cdf-b77c-4891-b0e9-0840d5e278bc"
+    },
+    {
+      "producto": "Jean gastado",
+      "precio": "6488",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/jean-1.jpeg",
+      "id": "ca387e55-f6c5-434a-99ef-69120a6e2d8c"
+    },
+    {
+      "producto": "Jean con bolsillos extras",
+      "precio": "8944",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/jean-bolsillos-extras-1.jpg",
+      "id": "ce560b75-9f8e-4410-b42c-436313af6c2b"
+    },
+    {
+      "producto": "Jean elastizado",
+      "precio": "9744",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/jean-elastizado-1.jpg",
+      "id": "b19f8fdc-992c-456b-a173-a29fc6263a1e"
+    },
+    {
+      "producto": "Jean rasgado",
+      "precio": "7899",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/jean-roto-1.jpg",
+      "id": "eeb31d88-65a2-43d4-98a1-e0b7beba3649"
+    },
+    {
+      "producto": "Jean claro rasgado",
+      "precio": "8799",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/jean-roto-2.jpg",
+      "id": "73b416c7-091f-41f3-a8a2-7776cb8b4870"
     }
   ],
   "H-Acce": [
@@ -173,7 +299,7 @@
       "producto": "Pantalon Rarisimo",
       "precio": "2145",
       "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Ni%C3%B1o/Pantalones/Pant_Catboy.jpg",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Ni%C3%B1o/Pantalones/pantalon_est.jpg",
       "id": "3f57d3f1-cd96-4b5c-9f8a-edf930379836"
     },
     {

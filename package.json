@@ -4,7 +4,8 @@
   "description": "Pagina web la cual uso para hacer pruebas mientras voy aprendiendo los lenguajes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "json:server": "json-server --no-logs ./sec.json" 
   },
   "repository": {
     "type": "git",
@@ -16,4 +17,4 @@
     "url": "https://github.com/Condebasura/Loto_Indumentaria/issues"
   },
   "homepage": "https://github.com/Condebasura/Loto_Indumentaria#readme"
-}
+}  
