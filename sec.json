@@ -104,7 +104,7 @@
       "producto": "pantalón con puño",
       "precio": "4581.55",
       "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/babucha-gris-puño-1.jpeg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Pantalones/babucha-gris-1.jpeg",
       "id": "02d75741-4a37-455e-b047-9ec26c304309"
     },
     {
@@ -249,7 +249,7 @@
       "producto": "Remera Elsa",
       "precio": "3214",
       "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Niña/Remeras/rem-elsa.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Remeras/rem-elsa.jpg",
       "id": "b4daa742-3e23-4940-b1eb-a4706ff09e7a"
     }
   ],
@@ -265,7 +265,7 @@
       "producto": "pantalón lindo",
       "precio": "2322",
       "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Niña/Pantalones/calsa-perritos.jpg",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Ni%C3%B1a/Pantalones/calsa-perritos.jpg",
       "id": "969148b6-0878-44b3-8df5-4738098d4e3f"
     }
   ],
@@ -283,14 +283,14 @@
       "producto": "Remera Batman",
       "precio": "6587.33",
       "cuotas": "2",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Niño/Remeras/remera-batman.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1o/Remeras/remera-batman.jpg",
       "id": "c814dd15-af77-47ca-b6d0-24c03deb18cc"
     },
     {
       "producto": "Remera Hulk",
       "precio": "1244",
       "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Niño/Remeras/remera-hulk.png",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Ni%C3%B1o/Remeras/remera-hulk.png",
       "id": "fa06fed3-b9cc-4aeb-9ec4-4e9609849139"
     }
   ],
@@ -306,7 +306,7 @@
       "producto": "Pantalon con tirantes",
       "precio": "1244",
       "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Niño/Pantalones/Pantalon_tirantes.jpeg",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Ni%C3%B1o/Pantalones/Pantalon_tirantes.jpeg",
       "id": "ff19fc06-ce46-49e7-b524-0bbecc5fc7b3"
     }
   ]

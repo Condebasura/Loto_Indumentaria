@@ -49,7 +49,18 @@ search.addEventListener("keypress", async (e, el) => {
             noResult.innerHTML = `<h3> No se encontro resultado para: ${search.value}<h3>`;
 
             datos.forEach(el => {
-
+               let ip = window.location.hostname;
+               console.log(ip)
+               let uRl = new URL(el.newArchivo);
+               let port = window.location.port;
+               let carpeta =  uRl.pathname.split("/")[1]
+               let seccion = uRl.pathname.split("/")[2];
+               let sub_seccion = uRl.pathname.split("/")[3];
+               let img = uRl.pathname.split("/")[4];
+               let uRlJson = uRl.hostname;
+              
+                   // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+                  el.newArchivo =    el.newArchivo.replace(`http://${uRlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`)
             if(el.producto.toLowerCase().includes(search.value.toLowerCase())){
               found = true;
                template.querySelector("h3").textContent = el.producto;

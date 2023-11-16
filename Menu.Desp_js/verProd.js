@@ -107,7 +107,20 @@ const   CodeError = () =>{
    let  EstaImg = url.searchParams.get("estaimg");
    console.log(EstaImg);
 function GetDatos(perfil){
+   // De esta forma hacemos que si el archivo .json contiene otra ip, se cambie por la que estamos usando
+   let ip = window.location.hostname;
+   console.log(ip)
+   let url = new URL(perfil.newArchivo);
+   let port = window.location.port;
+   let carpeta =  url.pathname.split("/")[1]
+   let seccion = url.pathname.split("/")[2];
+   let sub_seccion = url.pathname.split("/")[3];
+   let img = url.pathname.split("/")[4];
+   let urlJson = url.hostname;
+     
+      perfil.newArchivo =    perfil.newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`)
    if (perfil.producto && perfil.precio && perfil.cuotas && perfil.newArchivo) {
+      
       producto.value = perfil.producto;
       precio.value = perfil.precio;
       cuotas.value = perfil.cuotas;
