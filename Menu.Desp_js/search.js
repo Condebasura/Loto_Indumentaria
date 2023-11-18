@@ -60,7 +60,7 @@ search.addEventListener("keypress", async (e, el) => {
                let uRlJson = uRl.hostname;
               
                    // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-                  el.newArchivo =    el.newArchivo.replace(`http://${uRlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`)
+                   el.newArchivo =    el.newArchivo.replace(`http://${uRlJson}`, `http://${ip}`) ;
             if(el.producto.toLowerCase().includes(search.value.toLowerCase())){
               found = true;
                template.querySelector("h3").textContent = el.producto;

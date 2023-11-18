@@ -171,7 +171,7 @@ if (EstaPagina == "/html/H-Rem.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+               newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ;
                   
                   console.log(newArchivo)
             
@@ -201,7 +201,7 @@ if (EstaPagina == "/html/H-Pant.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+                newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ;
                   
                   console.log(newArchivo)
               
@@ -229,7 +229,7 @@ if (EstaPagina == "/html/H-Acce.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+                newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ; 
                   
                   console.log(newArchivo)
                   const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
@@ -256,7 +256,7 @@ if (EstaPagina == "/html/M-Rem.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+                newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ;
                   
                   console.log(newArchivo)  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, newArchivo, id);
@@ -283,7 +283,7 @@ if (EstaPagina == "/html/M-Pant.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+                newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ; 
                   
                   console.log(newArchivo) 
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, newArchivo, id);
@@ -309,7 +309,7 @@ if (EstaPagina == "/html/M-Vest.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+                newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ; 
                   
                   console.log(newArchivo)
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
@@ -335,7 +335,7 @@ if (EstaPagina == "/html/M-Acce.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+                newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ; 
                   
                   console.log(newArchivo)
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, newArchivo, id);
@@ -361,7 +361,7 @@ if (EstaPagina == "/html/N-Rem.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+                newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ; 
                   
                   console.log(newArchivo)  
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
@@ -387,7 +387,7 @@ if (EstaPagina == "/html/N-Pant.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+                newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ; 
                   
                   console.log(newArchivo)
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas, newArchivo, id);
@@ -413,7 +413,7 @@ if (EstaPagina == "/html/N-Vest.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+                newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ;
                   
                   console.log(newArchivo)
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
@@ -439,7 +439,7 @@ if (EstaPagina == "/html/Ch-Rem.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+                newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ;
                   
                   console.log(newArchivo) 
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);
@@ -465,7 +465,7 @@ if (EstaPagina == "/html/Ch-Pant.html") {
             let urlJson = url.hostname;
            
                 // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-               newArchivo =    newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`) 
+                newArchivo =    newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ; 
                   
                   console.log(newArchivo) 
             const nuevoProducto = crearnuevoProducto(producto, precio, cuotas,  newArchivo, id);

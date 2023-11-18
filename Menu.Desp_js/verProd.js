@@ -118,7 +118,7 @@ function GetDatos(perfil){
    let img = url.pathname.split("/")[4];
    let urlJson = url.hostname;
      
-      perfil.newArchivo =    perfil.newArchivo.replace(`http://${urlJson}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${img}`)
+   perfil.newArchivo =    perfil.newArchivo.replace(`http://${urlJson}`, `http://${ip}`) ;
    if (perfil.producto && perfil.precio && perfil.cuotas && perfil.newArchivo) {
       
       producto.value = perfil.producto;
