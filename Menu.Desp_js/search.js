@@ -39,7 +39,7 @@ search.addEventListener("keypress", async (e, el) => {
       for(let url of urls){
          
          let prod = `http://localhost:3000/${url}`;
-       await fetch(prod).then(res => res.json())
+       await fetch(prod).then(res => res.json())  
          .then(data =>{
             
             let datos = data;
@@ -52,15 +52,12 @@ search.addEventListener("keypress", async (e, el) => {
                let ip = window.location.hostname;
                console.log(ip)
                let uRl = new URL(el.newArchivo);
-               let port = window.location.port;
-               let carpeta =  uRl.pathname.split("/")[1]
-               let seccion = uRl.pathname.split("/")[2];
-               let sub_seccion = uRl.pathname.split("/")[3];
-               let img = uRl.pathname.split("/")[4];
+               let puerto = window.location.port;
+               let uRlPort = uRl.port;
                let uRlJson = uRl.hostname;
               
                    // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
-                   el.newArchivo =    el.newArchivo.replace(`http://${uRlJson}`, `http://${ip}`) ;
+                   el.newArchivo =    el.newArchivo.replace(`http://${uRlJson}:${uRlPort}`, `http://${ip}:${puerto}`) ;
             if(el.producto.toLowerCase().includes(search.value.toLowerCase())){
               found = true;
                template.querySelector("h3").textContent = el.producto;

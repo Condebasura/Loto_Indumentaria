@@ -180,10 +180,10 @@
       "id": "650586c8-40e6-475a-9bae-656e59aabfe1"
     },
     {
-      "producto": "mariconera de chulo",
-      "precio": "4577",
+      "producto": "Reloj deportivo",
+      "precio": "5433",
       "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Accesorios/bolso-hombre.png",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Accesorios/deportivo-1.jpg",
       "id": "ebe69990-6cce-45e3-a217-081259e60fdc"
     }
   ],
