@@ -185,7 +185,7 @@
     background-color: #ecfced; 
 }
 
-.button{
+.button , .EndEdit{
     height: 5vh;
     border-style: none;
     background-color: rgb(34, 190, 34);
@@ -193,6 +193,6 @@
     font-size: 18px;
 }
 
-.button:active{
+.button:active , .EndEdit:active{
     box-shadow: 2px 2px 5px 2px #444444;
 }
