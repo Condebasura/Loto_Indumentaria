@@ -78,6 +78,14 @@
 
 }
 
+.card__title{
+    padding: 2px;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #e7f3ea;
+    text-shadow: 1px 1px 8px #1e201f ,  -6px 4px 8px  #27020a ;
+}
+
 .flex-column{
    
     padding: 3em;
@@ -139,6 +147,9 @@
 }
 .input-label{
     font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 2px 3px 2.5px  #000;
+    color: #ecfced;
 }
 
 
