@@ -76,7 +76,7 @@
     align-items: center;
     gap: 1em;
     padding: 3em;
-    box-shadow: 2px 2px 12px 2px #856e6eb2;
+    box-shadow: 2px 2px 12px 2px #856e6ee8;
     background-color: #739bdad5;
 
 }
@@ -185,3 +185,14 @@
     background-color: #ecfced; 
 }
 
+.button{
+    height: 5vh;
+    border-style: none;
+    background-color: rgb(34, 190, 34);
+    color: white;
+    font-size: 18px;
+}
+
+.button:active{
+    box-shadow: 2px 2px 5px 2px #444444;
+}
