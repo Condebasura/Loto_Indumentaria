@@ -426,8 +426,9 @@ const cuotas = document.querySelector(".cuotas");
           parrafoModal.textContent = `Edición Finalizada!! Volviendo al Listado` ;
            let modal = document.getElementById("modal");
           modal.showModal();
-          e.preventDefault();
-          return window.location.href = `/html/${EstaPagina}`;
+          let Regresar = `/html/${EstaPagina}`;
+          return Regresar ;
+          
          }
         
   }
@@ -438,7 +439,7 @@ const cuotas = document.querySelector(".cuotas");
   
    if(EstaPagina == "H-Rem.html"){
    inService.actualizarProductoH_R(producto.value, precio.value, cuotas.value, cambioArchivo, id).then(() => {
-     EdicionFin();
+  EdicionFin();
     //   window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
@@ -453,7 +454,7 @@ if(EstaPagina == "H-Pant.html"){
 };
 
 if(EstaPagina == "H-Acce.html"){
-   inService.actualizarProductoH_A(producto.value, precio.value, cuotas.value,cambioArchivo, id).then(() => {
+   inService.actualizarProductoH_A(producto.value, precio.value, cuotas.value, cambioArchivo, id).then(() => {
       EdicionFin();
       //window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
@@ -468,7 +469,8 @@ if(EstaPagina == "M-Rem.html"){
 
 if(EstaPagina == "M-Pant.html"){
    inService.actualizarProductoW_P(producto.value, precio.value, cuotas.value,  cambioArchivo, id).then(() => {
-      window.location.href = "/ingresa_producto/prod_end.html";
+     EdicionFin();
+      // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
 

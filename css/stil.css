@@ -20,7 +20,9 @@ overflow-x: hidden;}
 }
    
         
-        header{display: flex;
+        header{
+            align-content: center;
+            display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             align-self: baseline;
@@ -83,7 +85,7 @@ overflow-x: hidden;}
        cursor: pointer;
        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
        color: #F5FFFA;
-       font-size:  20px;
+       font-size:  2vh;
         }
         
        .desp-hom{
@@ -94,8 +96,8 @@ overflow-x: hidden;}
             display:flex;
             max-width:100%;
            padding: 4px;
-            position: absolute;;left: 0.5em;top: 1.2em
-            ;margin-top: 1em;z-index: 1;
+            position: absolute;;left: -1em;top: 3.2em
+            ;margin-top: 0.6em;z-index: 1;
         }
 
         .hom{display:flex;
@@ -113,7 +115,7 @@ overflow-x: hidden;}
         text-decoration: none;
         padding: 15px;
         color: black;
-        font-size: 17px;
+        font-size: 2vh;
         }
         
         
@@ -141,7 +143,7 @@ overflow-x: hidden;}
        cursor: pointer;
        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
        color: #F5FFFA;
-       font-size:  20px;}
+       font-size:  2vh;}
         
         .desp-muj{display:none;
            }
@@ -150,7 +152,7 @@ overflow-x: hidden;}
             display: flex;
             max-width:100%;
             padding: 4px;
-             position: absolute;right:13.3em;top: 1.2em;
+             position: absolute;right:13em;top: 3.2em;
              ;margin-top:0.6em;z-index: 1;
 
          }
@@ -171,7 +173,7 @@ overflow-x: hidden;}
             padding: 15px;
             max-width: 100%;
             color: black;
-        font-size: 17px;}
+        font-size: 2vh;}
         
         .wom:hover{box-shadow: 0px 1px 0px #cc8a8a;}
         
@@ -192,7 +194,7 @@ overflow-x: hidden;}
        cursor: pointer;
        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
        color: #F5FFFA;
-       font-size:  20px;}
+       font-size:  2vh;}
         
         
         .desp-niña{
@@ -202,7 +204,7 @@ overflow-x: hidden;}
          .desplegable_ninia{
             display: flex;
             padding: 4px;
-             position: absolute;;right: 6.9em;top: 1.2em
+             position: absolute;;right: 5.9em;top: 3.2em
              ;margin-top:0.6em;z-index: 1;}
         
         .girl{display: flex;
@@ -221,7 +223,7 @@ overflow-x: hidden;}
             padding: 15px;
             max-width: 100%;
             color: black;
-        font-size: 17px;}
+        font-size: 2vh;}
         
         .g:hover{box-shadow: 0px 1px 0px #cc8a8a;}
         
@@ -242,7 +244,7 @@ overflow-x: hidden;}
        cursor: pointer;
        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
        color: #F5FFFA;
-       font-size:  20px;}
+       font-size:  2vh;}
         
         .desp-niño{
             display:none;
@@ -252,7 +254,7 @@ overflow-x: hidden;}
             display: flex;
             max-width: 100%;
             padding: 4px;
-             position: absolute;;right: 0.7em;top:1.2em
+             position: absolute;right: -1em;top:3.2em
              ;margin-top:0.6em;z-index: 1;
          }
         
@@ -271,7 +273,7 @@ overflow-x: hidden;}
             text-decoration: none;
             padding: 15px;
             color: black;
-        font-size: 17px;}
+        font-size: 2vh;}
         
         .ch:hover{box-shadow: 0px 1px 0px #cc8a8a;}
         
@@ -377,7 +379,7 @@ overflow-x: hidden;}
                      
                .brra-cont{max-width: 110%;}
                           
-            .logo{position: relative;left: 1em;top:0.4em;
+            .img-logo{position: relative;left: 1em;top:0.4em;
             font-size: 24px;}
 
             header{position: absolute;left: 3px;top: 5em;

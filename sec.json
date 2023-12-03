@@ -2,7 +2,7 @@
   "H-Rem": [
     {
       "producto": "Chomba varios colores",
-      "precio": "4589",
+      "precio": "4590",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/chomba-1.jpg",
       "id": "11b9814b-d7f2-4570-bd25-043a349b6603"
@@ -72,7 +72,7 @@
     },
     {
       "producto": "Remera tricoor",
-      "precio": "6599",
+      "precio": "6699",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-tricolor-1.jpg",
       "id": "0b529b4f-6616-4aa7-bdb9-e64e222807ce"
@@ -174,32 +174,32 @@
   "H-Acce": [
     {
       "producto": "mariconera de chulo",
-      "precio": "4570",
+      "precio": "4599",
       "cuotas": "3",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Accesorios/bolso-hombre.png",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Accesorios/bolso-hombre.png",
       "id": "650586c8-40e6-475a-9bae-656e59aabfe1"
     },
     {
       "producto": "Reloj deportivo",
-      "precio": "5433",
+      "precio": "5420",
       "cuotas": "3",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Accesorios/deportivo-1.jpg",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Accesorios/deportivo-1.jpg",
       "id": "ebe69990-6cce-45e3-a217-081259e60fdc"
     }
   ],
   "M-Rem": [
     {
       "producto": "Remera Tejida a mano",
-      "precio": "454",
-      "cuotas": "1",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/Remeras/r-con-encaje.jpg",
+      "precio": "4539.99",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Remeras/r-con-encaje.jpg",
       "id": "2e4ab548-01b6-4335-bb2a-45ce60ed3a01"
     },
     {
       "producto": "Musculosa deportiva",
-      "precio": "2454",
+      "precio": "6454",
       "cuotas": "3",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/Remeras/musc-deportiva.jpg",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Remeras/musc-deportiva.jpg",
       "id": "e8f88ae0-3f9e-4d47-80c1-72af6a125643"
     }
   ],
@@ -215,7 +215,7 @@
   "M-Vest": [
     {
       "producto": "vestido largo colorido",
-      "precio": "4577",
+      "precio": "4599",
       "cuotas": "2",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Vestidos/vest-larg-colorid.jpg",
       "id": "e007c933-c6f7-4b05-b933-9e6e910640c8"
@@ -231,9 +231,9 @@
   "M-Acce": [
     {
       "producto": "Cartera de estras",
-      "precio": "1454",
-      "cuotas": "1",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/Accesorios/pierre-cardin-x-4.webp",
+      "precio": "5454",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Accesorios/pierre-cardin-x-4.webp",
       "id": "c342059a-74de-4e38-915e-559dd111ff0e"
     }
   ],
@@ -242,7 +242,7 @@
       "producto": "Remera unicornio blanco",
       "precio": "3214",
       "cuotas": "6",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Remeras/rem-unicornio.jpg",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Ni%C3%B1a/Remeras/rem-unicornio.jpg",
       "id": "aa546285-991a-4a44-8593-44d4c14d7af5"
     },
     {
