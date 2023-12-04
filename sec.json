@@ -2,7 +2,7 @@
   "H-Rem": [
     {
       "producto": "Chomba varios colores",
-      "precio": "4590",
+      "precio": "4580",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/chomba-1.jpg",
       "id": "11b9814b-d7f2-4570-bd25-043a349b6603"
@@ -37,28 +37,28 @@
     },
     {
       "producto": "Remera estampada",
-      "precio": "3499",
+      "precio": "3598",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-estamp-1.jpg",
       "id": "25f2e7f7-2985-4822-bb14-0cf037e4d634"
     },
     {
       "producto": "Remera estampada VANS",
-      "precio": "5499",
+      "precio": "5599",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-estamp-2.jpg",
       "id": "381a08dc-e36a-4269-b6f8-ed432c0d0b37"
     },
     {
       "producto": "Remera estampada TRAINS",
-      "precio": "5399",
+      "precio": "5499",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-estamp-3.png",
       "id": "a68ded7b-6cd4-4c0d-9c9b-b278bd234a8d"
     },
     {
       "producto": "Remera estampada SCARY",
-      "precio": "6589",
+      "precio": "6599",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Remeras/remera-estamp-4.jpg",
       "id": "06ed3f9b-fafe-4102-bb41-2944fe60cca6"
@@ -208,7 +208,7 @@
       "producto": "pantalon Apretado",
       "precio": "4533",
       "cuotas": "2",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/Pantalones/chupin-de-vestir.jpg",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Pantalones/jean-gastado.jpg",
       "id": "75064c6d-e839-4b36-8d82-89c4aee80a73"
     }
   ],
@@ -247,9 +247,9 @@
     },
     {
       "producto": "Remera Elsa",
-      "precio": "3214",
+      "precio": "4580",
       "cuotas": "3",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Remeras/rem-elsa.jpg",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Ni%C3%B1a/Remeras/rem-elsa.jpg",
       "id": "b4daa742-3e23-4940-b1eb-a4706ff09e7a"
     }
   ],

@@ -31,6 +31,12 @@ const   CodeError = () =>{
 };
 
 const crearnuevoProducto = (producto, precio, cuotas, newArchivo, id) => {
+   // asi como se ve este loading hay que crear un loader para que aparezca mientras cargan los datos de la pagina, no en el ul sino en el anterior o en el ul pero que desaparezca al aparecer los datos.
+   
+    /* const loader = document.createElement("h1");
+    loader.setAttribute("class","load");
+    loader.textContent = "LOADING..";
+    ul.appendChild(loader);*/
     let linea = document.createElement("li");
     linea.setAttribute("class", "box_pilcha");
     let EstaPagina = window.location.href;
@@ -147,7 +153,7 @@ const crearnuevoProducto = (producto, precio, cuotas, newArchivo, id) => {
             
             }    
 })
-
+console.log(linea)
     return linea;
 
 
@@ -258,6 +264,7 @@ if (EstaPagina == "/html/M-Rem.html") {
 
 
 if (EstaPagina == "/html/M-Pant.html") {
+  
     inService.listaProductosW_P().then((data) => {
         data.forEach(({ producto, precio, cuotas,  newArchivo, id }) => {
             let ip = window.location.hostname;

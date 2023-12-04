@@ -385,7 +385,7 @@ console.log(EstaPagina)
 
 };
 
-obtenerInformacion();
+
 
 
 newArchivo.addEventListener("change", (e)=>{
@@ -417,7 +417,7 @@ const cuotas = document.querySelector(".cuotas");
    let EstaPagina = url.searchParams.get("estapagina");
    
    
-   const EdicionFin = ()=>{
+   const EdicionFin = (res)=>{
 
       if(e.target.matches(".form") ){
          
@@ -426,11 +426,10 @@ const cuotas = document.querySelector(".cuotas");
           parrafoModal.textContent = `Edición Finalizada!! Volviendo al Listado` ;
            let modal = document.getElementById("modal");
           modal.showModal();
-          let Regresar = `/html/${EstaPagina}`;
-          return Regresar ;
           
          }
-        
+            let Regresar = `/html/${EstaPagina}`;
+            return  window.location.href = Regresar;    
   }
    
  
@@ -528,4 +527,6 @@ if(EstaPagina == "Ch-Pant.html"){
 
 });
 }
-})
+});
+
+obtenerInformacion();
