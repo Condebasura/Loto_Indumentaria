@@ -206,10 +206,45 @@
   "M-Pant": [
     {
       "producto": "pantalon Apretado",
-      "precio": "4533",
+      "precio": "4538.99",
       "cuotas": "2",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Pantalones/jean-gastado.jpg",
       "id": "75064c6d-e839-4b36-8d82-89c4aee80a73"
+    },
+    {
+      "producto": "Pantalon Roto",
+      "precio": "4578",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Pantalones/jean-vintage-1.jpg",
+      "id": "665f86ca-89ec-428a-a4e1-d4b3ddd31235"
+    },
+    {
+      "producto": "Calsa larga",
+      "precio": "6599",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Pantalones/calza-azul.jpg",
+      "id": "3883226f-7c7a-4b45-b29d-3dfe66656f0e"
+    },
+    {
+      "producto": "Jean  elastizado",
+      "precio": "6549",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Pantalones/jean-tiro-alto-1.jpg",
+      "id": "0904044f-9bda-4248-829f-aafd435b2d50"
+    },
+    {
+      "producto": "Calsa rosa",
+      "precio": "12399",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Pantalones/calza-3.jpg",
+      "id": "8bae976a-c194-4aae-912b-44bc5d4f1498"
+    },
+    {
+      "producto": "Capri ",
+      "precio": "9899",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Pantalones/chupin-de-vestir.jpg",
+      "id": "281d1c5f-6ee8-48eb-9733-10910e054987"
     }
   ],
   "M-Vest": [
@@ -256,9 +291,9 @@
   "N-Pant": [
     {
       "producto": "Calsa frozen / Ana",
-      "precio": "1545",
-      "cuotas": "2",
-      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1a/Pantalones/calsa-frozen-elsa.jpg",
+      "precio": "7544.99",
+      "cuotas": "3",
+      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Ni%C3%B1a/Pantalones/calsa-frozen-elsa.jpg",
       "id": "b2f9f8c8-8104-4a58-a875-4524a61d43c8"
     },
     {

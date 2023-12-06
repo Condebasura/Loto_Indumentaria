@@ -196,3 +196,9 @@
 .button:active , .EndEdit:active{
     box-shadow: 2px 2px 5px 2px #444444;
 }
+
+
+.fa-check{
+    color: green;
+    text-shadow: 1px 1px 12px #8b8b8bdc;
+}

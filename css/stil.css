@@ -129,7 +129,7 @@ overflow-x: hidden;}
         
         .hombre:hover{
             box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
-            background-color: #fffaf56e;
+           
             color: black;    
     }
         
@@ -180,7 +180,7 @@ overflow-x: hidden;}
        
         
         .mujer:hover{box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
-        background-color: #fffaf56e;
+
         color: black;
         }
         
@@ -230,7 +230,7 @@ overflow-x: hidden;}
         
         
         .niña:hover{box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
-        background-color: #fffaf56e;
+
         color: black;
         }
         
@@ -280,7 +280,7 @@ overflow-x: hidden;}
         
         
         .niño:hover{box-shadow: 1px 0px 6px  rgba(155, 113, 98, 0.596);
-        background-color: #fffaf56e;
+        
         color: black;
         }
         

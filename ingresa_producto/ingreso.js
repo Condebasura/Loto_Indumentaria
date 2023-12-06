@@ -31,12 +31,7 @@ const   CodeError = () =>{
 };
 
 const crearnuevoProducto = (producto, precio, cuotas, newArchivo, id) => {
-   // asi como se ve este loading hay que crear un loader para que aparezca mientras cargan los datos de la pagina, no en el ul sino en el anterior o en el ul pero que desaparezca al aparecer los datos.
-   
-    /* const loader = document.createElement("h1");
-    loader.setAttribute("class","load");
-    loader.textContent = "LOADING..";
-    ul.appendChild(loader);*/
+  
     let linea = document.createElement("li");
     linea.setAttribute("class", "box_pilcha");
     let EstaPagina = window.location.href;
@@ -161,7 +156,12 @@ console.log(linea)
 
 const ul = document.querySelector("[data-ul]");
 let EstaPagina = window.location.pathname;
-
+ // asi como se ve este loading hay que crear un loader para que aparezca mientras cargan los datos de la pagina, no en el ul sino en el anterior o en el ul pero que desaparezca al aparecer los datos.
+   
+     const loader = document.createElement("div");
+    loader.setAttribute("class","spinner");
+    ul.appendChild(loader);
+    
 if (EstaPagina == "/html/H-Rem.html") {
     inService.listaProductosH_R().then((data) => {
         data.forEach(({ producto, precio, cuotas, newArchivo, id }) => {
@@ -184,6 +184,7 @@ if (EstaPagina == "/html/H-Rem.html") {
             ul.appendChild(nuevoProducto);
             
         });
+        ul.removeChild(loader);
     })
         .catch((err) => CodeError());
     
@@ -210,6 +211,7 @@ if (EstaPagina == "/html/H-Pant.html") {
 
             ul.appendChild(nuevoProducto);
         });
+        ul.removeChild(loader);
     })
         .catch((err) => CodeError());
 };
@@ -235,6 +237,7 @@ if (EstaPagina == "/html/H-Acce.html") {
                  
                   ul.appendChild(nuevoProducto);
                 });
+                ul.removeChild(loader);
             })
         .catch((error) => window.location.href = "../ingresa_producto/Error.html");
 };
@@ -258,6 +261,7 @@ if (EstaPagina == "/html/M-Rem.html") {
 
             ul.appendChild(nuevoProducto);
         });
+        ul.removeChild(loader);
     })
         .catch((error) => CodeError());
 };
@@ -283,6 +287,7 @@ if (EstaPagina == "/html/M-Pant.html") {
 
             ul.appendChild(nuevoProducto);
         });
+        ul.removeChild(loader);
     })
         .catch((error) => CodeError());
 };
@@ -306,6 +311,7 @@ if (EstaPagina == "/html/M-Vest.html") {
 
             ul.appendChild(nuevoProducto);
         });
+        ul.removeChild(loader);
     })
         .catch((error) =>CodeError());
 };
@@ -329,6 +335,7 @@ if (EstaPagina == "/html/M-Acce.html") {
 
             ul.appendChild(nuevoProducto);
         });
+        ul.removeChild(loader);
     })
         .catch((error) => CodeError());
 };
@@ -352,6 +359,7 @@ if (EstaPagina == "/html/N-Rem.html") {
 
             ul.appendChild(nuevoProducto);
         });
+        ul.removeChild(loader);
     })
         .catch((error) => CodeError());
 };
@@ -375,6 +383,7 @@ if (EstaPagina == "/html/N-Pant.html") {
 
             ul.appendChild(nuevoProducto);
         });
+        ul.removeChild(loader);
     })
         .catch((error) => CodeError());
 };
@@ -398,6 +407,7 @@ if (EstaPagina == "/html/N-Vest.html") {
 
             ul.appendChild(nuevoProducto);
         });
+        ul.removeChild(loader);
     })
         .catch((error) => CodeError());
 };
@@ -421,6 +431,7 @@ if (EstaPagina == "/html/Ch-Rem.html") {
 
             ul.appendChild(nuevoProducto);
         });
+        ul.removeChild(loader);
     })
         .catch((error) => CodeError());
 };
@@ -444,6 +455,7 @@ if (EstaPagina == "/html/Ch-Pant.html") {
 
             ul.appendChild(nuevoProducto);
         });
+        ul.removeChild(loader);
     })
         .catch((error) => CodeError());
 };
