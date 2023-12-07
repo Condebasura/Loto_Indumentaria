@@ -1,5 +1,4 @@
 import { inService } from "../service/in-service.js";
-
 const formulario = document.querySelector("[data-form]");
 const producto = document.querySelector(".name");
 const precio = document.querySelector(".bestprecio");
@@ -417,7 +416,7 @@ const cuotas = document.querySelector(".cuotas");
    let EstaPagina = url.searchParams.get("estapagina");
    
    
-   const EdicionFin = (res)=>{
+   const EdicionFin = () =>  {
 
       if(e.target.matches(".form") ){
          
@@ -425,11 +424,11 @@ const cuotas = document.querySelector(".cuotas");
           let parrafoModal = document.querySelector(".p_modal-edit");
           parrafoModal.textContent = `Edición Finalizada!! Volviendo al Listado` ;
            let modal = document.getElementById("modal");
-          modal.showModal();
+           modal.showModal();
           
          }
-            let Regresar = `/html/${EstaPagina}`;
-            return  window.location.href = Regresar;    
+
+            return  window.location.href = `../html/${EstaPagina}`;    
   }
    
  
@@ -461,7 +460,7 @@ if(EstaPagina == "H-Acce.html"){
 
 if(EstaPagina == "M-Rem.html"){
    inService.actualizarProductoW_R(producto.value, precio.value, cuotas.value,  cambioArchivo, id).then(() => {
-      EdicionFin();
+  EdicionFin();
      // window.location.href = "/ingresa_producto/prod_end.html";
    }).catch(err => CodeError())
 };
