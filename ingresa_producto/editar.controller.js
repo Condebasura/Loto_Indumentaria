@@ -427,9 +427,10 @@ const cuotas = document.querySelector(".cuotas");
            modal.showModal();
           
          }
-
-            return  window.location.href = `../html/${EstaPagina}`;    
-  }
+         console.log(`/html/${EstaPagina}`);
+         return window.location.assign(`/html/${EstaPagina}`);    
+                 
+         }
    
  
        

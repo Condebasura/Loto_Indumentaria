@@ -95,9 +95,9 @@
   "H-Pant": [
     {
       "producto": "Pantalon camuflado ",
-      "precio": "2415",
+      "precio": "7415",
       "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/babucha-camuf-1.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Pantalones/babucha-camuf-1.jpg",
       "id": "5be8ac14-9f79-4844-8f91-e8933f1e8287"
     },
     {
@@ -116,9 +116,9 @@
     },
     {
       "producto": "Babuchas Deportivas",
-      "precio": "3455",
+      "precio": "9899",
       "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Hombre/Pantalones/babucha-deport-1.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Hombre/Pantalones/babucha-deport-1.jpg",
       "id": "3d89052c-6694-4bfb-bed4-0ee5a24c0f28"
     },
     {
@@ -190,7 +190,7 @@
   "M-Rem": [
     {
       "producto": "Remera Tejida a mano",
-      "precio": "4549.99",
+      "precio": "4539.99",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Remeras/r-con-encaje.jpg",
       "id": "2e4ab548-01b6-4335-bb2a-45ce60ed3a01"
@@ -201,27 +201,6 @@
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Remeras/musc-deportiva.jpg",
       "id": "e8f88ae0-3f9e-4d47-80c1-72af6a125643"
-    },
-    {
-      "producto": "Blusa de encaje blanca",
-      "precio": "12899",
-      "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Remeras/blusa-de-encaje-blanca.jpg",
-      "id": "ab82b039-516a-4f3c-a624-696313af32d0"
-    },
-    {
-      "producto": "Remera con volado",
-      "precio": "9889",
-      "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Remeras/r-con-volado.jpg",
-      "id": "676b2cb1-b742-4f31-ba67-d5580fe3deb5"
-    },
-    {
-      "producto": "Remera tres cuarta",
-      "precio": "8599",
-      "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Remeras/tres-cuarta.jpg",
-      "id": "9235f002-ee60-4e20-a4ea-10df0c6893c5"
     }
   ],
   "M-Pant": [
@@ -234,7 +213,7 @@
     },
     {
       "producto": "Pantalon Roto",
-      "precio": "4577.99",
+      "precio": "4578",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Pantalones/jean-vintage-1.jpg",
       "id": "665f86ca-89ec-428a-a4e1-d4b3ddd31235"
@@ -271,14 +250,14 @@
   "M-Vest": [
     {
       "producto": "vestido largo colorido",
-      "precio": "7598",
-      "cuotas": "3",
+      "precio": "4599",
+      "cuotas": "2",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Vestidos/vest-larg-colorid.jpg",
       "id": "e007c933-c6f7-4b05-b933-9e6e910640c8"
     },
     {
       "producto": "vestido corto sin mangas",
-      "precio": "6598.99",
+      "precio": "6588",
       "cuotas": "3",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Vestidos/vest-celeste.jpg",
       "id": "a929d57e-169d-41bb-a691-ba49cd499ab5"
@@ -296,8 +275,8 @@
   "N-Rem": [
     {
       "producto": "Remera unicornio blanco",
-      "precio": "7449.99",
-      "cuotas": "3",
+      "precio": "3214",
+      "cuotas": "6",
       "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Ni%C3%B1a/Remeras/rem-unicornio.jpg",
       "id": "aa546285-991a-4a44-8593-44d4c14d7af5"
     },
@@ -339,7 +318,7 @@
       "producto": "Remera Batman",
       "precio": "6587.33",
       "cuotas": "2",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Ni%C3%B1o/Remeras/remera-batman.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Ni%C3%B1o/Remeras/remera-batman.jpg",
       "id": "c814dd15-af77-47ca-b6d0-24c03deb18cc"
     },
     {

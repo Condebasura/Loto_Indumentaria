@@ -64,11 +64,12 @@ boton.addEventListener("click", (e)=>{
          InputUser.setCustomValidity("El campo no puede estar vacio contener numeros o caracteres especiales");
          return false;
       }else{
-         InputUser.style.border = " 1.5px solid  #4ee989 ";
-        InputUser.setCustomValidity("");
-        return true;
+         InputUser.style.border = "1.5px solid  #4ee989";
+           InputUser.setCustomValidity("");
+             return true;
+           
       }
-      }
+         }
 
    InputUser.addEventListener("input", ValidarEmail);
 

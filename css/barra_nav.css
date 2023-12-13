@@ -40,7 +40,10 @@
         
         .sech{float: right;
             display: flex;
-            position: relative;top: 3.7em;}
+            flex-direction: column;
+            gap: 1em;
+            position: relative;top: 1em;right: 1em;
+             align-items: center;}
         
             .fa-search , .input{
                 border-style: none;
