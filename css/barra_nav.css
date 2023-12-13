@@ -354,7 +354,7 @@
         #modal{
             border-style: none;
             padding: 1em;
-            width: 30%;
+           /*width: 30%;*/
             text-align: center;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             font-size: 20px;
@@ -376,7 +376,7 @@
         .p_modal{
             color: rgba(172, 168, 168, 0.541);
             text-shadow: 1px 1px 1px rgb(250, 30, 30) ;
-            font-size: 33px;
+            font-size: 23px;
         }
         
         #confirm {
