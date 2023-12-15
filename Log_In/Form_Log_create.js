@@ -73,6 +73,37 @@ boton.addEventListener("click", (e)=>{
 
    InputUser.addEventListener("input", ValidarEmail);
 
+Registro.addEventListener("click", (e)=>{
+   if(e.target){
+      let modal = document.getElementById("modal");
+      modal.innerHTML = "";
+      const CajaRegis = document.createElement("div");
+      const tituloRegis = document.createElement("h1");
+      const LabelRegisUser = document.createElement("label");
+      const InputRegisUser = document.createElement("input");
+      const LabelRegisPass = document.createElement("label");
+      const InputRegisPass = document.createElement("input");
+
+      tituloRegis.setAttribute("class", "RegisTitulo");
+      tituloRegis.innerHTML = "Registrarse";
+ 
+       CajaRegis.appendChild(tituloRegis);
+       CajaRegis.appendChild(LabelRegisUser);
+       CajaRegis.appendChild(InputRegisUser);
+       CajaRegis.appendChild(LabelRegisPass);
+       CajaRegis.appendChild(InputRegisPass);
+       modal.appendChild(CajaRegis);
+
+
+
+   }
+})
+
+
+
+
+
+
         salir.addEventListener("click", (e)=>{
             if(e.target){
                modal.close();
