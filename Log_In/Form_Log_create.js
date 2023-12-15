@@ -39,7 +39,7 @@ boton.addEventListener("click", (e)=>{
         InputUser.setAttribute("placeholder", "Ingrese su email");
         InputPass.setAttribute("placeholder", "Ingrese su contraseña");
 
-        LabelInputUser.textContent = "Usuario o Email";
+        LabelInputUser.textContent = "Email";
         LabelInputPass.textContent = "Contraseña";
                 
         modal.showModal();
@@ -83,10 +83,20 @@ Registro.addEventListener("click", (e)=>{
       const InputRegisUser = document.createElement("input");
       const LabelRegisPass = document.createElement("label");
       const InputRegisPass = document.createElement("input");
-
+      
+      CajaRegis.setAttribute("class", "CajaRegis");
       tituloRegis.setAttribute("class", "RegisTitulo");
       tituloRegis.innerHTML = "Registrarse";
- 
+      LabelRegisUser.setAttribute("class", "LabelRegisUser");
+      InputRegisUser.setAttribute("class", "InputRegisUser");
+      InputRegisUser.setAttribute("type", "email");
+      LabelRegisUser.textContent = "Email";
+      LabelRegisPass.setAttribute("class", "LabelRegisPass");
+      InputRegisPass.setAttribute("class", "InputRegisPass");
+      InputRegisPass.setAttribute("type", "password");
+      LabelRegisPass.textContent = "Contraseña"
+
+
        CajaRegis.appendChild(tituloRegis);
        CajaRegis.appendChild(LabelRegisUser);
        CajaRegis.appendChild(InputRegisUser);
