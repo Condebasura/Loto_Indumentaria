@@ -1,0 +1,29 @@
+#modal{
+	border-style: none ;
+	box-shadow: 2px 2px 9px #444444;
+}
+.RegisTitulo{
+	text-align: center;
+}
+.CajaRegis{
+	display: grid;
+	grid-template-columns: 2fr;
+	padding: 2em;
+	margin: 2em;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.InputRegisUser , .InputRegisPass , .InputRegisName{
+	margin: 1.5em 0;
+	height: 2em;
+	max-width: 100%;
+}
+
+
+.InputRegisUser:focus , .InputRegisPass:focus , .InputRegisName:focus{
+	outline: none;
+	border:  1.5px solid  #4ee989;
+	background-color: #ecfced;
+}
+

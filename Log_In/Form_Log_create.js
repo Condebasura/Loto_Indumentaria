@@ -75,43 +75,62 @@ boton.addEventListener("click", (e)=>{
 
 Registro.addEventListener("click", (e)=>{
    if(e.target){
+
       let modal = document.getElementById("modal");
       modal.innerHTML = "";
+      const salir = document.createElement("i");
+      const tituloRegis = document.createElement("h4");
       const CajaRegis = document.createElement("div");
-      const tituloRegis = document.createElement("h1");
+      const LabelName = document.createElement("label");
+      const InputName = document.createElement("input");
       const LabelRegisUser = document.createElement("label");
       const InputRegisUser = document.createElement("input");
       const LabelRegisPass = document.createElement("label");
       const InputRegisPass = document.createElement("input");
-      
+            
       CajaRegis.setAttribute("class", "CajaRegis");
       tituloRegis.setAttribute("class", "RegisTitulo");
-      tituloRegis.innerHTML = "Registrarse";
-      LabelRegisUser.setAttribute("class", "LabelRegisUser");
+      tituloRegis.innerHTML = "Registro de Usuario";
+      LabelName.setAttribute("for", "Name");
+      InputName.setAttribute("id", "Name");
+      InputName.setAttribute("class", "InputRegisName"),
+      LabelName.textContent  = "Nombre Completo"
+      LabelRegisUser.setAttribute("for", "LabelUser");
       InputRegisUser.setAttribute("class", "InputRegisUser");
+      InputRegisUser.setAttribute("id", "InputUser");
       InputRegisUser.setAttribute("type", "email");
       LabelRegisUser.textContent = "Email";
-      LabelRegisPass.setAttribute("class", "LabelRegisPass");
+      LabelRegisPass.setAttribute("for", "LabelPass");
       InputRegisPass.setAttribute("class", "InputRegisPass");
+      InputRegisPass.setAttribute("id", "InputPass");
       InputRegisPass.setAttribute("type", "password");
-      LabelRegisPass.textContent = "Contraseña"
+      LabelRegisPass.textContent = "Contraseña";
+      salir.setAttribute("class", "fa-solid fa-circle-xmark");
 
 
-       CajaRegis.appendChild(tituloRegis);
+       modal.showModal();
+       modal.appendChild(salir);
+       modal.appendChild(tituloRegis);
+       modal.appendChild(CajaRegis);
+       CajaRegis.appendChild(LabelName);
+       CajaRegis.appendChild(InputName);
        CajaRegis.appendChild(LabelRegisUser);
        CajaRegis.appendChild(InputRegisUser);
        CajaRegis.appendChild(LabelRegisPass);
        CajaRegis.appendChild(InputRegisPass);
-       modal.appendChild(CajaRegis);
 
-
+ 
+         salir.addEventListener("click", (e)=>{
+            if(e.target){
+               modal.close();
+               modal.innerHTML = "";
+               
+            }
+            
+         })
 
    }
 })
-
-
-
-
 
 
         salir.addEventListener("click", (e)=>{

@@ -26,7 +26,7 @@
 
 
 }
-.cajaInput , .CajaRegis{
+.cajaInput {
     display: grid;
     grid-template-columns: 2fr;
     padding: 2em;
