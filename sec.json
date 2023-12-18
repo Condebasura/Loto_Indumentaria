@@ -197,9 +197,9 @@
     },
     {
       "producto": "Musculosa deportiva",
-      "precio": "6454",
+      "precio": "8599",
       "cuotas": "3",
-      "newArchivo": "http://192.168.43.230:5502/Imagen_producto/Mujer/Remeras/musc-deportiva.jpg",
+      "newArchivo": "http://127.0.0.1:5502/Imagen_producto/Mujer/Remeras/musc-deportiva.jpg",
       "id": "e8f88ae0-3f9e-4d47-80c1-72af6a125643"
     }
   ],
