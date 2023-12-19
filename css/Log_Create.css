@@ -85,6 +85,10 @@ cursor: pointer;
     box-shadow: 2px 2px 5px 2px #fffefe;
 }
 
+.NoTienesCuenta{
+    font-size: 15px;
+    color: rgb(209, 8, 8);
+}
 .registrarse{
     background-color: rgb(42, 207, 21);
     border-style: none;
