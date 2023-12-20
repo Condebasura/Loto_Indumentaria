@@ -10,7 +10,7 @@ boton.addEventListener("click", (e)=>{
         const span = document.createElement("span");
         const IniciarSesion = document.createElement("button");
         const Registro = document.createElement("button");
-        const cajaInputs = document.createElement("div");
+        const cajaInputs = document.createElement("form");
         const LabelInputUser = document.createElement("label");
         const InputUser = document.createElement("input");
         const LabelInputPass = document.createElement("label");
@@ -54,7 +54,7 @@ boton.addEventListener("click", (e)=>{
         cajaInputs.appendChild(InputUser);
         cajaInputs.appendChild(LabelInputPass);
         cajaInputs.appendChild(InputPass);
-      cajainicio.appendChild(IniciarSesion);
+      cajaInputs.appendChild(IniciarSesion);
       cajainicio.appendChild(span);
       cajainicio.appendChild(Registro);
        
@@ -76,14 +76,14 @@ boton.addEventListener("click", (e)=>{
 
    InputUser.addEventListener("input", ValidarEmail);
 
-Registro.addEventListener("click", (e)=>{
-   if(e.target){
+Registro.addEventListener("click", ()=>{
+ 
 
       let modal = document.getElementById("modal");
       modal.innerHTML = "";
       const salir = document.createElement("i");
       const tituloRegis = document.createElement("h4");
-      const CajaRegis = document.createElement("div");
+      const CajaRegis = document.createElement("form");
       const LabelName = document.createElement("label");
       const InputName = document.createElement("input");
       const LabelRegisUser = document.createElement("label");
@@ -243,9 +243,53 @@ Registro.addEventListener("click", (e)=>{
             
          })
 
-   }
-})
+         class Usuario {
+            constructor(InputRegisUser, InputRegisPass, InputName, InputRegisDate, InputRegisSexo) {
+                this.InputRegisUser = InputRegisUser;
+                this.InputRegisPass = InputRegisPass;
+                this.InputName = InputName;
+                this.InputRegisDate = this.changeDateFormat(InputRegisDate);
+                this.InputRegisSexo = InputRegisSexo;
+            }
+        
+            changeDateFormat(date) {
+                const dateParts = date.split('-');
+                return `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
+            }
+        
+            addCliente() {
+                return fetch("http://localhost:3004/Usuarios",{
+                    method: "POST", 
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(this)
+                }).then(res =>{
+                    let json = res.data;
+        
+                    // si el status es ok al ingresar los datos aparece un aviso de que los datos an ingresados correctamente.
+                    if (res.status >= 201 && res.status <= 300) {
+                        const Exito = document.createElement("p");
+                        Exito.textContent = "Usuario Ingresado!!";
+                        Exito.setAttribute("class", "exito");
+        
+                        setTimeout(() =>{ modal.appendChild(Exito), location.reload(), 100000});
+                    }
+                }).catch(err => console.log(err));
+            }
+        }
+        
+        CajaRegis.addEventListener("submit", (e)=>{
+            e.preventDefault();
+        
+            let usuario = new Usuario(InputRegisUser.value, InputRegisPass.value, InputName.value, InputRegisDate.value, InputRegisSexo.value);
+            usuario.addCliente();
+        });
 
+        
+        
+         
+      })
   // evento para salir del modal de inicio de sesión
         salir.addEventListener("click", (e)=>{
             if(e.target){
@@ -259,4 +303,3 @@ Registro.addEventListener("click", (e)=>{
     
     }
 });
-

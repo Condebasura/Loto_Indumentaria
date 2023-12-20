@@ -62,8 +62,8 @@ cursor: pointer;
 .cajainicio{
     display: grid;
     grid-template-columns: 2fr;
-    padding: 2em;
-    margin: 0 3em ;
+    padding: 0 2em;
+    margin: 0 2em ;
     justify-content: center;
     align-items:center;
     text-align: center;

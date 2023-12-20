@@ -1,0 +1,36 @@
+{
+  "Usuarios": [
+    {
+      "InputRegisUser": "corchoDeHacero3344@hotmail.com",
+      "InputRegisPass": "0000",
+      "InputName": "Pablo Cesar Zabala",
+      "InputRegisDate": "29-11-2023",
+      "InputRegisSexo": "Masculino",
+      "id": 1
+    },
+    {
+      "User": "NAri_32@gmail.com",
+      "InputRegisPass": "reee",
+      "InputName": "Norberto Ramon Arias",
+      "InputRegisDate": "21-04-1993",
+      "InputRegisSexo": "Masculino",
+      "id": 2
+    },
+    {
+      "InputRegisUser": "could_2032@outlook.com",
+      "InputRegisPass": "Mierda",
+      "InputName": "Pablo Cesar Zabala",
+      "InputRegisDate": "31-10-1983",
+      "InputRegisSexo": "Masculino",
+      "id": 3
+    },
+    {
+      "InputRegisUser": "Petrima@hotmail.com",
+      "InputRegisPass": "petro",
+      "InputName": "marcelo Petroni",
+      "InputRegisDate": "11-04-1964",
+      "InputRegisSexo": "Masculino",
+      "id": 4
+    }
+  ]
+}
