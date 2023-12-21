@@ -1,6 +1,7 @@
 #modal{
 	border-style: none ;
 	box-shadow: 2px 2px 9px  #444444;
+	
 
 }
 
@@ -23,7 +24,7 @@
 	display: grid;
 	grid-template-columns: 2fr;
 	padding: 2em;
-	margin: 2em;
+	margin: 0 4em ;
 	justify-content: center;
 	align-items: flex-start;
 }
@@ -55,4 +56,16 @@
 
 .RegistrarCliente:active{
     box-shadow: 2px 2px 5px 2px #fffefe;
+}
+
+
+.exito{
+	color: white;
+	background-color: rgb(64, 255, 47);
+	font-size: 20px;
+	box-shadow: 1px 1px 12px #444444;
+	text-align: center;
+	margin: 2px;
+	padding: 2px;
+
 }

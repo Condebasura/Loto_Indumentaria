@@ -1,5 +1,6 @@
 const boton = document.querySelector(".log-in");
 const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const regexLetras = /[a-z A-Z\\s]+/gu;
 
 boton.addEventListener("click", (e)=>{
    e.preventDefault();
@@ -141,7 +142,7 @@ Registro.addEventListener("click", ()=>{
       ValueSelect.setAttribute("value" , "#");
       ValueMasculino.setAttribute("value", "Masculino");
       ValueFemenino.setAttribute("value", "Femenino");
-      ValueSelect.textContent = "seleccionar";
+      ValueSelect.textContent = "Seleccionar";
       ValueMasculino.textContent = "Masculino";
       ValueFemenino.textContent = "Femenino";
       RegistroCliente.setAttribute("class", "RegistrarCliente");
@@ -194,21 +195,54 @@ Registro.addEventListener("click", ()=>{
 
       InputConfirmPass.addEventListener("input", ValidarRegisPass);
 
-      const ValidarFecha =() =>{
-         const max = new Date().getFullYear('dd/mm/yyyy') + '-12-31';
-         InputRegisDate.setAttribute("max", max);
-        if(InputRegisDate > max){
-             return false;
-         }else{
+
+      const validaNombre = () => {
+         if (!regexLetras.test(InputName.value)) {
+             InputName.style.border = "1.5px solid red";
+             InputName.setCustomValidity("El campo no puede estar vacio contener numeros o caracteres especiales");
              
-             return true;
+         } else {
+             InputName.style.border = "1.5px solid  #4ee989";
+             InputName.setCustomValidity("");
+             
          }
+         InputName.reportValidity();
+     };
      
+     InputName.addEventListener("input", validaNombre);
+
+      const ValidarFecha =() =>{
+         const max = new Date().getFullYear()
+         InputRegisDate.setAttribute("max", max);
+        let AñoNacimiento = new Date(InputRegisDate.value).getFullYear();
+        if(InputRegisDate > max || max - AñoNacimiento >= 18){
+       
+         InputRegisDate.style.border = "1.5px solid  #4ee989";
+         InputRegisDate.setCustomValidity("");
+         }
+         
+         else{
+           InputRegisDate.style.border = "1.5px solid red";
+           InputRegisDate.setCustomValidity("Tienes que ser mayor de 18 años para crear una cuenta !!")
+             
+         }
+             InputRegisDate.reportValidity();
          
      };
      
      InputRegisDate.addEventListener("input", ValidarFecha);
 
+       const ValidarSexo = ()=>{
+         if(InputRegisSexo.value == "#"){
+            InputRegisSexo.style.border = "1.5px solid  red";
+         InputRegisSexo.setCustomValidity("Seleccione una opción !!")
+         }else{
+            InputRegisSexo.style.border = "1.5px solid  #4ee989";
+            InputRegisSexo.setCustomValidity("");
+         }
+         InputRegisSexo.reportValidity();
+       }
+InputRegisSexo.addEventListener("input", ValidarSexo);
        modal.showModal();
        modal.appendChild(salir);
        modal.appendChild(tituloRegis);
@@ -266,14 +300,16 @@ Registro.addEventListener("click", ()=>{
                     body: JSON.stringify(this)
                 }).then(res =>{
                     let json = res.data;
+                    
         
                     // si el status es ok al ingresar los datos aparece un aviso de que los datos an ingresados correctamente.
                     if (res.status >= 201 && res.status <= 300) {
-                        const Exito = document.createElement("p");
-                        Exito.textContent = "Usuario Ingresado!!";
+                     modal.removeChild(CajaRegis);
+                     const Exito = document.createElement("p");
+                        Exito.textContent = `El usuario ${InputRegisUser.value} se ingresó exitosamente !!`;
                         Exito.setAttribute("class", "exito");
         
-                        setTimeout(() =>{ modal.appendChild(Exito), location.reload(), 100000});
+                        setTimeout(() =>{ modal.appendChild(Exito), /*location.reload() ,*/ 1500000});
                     }
                 }).catch(err => console.log(err));
             }
