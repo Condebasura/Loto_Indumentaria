@@ -19,7 +19,8 @@ boton.addEventListener("click", (e)=>{
         const salir = document.createElement("i");
 
         
-        cajaInputs.setAttribute("class", "cajaInput")
+        cajaInputs.setAttribute("class", "cajaInput");
+        cajaInputs.setAttribute("type", "submit");
         LabelInputUser.setAttribute("for", "usuario");
         InputUser.setAttribute("id", "usuario");
         IniciarSesion.setAttribute("class", "sesion");
@@ -243,6 +244,7 @@ Registro.addEventListener("click", ()=>{
          InputRegisSexo.reportValidity();
        }
 InputRegisSexo.addEventListener("input", ValidarSexo);
+
        modal.showModal();
        modal.appendChild(salir);
        modal.appendChild(tituloRegis);
@@ -275,7 +277,7 @@ InputRegisSexo.addEventListener("input", ValidarSexo);
                
             }
             
-         })
+         });
 
          class Usuario {
             constructor(InputRegisUser, InputRegisPass, InputName, InputRegisDate, InputRegisSexo) {
@@ -284,7 +286,7 @@ InputRegisSexo.addEventListener("input", ValidarSexo);
                 this.InputName = InputName;
                 this.InputRegisDate = this.changeDateFormat(InputRegisDate);
                 this.InputRegisSexo = InputRegisSexo;
-            }
+            };
         
             changeDateFormat(date) {
                 const dateParts = date.split('-');
@@ -306,20 +308,42 @@ InputRegisSexo.addEventListener("input", ValidarSexo);
                     if (res.status >= 201 && res.status <= 300) {
                      modal.removeChild(CajaRegis);
                      const Exito = document.createElement("p");
-                        Exito.textContent = `El usuario ${InputRegisUser.value} se ingresó exitosamente !!`;
+                        Exito.innerHTML = `El usuario ${InputRegisUser.value} <br> se registró exitosamente !!`;
                         Exito.setAttribute("class", "exito");
         
                         setTimeout(() =>{ modal.appendChild(Exito), /*location.reload() ,*/ 1500000});
                     }
                 }).catch(err => console.log(err));
             }
-        }
+        };
+
+       // Tengo que crear una funcion para obtener los datos de usuario y pass para verificar que coincidan para iniciar sesion.
+           const DetalleUsers = (id)=>{
+
+              return fetch(`http://localhost:3004/Usuarios/${id}`).then(res =>{
+            let data = res.json;
+              
+              console.log(data)
+                 
+            
+         }).catch(err => console.log(err))
+         
+      }
+
+      cajaInputs.addEventListener("submit", DetalleUsers)
+           
+       
         
         CajaRegis.addEventListener("submit", (e)=>{
-            e.preventDefault();
-        
-            let usuario = new Usuario(InputRegisUser.value, InputRegisPass.value, InputName.value, InputRegisDate.value, InputRegisSexo.value);
-            usuario.addCliente();
+         e.preventDefault();
+        if(!ValidarRegisEmail() || !ValidarRegisPass() || !validaNombre() || !ValidarFecha() || !ValidarSexo() ){
+        e.preventDefault();
+        }
+       
+           
+           let usuario = new Usuario(InputRegisUser.value, InputRegisPass.value, InputName.value, InputRegisDate.value, InputRegisSexo.value);
+           usuario.addCliente();
+         
         });
 
         

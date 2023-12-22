@@ -143,6 +143,30 @@
       "InputRegisDate": "01-08-1987",
       "InputRegisSexo": "Masculino",
       "id": 18
+    },
+    {
+      "InputRegisUser": "Recuerdo@gmail.com",
+      "InputRegisPass": "colcha",
+      "InputName": "Mariana Zarcedro",
+      "InputRegisDate": "02-02-2002",
+      "InputRegisSexo": "Femenino",
+      "id": 19
+    },
+    {
+      "InputRegisUser": "MartinchoElcho777@gmail.com",
+      "InputRegisPass": "remolacha2",
+      "InputName": "Martin Dario Gomez",
+      "InputRegisDate": "05-08-1998",
+      "InputRegisSexo": "Masculino",
+      "id": 20
+    },
+    {
+      "InputRegisUser": "sonChanchos@outlook.com",
+      "InputRegisPass": "wisaaa",
+      "InputName": "Sonia Chescosqui",
+      "InputRegisDate": "02-09-1981",
+      "InputRegisSexo": "Femenino",
+      "id": 21
     }
   ]
 }

@@ -51,7 +51,7 @@ const crearnuevoProducto = (producto, precio, cuotas, newArchivo, id) => {
                   <span class="bestprecio">$ ${precio}</span>
                   <div class="control-cuotas">
                       <span class="cuotas" >
-                        Hasta en  ${cuotas} cuotas de 
+                        Hasta  ${cuotas} cuotas de 
                           <b><br>$ ${enCuotas.toFixed(2)}</b>
                           sin interes
                       </span>
