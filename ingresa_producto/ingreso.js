@@ -1,5 +1,5 @@
 import { inService } from "../service/in-service.js";
-// la funcion modifica el cuadro de dialogo que usamos para eliminar un producto y crea uno para los errores.
+// la funcion crea un cuadro de dialogo para los  errores.
 const   CodeError = () =>{
 
     const modal = document.getElementById("modal");
@@ -30,6 +30,7 @@ const   CodeError = () =>{
         });
 };
 
+// Funcion para la creacion de los productos
 const crearnuevoProducto = (producto, precio, cuotas, newArchivo, id) => {
   
     let linea = document.createElement("li");
@@ -156,8 +157,9 @@ console.log(linea)
 
 const ul = document.querySelector("[data-ul]");
 let EstaPagina = window.location.pathname;
- // asi como se ve este loading hay que crear un loader para que aparezca mientras cargan los datos de la pagina, no en el ul sino en el anterior o en el ul pero que desaparezca al aparecer los datos.
-   
+
+
+ // Se crea un loader para esperar que cargue la pagina   
      const loader = document.createElement("div");
     loader.setAttribute("class","spinner");
     ul.appendChild(loader);
@@ -173,7 +175,7 @@ if (EstaPagina == "/html/H-Rem.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
            
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+                // Para el uso en localhost usamos una forma de cambiar el ip y el puerto para que se muestre la imagen
                newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ;
                   
                   console.log(newArchivo)
@@ -184,6 +186,7 @@ if (EstaPagina == "/html/H-Rem.html") {
             ul.appendChild(nuevoProducto);
             
         });
+        // Cuando el producto se carga se remueve el loader.
         ul.removeChild(loader);
     })
         .catch((err) => CodeError());
@@ -201,7 +204,7 @@ if (EstaPagina == "/html/H-Pant.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
            
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+                
                 newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ;
                   
                   console.log(newArchivo)
@@ -227,7 +230,7 @@ if (EstaPagina == "/html/H-Acce.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
            
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+               
                 newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ; 
                   
                   console.log(newArchivo)
@@ -252,7 +255,7 @@ if (EstaPagina == "/html/M-Rem.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
            
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+                
                 newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ;
                   
                   console.log(newArchivo)  
@@ -278,7 +281,7 @@ if (EstaPagina == "/html/M-Pant.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
            
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+                
                 newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ; 
                   
                   console.log(newArchivo) 
@@ -302,7 +305,7 @@ if (EstaPagina == "/html/M-Vest.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
            
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+                
                 newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ; 
                   
                   console.log(newArchivo)
@@ -326,7 +329,7 @@ if (EstaPagina == "/html/M-Acce.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
 
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+               
                 newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ; 
                   
                   console.log(newArchivo)
@@ -350,7 +353,7 @@ if (EstaPagina == "/html/N-Rem.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
            
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+                
                 newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ; 
                   
                   console.log(newArchivo)  
@@ -374,7 +377,7 @@ if (EstaPagina == "/html/N-Pant.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
            
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+               
                 newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ; 
                   
                   console.log(newArchivo)
@@ -398,7 +401,7 @@ if (EstaPagina == "/html/N-Vest.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
            
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+                
                 newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ;
                   
                   console.log(newArchivo)
@@ -422,7 +425,7 @@ if (EstaPagina == "/html/Ch-Rem.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
            
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+                
                 newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ;
                   
                   console.log(newArchivo) 
@@ -446,7 +449,7 @@ if (EstaPagina == "/html/Ch-Pant.html") {
             let urlPort = url.port;
             let urlJson = url.hostname;
            
-                // Esta es otra posible forma del cambio de ip, el problema esta en que en la notbook funciona, en la pc no!!
+               
                 newArchivo =    newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ; 
                   
                   console.log(newArchivo) 

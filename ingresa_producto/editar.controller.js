@@ -1,4 +1,6 @@
+// Importacion del modulo que contiene las funciones para buscar por id , enlistar y editar los productos.
 import { inService } from "../service/in-service.js";
+// Declaracion de variables
 const formulario = document.querySelector("[data-form]");
 const producto = document.querySelector(".name");
 const precio = document.querySelector(".bestprecio");
@@ -12,7 +14,7 @@ let newArchivo = document.querySelector(".image");
 
 
 
-
+// Funcion que muestra un cuadro de dialogo de error, el mismo se especifica en la consola.
 const   CodeError = () =>{
 
    const modal = document.getElementById("modal");
@@ -41,8 +43,8 @@ const   CodeError = () =>{
        });
       }
 
-      
-const obtenerInformacion = async () => {
+      // La funcion obtiene los datos del producto selecionado para poder editarlo y modificarlo.
+     const obtenerInformacion = async () => {
 
    const url = new URL(window.location);
    const id = url.searchParams.get("id");
@@ -386,7 +388,7 @@ console.log(EstaPagina)
 
 
 
-
+// Evento para que se pueda reemplazar el archivo de imagen.. 
 newArchivo.addEventListener("change", (e)=>{
    e.preventDefault();
    
@@ -401,10 +403,10 @@ newArchivo.addEventListener("change", (e)=>{
          let sub_seccion = url.pathname.split("/")[3];
         
        let imgChang  =  e.target.files[0].name;
-       
+       // Se reemplaza el archivo de imagen por el nuevo selecionado.
     let cambioArchivo =   newArchivo.replace(newArchivo, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${imgChang}`);
 
-   
+   // El evento hace que al precionar el boton "Finalizar edicion" se envien las  modificaciones al archivo json.
 formulario.addEventListener("submit", (e) => {
    // Evitar que el formulario haga la petición , nosotros la hacemos con javascript
    e.preventDefault();
@@ -415,7 +417,7 @@ const cuotas = document.querySelector(".cuotas");
    const id = url.searchParams.get("id");
    let EstaPagina = url.searchParams.get("estapagina");
    
-   
+   // La funcion crea un cuadro de dialogo avisando que la edicion finalizó y redirige a la pagina de productos.
    const EdicionFin = () =>  {
 
       if(e.target.matches(".form") ){

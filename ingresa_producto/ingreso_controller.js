@@ -1,3 +1,4 @@
+// Declaracion de variables 
 const formulario = document.querySelector("[data-form]");
 let producto = document.querySelector("[data-producto]");
 let precio = document.querySelector("[data-precio]");
@@ -16,6 +17,7 @@ let ch = document.querySelectorAll("[data-child]");
 let sub_seccion = document.querySelector("[data-sub_seccion]");
 let seccion = document.querySelector("[data-seccion]");
 
+// La funcion crea un cuadro de dialogo si el producto se ingresa correctamente
 const IngresoEnd = () => {
    const spanCheck = document.createElement("span");
    spanCheck.setAttribute("class", "fa-sharp fa-solid fa-check");
@@ -30,7 +32,7 @@ const IngresoEnd = () => {
    }, 5000);
 }
 
-
+// Funcion que crea un cuadro de dialogo cuando hay un error
 const CodeError = () => {
 
    const modal = document.getElementById("modal");
