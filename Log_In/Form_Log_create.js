@@ -20,7 +20,6 @@ boton.addEventListener("click", (e)=>{
 
         
         cajaInputs.setAttribute("class", "cajaInput");
-        cajaInputs.setAttribute("type", "submit");
         LabelInputUser.setAttribute("for", "usuario");
         InputUser.setAttribute("id", "usuario");
         IniciarSesion.setAttribute("class", "sesion");
@@ -317,23 +316,7 @@ InputRegisSexo.addEventListener("input", ValidarSexo);
             }
         };
 
-       // Tengo que crear una funcion para obtener los datos de usuario y pass para verificar que coincidan para iniciar sesion.
-           const DetalleUsers = (id)=>{
-
-              return fetch(`http://localhost:3004/Usuarios/${id}`).then(res =>{
-            let data = res.json;
-              
-              console.log(data)
-                 
-            
-         }).catch(err => console.log(err))
-         
-      }
-
-      cajaInputs.addEventListener("submit", DetalleUsers)
-           
-       
-        
+      
         CajaRegis.addEventListener("submit", (e)=>{
          e.preventDefault();
         if(!ValidarRegisEmail() || !ValidarRegisPass() || !validaNombre() || !ValidarFecha() || !ValidarSexo() ){
@@ -361,5 +344,39 @@ InputRegisSexo.addEventListener("input", ValidarSexo);
          })
         
     
-    }
+    
+
+     // Tengo que crear una funcion para obtener los datos de usuario y pass para verificar que coincidan para iniciar sesion.
+     
+         const CheckDatos = (e)=>{
+               e.preventDefault();
+           if(e.target){
+                  
+            return  fetch(`http://localhost:3004/Usuarios`)
+            .then(res => res.json()
+            .then((data)=>{
+               data.forEach(el => {
+                  if(InputUser.value == el.InputRegisUser && InputPass.value == el.InputRegisPass){
+                     console.log("las credenciales son correctas")
+                  }if(InputUser.value !== el.InputRegisUser || InputPass.value !== el.InputRegisPass){
+                     console.log("verifique las credenciales")
+                }
+               });
+            })
+
+             
+               
+ ).catch(err => console.log(err))
+            
+         
+            
+            
+           
+         } 
+      }
+         cajaInputs.addEventListener("submit", CheckDatos);
+
+
+
+        }
 });
