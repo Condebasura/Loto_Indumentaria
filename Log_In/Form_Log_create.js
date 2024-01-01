@@ -355,12 +355,27 @@ InputRegisSexo.addEventListener("input", ValidarSexo);
             return  fetch(`http://localhost:3004/Usuarios`)
             .then(res => res.json()
             .then((data)=>{
-               data.forEach(el => {
-                  if(InputUser.value == el.InputRegisUser && InputPass.value == el.InputRegisPass){
-                     console.log("las credenciales son correctas")
-                  }if(InputUser.value !== el.InputRegisUser || InputPass.value !== el.InputRegisPass){
-                     console.log("verifique las credenciales")
-                }
+               data.find(el => {
+                  if(InputUser.value === el.InputRegisUser && InputPass.value === el.InputRegisPass){
+                     InputUser.style.border = "1.5px solid  #4ee989";
+                     InputUser.setCustomValidity("");
+                     InputUser.reportValidity();
+                     InputPass.style.border = "1.5px solid  #4ee989";
+                     InputPass.setCustomValidity("");
+                     InputPass.reportValidity();
+                     
+                     console.log(el.InputName);
+                     return true;
+                  }else{
+                     
+                     InputUser.style.border = "1.5px solid  red";
+                     InputUser.setCustomValidity("El correo ingresado no es correcto!! ");
+                     InputUser.reportValidity();
+                     InputPass.style.border = "1.5px solid  red";
+                     InputPass.setCustomValidity("La contraseña ingresada no es correcta!! ");
+                     InputPass.reportValidity();
+                     return false;
+                  }
                });
             })
 
