@@ -5,18 +5,31 @@ const GetIndex = (req, res)=>{
     res.sendFile(path.join(__dirname , 'public', 'html' , 'index.html'))
 };
 
-const GetHRem = (req, res)=>{
-    res.sendFile(path.join(__dirname, 'public', 'html', 'H-Rem.html'))
-}
+const GetHombres = (req, res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'html', 'Hombres.html'))
+};
 
-const GetHPant = (req, res)=>{
-    res.sendFile(path.join(__dirname, 'public', 'html', 'H-Pant.html'))
-}
+const GetMujeres = (req, res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'html', 'Mujeres.html'))
+};
+
+const GetNiñas = (req, res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'html', 'Nenas.html'))
+};
+
+const GetNiños =(req, res) =>{
+    res.sendFile(path.join(__dirname, 'public', 'html' , 'Child.html'))
+};
+
+
 
 
 export default {
     GetIndex, 
-    GetHRem,
-    GetHPant,
+    GetHombres,
+   GetMujeres,
+   GetNiñas,
+  GetNiños,
+    
 
 }

@@ -31,8 +31,11 @@ app.use(helmet());
 app.use(express.static(path.join(__dirname , 'public')));
 
 app.get("/", ProductControllers.GetIndex);
-app.get("/H-Rem.html", ProductControllers.GetHRem);
-app.get("/H-Pant.html", ProductControllers.GetHPant);
+app.get("/Hombres.html", ProductControllers.GetHombres);
+app.get("/Mujeres.html", ProductControllers.GetMujeres);
+app.get("/Nenas.html", ProductControllers.GetNiñas);
+app.get("/Child.html", ProductControllers.GetNiños);
+
 app.listen(port, ()=>{
     console.log(`la app esta escuchando el pueto ${port}` );
 }
