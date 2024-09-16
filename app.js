@@ -8,6 +8,7 @@ import { expressjwt } from "express-jwt";
 import cookieParser from "cookie-parser";
 import { fileURLToPath } from "url";
 import ProductControllers from "./controllers/ProductControllers.js";
+import bd from "./model/bd.js";
 
 
 // Directorio dependiendo del tipo de sistema
@@ -30,11 +31,13 @@ app.use(helmet());
 
 app.use(express.static(path.join(__dirname , 'public')));
 
+app.get("/consulta", bd.ConsultProduct);
 app.get("/", ProductControllers.GetIndex);
 app.get("/Hombres.html", ProductControllers.GetHombres);
 app.get("/Mujeres.html", ProductControllers.GetMujeres);
 app.get("/Nenas.html", ProductControllers.GetNiñas);
 app.get("/Child.html", ProductControllers.GetNiños);
+app.get("/Hombres.html/H-Rem", ProductControllers.DataProduct)
 
 app.listen(port, ()=>{
     console.log(`la app esta escuchando el pueto ${port}` );

@@ -1,5 +1,6 @@
 import path from "path";
 import {__dirname} from "../app.js";
+import bd from "../model/bd.js";
 
 const GetIndex = (req, res)=>{
     res.sendFile(path.join(__dirname , 'public', 'html' , 'index.html'))
@@ -22,7 +23,18 @@ const GetNiños =(req, res) =>{
 };
 
 
-
+const DataProduct = async (req, res)=>{
+   
+    const data = await bd.getProducts().then(
+        products =>{
+            res.json(products);
+            console.log(products)
+        }
+    ).catch(err =>{
+        console.log(err.message)
+    })
+   
+}
 
 export default {
     GetIndex, 
@@ -30,6 +42,7 @@ export default {
    GetMujeres,
    GetNiñas,
   GetNiños,
+  DataProduct,
     
 
 }
