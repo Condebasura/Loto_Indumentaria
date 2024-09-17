@@ -8,6 +8,7 @@ import { expressjwt } from "express-jwt";
 import cookieParser from "cookie-parser";
 import { fileURLToPath } from "url";
 import ProductControllers from "./controllers/ProductControllers.js";
+import AdminControllers from "./controllers/AdminControllers.js";
 import bd from "./model/bd.js";
 
 
@@ -30,6 +31,7 @@ app.use(helmet());
 
 
 app.use(express.static(path.join(__dirname , 'public')));
+app.use(express.static(path.join(__dirname, 'admin')));
 
 app.get("/consulta", bd.ConsultProduct);
 app.get("/", ProductControllers.GetIndex);
@@ -37,7 +39,9 @@ app.get("/Hombres.html", ProductControllers.GetHombres);
 app.get("/Mujeres.html", ProductControllers.GetMujeres);
 app.get("/Nenas.html", ProductControllers.GetNiñas);
 app.get("/Child.html", ProductControllers.GetNiños);
-app.get("/Hombres.html/H-Rem", ProductControllers.DataProduct)
+app.get("/Hombres.html/producto", ProductControllers.DataProduct);
+app.get("/addProducto", AdminControllers.getAdmin);
+
 
 app.listen(port, ()=>{
     console.log(`la app esta escuchando el pueto ${port}` );

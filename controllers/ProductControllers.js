@@ -24,17 +24,12 @@ const GetNiños =(req, res) =>{
 
 
 const DataProduct = async (req, res)=>{
-   
-    const data = await bd.getProducts().then(
-        products =>{
-            res.json(products);
-            console.log(products)
-        }
-    ).catch(err =>{
-        console.log(err.message)
-    })
-   
-}
+  
+   const data = await bd.getProducts()
+   res.json(data);
+};
+
+
 
 export default {
     GetIndex, 
@@ -43,6 +38,7 @@ export default {
    GetNiñas,
   GetNiños,
   DataProduct,
+
     
 
 }

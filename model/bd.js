@@ -21,12 +21,12 @@ import sqlite3 from "sqlite3";
      };
 
 
-     const getProducts = async (products)=>{
+     const getProducts = async ()=>{
        try {
         return await new Promise((resolve, reject)=>{
-            let sql = 'SELECT * FROM products WHERE seccion = "HRemeras"';
+            let sql = 'SELECT * FROM products';
             
-            bd.get(sql, (err,row)=>{
+            bd.all(sql,[], (err,row)=>{
                 if(err){
                     reject(err);
                 }else{
@@ -40,9 +40,11 @@ import sqlite3 from "sqlite3";
        }
      };
 
+    
 
 
      export default {bd,
         ConsultProduct,
         getProducts,
+       
      }
