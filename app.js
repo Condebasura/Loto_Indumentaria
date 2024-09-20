@@ -29,9 +29,16 @@ app.use(morgan("dev"));
 app.use(cors(corsOptions));
 app.use(helmet());
 
-
 app.use(express.static(path.join(__dirname , 'public')));
 app.use(express.static(path.join(__dirname, 'admin')));
+app.use( 'uploads/',express.static(path.join(__dirname, "public/uploads/")));
+
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
+
+const upload = multer({dest: 'public/uploads/'});
+
 
 app.get("/consulta", bd.ConsultProduct);
 app.get("/", ProductControllers.GetIndex);
@@ -41,6 +48,7 @@ app.get("/Nenas.html", ProductControllers.GetNiñas);
 app.get("/Child.html", ProductControllers.GetNiños);
 app.get("/Hombres.html/producto", ProductControllers.DataProduct);
 app.get("/addProducto", AdminControllers.getAdmin);
+app.post("/addProducto",upload.array("archivos"), AdminControllers.postProduct);
 
 
 app.listen(port, ()=>{
