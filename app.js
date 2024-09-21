@@ -48,7 +48,7 @@ app.get("/Nenas.html", ProductControllers.GetNiñas);
 app.get("/Child.html", ProductControllers.GetNiños);
 app.get("/Hombres.html/producto", ProductControllers.DataProduct);
 app.get("/addProducto", AdminControllers.getAdmin);
-app.post("/addProducto",upload.array("archivos"), AdminControllers.postProduct);
+app.post("/addProducto",upload.single("archivos"), AdminControllers.postProduct);
 
 
 app.listen(port, ()=>{

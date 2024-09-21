@@ -9,17 +9,25 @@ const getAdmin = (req, res )=>{
 
 const postProduct = async (req , res)=>{
     let products ={
-        nombre: req.body.nombre,
+        producto: req.body.nombre,
         descuento: req.body.descuento,
         precio: req.body.precio,
         cuotas: req.body.cuotas,
         seccion: req.body.seccion,
         subSeccion: req.body.subSeccion,
-        archivos: req.file,
+        imagen: req.file,
     }
 
-    let data = await products;
-    console.log(data);
+    let data = await bd.InsertProducto(products);
+    if(data){
+
+        res.status(200);
+        res.json({mensaje: `El producto ${products} ingreso correctamente`})
+        console.log(data);
+    }else{
+        res.status(209);
+        res.json({mensaje: `ocurrio un error al ingresar el producto`});
+    }
 }
 
 export default {

@@ -4,7 +4,7 @@ descuento = document.querySelector(".Desc"),
 precio = document.querySelector(".bestprecio"),
 cuotas = document.querySelector(".cuotas"),
 seccion = document.querySelector(".seccion"),
-subSeccion = document.querySelector(".sub_seccion"),
+subSeccion = document.querySelector(".sub_seccion").option,
 archivos = document.querySelector(".image");
 
 
@@ -16,9 +16,10 @@ archivos = document.querySelector(".image");
         fromData.append("nombre", nombre.value);
         fromData.append("descuento", descuento.value);
         fromData.append("precio", precio.value);
-        fromData.append("cuotas", cuotas.value);
-        fromData.append("seccion",seccion.value);
-        fromData.append("subSeccion", subSeccion.value);
+        fromData.append("cuotas", cuotas.oprion);
+        fromData.append("seccion",seccion.option);
+        fromData.append("subSeccion", subSeccion);
+        fromData.append("archivos", archivos.value)
         try{
             const res = await fetch("/addProducto", {
                 method: "POST",
