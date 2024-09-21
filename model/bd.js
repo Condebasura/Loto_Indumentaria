@@ -1,7 +1,7 @@
 import sqlite3 from "sqlite3";
  let bd = new sqlite3.Database("Productos.bd");
 
- bd.run('CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY AUTOINCREMENT , producto TEXT ,descuento NUMBER, precio NUMBER, cuotas NUMBER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
+ bd.run('CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY AUTOINCREMENT , producto TEXT ,descuento INTEGER, precio INTEGER, cuotas INTEGER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
  
  const ConsultProduct = ()=>{
  

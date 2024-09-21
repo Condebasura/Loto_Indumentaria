@@ -12,7 +12,7 @@ const caja = document.querySelector(".cont-ul");
  let obj = JSON.parse(datos);
  for(let i = 0; i < obj.length; i ++){
     let datObj = obj[i];
-   if(datObj.seccion == "HRemeras"){
+   if(datObj.seccion == "Hombre" && datObj.subSeccion == "Remeras"){
     caja.innerHTML = datObj.producto;
    }
   }
@@ -29,7 +29,7 @@ HPant.addEventListener("click", async(e)=>{
            let obj = JSON.parse(datos);
           for(let i = 0; i < obj.length; i ++){
             let datObj = obj[i];
-           if(datObj.seccion == "HPantalones"){
+           if(datObj.seccion == "Hombre" && datObj.subSeccion == "Pantalones"){
             caja.innerHTML = datObj.producto;
            }
           }

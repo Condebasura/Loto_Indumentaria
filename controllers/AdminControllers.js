@@ -8,22 +8,26 @@ const getAdmin = (req, res )=>{
 
 
 const postProduct = async (req , res)=>{
+   
+   let imagenes = req.files.map(file => file.filename);
+   let img = imagenes.join(',');
     let products ={
-        producto: req.body.nombre,
-        descuento: req.body.descuento,
-        precio: req.body.precio,
-        cuotas: req.body.cuotas,
-        seccion: req.body.seccion,
-        subSeccion: req.body.subSeccion,
-        imagen: req.file,
+        producto: req.body.producto,
+        descuento: req.body.Descuento,
+        precio: req.body.Precio,
+        cuotas: req.body.Cuotas,
+        seccion: req.body.Seccion,
+        subSeccion: req.body.Sub_seccion,
+        imagen:  img,
     }
+console.log(img);
 
     let data = await bd.InsertProducto(products);
     if(data){
 
         res.status(200);
         res.json({mensaje: `El producto ${products} ingreso correctamente`})
-        console.log(data);
+        
     }else{
         res.status(209);
         res.json({mensaje: `ocurrio un error al ingresar el producto`});
