@@ -26,7 +26,12 @@ archivos = document.querySelector(".image");
             });
             
             const data = await res.json();
-            console.log(data)
+            if(res.ok){
+                // Cerar un cuadro de dialogo para que se sepa que ingresaron o no los datos en la bd, borrar el formulario
+                let modal = document.getElementById("modal");
+                let parrafo = document.createElement("p");
+                parrafo.innerHTML = data.mensaje;
+            }
         }catch(err){
             console.log("Error", err)
         }

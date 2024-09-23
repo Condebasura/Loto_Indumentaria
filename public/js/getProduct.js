@@ -1,38 +1,84 @@
 const HRem = document.querySelector(".H-Rem");
 const HPant = document.querySelector(".H-Pant");
 const caja = document.querySelector(".cont-ul");
-
-
+const $fragment = document.createDocumentFragment();
     HRem.addEventListener("click",async (e)=>{
         e.preventDefault();
-        if(e.target){
-            const res = await fetch("/Hombres.html/producto").then(res =>  res.json()).then(data=>{
-                
- let datos = JSON.stringify(data);
+       
+     if(e.target){
+
+        const res = await fetch("/Hombres.html/producto").then(res =>  res.json()).then(async data=>{
+            
+            let datos = JSON.stringify(data);
  let obj = JSON.parse(datos);
- for(let i = 0; i < obj.length; i ++){
-    let datObj = obj[i];
-   if(datObj.seccion == "Hombre" && datObj.subSeccion == "Remeras"){
-    caja.innerHTML = datObj.producto;
-   }
-  }
+
+ for(let el of obj){
+    
+   if(el.seccion == "Hombre" && el.subSeccion == "Remeras") {
+    caja.innerHTML = "";
+    const box = document.createElement("div");
+   let img = document.createElement("img");
+    let nombreProducto = document.createElement("h3");
+    let precio = document.createElement("span");
+
+    box.setAttribute("class", "box_pilcha");
+    img.setAttribute("class", "image");
+    nombreProducto.setAttribute("class", "name");
+
+    let imgURl = `http://localhost:3000/uploads/${el.imagen}`;
+    let imagenResponse = await fetch(imgURl);
+    let imgBlob = await imagenResponse.blob();
+    let imagenObjectURL = URL.createObjectURL(imgBlob);
+    img.src = imagenObjectURL;
+    precio.innerHTML = `$ ${el.precio}`;
+    nombreProducto.innerHTML = el.producto;
+    $fragment.appendChild(box);
+    box.appendChild(img);
+    box.appendChild(nombreProducto);
+    box.appendChild(precio);
+
+}
+}
+caja.appendChild($fragment);
             }).catch(err => console.log("error", err))
                     
     }
-})
+    
+});
 
 HPant.addEventListener("click", async(e)=>{
     e.preventDefault();
     if(e.target){
-        const res = await fetch("/Hombres.html/producto").then(res => res.json()).then(data=> {
+        const res = await fetch("/Hombres.html/producto").then(res => res.json()).then(async data=> {
            let datos = JSON.stringify(data);
            let obj = JSON.parse(datos);
-          for(let i = 0; i < obj.length; i ++){
-            let datObj = obj[i];
-           if(datObj.seccion == "Hombre" && datObj.subSeccion == "Pantalones"){
-            caja.innerHTML = datObj.producto;
-           }
-          }
+          for(let el of obj){
+            
+           if(el.seccion == "Hombre" && el.subSeccion == "Pantalones"){
+             caja.innerHTML = "";
+             const box = document.createElement("div");
+             let img = document.createElement("img");
+             const nombreProducto = document.createElement("h3");
+             let precio = document.createElement("span");
+             
+             box.setAttribute("class", "box_pilcha");
+             img.setAttribute("class", "image");
+             nombreProducto.setAttribute("class", "name");
+            
+             let imgURl = `http://localhost:3000/uploads/${el.imagen}`;
+             let imagenResponse = await fetch(imgURl);
+             let imgBlob = await imagenResponse.blob();
+             let imagenObjectURL = URL.createObjectURL(imgBlob);
+                 nombreProducto.innerHTML = el.producto;
+                 precio.innerHTML = `$ ${el.precio}`;
+                 img.src = imagenObjectURL;
+                 $fragment.appendChild(box);
+                 box.appendChild(img);
+                box.appendChild(nombreProducto);
+                 box.appendChild(precio);
+}
+}
+caja.appendChild($fragment);
         }).catch(err => console.log("Error", err ))
     }
 });

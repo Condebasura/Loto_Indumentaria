@@ -27,7 +27,16 @@ const corsOptions = {
 };
 app.use(morgan("dev"));
 app.use(cors(corsOptions));
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy:{
+    directives:{
+      defaultSrc:["'self'"],
+     
+      styleSrc: ["'self'", "https://kit.fontawesome.com/523f183385.js","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" ,"'unsafe-inline'"],
+  
+      fontSrc: ["'self'", "https://kit.fontawesome.com/",  "cdnjs.cloudflare.com"],
+  imgSrc: ["'self'", "data:", "blob:"],
+    }
+  }}));
 
 app.use(express.static(path.join(__dirname , 'public')));
 app.use(express.static(path.join(__dirname, 'admin')));
