@@ -26,7 +26,7 @@ console.log(img);
     if(data){
 
         res.status(200);
-        res.json({mensaje: `El producto ${products} ingreso correctamente`})
+        res.json({mensaje: `El producto ${products.producto} ingreso correctamente`})
         
     }else{
         res.status(209);

@@ -26,11 +26,21 @@ archivos = document.querySelector(".image");
             });
             
             const data = await res.json();
+            
             if(res.ok){
-                // Cerar un cuadro de dialogo para que se sepa que ingresaron o no los datos en la bd, borrar el formulario
                 let modal = document.getElementById("modal");
                 let parrafo = document.createElement("p");
+                modal.innerHTML = "";
                 parrafo.innerHTML = data.mensaje;
+                modal.appendChild(parrafo);
+                modal.showModal();
+            }else if(res.status === 209){
+                let modal = document.getElementById("modal");
+                let parrafo = document.createElement("p");
+                modal.innerHTML = "";
+                parrafo.innerHTML = data.mensaje;
+                modal.appendChild(parrafo);
+                modal.showModal();
             }
         }catch(err){
             console.log("Error", err)
