@@ -1,7 +1,7 @@
 import sqlite3 from "sqlite3";
  let bd = new sqlite3.Database("Productos.bd");
 
- bd.run('CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY AUTOINCREMENT , producto TEXT ,descuento INTEGER, precio INTEGER, cuotas INTEGER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
+ bd.run('CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY AUTOINCREMENT , producto TEXT ,stock INTEGER, descuento INTEGER, precio INTEGER, cuotas INTEGER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
  
  const ConsultProduct = ()=>{
  
@@ -42,8 +42,8 @@ import sqlite3 from "sqlite3";
 
     const InsertProducto = async (products)=>{
         try{
-            let stmt = bd.prepare('INSERT INTO products(producto, descuento , precio , cuotas , seccion , subSeccion , imagen) VALUES(?,?,?,?,?,?,?)');
-            stmt.run(products.producto, products.descuento , products.precio , products.cuotas , products.seccion , products.subSeccion , products.imagen);
+            let stmt = bd.prepare('INSERT INTO products(producto,stock, descuento , precio , cuotas , seccion , subSeccion , imagen) VALUES(?,?,?,?,?,?,?,?)');
+            stmt.run(products.producto,products.stock, products.descuento , products.precio , products.cuotas , products.seccion , products.subSeccion , products.imagen);
             stmt.finalize();
             return "Producto ingresado con exito";
 

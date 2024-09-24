@@ -1,5 +1,6 @@
 const form = document.querySelector(".formAdd");
 let nombre = document.querySelector(".ProductName"),
+stock = document.querySelector(".stock"),
 descuento = document.querySelector(".Desc"),
 precio = document.querySelector(".bestprecio"),
 cuotas = document.querySelector(".cuotas"),
@@ -14,6 +15,7 @@ archivos = document.querySelector(".image");
         
         let fromData = new FormData(e.target);
         fromData.append("nombre", nombre.value);
+        fromData.append("stock", stock.value);
         fromData.append("descuento", descuento.value);
         fromData.append("precio", precio.value);
         fromData.append("cuotas", cuotas.option);

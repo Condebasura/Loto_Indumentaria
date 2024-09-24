@@ -13,6 +13,7 @@ const postProduct = async (req , res)=>{
    let img = imagenes.join(',');
     let products ={
         producto: req.body.producto,
+        stock: req.body.Stock,
         descuento: req.body.Descuento,
         precio: req.body.Precio,
         cuotas: req.body.Cuotas,
