@@ -1,96 +1,23 @@
-const HRem = document.querySelector(".H-Rem"),
- HPant = document.querySelector(".H-Pant"),
- HAcce = document.querySelector(".H-Acce"),
- caja = document.querySelector(".cont-ul");
-
+const  NRem = document.querySelector(".N-Rem"),
+NPant = document.querySelector(".N-Pant"),
+NVest = document.querySelector(".N-Vest");
+caja = document.querySelector(".cont-ul");
 const $fragment = document.createDocumentFragment();
-    HRem.addEventListener("click",async (e)=>{
-        e.preventDefault();
-       
-     if(e.target){
-      
-        const res = await fetch("/Hombres.html/producto").then(res =>  res.json()).then(async data=>{
-            
-            let datos = JSON.stringify(data);
- let obj = JSON.parse(datos);
 
- for(let el of obj){
-    
-   if(el.seccion == "Hombre" && el.subSeccion == "Remeras") {
-    caja.innerHTML = "";
-    const box = document.createElement("div");
-    let datosProducto = document.createElement("div");
-   let img = document.createElement("img");
-    let nombreProducto = document.createElement("h3");
-    let hr = document.createElement("hr");
-    let descuento = document.createElement("p");
-    let precio = document.createElement("span");
-    let stock = document.createElement("p");
-    let cuotas = document.createElement("p");
-    let car = document.createElement("a");
-    //descuento
-    let bestPrecio = Number(el.precio);
-    let desc = Number(el.descuento);
-    let porcentaje = (bestPrecio * desc) / 100;
-    let rebajadoDe = bestPrecio - porcentaje;
-    
-    if(el.stock > 1){
-        stock.innerHTML = "stock disponible";
-    }else if(el.stock === 1){
-        stock.innerHTML = "Ultimo disponible";
-    }else if(el.stock < 1){
-        stock.innerHTML = "sin stock";
-    }
 
-    box.setAttribute("class", "box_pilcha");
-    img.setAttribute("class", "image");
-    nombreProducto.setAttribute("class", "name");
-    datosProducto.setAttribute("class","datos");
-    descuento.setAttribute("class", "precio");
-    car.setAttribute("class", "fas fa-shopping-cart");
-    let img1 = el.imagen.split(",")[0];
-    let imgURl = `http://localhost:3000/uploads/${img1}`;
-    let imagenResponse = await fetch(imgURl);
-    let imgBlob = await imagenResponse.blob();
-    let imagenObjectURL = URL.createObjectURL(imgBlob);
-    img.src = imagenObjectURL;
-    descuento.innerHTML = `Antes: $ ${el.precio}`
-    precio.innerHTML = `$ ${rebajadoDe}    ${el.descuento}  %OFF`;
-    nombreProducto.innerHTML = el.producto;
-    cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
-    $fragment.appendChild(box);
-    box.appendChild(img);
-    box.appendChild(datosProducto);
-    datosProducto.appendChild(hr);
-    datosProducto.appendChild(nombreProducto);
-    datosProducto.appendChild(descuento);
-    datosProducto.appendChild(precio);
-    datosProducto.appendChild(cuotas);
-    datosProducto.appendChild(stock);
-    datosProducto.appendChild(car);
-
-}
-}
-caja.appendChild($fragment);
-            }).catch(err => console.log("error", err))
-                    
-    }
-    
-});
-
-HPant.addEventListener("click",async (e)=>{
+NRem.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
   
-    const res = await fetch("/Hombres.html/producto").then(res =>  res.json()).then(async data=>{
+    const res = await fetch("/Nenas.html/producto").then(res =>  res.json()).then(async data=>{
         
         let datos = JSON.stringify(data);
 let obj = JSON.parse(datos);
 
 for(let el of obj){
 
-if(el.seccion == "Hombre" && el.subSeccion == "Pantalones") {
+if(el.seccion == "Niña" && el.subSeccion == "Remeras") {
 caja.innerHTML = "";
 const box = document.createElement("div");
 let datosProducto = document.createElement("div");
@@ -153,19 +80,19 @@ caja.appendChild($fragment);
 });
 
 
-HAcce.addEventListener("click",async (e)=>{
+NPant.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
   
-    const res = await fetch("/Hombres.html/producto").then(res =>  res.json()).then(async data=>{
+    const res = await fetch("/Nenas.html/producto").then(res =>  res.json()).then(async data=>{
         
         let datos = JSON.stringify(data);
 let obj = JSON.parse(datos);
 
 for(let el of obj){
 
-if(el.seccion == "Hombre" && el.subSeccion == "Accesorios") {
+if(el.seccion == "Niña" && el.subSeccion == "Pantalones") {
 caja.innerHTML = "";
 const box = document.createElement("div");
 let datosProducto = document.createElement("div");
@@ -226,4 +153,79 @@ caja.appendChild($fragment);
 }
 
 });
+
+NVest.addEventListener("click",async (e)=>{
+    e.preventDefault();
+   
+ if(e.target){
+  
+    const res = await fetch("/Nenas.html/producto").then(res =>  res.json()).then(async data=>{
+        
+        let datos = JSON.stringify(data);
+let obj = JSON.parse(datos);
+
+for(let el of obj){
+
+if(el.seccion == "Niña" && el.subSeccion == "Vestidos") {
+caja.innerHTML = "";
+const box = document.createElement("div");
+let datosProducto = document.createElement("div");
+let img = document.createElement("img");
+let nombreProducto = document.createElement("h3");
+let hr = document.createElement("hr");
+let descuento = document.createElement("p");
+let precio = document.createElement("span");
+let stock = document.createElement("p");
+let cuotas = document.createElement("p");
+let car = document.createElement("a");
+//descuento
+let bestPrecio = Number(el.precio);
+let desc = Number(el.descuento);
+let porcentaje = (bestPrecio * desc) / 100;
+let rebajadoDe = bestPrecio - porcentaje;
+
+if(el.stock > 1){
+    stock.innerHTML = "stock disponible";
+}else if(el.stock === 1){
+    stock.innerHTML = "Ultimo disponible";
+}else if(el.stock < 1){
+    stock.innerHTML = "sin stock";
+}
+
+box.setAttribute("class", "box_pilcha");
+img.setAttribute("class", "image");
+nombreProducto.setAttribute("class", "name");
+datosProducto.setAttribute("class","datos");
+descuento.setAttribute("class", "precio");
+car.setAttribute("class", "fas fa-shopping-cart");
+let img1 = el.imagen.split(",")[0];
+let imgURl = `http://localhost:3000/uploads/${img1}`;
+let imagenResponse = await fetch(imgURl);
+let imgBlob = await imagenResponse.blob();
+let imagenObjectURL = URL.createObjectURL(imgBlob);
+img.src = imagenObjectURL;
+descuento.innerHTML = `Antes: $ ${el.precio}`
+precio.innerHTML = `$ ${rebajadoDe}    ${el.descuento}  %OFF`;
+nombreProducto.innerHTML = el.producto;
+cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
+$fragment.appendChild(box);
+box.appendChild(img);
+box.appendChild(datosProducto);
+datosProducto.appendChild(hr);
+datosProducto.appendChild(nombreProducto);
+datosProducto.appendChild(descuento);
+datosProducto.appendChild(precio);
+datosProducto.appendChild(cuotas);
+datosProducto.appendChild(stock);
+datosProducto.appendChild(car);
+
+}
+}
+caja.appendChild($fragment);
+        }).catch(err => console.log("error", err))
+                
+}
+
+});
+
 

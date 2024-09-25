@@ -58,6 +58,7 @@ border-radius:  6px;}
 flex-direction: column;
 flex-wrap: wrap;
 justify-content: center;
+align-items: center;
 margin-top: 2em;}  
  
 .name{text-decoration: none;
