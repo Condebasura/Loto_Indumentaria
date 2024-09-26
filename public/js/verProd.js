@@ -1,5 +1,3 @@
-import { inService } from "../../service/in-service.js";
-         
 import { imgZoom } from "./visual.js";
 const producto = document.querySelector(".name");
 let archivo = document.querySelector(".image");
@@ -105,7 +103,16 @@ const   CodeError = () =>{
          const id = url.searchParams.get("id");
          console.log(id);
    let  EstaImg = url.searchParams.get("estaimg");
+   let prod = url.searchParams.get("producto");
+   console.log(prod)
+
    console.log(EstaImg);
+   let imgURl = `http://localhost:3000/uploads/${EstaImg}`;
+    let imagenResponse = await fetch(imgURl);
+    let imgBlob = await imagenResponse.blob();
+    let imagenObjectURL = URL.createObjectURL(imgBlob);
+    archivo.src = imagenObjectURL;
+    producto.innerHTML = prod;
 function GetDatos(perfil){
    // De esta forma hacemos que si el archivo .json contiene otra ip, se cambie por la que estamos usando
    let ip = window.location.hostname;
@@ -118,7 +125,7 @@ function GetDatos(perfil){
    perfil.newArchivo =    perfil.newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ;
    if (perfil.producto && perfil.precio && perfil.cuotas && perfil.newArchivo) {
       
-      producto.value = perfil.producto;
+      producto.value = prod;
       precio.value = perfil.precio;
       cuotas.value = perfil.cuotas;
       archivo = perfil.newArchivo;
@@ -139,13 +146,13 @@ function GetDatos(perfil){
      }
 
    if (id == null) {
-      CodeError();
+     // CodeError();
    }
    
    
  
    if (EstaImg == null) {
-      CodeError();
+     // CodeError();
    }
    
    
@@ -158,7 +165,7 @@ function GetDatos(perfil){
       }
       catch (error) {
          console.error("Catch Error -", error);
-         CodeError();
+       //  CodeError();
       }
    };
 
@@ -172,7 +179,7 @@ function GetDatos(perfil){
       }
       catch (error) {
          console.error("Catch Error -", error);
-         CodeError();
+        // CodeError();
       }
    }
 
@@ -184,7 +191,7 @@ if(EstaImg == "H-Acce.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      CodeError();
+    //  CodeError();
    }
 };
 
@@ -196,7 +203,7 @@ if(EstaImg == "M-Rem.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      CodeError();
+     // CodeError();
    }
 };
 
@@ -208,7 +215,7 @@ if(EstaImg == "M-Pant.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      CodeError();
+     // CodeError();
    }
 };
 
@@ -220,7 +227,7 @@ if(EstaImg == "M-Vest.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      CodeError();
+     // CodeError();
    }
 };
 
@@ -232,7 +239,7 @@ if(EstaImg == "M-Acce.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      CodeError();
+     // CodeError();
    }
 };
 
@@ -244,7 +251,7 @@ if(EstaImg == "N-Rem.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      CodeError();
+     // CodeError();
    }
 };
 
@@ -257,7 +264,7 @@ if(EstaImg == "N-Pant.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      CodeError();
+     // CodeError();
    }
 };
 
@@ -269,7 +276,7 @@ if(EstaImg == "N-Vest.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      CodeError();
+     // CodeError();
    }
 };
 
@@ -281,7 +288,7 @@ if(EstaImg == "Ch-Rem.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      CodeError();
+     // CodeError();
    }
 };
 
@@ -293,7 +300,7 @@ if(EstaImg == "Ch-Pant.html"){
    }
    catch (error) {
       console.error("Catch Error -", error);
-      CodeError();
+     // CodeError();
    }
 };
 

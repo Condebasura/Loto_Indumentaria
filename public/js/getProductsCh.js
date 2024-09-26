@@ -59,6 +59,7 @@ descuento.innerHTML = `Antes: $ ${el.precio}`
 precio.innerHTML = `$ ${rebajadoDe}    ${el.descuento}  %OFF`;
 nombreProducto.innerHTML = el.producto;
 cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
+
 $fragment.appendChild(box);
 box.appendChild(img);
 box.appendChild(datosProducto);
@@ -76,6 +77,7 @@ caja.appendChild($fragment);
         }).catch(err => console.log("error", err))
                 
 }
+
 
 });
 

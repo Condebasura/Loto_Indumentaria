@@ -59,6 +59,7 @@ app.get("/Hombres.html/producto", ProductControllers.DataProduct);
 app.get("/Mujeres.html/producto", ProductControllers.DataProduct);
 app.get("/Nenas.html/producto", ProductControllers.DataProduct);
 app.get("/Child.html/producto", ProductControllers.DataProduct);
+app.get("/visualProducto.html", ProductControllers.GetVisualProducto);
 app.get("/addProducto", AdminControllers.getAdmin);
 app.post("/addProducto",upload.array("archivos", 5), AdminControllers.postProduct);
 

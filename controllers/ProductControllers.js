@@ -22,6 +22,9 @@ const GetNiños =(req, res) =>{
     res.sendFile(path.join(__dirname, 'public', 'html' , 'Child.html'))
 };
 
+const GetVisualProducto = (req, res) =>{
+  res.sendFile(path.join(__dirname, 'public', 'html', 'visualProducto.html'))
+};
 
 const DataProduct = async (req, res)=>{
   
@@ -37,6 +40,7 @@ export default {
    GetMujeres,
    GetNiñas,
   GetNiños,
+  GetVisualProducto,
   DataProduct,
 
     
