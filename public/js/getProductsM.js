@@ -60,6 +60,12 @@ descuento.innerHTML = `Antes: $ ${el.precio}`
 precio.innerHTML = `$ ${rebajadoDe}    ${el.descuento}  %OFF`;
 nombreProducto.innerHTML = el.producto;
 cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
+img.addEventListener("click", (e)=>{
+    e.preventDefault();
+    if(e.target){
+        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}`
+    }
+   })
 $fragment.appendChild(box);
 box.appendChild(img);
 box.appendChild(datosProducto);
@@ -134,6 +140,12 @@ descuento.innerHTML = `Antes: $ ${el.precio}`
 precio.innerHTML = `$ ${rebajadoDe}    ${el.descuento}  %OFF`;
 nombreProducto.innerHTML = el.producto;
 cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
+img.addEventListener("click", (e)=>{
+    e.preventDefault();
+    if(e.target){
+        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}`
+    }
+   })
 $fragment.appendChild(box);
 box.appendChild(img);
 box.appendChild(datosProducto);
@@ -208,6 +220,12 @@ descuento.innerHTML = `Antes: $ ${el.precio}`
 precio.innerHTML = `$ ${rebajadoDe}    ${el.descuento}  %OFF`;
 nombreProducto.innerHTML = el.producto;
 cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
+img.addEventListener("click", (e)=>{
+    e.preventDefault();
+    if(e.target){
+        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}`
+    }
+   })
 $fragment.appendChild(box);
 box.appendChild(img);
 box.appendChild(datosProducto);
@@ -282,6 +300,12 @@ descuento.innerHTML = `Antes: $ ${el.precio}`
 precio.innerHTML = `$ ${rebajadoDe}    ${el.descuento}  %OFF`;
 nombreProducto.innerHTML = el.producto;
 cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
+img.addEventListener("click", (e)=>{
+    e.preventDefault();
+    if(e.target){
+        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}`
+    }
+   })
 $fragment.appendChild(box);
 box.appendChild(img);
 box.appendChild(datosProducto);

@@ -1,13 +1,13 @@
 import { imgZoom } from "./visual.js";
 const producto = document.querySelector(".name");
 let archivo = document.querySelector(".image");
+let archivo1 = document.querySelector(".image1");
+let archivo2 = document.querySelector(".image2");
+let archivo3 = document.querySelector(".image3");
+let archivo4 = document.querySelector(".image4");
 const precio = document.querySelector(".bestprecio");
 const cuotas = document.querySelector(".cuotas");
 const interes = document.querySelector(".int");
-
-
-
-
 
   
    const link = document.querySelector(".med_pago");
@@ -99,34 +99,80 @@ const   CodeError = () =>{
       }
       
       const informeImg = async () => {
+ // Hacer que si no se ingresan la 5 imagenes para mostrar , se agreguen a la bd como imagenes por defecto, asi se traen, se convierten y se colocan por defecto
+ 
+ /*let imgDefault = `http:/localhost:3000/img/noimg.jpg`;
+ let imagenDefoulRes = await fetch(imgDefault );
+ let imgBlobDef = await imagenDefoulRes.blob();
+ let imagenObjectDefault = URL.createObjectURL(imgBlobDef);
+  console.log(imagenObjectDefault)*/
+
          let url = new URL(window.location);
          const id = url.searchParams.get("id");
          console.log(id);
    let  EstaImg = url.searchParams.get("estaimg");
    let prod = url.searchParams.get("producto");
-   console.log(prod)
+   let bestPrecio = url.searchParams.get("precio");
+   let descuento = url.searchParams.get("descuento");
+   let cuo = url.searchParams.get("cuotas");
+  
+   let img = EstaImg.split(",");
+   
+      
+      let imgURl = `http://localhost:3000/uploads/${img[0]}`;
+      let imagenResponse = await fetch(imgURl );
+      let imgBlob = await imagenResponse.blob();
+      let imagenObjectURL = URL.createObjectURL(imgBlob);
+         archivo.src = imagenObjectURL;
+         imgZoom.src = imagenObjectURL;
+      
+   imgZoom.addEventListener("click", (e)=>{
+      e.preventDefault();
+      
+   })
+      let imgURl1 = `http://localhost:3000/uploads/${img[1]}`;
+      let imagenResponse1 = await fetch(imgURl1);
+      let imgBlob1 = await imagenResponse1.blob();
+      let imagenObjectURL1 = URL.createObjectURL(imgBlob1);
+      archivo1.src = imagenObjectURL1;
 
-   console.log(EstaImg);
-   let imgURl = `http://localhost:3000/uploads/${EstaImg}`;
-    let imagenResponse = await fetch(imgURl);
-    let imgBlob = await imagenResponse.blob();
-    let imagenObjectURL = URL.createObjectURL(imgBlob);
-    archivo.src = imagenObjectURL;
+
+      let imgURl2 = `http://localhost:3000/uploads/${img[2]}`;
+      let imagenResponse2 = await fetch(imgURl2 );
+      let imgBlob2 = await imagenResponse2.blob();
+      let imagenObjectURL2 = URL.createObjectURL(imgBlob2);
+      archivo2.src = imagenObjectURL2;
+      
+
+      let imgURl3 = `http://localhost:3000/uploads/${img[3]}`;
+      let imagenResponse3 = await fetch(imgURl3);
+      let imgBlob3 = await imagenResponse3.blob();
+      let imagenObjectURL3 = URL.createObjectURL(imgBlob3);
+         archivo3.src = imagenObjectURL3;
+   
+      
+
+      let imgURl4 = `http://localhost:3000/uploads/${img[4]}`;
+      let imagenResponse4 = await fetch(imgURl4 );
+      let imgBlob4 = await imagenResponse4.blob();
+      let imagenObjectURL4 = URL.createObjectURL(imgBlob4);
+      archivo4.src = imagenObjectURL4;
+      
+    
     producto.innerHTML = prod;
-function GetDatos(perfil){
+    precio.innerHTML = `$ ${bestPrecio} <p class="off"> ${descuento}% OFF</p>`;
+    cuotas.innerHTML = cuo;
+    let cuoNum = Number(cuo);
+    let preNum = Number(bestPrecio);
+    interes.value = preNum / cuoNum;
+    interes.textContent = interes.textContent + interes.value.toFixed(2);
+/*function GetDatos(perfil){
    // De esta forma hacemos que si el archivo .json contiene otra ip, se cambie por la que estamos usando
-   let ip = window.location.hostname;
-   console.log(ip)
-   let url = new URL(perfil.newArchivo);
-   let puerto = window.location.port;
-   let urlPort = url.port;
-   let urlJson = url.hostname;
-     
-   perfil.newArchivo =    perfil.newArchivo.replace(`http://${urlJson}:${urlPort}`, `http://${ip}:${puerto}`) ;
+
    if (perfil.producto && perfil.precio && perfil.cuotas && perfil.newArchivo) {
       
       producto.value = prod;
-      precio.value = perfil.precio;
+      precio.innerHTML = bestPrecio;
       cuotas.value = perfil.cuotas;
       archivo = perfil.newArchivo;
      
@@ -138,12 +184,11 @@ function GetDatos(perfil){
       interes.textContent = interes.textContent + interes.value.toFixed(2);
       foto.src = archivo;
      // al importar "imgZoom" hace que el zoom de la imagen muestre la imagen por defecto al cargar la pagina
-      imgZoom.src = archivo;
    }else{
     throw new Error();
     
    }
-     }
+     }*/
 
    if (id == null) {
      // CodeError();
@@ -155,154 +200,7 @@ function GetDatos(perfil){
      // CodeError();
    }
    
-   
-   if (EstaImg == "H-Rem.html") {
 
-      try {
-         const perfil = await inService.detalleProductoH_R(id);
-         console.log(perfil);
-         GetDatos(perfil);
-      }
-      catch (error) {
-         console.error("Catch Error -", error);
-       //  CodeError();
-      }
-   };
-
-
-   if (EstaImg == "H-Pant.html") {
-
-      try {
-         const perfil = await inService.detalleProductoH_P(id);
-         console.log(perfil);
-         GetDatos(perfil);
-      }
-      catch (error) {
-         console.error("Catch Error -", error);
-        // CodeError();
-      }
-   }
-
-if(EstaImg == "H-Acce.html"){
-   try {
-      const perfil = await inService.detalleProductoH_A(id);
-      console.log(perfil);
-      GetDatos(perfil);
-   }
-   catch (error) {
-      console.error("Catch Error -", error);
-    //  CodeError();
-   }
-};
-
-if(EstaImg == "M-Rem.html"){
-   try {
-      const perfil = await inService.detalleProductoW_R(id);
-      console.log(perfil);
-      GetDatos(perfil);
-   }
-   catch (error) {
-      console.error("Catch Error -", error);
-     // CodeError();
-   }
-};
-
-if(EstaImg == "M-Pant.html"){
-   try {
-      const perfil = await inService.detalleProductoW_P(id);
-      console.log(perfil);
-      GetDatos(perfil);
-   }
-   catch (error) {
-      console.error("Catch Error -", error);
-     // CodeError();
-   }
-};
-
-if(EstaImg == "M-Vest.html"){
-   try {
-      const perfil = await inService.detalleProductoW_V(id);
-      console.log(perfil);
-      GetDatos(perfil);
-   }
-   catch (error) {
-      console.error("Catch Error -", error);
-     // CodeError();
-   }
-};
-
-if(EstaImg == "M-Acce.html"){
-   try {
-      const perfil = await inService.detalleProductoW_A(id);
-      console.log(perfil);
-      GetDatos(perfil);
-   }
-   catch (error) {
-      console.error("Catch Error -", error);
-     // CodeError();
-   }
-};
-
-if(EstaImg == "N-Rem.html"){
-   try {
-      const perfil = await inService.detalleProductoN_R(id);
-      console.log(perfil);
-      GetDatos(perfil);
-   }
-   catch (error) {
-      console.error("Catch Error -", error);
-     // CodeError();
-   }
-};
-
-
-if(EstaImg == "N-Pant.html"){
-   try {
-      const perfil = await inService.detalleProductoN_P(id);
-      console.log(perfil);
-      GetDatos(perfil);
-   }
-   catch (error) {
-      console.error("Catch Error -", error);
-     // CodeError();
-   }
-};
-
-if(EstaImg == "N-Vest.html"){
-   try {
-      const perfil = await inService.detalleProductoN_V(id);
-      console.log(perfil);
-      GetDatos(perfil);
-   }
-   catch (error) {
-      console.error("Catch Error -", error);
-     // CodeError();
-   }
-};
-
-if(EstaImg == "Ch-Rem.html"){
-   try {
-      const perfil = await inService.detalleProductoCH_R(id);
-      console.log(perfil);
-      GetDatos(perfil);
-   }
-   catch (error) {
-      console.error("Catch Error -", error);
-     // CodeError();
-   }
-};
-
-if(EstaImg == "Ch-Pant.html"){
-   try {
-      const perfil = await inService.detalleProductoCH_P(id);
-      console.log(perfil);
-      GetDatos(perfil);
-   }
-   catch (error) {
-      console.error("Catch Error -", error);
-     // CodeError();
-   }
-};
 
 
 

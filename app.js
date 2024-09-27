@@ -41,6 +41,7 @@ app.use(helmet({ contentSecurityPolicy:{
 app.use(express.static(path.join(__dirname , 'public')));
 app.use(express.static(path.join(__dirname, 'admin')));
 app.use( 'uploads/',express.static(path.join(__dirname, "public/uploads/")));
+app.use( 'img/',express.static(path.join(__dirname, "public/img/")));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));

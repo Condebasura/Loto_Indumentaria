@@ -59,7 +59,7 @@ margin-top: 10em;
 }
 
 
-.image{
+.image ,.image1, .image2 ,.image3 , .image4{
     
     width: 3em;
     height: 50px;
@@ -124,8 +124,12 @@ height: 90%;
         gap: 0.4em;
     }
         .bestprecio{
-            font-size: 36px;
+            font-size: 30px;
             font-weight: 300;
+        }
+        .off{
+            font-size: 16px;
+            color: rgb(17, 177, 17);
         }
         
     .cuotas , .int{
