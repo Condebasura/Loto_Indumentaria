@@ -8,11 +8,15 @@ seccion = document.querySelector(".seccion"),
 subSeccion = document.querySelector(".sub_seccion"),
 archivos = document.querySelector(".image");
 
+// ya se muestra cuantos archivos se seleccionan, ahora hay que agregar el por defecto si no se selecciona otro en los campos que sobran
+archivos.addEventListener("change", (e)=>{
+   const ElArchivo = e.target.files;
+   console.log(`se seleccionaron ${ElArchivo.length} archivos`)
+})
 
-
-    form.addEventListener("submit",async (e)=>{
-        e.preventDefault();
-        
+form.addEventListener("submit",async (e)=>{
+    e.preventDefault();
+    
         let fromData = new FormData(e.target);
         fromData.append("nombre", nombre.value);
         fromData.append("stock", stock.value);
