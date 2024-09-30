@@ -209,4 +209,6 @@ const   CodeError = () =>{
       
 informeImg();
 
+
+
 export {archivo };

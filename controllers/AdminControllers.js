@@ -8,9 +8,16 @@ const getAdmin = (req, res )=>{
 
 
 const postProduct = async (req , res)=>{
-   
+
+   let imgDefoult = 'a4937c6a789a8856d0632422c7af52fa';
    let imagenes = req.files.map(file => file.filename);
+     while(imagenes.length < 5 ){
+         imagenes.push(imgDefoult);
+     };
+         console.log(imagenes);
    let img = imagenes.join(',');
+
+
     let products ={
         producto: req.body.producto,
         stock: req.body.Stock,
@@ -21,8 +28,6 @@ const postProduct = async (req , res)=>{
         subSeccion: req.body.Sub_seccion,
         imagen:  img,
     }
-console.log(img);
-
     let data = await bd.InsertProducto(products);
     if(data){
 
