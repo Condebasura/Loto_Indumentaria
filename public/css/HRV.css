@@ -108,7 +108,7 @@ height: 90%;
 .con_Stock{display: flex;
     color: rgb(17, 177, 17);}
 
-.sin_Stock{display:none;
+.sin_Stock{display:flex;
     color: red;
 }
  

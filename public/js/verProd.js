@@ -8,6 +8,8 @@ let archivo4 = document.querySelector(".image4");
 const precio = document.querySelector(".bestprecio");
 const cuotas = document.querySelector(".cuotas");
 const interes = document.querySelector(".int");
+let ProdStock = document.querySelector(".con_Stock");
+let Cant = document.querySelector(".cantidad");
 
   
    const link = document.querySelector(".med_pago");
@@ -115,7 +117,9 @@ const   CodeError = () =>{
    let bestPrecio = url.searchParams.get("precio");
    let descuento = url.searchParams.get("descuento");
    let cuo = url.searchParams.get("cuotas");
-  
+   let stock = url.searchParams.get("stock");
+   let S_tock = Number(stock);
+  console.log(S_tock);
    let img = EstaImg.split(",");
    
       
@@ -157,8 +161,18 @@ const   CodeError = () =>{
       let imgBlob4 = await imagenResponse4.blob();
       let imagenObjectURL4 = URL.createObjectURL(imgBlob4);
       archivo4.src = imagenObjectURL4;
-      
-    
+     
+      if(S_tock >= 5){
+       ProdStock.innerHTML = "stock disponible";
+     }else if(S_tock > 0 && S_tock <= 4){
+        ProdStock.classList.remove("con_Stock");
+        ProdStock.classList.add("sin_Stock");
+      ProdStock.innerHTML = "Ultimos disponible";
+     }else if(S_tock == 0){
+      ProdStock.classList.remove("con_Stock");
+      ProdStock.classList.add("sin_Stock");
+      ProdStock.innerHTML = "sin stock";
+     }
     producto.innerHTML = prod;
     precio.innerHTML = `$ ${bestPrecio} <p class="off"> ${descuento}% OFF</p>`;
     cuotas.innerHTML = cuo;
@@ -166,6 +180,13 @@ const   CodeError = () =>{
     let preNum = Number(bestPrecio);
     interes.value = preNum / cuoNum;
     interes.textContent = interes.textContent + interes.value.toFixed(2);
+    
+    
+    for(let i = 0 ; i < S_tock; i ++){
+      let valor = document.createElement("option");
+      valor.innerHTML = `${i + 1}/u de ${S_tock} disp`
+      Cant.appendChild(valor);
+    }
 /*function GetDatos(perfil){
    // De esta forma hacemos que si el archivo .json contiene otra ip, se cambie por la que estamos usando
 

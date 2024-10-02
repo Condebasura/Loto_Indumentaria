@@ -62,7 +62,7 @@ cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
 img.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
-        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}`
+        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
     }
    })
 
@@ -145,7 +145,7 @@ cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
 img.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
-        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}`
+        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
     }
    })
 $fragment.appendChild(box);

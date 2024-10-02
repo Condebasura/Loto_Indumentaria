@@ -34,11 +34,11 @@ const $fragment = document.createDocumentFragment();
     let porcentaje = (bestPrecio * desc) / 100;
     let rebajadoDe = bestPrecio - porcentaje;
     
-    if(el.stock > 1){
+    if(el.stock >= 5){
         stock.innerHTML = "stock disponible";
-    }else if(el.stock === 1){
-        stock.innerHTML = "Ultimo disponible";
-    }else if(el.stock < 1){
+    }else if(el.stock > 0 && el.stock <= 4){
+        stock.innerHTML = "Ultimos disponible";
+    }else if(el.stock === 0){
         stock.innerHTML = "sin stock";
     }
 
@@ -61,7 +61,7 @@ const $fragment = document.createDocumentFragment();
    img.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
-        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}`
+        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
     }
    })
 
@@ -142,7 +142,7 @@ cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
 img.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
-        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}`
+        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
     }
    })
 $fragment.appendChild(box);
@@ -223,7 +223,7 @@ cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
 img.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
-        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}`
+        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
     }
    })
 $fragment.appendChild(box);

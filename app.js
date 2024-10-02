@@ -30,11 +30,11 @@ app.use(cors(corsOptions));
 app.use(helmet({ contentSecurityPolicy:{
     directives:{
       defaultSrc:["'self'"],
-     
+
       styleSrc: ["'self'", "https://kit.fontawesome.com/523f183385.js","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" ,"'unsafe-inline'"],
   
       fontSrc: ["'self'", "https://kit.fontawesome.com/",  "cdnjs.cloudflare.com"],
-  imgSrc: ["'self'", "data:", "blob:"],
+  imgSrc: ["'self'", "data:", "blob:", 'https://http2.mlstatic.com'],
     }
   }}));
 
