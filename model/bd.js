@@ -1,7 +1,8 @@
 import sqlite3 from "sqlite3";
  let bd = new sqlite3.Database("Productos.bd");
+ import { v4 as uuidv4 } from 'uuid';
 
- bd.run('CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY AUTOINCREMENT , producto TEXT ,stock INTEGER, descuento INTEGER, precio INTEGER, cuotas INTEGER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
+ bd.run('CREATE TABLE IF NOT EXISTS products (id TEXT PRIMARY KEY, producto TEXT ,stock INTEGER, descuento INTEGER, precio INTEGER, cuotas INTEGER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
  
  const ConsultProduct = ()=>{
  
@@ -42,8 +43,10 @@ import sqlite3 from "sqlite3";
 
     const InsertProducto = async (products)=>{
         try{
-            let stmt = bd.prepare('INSERT INTO products(producto,stock, descuento , precio , cuotas , seccion , subSeccion , imagen) VALUES(?,?,?,?,?,?,?,?)');
-            stmt.run(products.producto,products.stock, products.descuento , products.precio , products.cuotas , products.seccion , products.subSeccion , products.imagen);
+        const id = uuidv4();
+            console.log(id);
+            let stmt = bd.prepare('INSERT INTO products(id,producto,stock, descuento , precio , cuotas , seccion , subSeccion , imagen) VALUES(?,?,?,?,?,?,?,?,?)');
+         stmt.run(id, products.producto,products.stock, products.descuento , products.precio , products.cuotas , products.seccion , products.subSeccion , products.imagen);
             stmt.finalize();
             return "Producto ingresado con exito";
 
