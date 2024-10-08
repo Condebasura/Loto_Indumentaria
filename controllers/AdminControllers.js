@@ -3,7 +3,7 @@ import {__dirname} from "../app.js";
 import bd from "../model/bd.js";
 
 const getAdmin = (req, res )=>{
-    res.sendFile(path.join(__dirname, 'admin', 'html', 'ingresa_producto.html'))
+    res.sendFile(path.join(__dirname, 'admin', 'html', 'IniciarCrear.html'))
 }
 
 
