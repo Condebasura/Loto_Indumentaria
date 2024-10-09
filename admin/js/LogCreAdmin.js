@@ -12,13 +12,15 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         const InputPass = document.createElement("input");
         const btn = document.createElement("button");
         const Create = document.createElement("a");
+        InputPass.setAttribute("type", "password")
         btn.innerHTML = "Entrar";
         Create.innerHTML = "Crear Usuario";
         titulo.innerHTML = "Login";
         LabelUser.innerHTML = "Usuario";
         LabelPass.innerHTML = "Pasword";
-        cuerpo.style.backgroundColor = "rgba(10,20,53,0.66)"
-       modal.style.backgroundColor = " rgba(933, 723, 523, 0.2)";
+        Create.style.cursor = "pointer";
+        cuerpo.style.backgroundColor =  "rgba(50,40,20,0.111)"
+       modal.style.backgroundColor = " rgba(413,893, 113, 0.66)";
        form.style.display = "flex";
        form.style.flexDirection = "column";
        form.style.gap =  ".5em";
@@ -32,5 +34,12 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         form.appendChild(Create)
         modal.appendChild(form)
         modal.showModal();
+    Create.addEventListener("click",(e)=>{
+        e.preventDefault();
+        if(e.target){
+          const form2 = document.createElement("form")
+          const titulo2 = document.createElement("span");
+        }
+    })
     }
 });
