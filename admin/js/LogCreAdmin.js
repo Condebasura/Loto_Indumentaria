@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         const Login = document.createElement("a");
 
         InputPass2.setAttribute("type", "password")
+        btn2.setAttribute("type", "submit");
         btn2.innerHTML = "Enviar";
         Login.innerHTML = "Login";
         titulo2.innerHTML = "Create";
@@ -75,6 +76,26 @@ document.addEventListener("DOMContentLoaded", (e)=>{
             if(e.target){
                 return location.reload();
             }
+        })
+        form2.addEventListener("submit", (e)=>{
+            e.preventDefault();
+
+            const InsertDatos = async(InputUser2 , InputPass2)=>{
+                let res = await fetch("/admin/IniciarCrear/Crear", {
+                    method: "POST",
+                    headers:{
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({InputUser2 , InputPass2}),
+                })
+                const data = await res.json();
+                
+                if(res.status === 200){
+                    
+                }
+                return location.reload();
+            }
+            InsertDatos(InputUser2.value, InputPass2.value);
         })
         }
     })

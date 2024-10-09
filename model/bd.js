@@ -1,9 +1,11 @@
 import sqlite3 from "sqlite3";
  let bd = new sqlite3.Database("Productos.bd");
  import { v4 as uuidv4 } from 'uuid';
+ import bcrypt from 'bcrypt';
+ const saltRounds = 10;
 
  bd.run('CREATE TABLE IF NOT EXISTS products (id TEXT PRIMARY KEY, producto TEXT ,stock INTEGER, descuento INTEGER, precio INTEGER, cuotas INTEGER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
- 
+ bd.run('CREATE TABLE IF NOT EXISTS admin (user TEXT , password TEXT )');
  const ConsultProduct = ()=>{
  
          bd.all('SELECT * FROM products', (err, rows)=>{
@@ -20,6 +22,7 @@ import sqlite3 from "sqlite3";
        });
      
      };
+
 
 
      const getProducts = async ()=>{
@@ -55,10 +58,36 @@ import sqlite3 from "sqlite3";
         }
     };
 
+const consultaUser = ()=>{
+    bd.all('SELECT * FROM admin' , (err, rows)=>{
+        if(err){
+            console.log(err.message)
+        }else{
+            console.log('User encontrado: ' + rows.length )
+            rows.forEach((row)=>{
+                console.log(row)
+            })
+        }
+    })
+};
 
+const InsertUser = async (user)=>{
+    try{
+        const hashedPasword = await bcrypt.hash(user.password , saltRounds);
+        let stmt = bd.prepare('INSERT INTO admin(user , password) VALUES(?,?)');
+        stmt.run(user.nombre , hashedPasword);
+
+        stmt.finalize();
+        return 'usuario registrado con exito';
+
+    }catch(error){
+      throw  console.log(error);
+    }
+}
      export default {bd,
         ConsultProduct,
         getProducts,
         InsertProducto,
-       
+        consultaUser,
+        InsertUser,
      }

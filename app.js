@@ -51,6 +51,7 @@ const upload = multer({dest: 'public/uploads/'});
 
 
 app.get("/consulta", bd.ConsultProduct);
+app.get("/admin/consulta", bd.consultaUser);
 app.get("/", ProductControllers.GetIndex);
 app.get("/Hombres.html", ProductControllers.GetHombres);
 app.get("/Mujeres.html", ProductControllers.GetMujeres);
@@ -61,6 +62,7 @@ app.get("/Mujeres.html/producto", ProductControllers.DataProduct);
 app.get("/Nenas.html/producto", ProductControllers.DataProduct);
 app.get("/Child.html/producto", ProductControllers.DataProduct);
 app.get("/visualProducto.html", ProductControllers.GetVisualProducto);
+app.post("/admin/IniciarCrear/Crear" , AdminControllers.CrearUser);
 app.get("/admin/IniciarCrear", AdminControllers.getAdmin);
 app.post("/admin/addProducto",upload.array("archivos", 5), AdminControllers.postProduct);
 

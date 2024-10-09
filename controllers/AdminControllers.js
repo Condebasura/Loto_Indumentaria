@@ -6,7 +6,13 @@ const getAdmin = (req, res )=>{
     res.sendFile(path.join(__dirname, 'admin', 'html', 'IniciarCrear.html'))
 }
 
-
+const CrearUser = async(req, res)=>{
+    const user = {
+        user: req.body.InputUser2,
+        password: req.body.InputPass2,
+    }
+   const consulUser = bd.consultaUser(user)
+    
 const postProduct = async (req , res)=>{
 
    let imgDefoult = 'a4937c6a789a8856d0632422c7af52fa';
@@ -43,4 +49,5 @@ const postProduct = async (req , res)=>{
 export default {
     getAdmin,
     postProduct,
+    CrearUser,
 }
