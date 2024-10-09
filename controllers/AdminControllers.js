@@ -12,7 +12,7 @@ const CrearUser = async(req, res)=>{
         password: req.body.InputPass2,
     }
    const consulUser = bd.consultaUser(user)
-    
+}
 const postProduct = async (req , res)=>{
 
    let imgDefoult = 'a4937c6a789a8856d0632422c7af52fa';
