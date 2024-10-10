@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
             if(e.target){
                 modal.innerHTML = "";
                 Create.style.cursor = "pointer";
-                cuerpo.style.backgroundColor =  "rgba(50,40,20,0.111)"
+                cuerpo.style.backgroundColor =  "rgba(50,40,20,0.11)"
                modal.style.backgroundColor = " rgba(113,173, 813, 0.46)";
                form.style.display = "flex";
                form.style.flexDirection = "column";
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
                   let parr = document.createElement("p");
                      parr.innerHTML = objt.mensaje;
                       modal.appendChild(parr);
-                      modal.style.background = "red";
+                      modal.style.background = "rgba(190, 20 ,50 , 0.86)";
                       parr.style.textShadow = "2px 2px 2px #000";
                       parr.style.color = "white"
                       modal.showModal()
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
                let obj = JSON.parse(data);
                  let parrafo = document.createElement("p");
                     parrafo.innerHTML = obj.mensaje;
-                    modal.style.background = "green";
+                    modal.style.background ="rgba(130,803, 120, 0.46)";
                     parrafo.style.textShadow = "2px 2px 2px #000";
                     parrafo.style.color = "white"
                      modal.appendChild(parrafo);
