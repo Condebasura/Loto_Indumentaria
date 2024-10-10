@@ -58,24 +58,25 @@ import sqlite3 from "sqlite3";
         }
     };
 
-const consultaUser = ()=>{
-    bd.all('SELECT * FROM admin' , (err, rows)=>{
+const consultaUser = async()=>{
+    const query = 'SELECT COUNT(*) AS count FROM admin  ' ;
+
+  return await new Promise((resolve, reject) =>{
+    bd.get(query, [], (err, row)=>{
         if(err){
-            console.log(err.message)
+            reject(err);
         }else{
-            console.log('User encontrado: ' + rows.length )
-            rows.forEach((row)=>{
-                console.log(row)
-            })
-        }
-    })
+            resolve(row.count > 0)
+        };
+    });
+  });
 };
 
-const InsertUser = async (user)=>{
+const InsertUser = async (User)=>{
     try{
-        const hashedPasword = await bcrypt.hash(user.password , saltRounds);
+        const hashedPasword = await bcrypt.hash(User.password , saltRounds);
         let stmt = bd.prepare('INSERT INTO admin(user , password) VALUES(?,?)');
-        stmt.run(user.nombre , hashedPasword);
+        stmt.run(User.user , hashedPasword);
 
         stmt.finalize();
         return 'usuario registrado con exito';

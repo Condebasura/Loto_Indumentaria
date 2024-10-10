@@ -2,17 +2,38 @@ import path from "path";
 import {__dirname} from "../app.js";
 import bd from "../model/bd.js";
 
+
 const getAdmin = (req, res )=>{
     res.sendFile(path.join(__dirname, 'admin', 'html', 'IniciarCrear.html'))
 }
 
 const CrearUser = async(req, res)=>{
-    const user = {
-        user: req.body.InputUser2,
-        password: req.body.InputPass2,
+  try{
+
+      const User = {
+          user: req.body.InputUser2,
+          password: req.body.InputPass2,
+        }
+        let usuario = User.user;
+        const consulUser = await bd.consultaUser(User);
+        if(consulUser){
+           
+            res.status(409);
+            res.json({mensaje:`ya existe un usuario!!`});
+           return;
+        }else{
+            await bd.InsertUser(User);
+				res.status(200);
+				res.json({mensaje: `Usuario registrado con exito`});
+        }
+    }catch(err){
+        console.log(err.message)
     }
-   const consulUser = bd.consultaUser(user)
 }
+
+
+
+
 const postProduct = async (req , res)=>{
 
    let imgDefoult = 'a4937c6a789a8856d0632422c7af52fa';

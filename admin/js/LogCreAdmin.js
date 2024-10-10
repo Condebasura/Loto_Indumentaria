@@ -12,19 +12,24 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         const InputPass = document.createElement("input");
         const btn = document.createElement("button");
         const Create = document.createElement("a");
-        InputPass.setAttribute("type", "password")
+        InputPass.setAttribute("type", "password");
+        btn.setAttribute("type", "submit");
         btn.innerHTML = "Entrar";
         Create.innerHTML = "Crear Usuario";
         titulo.innerHTML = "Login";
         LabelUser.innerHTML = "Usuario";
-        LabelPass.innerHTML = "Pasword";
+        LabelPass.innerHTML = "Contraseña";
         Create.style.cursor = "pointer";
         cuerpo.style.backgroundColor =  "rgba(50,40,20,0.111)"
-       modal.style.backgroundColor = " rgba(413,893, 113, 0.66)";
+        modal.style.backgroundColor = " rgba(113,173, 813, 0.46)";
        form.style.display = "flex";
        form.style.flexDirection = "column";
        form.style.gap =  ".5em";
+       form.style.justifyContent = "center";
+       form.style.alignItems = "center";
+
        Create.style.fontSize = "10px";
+       btn.style.cursor = "pointer";
         form.appendChild(titulo)
         form.appendChild(LabelUser)
         form.appendChild(InputUser)
@@ -34,6 +39,10 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         form.appendChild(Create)
         modal.appendChild(form)
         modal.showModal();
+
+     
+
+
     Create.addEventListener("click",(e)=>{
         e.preventDefault();
         if(e.target){
@@ -54,13 +63,15 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         Login.innerHTML = "Login";
         titulo2.innerHTML = "Create";
         LabelUser2.innerHTML = "Usuario";
-        LabelPass2.innerHTML = "Pasword";
+        LabelPass2.innerHTML = "Contraseña";
         Login.style.cursor = "pointer";
         cuerpo.style.backgroundColor =  "rgba(50,40,20,0.111)"
-       modal.style.backgroundColor = " rgba(13,13, 42, 0.66)";
+       modal.style.backgroundColor = " rgba(130,803, 120, 0.46)";
        form2.style.display = "flex";
        form2.style.flexDirection = "column";
        form2.style.gap =  ".5em";
+       form2.style.justifyContent = "center";
+       form2.style.alignItems = "center";
          Login.style.fontSize = "10px";
          form2.appendChild(titulo2)
         form2.appendChild(LabelUser2)
@@ -74,7 +85,18 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         Login.addEventListener("click", (e)=>{
             e.preventDefault();
             if(e.target){
-                return location.reload();
+                modal.innerHTML = "";
+                Create.style.cursor = "pointer";
+                cuerpo.style.backgroundColor =  "rgba(50,40,20,0.111)"
+               modal.style.backgroundColor = " rgba(113,173, 813, 0.46)";
+               form.style.display = "flex";
+               form.style.flexDirection = "column";
+               form.style.gap =  ".5em";
+               form.style.justifyContent = "center";
+               form.style.alignItems = "center";
+               Create.style.fontSize = "10px";
+               btn.style.cursor = "pointer";
+                modal.appendChild(form);  
             }
         })
         form2.addEventListener("submit", (e)=>{
@@ -88,12 +110,33 @@ document.addEventListener("DOMContentLoaded", (e)=>{
                     },
                     body: JSON.stringify({InputUser2 , InputPass2}),
                 })
-                const data = await res.json();
+                const data = await res.text();
                 
-                if(res.status === 200){
-                    
-                }
-                return location.reload();
+                if (res.status === 409){
+                    modal.innerHTML = "";
+                let objt = JSON.parse(data);
+                  let parr = document.createElement("p");
+                     parr.innerHTML = objt.mensaje;
+                      modal.appendChild(parr);
+                      modal.style.background = "red";
+                      parr.style.textShadow = "2px 2px 2px #000";
+                      parr.style.color = "white"
+                      modal.showModal()
+                      return location.reload();
+            }
+              else if(res.status === 200){
+                    modal.innerHTML = "";
+               let obj = JSON.parse(data);
+                 let parrafo = document.createElement("p");
+                    parrafo.innerHTML = obj.mensaje;
+                    modal.style.background = "green";
+                    parrafo.style.textShadow = "2px 2px 2px #000";
+                    parrafo.style.color = "white"
+                     modal.appendChild(parrafo);
+                     modal.showModal()
+                     return location.reload();
+                    }
+                     
             }
             InsertDatos(InputUser2.value, InputPass2.value);
         })
