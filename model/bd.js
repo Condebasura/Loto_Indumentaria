@@ -84,11 +84,36 @@ const InsertUser = async (User)=>{
     }catch(error){
       throw  console.log(error);
     }
+};
+
+const Coincide = (User)=>{
+    return new Promise((resolve, reject)=>{
+        let sql = 'SELECT * FROM admin WHERE user = ?';
+        let user = User.user;
+        let password = User.password;
+        bd.get(sql, [user], async (err,row)=>{
+            if(err){
+                console.log(err.message);
+                reject(err);
+            }if(!row){
+                resolve(false);
+                return;
+            }
+            try {
+                const PasswordMatch = await bcrypt.compare(password, row.password);
+                resolve(PasswordMatch);
+            } catch (btrypterror) {
+                console.log("error al comparar contraseñas:", btrypterror)
+            }
+        })
+    })
 }
+
      export default {bd,
         ConsultProduct,
         getProducts,
         InsertProducto,
         consultaUser,
         InsertUser,
+        Coincide,
      }

@@ -39,9 +39,55 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         form.appendChild(Create)
         modal.appendChild(form)
         modal.showModal();
+    
+        form.addEventListener("submit", (e)=>{
+            e.preventDefault();
 
-     
+            const Login = async(InputUser , InputPass)=>{
+  
+                 try {
+                    
+                     const res = await fetch("/admin/dashbord",{
+                         method: 'POST',
+                         headers:{
+                             "Content-Type":"application/json",
+                            },
+                            body: JSON.stringify({InputUser, InputPass})
+                        });
+                        const data = await res.text();
+                        if(res.status === 409){
+                            console.log("Credenciales incorrectas")
+                        }
+                        else if(res.status === 200){
+                            console.log("inicio correcto");
+                          return  window.location.href = "/admin/dashbord";
+                        }
+                    } catch (error) {
+                        console.log(error)   
+                    }
 
+            }
+            Login(InputUser.value , InputPass.value);
+            
+            const GetData = async ()=>{
+                
+                try {
+                    const res = await fetch("/admin/dashbord",{
+                        method: 'GET',
+                        headers:{
+                            "Content-Type": "application/json",
+                        },
+                        
+                    });
+                    
+                 
+                } catch (error) {
+                    console.log(error);
+                }
+                
+            }
+            GetData();
+        })
 
     Create.addEventListener("click",(e)=>{
         e.preventDefault();

@@ -7,6 +7,46 @@ const getAdmin = (req, res )=>{
     res.sendFile(path.join(__dirname, 'admin', 'html', 'IniciarCrear.html'))
 }
 
+
+
+const PostUser = async(req, res)=>{
+    try {
+        const User ={
+            user:req.body.InputUser,
+            password: req.body.InputPass,
+        }
+
+        console.log(User);
+        const userCoincide = await bd.Coincide(User);
+        if(userCoincide){
+            res.status(200);
+            console.log("Los datos coinciden");
+
+        }else{
+            res.status(409);
+            console.log("Credenciales incorrectas!!");
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const getDashbord = async(req,res)=>{
+const User = {
+    user: req.body.InputUser,
+    password: req.body.InputPass,
+}
+//configurar el ingreso a dashbord por medio de token y autorizacion
+    const dataok = await bd.Coincide(User)
+    if(!dataok){
+        res.status(409).json({mensaje:"Imposible ingresar"});
+        console.log("Imposible ingresar")
+    }else if(dataok){
+        res.status(200).res.sendFile(path.join(__dirname, 'admin', 'html', 'dashbord.html'));
+        console.log("Deveria ingresar")
+    }
+}
+
 const CrearUser = async(req, res)=>{
   try{
 
@@ -71,4 +111,6 @@ export default {
     getAdmin,
     postProduct,
     CrearUser,
+    PostUser,
+    getDashbord,
 }

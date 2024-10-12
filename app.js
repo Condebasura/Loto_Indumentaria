@@ -64,6 +64,8 @@ app.get("/Child.html/producto", ProductControllers.DataProduct);
 app.get("/visualProducto.html", ProductControllers.GetVisualProducto);
 app.post("/admin/IniciarCrear/Crear" , AdminControllers.CrearUser);
 app.get("/admin/IniciarCrear", AdminControllers.getAdmin);
+app.post("/admin/dashbord", AdminControllers.PostUser);
+app.get("/admin/dashbord", AdminControllers.getDashbord);
 app.post("/admin/addProducto",upload.array("archivos", 5), AdminControllers.postProduct);
 
 
