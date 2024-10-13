@@ -55,12 +55,13 @@ document.addEventListener("DOMContentLoaded", (e)=>{
                             body: JSON.stringify({InputUser, InputPass})
                         });
                         const data = await res.text();
-                        if(res.status === 409){
+                        if(res.status === 401){
                             console.log("Credenciales incorrectas")
                         }
                         else if(res.status === 200){
+                            console.log(data);
                             console.log("inicio correcto");
-                          return  window.location.href = "/admin/dashbord";
+                         
                         }
                     } catch (error) {
                         console.log(error)   
@@ -75,11 +76,16 @@ document.addEventListener("DOMContentLoaded", (e)=>{
                     const res = await fetch("/admin/dashbord",{
                         method: 'GET',
                         headers:{
-                            "Content-Type": "application/json",
+                            "Accept": "text/html",
                         },
                         
                     });
-                    
+                    if(res.status === 401){
+                        console.log("No se pudo ingresar")
+                    }else if(res.status === 200){
+                  console.log("datos correctos");
+                 
+                    }
                  
                 } catch (error) {
                     console.log(error);

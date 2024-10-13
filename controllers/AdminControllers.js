@@ -15,16 +15,15 @@ const PostUser = async(req, res)=>{
             user:req.body.InputUser,
             password: req.body.InputPass,
         }
-
-        console.log(User);
         const userCoincide = await bd.Coincide(User);
-        if(userCoincide){
+        if(!userCoincide){
+            
+            res.status(401).send("Usuario o contraseña incorrectas")
+            console.log("Credenciales incorrectas!!");
+            
+        }else if(userCoincide){
             res.status(200);
             console.log("Los datos coinciden");
-
-        }else{
-            res.status(409);
-            console.log("Credenciales incorrectas!!");
         }
     } catch (error) {
         console.log(error)
@@ -32,19 +31,10 @@ const PostUser = async(req, res)=>{
 }
 
 const getDashbord = async(req,res)=>{
-const User = {
-    user: req.body.InputUser,
-    password: req.body.InputPass,
-}
-//configurar el ingreso a dashbord por medio de token y autorizacion
-    const dataok = await bd.Coincide(User)
-    if(!dataok){
-        res.status(409).json({mensaje:"Imposible ingresar"});
-        console.log("Imposible ingresar")
-    }else if(dataok){
-        res.status(200).res.sendFile(path.join(__dirname, 'admin', 'html', 'dashbord.html'));
-        console.log("Deveria ingresar")
-    }
+    
+    res.status(200).sendFile(path.join(__dirname, 'admin', 'html', 'dashbord.html'));
+    console.log("Deveria ingresar")
+        
 }
 
 const CrearUser = async(req, res)=>{

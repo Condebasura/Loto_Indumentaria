@@ -5,6 +5,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import multer from "multer";
 import { expressjwt } from "express-jwt";
+import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import { fileURLToPath } from "url";
 import ProductControllers from "./controllers/ProductControllers.js";
@@ -46,6 +47,11 @@ app.use( 'img/',express.static(path.join(__dirname, "public/img/")));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
 
 const upload = multer({dest: 'public/uploads/'});
 
