@@ -71,20 +71,25 @@ document.addEventListener("DOMContentLoaded", (e)=>{
             Login(InputUser.value , InputPass.value);
             
             const GetData = async ()=>{
-                
+                const tokenName = 'mitoken';
+                //Configurar el token con respecto a login-create!!
+           
                 try {
                     const res = await fetch("/admin/dashbord",{
                         method: 'GET',
                         headers:{
-                            "Accept": "text/html",
+                        Authorization: `Bearer ${('mitoken')} `,
                         },
                         
                     });
-                    if(res.status === 401){
+                    if(res.status === 200){
+                 console.log("datos correctos");
+                  const data = await res.json();
+                  console.log(data);
+                   }
+                    else if(res.status === 401){
+
                         console.log("No se pudo ingresar")
-                    }else if(res.status === 200){
-                  console.log("datos correctos");
-                 
                     }
                  
                 } catch (error) {

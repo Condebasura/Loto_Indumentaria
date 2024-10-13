@@ -12,13 +12,34 @@ import ProductControllers from "./controllers/ProductControllers.js";
 import AdminControllers from "./controllers/AdminControllers.js";
 import bd from "./model/bd.js";
 
-
+const ScrT = "Puerto-Pasto-Coso"
 // Directorio dependiendo del tipo de sistema
 const __dirname = (process.platform === "win32")? fileURLToPath(new URL(".", import.meta.url)):path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
 const port = 3000;
 
+
+
+
+app.use("usuario",expressjwt({
+  secret: ScrT , algorithms: ['HS256'],
+  credentialsRequired: false,
+  getToken: function fromHeaderOrQuerystring(req) {
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.split(" ")[0] === "Bearer"
+    ) {
+     
+      return req.headers.authorization.split(" ")[1];
+    } else if (req.query && req.query.token) {
+     
+      return req.query.token;
+    }
+    return null;
+  },
+  
+}));
 const corsOptions = {
     origin: '*' ,  // Origen permitido (puedes usar * para permitir todo)
     methods: 'GET,POST,PUT,DELETE', // Métodos permitidos
@@ -82,4 +103,5 @@ app.listen(port, ()=>{
 
 export  {
     __dirname,
+    ScrT,
 }

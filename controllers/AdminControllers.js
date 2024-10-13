@@ -1,6 +1,8 @@
 import path from "path";
 import {__dirname} from "../app.js";
 import bd from "../model/bd.js";
+import { ScrT } from "../app.js";
+import jwt from "jsonwebtoken";
 
 
 const getAdmin = (req, res )=>{
@@ -22,8 +24,22 @@ const PostUser = async(req, res)=>{
             console.log("Credenciales incorrectas!!");
             
         }else if(userCoincide){
-            res.status(200);
-            console.log("Los datos coinciden");
+             const data = await bd.consultaUser(User);
+             const pay = {User, 
+                user: data.user,
+                password: data.password,
+
+             }
+              const token = jwt.sign({
+                pay, User
+              }, ScrT);
+              res.cookie('mitoken', token,  { sameSite: 'Strict' } , {
+                httpOnly: true
+            });
+            res.cookie('SesionTks', token ,{sameSite: 'Strict'},{
+           httpOnly:true});
+            res.status(200).json({token});
+            console.log(`Los datos coinciden ${token}`);
         }
     } catch (error) {
         console.log(error)
@@ -32,8 +48,21 @@ const PostUser = async(req, res)=>{
 
 const getDashbord = async(req,res)=>{
     
-    res.status(200).sendFile(path.join(__dirname, 'admin', 'html', 'dashbord.html'));
-    console.log("Deveria ingresar")
+    try {
+        const tkn = req.body.token;
+     const coincide = await bd.Coincide(tkn);
+     if(!coincide){
+        res.status(401).json({mensaje: "Datos Incorrectos"})
+     }else if(coincide){
+
+         res.status(200).sendFile(path.join(__dirname, 'admin', 'html', 'dashbord.html'));
+         console.log("Deveria ingresar")
+        }
+    
+    
+    } catch (error) {
+        console.log(error)
+    }
         
 }
 
