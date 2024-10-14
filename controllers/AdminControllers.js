@@ -49,16 +49,18 @@ const PostUser = async(req, res)=>{
 const getDashbord = async(req,res)=>{
     
     try {
-        const tkn = req.body.token;
-     const coincide = await bd.Coincide(tkn);
-     if(!coincide){
-        res.status(401).json({mensaje: "Datos Incorrectos"})
-     }else if(coincide){
-
-         res.status(200).sendFile(path.join(__dirname, 'admin', 'html', 'dashbord.html'));
-         console.log("Deveria ingresar")
+        const tkn =   req.cookies.mitoken;
+        if(!tkn){
+           return  res.status(401).json({mensaje:"Credenciales incorrectas"});
         }
-    
+    jwt.verify(tkn, ScrT, async(err)=>{
+        if(err){
+            console.error(err.message);
+			return	 res.status(409).json({mensaje: "Ocurio un error al cargar"});
+        }else{
+          return  res.status(200).sendFile(path.join(__dirname, '/admin/html/dashbord.html'))
+        }
+    })
     
     } catch (error) {
         console.log(error)
@@ -126,10 +128,27 @@ const postProduct = async (req , res)=>{
     }
 }
 
+const logout = async (req,res)=>{
+	try{
+			await res.cookie('mitoken', '', {expires: new Date(0), httpOnly: true});
+			await res.cookie('SesionTks', '', {expires: new Date(0), httpOnly: true});
+			return res.sendFile(path.join(__dirname , '/admin/html/IniciarCrear.html'))
+		
+
+	}catch(err){
+		console.log(err)
+	}
+	
+   
+		
+	
+}
+
 export default {
     getAdmin,
     postProduct,
     CrearUser,
     PostUser,
     getDashbord,
+    logout,
 }

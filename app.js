@@ -93,6 +93,7 @@ app.post("/admin/IniciarCrear/Crear" , AdminControllers.CrearUser);
 app.get("/admin/IniciarCrear", AdminControllers.getAdmin);
 app.post("/admin/dashbord", AdminControllers.PostUser);
 app.get("/admin/dashbord", AdminControllers.getDashbord);
+app.get("/admin/logout", AdminControllers.logout);
 app.post("/admin/addProducto",upload.array("archivos", 5), AdminControllers.postProduct);
 
 

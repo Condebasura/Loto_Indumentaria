@@ -59,9 +59,52 @@ document.addEventListener("DOMContentLoaded", (e)=>{
                             console.log("Credenciales incorrectas")
                         }
                         else if(res.status === 200){
-                            console.log(data);
                             console.log("inicio correcto");
-                         
+                            const GetData = async ()=>{
+            
+                                const tokenName = 'mitoken';
+                                 const cookies = document.cookie.split(';').map(cookie => cookie.trim().split('='));
+                
+                    const cookie = cookies.find(([name, value]) => name === tokenName);
+                    const tokenValue = cookie[1];
+                    const tokenPayload = tokenValue.split('.')[1];
+                    const decodedPayload = JSON.parse(window.atob(tokenPayload));
+                
+                    const getCookie =  (name)=>{
+                    const  value = `; ${document.cookie}`;
+                    const parts = value.split(`; ${name}=`);
+                    if(parts.length === 2) return parts.pop().split(';').shift();
+                }
+                   
+                let separacokie = getCookie(tokenName);
+                           
+                                try {
+                                    const res = await fetch("dashbord",{
+                                        method: 'GET',
+                                        headers:{
+                                        Authorization: `Bearer ${getCookie('mitoken')} `,
+                                        },
+                                        
+                                    });
+                                    const dataget = await res.text();
+                                  
+                                    
+                                 if(!res.ok){
+                                    return console.log(dataget.mensaje);
+                                 }else{
+                                     const datos =  decodedPayload;
+                                     const dataUser = datos.User;
+                                     return window.location.href = '/admin/dashbord';
+                                
+                                    
+                                 }
+                                 
+                                } catch (error) {
+                                    console.log(error);
+                                }
+                                
+                            }
+                            GetData();
                         }
                     } catch (error) {
                         console.log(error)   
@@ -70,34 +113,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
             }
             Login(InputUser.value , InputPass.value);
             
-            const GetData = async ()=>{
-                const tokenName = 'mitoken';
-                //Configurar el token con respecto a login-create!!
-           
-                try {
-                    const res = await fetch("/admin/dashbord",{
-                        method: 'GET',
-                        headers:{
-                        Authorization: `Bearer ${('mitoken')} `,
-                        },
-                        
-                    });
-                    if(res.status === 200){
-                 console.log("datos correctos");
-                  const data = await res.json();
-                  console.log(data);
-                   }
-                    else if(res.status === 401){
-
-                        console.log("No se pudo ingresar")
-                    }
-                 
-                } catch (error) {
-                    console.log(error);
-                }
-                
-            }
-            GetData();
+      
         })
 
     Create.addEventListener("click",(e)=>{
