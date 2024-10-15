@@ -1,4 +1,18 @@
+
 const logout = document.querySelector(".salir");
+
+
+Add.addEventListener("click", (e)=>{
+    e.preventDefault();
+    if(e.target){
+     formAdd.style.display = "block";
+        btnAdd.style.display = "block";
+        btnsForm.style.display = "block";
+        // el boxCarga en "" me queta el formulario para ingresar productos , intentarlo con css mejor.
+        boxCargas.innerHTML = "";
+    }
+})
+
 
 logout.addEventListener("click", async (e) => {
     try {
@@ -30,3 +44,9 @@ logout.addEventListener("unload", async (e) => {
     }
 
 });
+
+
+
+
+
+
