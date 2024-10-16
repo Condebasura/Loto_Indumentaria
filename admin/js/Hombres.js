@@ -2,10 +2,13 @@ const Add = document.querySelector(".AddProducto");
 const formAdd = document.querySelector(".container_flex");
 const btnsForm = document.querySelector(".input-container_flex");
 const boxCargas = document.querySelector(".box_cargas");
-const btnAdd = document.querySelector(".button")
-const hombre = document.querySelector(".Hombres")
+const btnAdd = document.querySelector(".button");
+const hombre = document.querySelector(".Hombres");
+const boxNames = document.createElement("div");
 const boxContent = document.createElement("div");
 const $fragment = document.createDocumentFragment();
+
+
 
 hombre.addEventListener("click", (e)=>{
     e.preventDefault();
@@ -14,20 +17,29 @@ hombre.addEventListener("click", (e)=>{
         formAdd.style.display = "none";
         btnAdd.style.display = "none";
         btnsForm.style.display = "none";
-       boxCargas.innerHTML = "";
+        boxNames.innerHTML = "";
+        boxContent.innerHTML = "";
         const remeras = document.createElement("a");
         const pantalones = document.createElement("a");
-        const vestidos = document.createElement("a");
         const accesorios = document.createElement("a");
         remeras.innerHTML = "Remeras";
         pantalones.innerHTML = "Pantalones";
-        vestidos.innerHTML = "Vestidos";
          accesorios.innerHTML = "Accesorios";
-        boxCargas.appendChild(remeras);
-        boxCargas.appendChild(pantalones);
-        boxCargas.appendChild(vestidos);
-        boxCargas.appendChild(accesorios);
-       
+        boxNames.appendChild(remeras);
+        boxNames.appendChild(pantalones);
+        boxNames.appendChild(accesorios);
+        boxCargas.appendChild(boxNames);
+        Add.addEventListener("click", (e)=>{
+            e.preventDefault();
+            if(e.target){
+             formAdd.style.display = "block";
+                btnAdd.style.display = "block";
+                btnsForm.style.display = "block";
+                // el boxCarga en "" me queta el formulario para ingresar productos , intentarlo con css mejor.
+                boxNames.innerHTML = "";
+                boxContent.innerHTML = "";
+            }
+        })
         remeras.addEventListener("click",async (e)=>{
             e.preventDefault();
            
@@ -51,8 +63,9 @@ hombre.addEventListener("click", (e)=>{
         let precio = document.createElement("span");
         let stock = document.createElement("p");
         let cuotas = document.createElement("p");
-        let car = document.createElement("a");
-        //descuento
+        let edit = document.createElement("a");
+        let delet = document.createElement("a");
+        
         let bestPrecio = Number(el.precio);
         let desc = Number(el.descuento);
         let porcentaje = (bestPrecio * desc) / 100;
@@ -71,7 +84,8 @@ hombre.addEventListener("click", (e)=>{
         nombreProducto.setAttribute("class", "name");
         datosProducto.setAttribute("class","datos");
         descuento.setAttribute("class", "precio");
-        car.setAttribute("class", "fas fa-shopping-cart");
+        edit.setAttribute("class", "fa-solid fa-pen-to-square");
+        delet.setAttribute( "class","fa-solid fa-trash-can");
         let img1 = el.imagen.split(",")[0];
         let imgURl = `http://localhost:3000/uploads/${img1}`;
         let imagenResponse = await fetch(imgURl);
@@ -98,8 +112,21 @@ hombre.addEventListener("click", (e)=>{
         datosProducto.appendChild(precio);
         datosProducto.appendChild(cuotas);
         datosProducto.appendChild(stock);
-        datosProducto.appendChild(car);
-    
+        datosProducto.appendChild(edit);
+        datosProducto.appendChild(delet);
+       
+        delet.addEventListener("click", (e)=>{
+            e.preventDefault();
+            if(e.target){
+                console.log(el.id);
+            }
+        })
+        edit.addEventListener("click", (e)=>{
+            e.preventDefault();
+            if(e.target){
+                console.log(el);
+            }
+        })
     }
     }
    boxCargas.appendChild(boxContent);
@@ -132,8 +159,9 @@ hombre.addEventListener("click", (e)=>{
     let precio = document.createElement("span");
     let stock = document.createElement("p");
     let cuotas = document.createElement("p");
-    let car = document.createElement("a");
-    //descuento
+    let edit = document.createElement("a");
+    let delet = document.createElement("a");
+    
     let bestPrecio = Number(el.precio);
     let desc = Number(el.descuento);
     let porcentaje = (bestPrecio * desc) / 100;
@@ -152,7 +180,9 @@ hombre.addEventListener("click", (e)=>{
     nombreProducto.setAttribute("class", "name");
     datosProducto.setAttribute("class","datos");
     descuento.setAttribute("class", "precio");
-    car.setAttribute("class", "fas fa-shopping-cart");
+    edit.setAttribute("class","fa-solid fa-pen-to-square");
+    delet.setAttribute( "class","fa-solid fa-trash-can");
+
     let img1 = el.imagen.split(",")[0];
     let imgURl = `http://localhost:3000/uploads/${img1}`;
     let imagenResponse = await fetch(imgURl);
@@ -178,7 +208,8 @@ hombre.addEventListener("click", (e)=>{
     datosProducto.appendChild(precio);
     datosProducto.appendChild(cuotas);
     datosProducto.appendChild(stock);
-    datosProducto.appendChild(car);
+    datosProducto.appendChild(edit);
+    datosProducto.appendChild(delet);
     
     }
     }
@@ -212,7 +243,9 @@ hombre.addEventListener("click", (e)=>{
     let precio = document.createElement("span");
     let stock = document.createElement("p");
     let cuotas = document.createElement("p");
-    let car = document.createElement("a");
+    let edit = document.createElement("a");
+    let delet = document.createElement("a");
+
     //descuento
     let bestPrecio = Number(el.precio);
     let desc = Number(el.descuento);
@@ -232,7 +265,9 @@ hombre.addEventListener("click", (e)=>{
     nombreProducto.setAttribute("class", "name");
     datosProducto.setAttribute("class","datos");
     descuento.setAttribute("class", "precio");
-    car.setAttribute("class", "fas fa-shopping-cart");
+    edit.setAttribute("class","fa-solid fa-pen-to-square");        delet.setAttribute( "class","fa-solid fa-trash-can");
+    delet.setAttribute( "class","fa-solid fa-trash-can");
+
     let img1 = el.imagen.split(",")[0];
     let imgURl = `http://localhost:3000/uploads/${img1}`;
     let imagenResponse = await fetch(imgURl);
@@ -258,7 +293,9 @@ hombre.addEventListener("click", (e)=>{
     datosProducto.appendChild(precio);
     datosProducto.appendChild(cuotas);
     datosProducto.appendChild(stock);
-    datosProducto.appendChild(car);
+    datosProducto.appendChild(edit);
+    datosProducto.appendChild(delet);
+
     
     }
     }

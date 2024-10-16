@@ -4,7 +4,8 @@ const nenes = document.querySelector(".Nenes");
 nenes.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
-        boxCargas.innerHTML = "";
+        boxNames.innerHTML = "";
+        boxContent.innerHTML = "";
         formAdd.style.display = "none";
         btnAdd.style.display = "none";
         btnsForm.style.display = "none";
@@ -14,10 +15,22 @@ nenes.addEventListener("click", (e)=>{
         remeras.innerHTML = "Remeras";
         pantalones.innerHTML = "Pantalones";
         
-        boxCargas.appendChild(remeras);
-        boxCargas.appendChild(pantalones);
-        
+        boxNames.appendChild(remeras);
+        boxNames.appendChild(pantalones);
+        boxCargas.appendChild(boxNames);
        
+        Add.addEventListener("click", (e)=>{
+            e.preventDefault();
+            if(e.target){
+             formAdd.style.display = "block";
+                btnAdd.style.display = "block";
+                btnsForm.style.display = "block";
+                // el boxCarga en "" me queta el formulario para ingresar productos , intentarlo con css mejor.
+                boxNames.innerHTML = "";
+                boxContent.innerHTML = "";
+            }
+        });
+
 
         remeras.addEventListener("click",async (e)=>{
             e.preventDefault();
@@ -42,8 +55,9 @@ nenes.addEventListener("click", (e)=>{
         let precio = document.createElement("span");
         let stock = document.createElement("p");
         let cuotas = document.createElement("p");
-        let car = document.createElement("a");
-        //descuento
+        let edit = document.createElement("a");
+        let delet = document.createElement("a");
+
         let bestPrecio = Number(el.precio);
         let desc = Number(el.descuento);
         let porcentaje = (bestPrecio * desc) / 100;
@@ -62,7 +76,10 @@ nenes.addEventListener("click", (e)=>{
         nombreProducto.setAttribute("class", "name");
         datosProducto.setAttribute("class","datos");
         descuento.setAttribute("class", "precio");
-        car.setAttribute("class", "fas fa-shopping-cart");
+        edit.setAttribute("class","fa-solid fa-pen-to-square");
+        delet.setAttribute( "class","fa-solid fa-trash-can");
+        
+        
         let img1 = el.imagen.split(",")[0];
         let imgURl = `http://localhost:3000/uploads/${img1}`;
         let imagenResponse = await fetch(imgURl);
@@ -89,7 +106,8 @@ nenes.addEventListener("click", (e)=>{
         datosProducto.appendChild(precio);
         datosProducto.appendChild(cuotas);
         datosProducto.appendChild(stock);
-        datosProducto.appendChild(car);
+        datosProducto.appendChild(edit);
+        datosProducto.appendChild(delet);
         
         }
         }
@@ -126,8 +144,9 @@ nenes.addEventListener("click", (e)=>{
         let precio = document.createElement("span");
         let stock = document.createElement("p");
         let cuotas = document.createElement("p");
-        let car = document.createElement("a");
-        //descuento
+        let edit = document.createElement("a");
+        let delet = document.createElement("a");
+
         let bestPrecio = Number(el.precio);
         let desc = Number(el.descuento);
         let porcentaje = (bestPrecio * desc) / 100;
@@ -146,7 +165,9 @@ nenes.addEventListener("click", (e)=>{
         nombreProducto.setAttribute("class", "name");
         datosProducto.setAttribute("class","datos");
         descuento.setAttribute("class", "precio");
-        car.setAttribute("class", "fas fa-shopping-cart");
+        edit.setAttribute("class","fa-solid fa-pen-to-square");
+        delet.setAttribute( "class","fa-solid fa-trash-can");
+
         let img1 = el.imagen.split(",")[0];
         let imgURl = `http://localhost:3000/uploads/${img1}`;
         let imagenResponse = await fetch(imgURl);
@@ -172,7 +193,8 @@ nenes.addEventListener("click", (e)=>{
         datosProducto.appendChild(precio);
         datosProducto.appendChild(cuotas);
         datosProducto.appendChild(stock);
-        datosProducto.appendChild(car);
+        datosProducto.appendChild(edit);
+        datosProducto.appendChild(delet);
         
         }
         }

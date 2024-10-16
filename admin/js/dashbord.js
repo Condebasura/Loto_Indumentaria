@@ -9,7 +9,8 @@ Add.addEventListener("click", (e)=>{
         btnAdd.style.display = "block";
         btnsForm.style.display = "block";
         // el boxCarga en "" me queta el formulario para ingresar productos , intentarlo con css mejor.
-        boxCargas.innerHTML = "";
+        boxNames.innerHTML = "";
+        boxContent.innerHTML = "";
     }
 })
 
