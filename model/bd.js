@@ -109,6 +109,45 @@ const Coincide = (User)=>{
     })
 }
 
+const validaDatos =(id)=>{
+
+    return new Promise((resolve , reject)=>{
+
+        let sql = 'SELECT * FROM products WHERE id = ?';
+        
+        
+        
+        bd.get(sql , [id], (err , row )=> {
+        
+            if(err){
+                console.error(err.message);
+                reject(err);
+                
+            }if(row){
+                console.log(row);
+                resolve(row)
+                
+               
+            } 
+            
+            
+        });
+    })
+};
+
+
+const DeleteProd = (id)=>{
+    let sql = 'DELETE FROM products WHERE id = ?';
+    bd.run(sql, [id], (err)=>{
+        if(err){
+            console.log("Ocurrio un error al querer eliminar el producto")
+           
+        }else{
+console.log("Producto eliminado con exito")
+        }
+    })
+}
+
      export default {bd,
         ConsultProduct,
         getProducts,
@@ -116,4 +155,6 @@ const Coincide = (User)=>{
         consultaUser,
         InsertUser,
         Coincide,
+        validaDatos,
+        DeleteProd,
      }

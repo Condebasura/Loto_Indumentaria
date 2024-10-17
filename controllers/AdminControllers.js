@@ -3,6 +3,7 @@ import {__dirname} from "../app.js";
 import bd from "../model/bd.js";
 import { ScrT } from "../app.js";
 import jwt from "jsonwebtoken";
+import fs from 'fs';
 
 
 const getAdmin = (req, res )=>{
@@ -126,7 +127,60 @@ const postProduct = async (req , res)=>{
         res.status(209);
         res.json({mensaje: `ocurrio un error al ingresar el producto`});
     }
+};
+
+
+const DataProd = async (req, res)=>{
+try{
+
+    const validar = await bd.validaDatos(req.body.id);
+    if(validar){
+        const imgbox = path.join(__dirname, `./public/uploads` , validar.imagen);
+        console.log(imgbox);
+        console.log(`Los datos de ${req.body.id} coinciden con los de la bd`)
+        res.json(validar);
+    }
+}catch(err){
+    console.log(err.message);
 }
+
+};
+
+
+const EliminarProducto = async (req , res)=>{
+    
+    try{
+
+        let id = await req.params.id;
+         let img = await req.params.img;
+         const imgDef = path.join(__dirname, './public/uploads/',"a4937c6a789a8856d0632422c7af52fa");
+
+         let imgbox = path.join(__dirname, './public/uploads', img);
+        const paths = imgDef.split('uploads\\');
+        const imgDefault = paths[1];
+
+        const data = imgbox.split('uploads\\');
+        const imgData = data[1].split(",");
+        const mapeaImg = imgData.map(img => img)   
+
+          if(mapeaImg.includes(imgDefault)){
+            
+
+            console.log("esta incluida",  mapeaImg)
+          }else{
+            console.log("No ta!!")
+          }
+        
+         
+   //  await bd.DeleteProd(id);
+    console.log(`Producto con id ${id} fue  eliminado correctamente.`);
+}catch(err){
+    console.log(err.message)
+};
+
+}
+
+
 
 const logout = async (req,res)=>{
 	try{
@@ -150,5 +204,7 @@ export default {
     CrearUser,
     PostUser,
     getDashbord,
+    DataProd,
+    EliminarProducto,
     logout,
 }
