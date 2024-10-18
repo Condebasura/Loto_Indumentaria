@@ -161,18 +161,22 @@ const EliminarProducto = async (req , res)=>{
 
         const data = imgbox.split('uploads\\');
         const imgData = data[1].split(",");
-        const mapeaImg = imgData.map(img => img)   
+               imgData.map(img =>{
+            if(img !== imgDefault){
+                const imagPath = path.join(__dirname, './public/uploads', img);
+                fs.unlink(imagPath , (err)=>{
+                    if(err){
+                        console.error("Se produjo un error al eliminar las imagenes", err);
+                        return res.status(500).send("Error al eliminar las imagenes")
+                    }
+                    console.log("Imagenes eliminadas con exito");
+                })
+            }
+        })   
 
-          if(mapeaImg.includes(imgDefault)){
-            
-
-            console.log("esta incluida",  mapeaImg)
-          }else{
-            console.log("No ta!!")
-          }
         
          
-   //  await bd.DeleteProd(id);
+      bd.DeleteProd(id);
     console.log(`Producto con id ${id} fue  eliminado correctamente.`);
 }catch(err){
     console.log(err.message)

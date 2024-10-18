@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/box_producto.css">
-
+    <link rel="stylesheet" href="../css/dashbord.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"  crossorigin="anonymous">
     <title>Dashbord</title>
 </head>
-<body>
+<body class="box_body">
     <div class="box_select">
 
         <ul>
@@ -29,8 +29,8 @@
 
          <main class="container_flex">
           <section class="card-producto">
-          <h1 class="card__title">Ingresar Producto </h1>
-          <form class="formAdd" data-form>
+              <form class="formAdd" data-form>
+              <h1 class="card__title">Ingresar Producto </h1>
               <div class="input-container">
                   <label class="input-label" for="producto">Nombre Del Producto</label>
                  <input 
@@ -110,8 +110,8 @@
                      <option class="sector" value="Niña">Niña</option>
                      <option class="sector" value="Niño">Niño</option>
                      </select>
-                 </div>
-                 <div class="content_select" >
+                 
+                 
                      <label class="input-select" for="sub_seccion">Prenda</label>
                      <select 
                      name="Sub_seccion" 
@@ -126,8 +126,8 @@
                  
                  </select>
                  
-                 </div>
-             </div>
+                 
+             
              <!--<div data-No></div>--->
                 <div class="input-container_flex">
                  <label class="input-archivo" for="archivos"></label>
@@ -139,8 +139,8 @@
                  accept="image/*" multiple
                  data-archivo
                  />
+                 <button type="submit" class=" button">Agregar Producto</button>
                 </div>
-                <button type="submit" class=" button">Agregar Producto</button>
             </form>
             
         </section>

@@ -116,6 +116,7 @@ hombre.addEventListener("click", (e)=>{
         datosProducto.appendChild(edit);
         datosProducto.appendChild(delet);
        
+
         delet.addEventListener("click",async (e)=>{
             e.preventDefault();
             if(e.target){
@@ -145,7 +146,7 @@ hombre.addEventListener("click", (e)=>{
                 cajaBtn.appendChild(aceptar);
                 cajaBtn.appendChild(cancelar);
                 modal.appendChild(cajaBtn);
-      
+        
                   aceptar.addEventListener("click", async (e) => {
                      e.preventDefault();
                      try{
@@ -169,13 +170,78 @@ hombre.addEventListener("click", (e)=>{
                     
                 cancelar.addEventListener("click", () => {
                   modal.close();
-                })   
+                }) 
             }
-        })
+        
+        });
+
+
         edit.addEventListener("click", (e)=>{
             e.preventDefault();
             if(e.target){
-                console.log(el);
+                const form = document.createElement("form");
+                const Nombre = document.createElement("h2");
+                const LabelProd = document.createElement("label");
+               const nomProd = document.createElement("input");
+               const LabelStock = document.createElement("label");
+               const InpStock = document.createElement("input");
+               const LabelDesc = document.createElement("label")
+               const InpDesc = document.createElement("input");
+               const LabPrecio = document.createElement("label");
+               const InpPrecio = document.createElement("input");
+               const LabSInt = document.createElement("label");
+               const InpSInt = document.createElement("select")
+               const archivo = document.createElement("input");
+               const btn = document.createElement("button");
+
+               Nombre.innerHTML = "Editar Producto";
+               LabelProd.innerHTML = "Nombre del Producto";
+               LabelStock.innerHTML = "Stock";
+               LabelDesc.innerHTML = "Descuento del";
+               LabPrecio.innerHTML = "Precio";
+               LabSInt.innerHTML = "Cuotas(Sin interes)";
+                archivo.innerHTML = "Seleccionar imagenes";
+                btn.innerHTML = "Finalizar Edicion";
+
+               nomProd.value = el.producto;
+               InpStock.value = el.stock;
+               InpDesc.value = el.descuento;
+               InpPrecio.value = el.precio;
+        
+               archivo.setAttribute("type", "file");
+               btn.setAttribute("type", "submit");
+               
+               form.appendChild(Nombre);
+               form.appendChild(LabelProd);
+               form.appendChild(nomProd);
+               form.appendChild(LabelStock);
+               form.appendChild(InpStock);
+               form.appendChild(LabelDesc)
+               form.appendChild(InpDesc)
+               form.appendChild(LabPrecio)
+               form.appendChild(InpPrecio)
+               form.appendChild(LabSInt)
+               form.appendChild(InpSInt)
+               let Nums = ["1","2","3","6","9","12"];
+              for(let i of Nums){
+                  if(i.length > 0){
+                      const valor = document.createElement("option");
+                      valor.innerHTML = i;
+                      valor.value = i;
+                      InpSInt.appendChild(valor);
+           
+               }
+              } 
+               form.appendChild(archivo);
+               form.appendChild(btn);
+            
+               $fragment.appendChild(form);
+               
+               boxCargas.appendChild(boxContent);
+               boxContent.appendChild($fragment);
+               boxContent.removeChild(box);
+               
+
             }
         })
     }
@@ -187,7 +253,7 @@ hombre.addEventListener("click", (e)=>{
         }
         
     });
-    pantalones.addEventListener("click",async (e)=>{
+    pantalones.addEventListener("click",async (e )=>{
         e.preventDefault();
        
      if(e.target){
@@ -261,6 +327,64 @@ hombre.addEventListener("click", (e)=>{
     datosProducto.appendChild(stock);
     datosProducto.appendChild(edit);
     datosProducto.appendChild(delet);
+     
+    delet.addEventListener("click",async (e)=>{
+        e.preventDefault();
+        if(e.target){
+            const res = await fetch("/Product/delete", {
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({id:el.id})
+            });
+            const data = await res.json();
+            let modal = document.getElementById("modal");
+            let parrafo = document.createElement("h2");
+            let cajaBtn = document.createElement("div");
+            let aceptar = document.createElement("button");
+            let cancelar = document.createElement("button");
+            parrafo.setAttribute("class", "p_delete");
+          cajaBtn.setAttribute("class", "cajabtn");
+            aceptar.setAttribute("class", "aceptar");
+            cancelar.setAttribute("class", "cancelar");
+            parrafo.innerHTML = `Se va a eliminar de su lista el producto: <h1>${el.producto}</h1>`;
+            aceptar.textContent = "Aceptar";
+            cancelar.textContent = "Cancelar";
+            modal.showModal();
+            modal.innerHTML = "";
+            modal.appendChild(parrafo);
+            cajaBtn.appendChild(aceptar);
+            cajaBtn.appendChild(cancelar);
+            modal.appendChild(cajaBtn);
+    
+              aceptar.addEventListener("click", async (e) => {
+                 e.preventDefault();
+                 try{
+                  
+                  let id = el.id;
+                  let img = el.imagen;
+                  let modalDelete = document.getElementById("modal");
+                  let parrafoDelete = document.createElement("p");
+                  parrafoDelete.innerHTML = `El producto ${el.producto} fue eliminado con exito`;
+                  modalDelete.showModal();
+                  modalDelete.innerHTML = "";
+                  setTimeout(() => { modalDelete.appendChild(parrafoDelete), location.reload(), 100000 });  
+                    await fetch(`/product/delete/${id}/${img}`,{
+                       method: "DELETE",
+                     }); 
+                 }catch(error){
+                  console.log("Error al enviar la solicitud DELETE", error);
+                 }
+               
+                });
+                
+            cancelar.addEventListener("click", () => {
+              modal.close();
+            }) 
+        }
+    
+    });
     
     }
     }
@@ -347,6 +471,63 @@ hombre.addEventListener("click", (e)=>{
     datosProducto.appendChild(edit);
     datosProducto.appendChild(delet);
 
+    delet.addEventListener("click",async (e)=>{
+        e.preventDefault();
+        if(e.target){
+            const res = await fetch("/Product/delete", {
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({id:el.id})
+            });
+            const data = await res.json();
+            let modal = document.getElementById("modal");
+            let parrafo = document.createElement("h2");
+            let cajaBtn = document.createElement("div");
+            let aceptar = document.createElement("button");
+            let cancelar = document.createElement("button");
+            parrafo.setAttribute("class", "p_delete");
+          cajaBtn.setAttribute("class", "cajabtn");
+            aceptar.setAttribute("class", "aceptar");
+            cancelar.setAttribute("class", "cancelar");
+            parrafo.innerHTML = `Se va a eliminar de su lista el producto: <h1>${el.producto}</h1>`;
+            aceptar.textContent = "Aceptar";
+            cancelar.textContent = "Cancelar";
+            modal.showModal();
+            modal.innerHTML = "";
+            modal.appendChild(parrafo);
+            cajaBtn.appendChild(aceptar);
+            cajaBtn.appendChild(cancelar);
+            modal.appendChild(cajaBtn);
+    
+              aceptar.addEventListener("click", async (e) => {
+                 e.preventDefault();
+                 try{
+                  
+                  let id = el.id;
+                  let img = el.imagen;
+                  let modalDelete = document.getElementById("modal");
+                  let parrafoDelete = document.createElement("p");
+                  parrafoDelete.innerHTML = `El producto ${el.producto} fue eliminado con exito`;
+                  modalDelete.showModal();
+                  modalDelete.innerHTML = "";
+                  setTimeout(() => { modalDelete.appendChild(parrafoDelete), location.reload(), 100000 });  
+                    await fetch(`/product/delete/${id}/${img}`,{
+                       method: "DELETE",
+                     }); 
+                 }catch(error){
+                  console.log("Error al enviar la solicitud DELETE", error);
+                 }
+               
+                });
+                
+            cancelar.addEventListener("click", () => {
+              modal.close();
+            }) 
+        }
+    
+    });
     
     }
     }
