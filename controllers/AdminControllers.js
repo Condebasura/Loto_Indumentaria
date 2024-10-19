@@ -147,6 +147,30 @@ try{
 };
 
 
+const ActualizarProd = async (req, res)=>{
+   let imgDefoult = 'a4937c6a789a8856d0632422c7af52fa';
+
+    let imagenes = req.files.map(file => file.filename);
+    while(imagenes.length < 5 ){
+        imagenes.push(imgDefoult);
+    };
+        console.log(imagenes);
+  let img = imagenes.join(',');
+  
+    const products = {
+        producto: req.body.nomProd,
+        stock: req.body.InpStock,
+        descuento: req.body.InpDesc,
+        precio: req.body.InpPrecio,
+        cuotas: req.body.InpSInt,
+        imagen: img,
+    }
+
+    console.log(products);
+} 
+
+
+
 const EliminarProducto = async (req , res)=>{
     
     try{
@@ -209,6 +233,7 @@ export default {
     PostUser,
     getDashbord,
     DataProd,
+    ActualizarProd,
     EliminarProducto,
     logout,
 }

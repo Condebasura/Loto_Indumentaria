@@ -176,9 +176,10 @@ hombre.addEventListener("click", (e)=>{
         });
 
 
-        edit.addEventListener("click", (e)=>{
+        edit.addEventListener("click",async (e)=>{
             e.preventDefault();
             if(e.target){
+                const boxpilcha = document.querySelector(".box_pilcha");
                 const form = document.createElement("form");
                 const Nombre = document.createElement("h2");
                 const LabelProd = document.createElement("label");
@@ -209,7 +210,11 @@ hombre.addEventListener("click", (e)=>{
                InpPrecio.value = el.precio;
         
                archivo.setAttribute("type", "file");
+               archivo.setAttribute("acept", "image/*");
+               archivo.setAttribute("name", "archivos")
+               archivo.setAttribute("multiple", "");
                btn.setAttribute("type", "submit");
+
                
                form.appendChild(Nombre);
                form.appendChild(LabelProd);
@@ -234,14 +239,47 @@ hombre.addEventListener("click", (e)=>{
               } 
                form.appendChild(archivo);
                form.appendChild(btn);
-            
+                boxContent.innerHTML = "";
                $fragment.appendChild(form);
                
                boxCargas.appendChild(boxContent);
                boxContent.appendChild($fragment);
-               boxContent.removeChild(box);
                
+               
+              const res = await fetch("/Product/edit",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json",
+                },body: JSON.stringify({id:el.id})
+              })
+              const data = await res.json();
 
+              form.addEventListener("submit", async(e)=>{
+                e.preventDefault();
+                let formdata = new FormData(e.target);
+                formdata.append("nomProd", nomProd.value);
+                formdata.append("InpStock", InpStock.value);
+                formdata.append("InpDesc", InpDesc.value);
+                formdata.append("InpPrecio", InpPrecio.value);
+                Array.from(InpSInt.selectedOptions).forEach(option =>{
+
+                    formdata.append( "InpSInt", option.value);
+                    for (var pair of formdata.entries()) {
+                        console.log(pair[0] + ': ' + pair[1]);
+                    }
+                })
+                try {
+                    const res = await fetch("/Product/Update",{
+                        method: "PUT",
+                       body: formdata
+                    });
+                } catch (error) {
+                    console.log(error.message);
+                }
+              });
+            
+              
+              
             }
         })
     }

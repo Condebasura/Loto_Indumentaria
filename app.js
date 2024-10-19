@@ -93,6 +93,8 @@ app.post("/admin/IniciarCrear/Crear" , AdminControllers.CrearUser);
 app.get("/admin/IniciarCrear", AdminControllers.getAdmin);
 app.post("/admin/dashbord", AdminControllers.PostUser);
 app.get("/admin/dashbord", AdminControllers.getDashbord);
+app.post("/Product/edit", AdminControllers.DataProd);
+app.put("/Product/Update", upload.array("archivos", 5), AdminControllers.ActualizarProd);
 app.post("/Product/delete", AdminControllers.DataProd);
 app.delete("/product/delete/:id/:img", AdminControllers.EliminarProducto);
 app.get("/admin/logout", AdminControllers.logout);

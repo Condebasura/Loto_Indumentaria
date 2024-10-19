@@ -135,6 +135,21 @@ const validaDatos =(id)=>{
     })
 };
 
+const UpdateProd = async(products)=>{
+    try {
+        const sql = 'UPDATE products SET producto = ?, stock = ? , descuento = ? , precio = ? , cuotas = ?, imagen = ? WHERE id = ? ';
+        bd.run(sql, [products.producto , products.stock, products.descuento , products.precio , products.cuotas , products.imagen ], (err)=>{
+            if(err){
+                console.log(err.message)
+            }else{
+                console.log("El producto se actualizo correctamente")
+            }
+        })
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
 
 const DeleteProd = (id)=>{
     let sql = 'DELETE FROM products WHERE id = ?';
@@ -156,5 +171,6 @@ console.log("Producto eliminado con exito")
         InsertUser,
         Coincide,
         validaDatos,
+        UpdateProd,
         DeleteProd,
      }
