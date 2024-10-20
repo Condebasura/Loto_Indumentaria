@@ -9,6 +9,7 @@ nenas.addEventListener("click", (e)=>{
         btnAdd.style.display = "none";
         btnsForm.style.display = "none";
         boxContent.innerHTML = "";
+        MinEdit.innerHTML = "";
         boxNames.innerHTML = "";
         const remeras = document.createElement("a");
         const pantalones = document.createElement("a");
@@ -28,7 +29,8 @@ nenas.addEventListener("click", (e)=>{
                 btnAdd.style.display = "block";
                 btnsForm.style.display = "block";
                 // el boxCarga en "" me queta el formulario para ingresar productos , intentarlo con css mejor.
-                boxNames.innerHTML = "";
+        MinEdit.innerHTML = "";
+        boxNames.innerHTML = "";
                 boxContent.innerHTML = "";
             }
         });
@@ -46,6 +48,7 @@ nenas.addEventListener("click", (e)=>{
         for(let el of obj){
         
         if(el.seccion == "Niña" && el.subSeccion == "Remeras") {
+        MinEdit.innerHTML = "";
         boxContent.innerHTML = "";
         const box = document.createElement("div");
         let datosProducto = document.createElement("div");
@@ -110,61 +113,15 @@ nenas.addEventListener("click", (e)=>{
 
         delet.addEventListener("click",async (e)=>{
             e.preventDefault();
-            if(e.target){
-                const res = await fetch("/Product/delete", {
-                    method: "POST",
-                    headers:{
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({id:el.id})
-                });
-                const data = await res.json();
-                let modal = document.getElementById("modal");
-                let parrafo = document.createElement("h2");
-                let cajaBtn = document.createElement("div");
-                let aceptar = document.createElement("button");
-                let cancelar = document.createElement("button");
-                parrafo.setAttribute("class", "p_delete");
-              cajaBtn.setAttribute("class", "cajabtn");
-                aceptar.setAttribute("class", "aceptar");
-                cancelar.setAttribute("class", "cancelar");
-                parrafo.innerHTML = `Se va a eliminar de su lista el producto: <h1>${el.producto}</h1>`;
-                aceptar.textContent = "Aceptar";
-                cancelar.textContent = "Cancelar";
-                modal.showModal();
-                modal.innerHTML = "";
-                modal.appendChild(parrafo);
-                cajaBtn.appendChild(aceptar);
-                cajaBtn.appendChild(cancelar);
-                modal.appendChild(cajaBtn);
-        
-                  aceptar.addEventListener("click", async (e) => {
-                     e.preventDefault();
-                     try{
-                      
-                      let id = el.id;
-                      let img = el.imagen;
-                      let modalDelete = document.getElementById("modal");
-                      let parrafoDelete = document.createElement("p");
-                      parrafoDelete.innerHTML = `El producto ${el.producto} fue eliminado con exito`;
-                      modalDelete.showModal();
-                      modalDelete.innerHTML = "";
-                      setTimeout(() => { modalDelete.appendChild(parrafoDelete), location.reload(), 100000 });  
-                        await fetch(`/product/delete/${id}/${img}`,{
-                           method: "DELETE",
-                         }); 
-                     }catch(error){
-                      console.log("Error al enviar la solicitud DELETE", error);
-                     }
-                   
-                    });
-                    
-                cancelar.addEventListener("click", () => {
-                  modal.close();
-                }) 
-            }
+           Eliminar(el);
+    
         
         });
+    
+        edit.addEventListener("click", (e)=>{
+            e.preventDefault();
+            Editar(el);
+        })
         
         }
         }
@@ -190,6 +147,7 @@ nenas.addEventListener("click", (e)=>{
         for(let el of obj){
         
         if(el.seccion == "Niña" && el.subSeccion == "Pantalones") {
+        MinEdit.innerHTML = "";
         boxContent.innerHTML = "";
         const box = document.createElement("div");
         let datosProducto = document.createElement("div");
@@ -254,62 +212,15 @@ nenas.addEventListener("click", (e)=>{
 
         delet.addEventListener("click",async (e)=>{
             e.preventDefault();
-            if(e.target){
-                const res = await fetch("/Product/delete", {
-                    method: "POST",
-                    headers:{
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({id:el.id})
-                });
-                const data = await res.json();
-                let modal = document.getElementById("modal");
-                let parrafo = document.createElement("h2");
-                let cajaBtn = document.createElement("div");
-                let aceptar = document.createElement("button");
-                let cancelar = document.createElement("button");
-                parrafo.setAttribute("class", "p_delete");
-              cajaBtn.setAttribute("class", "cajabtn");
-                aceptar.setAttribute("class", "aceptar");
-                cancelar.setAttribute("class", "cancelar");
-                parrafo.innerHTML = `Se va a eliminar de su lista el producto: <h1>${el.producto}</h1>`;
-                aceptar.textContent = "Aceptar";
-                cancelar.textContent = "Cancelar";
-                modal.showModal();
-                modal.innerHTML = "";
-                modal.appendChild(parrafo);
-                cajaBtn.appendChild(aceptar);
-                cajaBtn.appendChild(cancelar);
-                modal.appendChild(cajaBtn);
-        
-                  aceptar.addEventListener("click", async (e) => {
-                     e.preventDefault();
-                     try{
-                      
-                      let id = el.id;
-                      let img = el.imagen;
-                      let modalDelete = document.getElementById("modal");
-                      let parrafoDelete = document.createElement("p");
-                      parrafoDelete.innerHTML = `El producto ${el.producto} fue eliminado con exito`;
-                      modalDelete.showModal();
-                      modalDelete.innerHTML = "";
-                      setTimeout(() => { modalDelete.appendChild(parrafoDelete), location.reload(), 100000 });  
-                        await fetch(`/product/delete/${id}/${img}`,{
-                           method: "DELETE",
-                         }); 
-                     }catch(error){
-                      console.log("Error al enviar la solicitud DELETE", error);
-                     }
-                   
-                    });
-                    
-                cancelar.addEventListener("click", () => {
-                  modal.close();
-                }) 
-            }
+           Eliminar(el);
+    
         
         });
-        
+    
+        edit.addEventListener("click", (e)=>{
+            e.preventDefault();
+            Editar(el);
+        })
         }
         }
         boxCargas.appendChild(boxContent);
@@ -333,6 +244,7 @@ nenas.addEventListener("click", (e)=>{
         for(let el of obj){
         
         if(el.seccion == "Niña" && el.subSeccion == "Vestidos") {
+        MinEdit.innerHTML = "";
         boxContent.innerHTML = "";
         const box = document.createElement("div");
         let datosProducto = document.createElement("div");
@@ -397,61 +309,15 @@ nenas.addEventListener("click", (e)=>{
 
         delet.addEventListener("click",async (e)=>{
             e.preventDefault();
-            if(e.target){
-                const res = await fetch("/Product/delete", {
-                    method: "POST",
-                    headers:{
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({id:el.id})
-                });
-                const data = await res.json();
-                let modal = document.getElementById("modal");
-                let parrafo = document.createElement("h2");
-                let cajaBtn = document.createElement("div");
-                let aceptar = document.createElement("button");
-                let cancelar = document.createElement("button");
-                parrafo.setAttribute("class", "p_delete");
-              cajaBtn.setAttribute("class", "cajabtn");
-                aceptar.setAttribute("class", "aceptar");
-                cancelar.setAttribute("class", "cancelar");
-                parrafo.innerHTML = `Se va a eliminar de su lista el producto: <h1>${el.producto}</h1>`;
-                aceptar.textContent = "Aceptar";
-                cancelar.textContent = "Cancelar";
-                modal.showModal();
-                modal.innerHTML = "";
-                modal.appendChild(parrafo);
-                cajaBtn.appendChild(aceptar);
-                cajaBtn.appendChild(cancelar);
-                modal.appendChild(cajaBtn);
-        
-                  aceptar.addEventListener("click", async (e) => {
-                     e.preventDefault();
-                     try{
-                      
-                      let id = el.id;
-                      let img = el.imagen;
-                      let modalDelete = document.getElementById("modal");
-                      let parrafoDelete = document.createElement("p");
-                      parrafoDelete.innerHTML = `El producto ${el.producto} fue eliminado con exito`;
-                      modalDelete.showModal();
-                      modalDelete.innerHTML = "";
-                      setTimeout(() => { modalDelete.appendChild(parrafoDelete), location.reload(), 100000 });  
-                        await fetch(`/product/delete/${id}/${img}`,{
-                           method: "DELETE",
-                         }); 
-                     }catch(error){
-                      console.log("Error al enviar la solicitud DELETE", error);
-                     }
-                   
-                    });
-                    
-                cancelar.addEventListener("click", () => {
-                  modal.close();
-                }) 
-            }
+           Eliminar(el);
+    
         
         });
+    
+        edit.addEventListener("click", (e)=>{
+            e.preventDefault();
+            Editar(el);
+        })
         
         }
         }

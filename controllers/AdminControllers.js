@@ -154,9 +154,10 @@ const ActualizarProd = async (req, res)=>{
     while(imagenes.length < 5 ){
         imagenes.push(imgDefoult);
     };
-        console.log(imagenes);
+        
   let img = imagenes.join(',');
-  
+  console.log(img)
+  console.log(imgDefoult )
     const products = {
         producto: req.body.nomProd,
         stock: req.body.InpStock,
@@ -165,9 +166,17 @@ const ActualizarProd = async (req, res)=>{
         cuotas: req.body.InpSInt,
         imagen: img,
     }
+  
+  let imgPorcinco = [imgDefoult,imgDefoult, imgDefoult , imgDefoult, imgDefoult];
+  
+  const imgMulti5 = imgPorcinco.join(',');
 
-    console.log(products);
+  console.log(imgMulti5);
+// buscar la forma de mantener las imagenes anteriores si no se elige ninguna
+
 } 
+
+
 
 
 

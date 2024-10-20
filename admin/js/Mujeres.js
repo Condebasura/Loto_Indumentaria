@@ -9,6 +9,7 @@ mujer.addEventListener("click", (e)=>{
         btnAdd.style.display = "none";
         btnsForm.style.display = "none";
         boxNames.innerHTML = "";
+        MinEdit.innerHTML = "";
         boxContent.innerHTML = "";
         const remeras = document.createElement("a");
         const pantalones = document.createElement("a");
@@ -31,7 +32,8 @@ mujer.addEventListener("click", (e)=>{
                 btnsForm.style.display = "block";
                
                 boxNames.innerHTML = "";
-                boxContent.innerHTML = "";
+        MinEdit.innerHTML = "";
+        boxContent.innerHTML = "";
             }
         })
      
@@ -50,7 +52,8 @@ let obj = JSON.parse(datos);
 for(let el of obj){
 
 if(el.seccion == "Mujer" && el.subSeccion == "Remeras") {
-boxContent.innerHTML = "";
+        MinEdit.innerHTML = "";
+        boxContent.innerHTML = "";
 const box = document.createElement("div");
 let datosProducto = document.createElement("div");
 let img = document.createElement("img");
@@ -118,61 +121,16 @@ datosProducto.appendChild(delet)
 
 delet.addEventListener("click",async (e)=>{
     e.preventDefault();
-    if(e.target){
-        const res = await fetch("/Product/delete", {
-            method: "POST",
-            headers:{
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({id:el.id})
-        });
-        const data = await res.json();
-        let modal = document.getElementById("modal");
-        let parrafo = document.createElement("h2");
-        let cajaBtn = document.createElement("div");
-        let aceptar = document.createElement("button");
-        let cancelar = document.createElement("button");
-        parrafo.setAttribute("class", "p_delete");
-      cajaBtn.setAttribute("class", "cajabtn");
-        aceptar.setAttribute("class", "aceptar");
-        cancelar.setAttribute("class", "cancelar");
-        parrafo.innerHTML = `Se va a eliminar de su lista el producto: <h1>${el.producto}</h1>`;
-        aceptar.textContent = "Aceptar";
-        cancelar.textContent = "Cancelar";
-        modal.showModal();
-        modal.innerHTML = "";
-        modal.appendChild(parrafo);
-        cajaBtn.appendChild(aceptar);
-        cajaBtn.appendChild(cancelar);
-        modal.appendChild(cajaBtn);
+   Eliminar(el);
 
-          aceptar.addEventListener("click", async (e) => {
-             e.preventDefault();
-             try{
-              
-              let id = el.id;
-              let img = el.imagen;
-              let modalDelete = document.getElementById("modal");
-              let parrafoDelete = document.createElement("p");
-              parrafoDelete.innerHTML = `El producto ${el.producto} fue eliminado con exito`;
-              modalDelete.showModal();
-              modalDelete.innerHTML = "";
-              setTimeout(() => { modalDelete.appendChild(parrafoDelete), location.reload(), 100000 });  
-                await fetch(`/product/delete/${id}/${img}`,{
-                   method: "DELETE",
-                 }); 
-             }catch(error){
-              console.log("Error al enviar la solicitud DELETE", error);
-             }
-           
-            });
-            
-        cancelar.addEventListener("click", () => {
-          modal.close();
-        }) 
-    }
 
 });
+
+edit.addEventListener("click", (e)=>{
+    e.preventDefault();
+    Editar(el);
+})
+
 }
 }
 boxCargas.appendChild(boxContent);
@@ -196,7 +154,8 @@ let obj = JSON.parse(datos);
 for(let el of obj){
 
 if(el.seccion == "Mujer" && el.subSeccion == "Pantalones") {
-boxContent.innerHTML = "";
+        MinEdit.innerHTML = "";
+        boxContent.innerHTML = "";
 const box = document.createElement("div");
 let datosProducto = document.createElement("div");
 let img = document.createElement("img");
@@ -260,61 +219,15 @@ datosProducto.appendChild(delet);
 
 delet.addEventListener("click",async (e)=>{
     e.preventDefault();
-    if(e.target){
-        const res = await fetch("/Product/delete", {
-            method: "POST",
-            headers:{
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({id:el.id})
-        });
-        const data = await res.json();
-        let modal = document.getElementById("modal");
-        let parrafo = document.createElement("h2");
-        let cajaBtn = document.createElement("div");
-        let aceptar = document.createElement("button");
-        let cancelar = document.createElement("button");
-        parrafo.setAttribute("class", "p_delete");
-      cajaBtn.setAttribute("class", "cajabtn");
-        aceptar.setAttribute("class", "aceptar");
-        cancelar.setAttribute("class", "cancelar");
-        parrafo.innerHTML = `Se va a eliminar de su lista el producto: <h1>${el.producto}</h1>`;
-        aceptar.textContent = "Aceptar";
-        cancelar.textContent = "Cancelar";
-        modal.showModal();
-        modal.innerHTML = "";
-        modal.appendChild(parrafo);
-        cajaBtn.appendChild(aceptar);
-        cajaBtn.appendChild(cancelar);
-        modal.appendChild(cajaBtn);
+   Eliminar(el);
 
-          aceptar.addEventListener("click", async (e) => {
-             e.preventDefault();
-             try{
-              
-              let id = el.id;
-              let img = el.imagen;
-              let modalDelete = document.getElementById("modal");
-              let parrafoDelete = document.createElement("p");
-              parrafoDelete.innerHTML = `El producto ${el.producto} fue eliminado con exito`;
-              modalDelete.showModal();
-              modalDelete.innerHTML = "";
-              setTimeout(() => { modalDelete.appendChild(parrafoDelete), location.reload(), 100000 });  
-                await fetch(`/product/delete/${id}/${img}`,{
-                   method: "DELETE",
-                 }); 
-             }catch(error){
-              console.log("Error al enviar la solicitud DELETE", error);
-             }
-           
-            });
-            
-        cancelar.addEventListener("click", () => {
-          modal.close();
-        }) 
-    }
 
 });
+
+edit.addEventListener("click", (e)=>{
+    e.preventDefault();
+    Editar(el);
+})
 
 
 }
@@ -340,7 +253,8 @@ let obj = JSON.parse(datos);
 for(let el of obj){
 
 if(el.seccion == "Mujer" && el.subSeccion == "Vestidos") {
-boxContent.innerHTML = "";
+        MinEdit.innerHTML = "";
+        boxContent.innerHTML = "";
 const box = document.createElement("div");
 let datosProducto = document.createElement("div");
 let img = document.createElement("img");
@@ -405,61 +319,15 @@ datosProducto.appendChild(delet);
 
 delet.addEventListener("click",async (e)=>{
     e.preventDefault();
-    if(e.target){
-        const res = await fetch("/Product/delete", {
-            method: "POST",
-            headers:{
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({id:el.id})
-        });
-        const data = await res.json();
-        let modal = document.getElementById("modal");
-        let parrafo = document.createElement("h2");
-        let cajaBtn = document.createElement("div");
-        let aceptar = document.createElement("button");
-        let cancelar = document.createElement("button");
-        parrafo.setAttribute("class", "p_delete");
-      cajaBtn.setAttribute("class", "cajabtn");
-        aceptar.setAttribute("class", "aceptar");
-        cancelar.setAttribute("class", "cancelar");
-        parrafo.innerHTML = `Se va a eliminar de su lista el producto: <h1>${el.producto}</h1>`;
-        aceptar.textContent = "Aceptar";
-        cancelar.textContent = "Cancelar";
-        modal.showModal();
-        modal.innerHTML = "";
-        modal.appendChild(parrafo);
-        cajaBtn.appendChild(aceptar);
-        cajaBtn.appendChild(cancelar);
-        modal.appendChild(cajaBtn);
+   Eliminar(el);
 
-          aceptar.addEventListener("click", async (e) => {
-             e.preventDefault();
-             try{
-              
-              let id = el.id;
-              let img = el.imagen;
-              let modalDelete = document.getElementById("modal");
-              let parrafoDelete = document.createElement("p");
-              parrafoDelete.innerHTML = `El producto ${el.producto} fue eliminado con exito`;
-              modalDelete.showModal();
-              modalDelete.innerHTML = "";
-              setTimeout(() => { modalDelete.appendChild(parrafoDelete), location.reload(), 100000 });  
-                await fetch(`/product/delete/${id}/${img}`,{
-                   method: "DELETE",
-                 }); 
-             }catch(error){
-              console.log("Error al enviar la solicitud DELETE", error);
-             }
-           
-            });
-            
-        cancelar.addEventListener("click", () => {
-          modal.close();
-        }) 
-    }
 
 });
+
+edit.addEventListener("click", (e)=>{
+    e.preventDefault();
+    Editar(el);
+})
 
 }
 }
@@ -484,7 +352,8 @@ let obj = JSON.parse(datos);
 for(let el of obj){
 
 if(el.seccion == "Mujer" && el.subSeccion == "Accesorios") {
-boxContent.innerHTML = "";
+        MinEdit.innerHTML = "";
+        boxContent.innerHTML = "";
 const box = document.createElement("div");
 let datosProducto = document.createElement("div");
 let img = document.createElement("img");
@@ -545,63 +414,18 @@ datosProducto.appendChild(cuotas);
 datosProducto.appendChild(stock);
 datosProducto.appendChild(edit);
 datosProducto.appendChild(delet);
+
 delet.addEventListener("click",async (e)=>{
     e.preventDefault();
-    if(e.target){
-        const res = await fetch("/Product/delete", {
-            method: "POST",
-            headers:{
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({id:el.id})
-        });
-        const data = await res.json();
-        let modal = document.getElementById("modal");
-        let parrafo = document.createElement("h2");
-        let cajaBtn = document.createElement("div");
-        let aceptar = document.createElement("button");
-        let cancelar = document.createElement("button");
-        parrafo.setAttribute("class", "p_delete");
-      cajaBtn.setAttribute("class", "cajabtn");
-        aceptar.setAttribute("class", "aceptar");
-        cancelar.setAttribute("class", "cancelar");
-        parrafo.innerHTML = `Se va a eliminar de su lista el producto: <h1>${el.producto}</h1>`;
-        aceptar.textContent = "Aceptar";
-        cancelar.textContent = "Cancelar";
-        modal.showModal();
-        modal.innerHTML = "";
-        modal.appendChild(parrafo);
-        cajaBtn.appendChild(aceptar);
-        cajaBtn.appendChild(cancelar);
-        modal.appendChild(cajaBtn);
+   Eliminar(el);
 
-          aceptar.addEventListener("click", async (e) => {
-             e.preventDefault();
-             try{
-              
-              let id = el.id;
-              let img = el.imagen;
-              let modalDelete = document.getElementById("modal");
-              let parrafoDelete = document.createElement("p");
-              parrafoDelete.innerHTML = `El producto ${el.producto} fue eliminado con exito`;
-              modalDelete.showModal();
-              modalDelete.innerHTML = "";
-              setTimeout(() => { modalDelete.appendChild(parrafoDelete), location.reload(), 100000 });  
-                await fetch(`/product/delete/${id}/${img}`,{
-                   method: "DELETE",
-                 }); 
-             }catch(error){
-              console.log("Error al enviar la solicitud DELETE", error);
-             }
-           
-            });
-            
-        cancelar.addEventListener("click", () => {
-          modal.close();
-        }) 
-    }
 
 });
+
+edit.addEventListener("click", (e)=>{
+    e.preventDefault();
+    Editar(el);
+})
 
 }
 }

@@ -11,6 +11,7 @@ Add.addEventListener("click", (e)=>{
         // el boxCarga en "" me queta el formulario para ingresar productos , intentarlo con css mejor.
         boxNames.innerHTML = "";
         boxContent.innerHTML = "";
+        MinEdit.innerHTML = "";
     }
 })
 
