@@ -115,8 +115,6 @@ const validaDatos =(id)=>{
 
         let sql = 'SELECT * FROM products WHERE id = ?';
         
-        
-        
         bd.get(sql , [id], (err , row )=> {
         
             if(err){

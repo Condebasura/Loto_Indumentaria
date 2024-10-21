@@ -148,16 +148,21 @@ try{
 
 
 const ActualizarProd = async (req, res)=>{
-   let imgDefoult = 'a4937c6a789a8856d0632422c7af52fa';
-
+    let imgDefoult = 'a4937c6a789a8856d0632422c7af52fa';
+    const validar = await bd.validaDatos(req.params.id);
+    const imgPrev = path.join(__dirname, `./public/uploads` , validar.imagen);
+    let ImgPrevPath = path.basename(imgPrev).split(',')
+   const ImgBSNM = path.basename(imgPrev);
+    
+   // ahora se borran de uploads , se suben las nuevas ,pero no a la bd y tampoco se modifican en la bd.
+   
     let imagenes = req.files.map(file => file.filename);
     while(imagenes.length < 5 ){
         imagenes.push(imgDefoult);
     };
         
   let img = imagenes.join(',');
-  console.log(img)
-  console.log(imgDefoult )
+
     const products = {
         producto: req.body.nomProd,
         stock: req.body.InpStock,
@@ -166,13 +171,42 @@ const ActualizarProd = async (req, res)=>{
         cuotas: req.body.InpSInt,
         imagen: img,
     }
-  
-  let imgPorcinco = [imgDefoult,imgDefoult, imgDefoult , imgDefoult, imgDefoult];
-  
-  const imgMulti5 = imgPorcinco.join(',');
+   
+let imagenProd = products.imagen;
 
-  console.log(imgMulti5);
-// buscar la forma de mantener las imagenes anteriores si no se elige ninguna
+
+  
+ 
+  ImgPrevPath.forEach(img =>{
+    
+        const lasImgs = path.join(__dirname, './public/uploads', img)
+        console.log(lasImgs); 
+        let ImgSinRuta = path.basename(lasImgs);
+   
+    if(imagenProd && ImgSinRuta !== imgDefoult){
+        fs.unlink(lasImgs, (err) => {
+        if (err) {
+            console.error('Error al eliminar la imagen anterior:', err);
+            return res.status(500).send('Error al actualizar la imagen');
+        }
+        console.log('Imagen anterior eliminada correctamente');
+    })
+}else if(imagenProd && ImgSinRuta === imgDefoult){
+    fs.appendFile(lasImgs, imagenProd, (err) =>{
+     if(err){
+         console.error('Error al remplazar la imagen anterior:', err);
+             return res.status(500).send('Error al actualizar la imagen');
+     }
+     console.log("Imagen anterior reemplazada con exito")
+    })
+ } 
+
+else{
+console.log('Manteniendo la imagen anterior:', img);
+}
+})
+
+await bd.UpdateProd(products);
 
 } 
 

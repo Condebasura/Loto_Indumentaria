@@ -125,6 +125,8 @@ const Editar = async (el)=>{
            
         }
     } 
+
+    
     form.appendChild(archivo);
     form.appendChild(btn);
     boxContent.innerHTML = "";
@@ -149,6 +151,8 @@ const Editar = async (el)=>{
    NDesc.innerHTML = `Descuento: ${el.descuento}`;
    NPrecio.innerHTML = `Precio: ${el.precio}`;
    NInt.innerHTML = `Interes: ${el.cuotas}`;
+   
+   
 
    MinEdit.appendChild(titulo);
    MinEdit.appendChild(NameProd);
@@ -156,6 +160,7 @@ const Editar = async (el)=>{
    MinEdit.appendChild(NDesc);
    MinEdit.appendChild(NPrecio);
    MinEdit.appendChild(NInt);
+
 
 
   const res = await fetch("/Product/edit",{
@@ -182,7 +187,8 @@ const Editar = async (el)=>{
     })
     formdata.append("archivo", archivo.value)
     try {
-        const res = await fetch("/Product/Update",{
+        let id = el.id;
+        const res = await fetch(`/Product/Update/${id}`,{
             method: "PUT",
            body: formdata
         });
