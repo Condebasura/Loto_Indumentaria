@@ -135,8 +135,8 @@ const validaDatos =(id)=>{
 
 const UpdateProd = async(products)=>{
     try {
-        const sql = 'UPDATE products SET producto = ?, stock = ? , descuento = ? , precio = ? , cuotas = ?, imagen = ? WHERE id = ? ';
-        bd.run(sql, [products.producto , products.stock, products.descuento , products.precio , products.cuotas , products.imagen ], (err)=>{
+        const sql = 'UPDATE products SET  producto = ?, stock = ? , descuento = ? , precio = ? , cuotas = ?, seccion = ? , subSeccion = ?, imagen = ? WHERE id = ? ';
+        bd.run(sql, [ products.id,products.producto , products.stock, products.descuento , products.precio , products.cuotas ,products.seccion , products.subSeccion, products.imagen , products.id ], (err)=>{
             if(err){
                 console.log(err.message)
             }else{

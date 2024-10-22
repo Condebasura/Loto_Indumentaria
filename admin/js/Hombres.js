@@ -185,7 +185,7 @@ const Editar = async (el)=>{
             console.log(pair[0] + ': ' + pair[1]);
         }
     })
-    formdata.append("archivo", archivo.value)
+    
     try {
         let id = el.id;
         const res = await fetch(`/Product/Update/${id}`,{
@@ -229,7 +229,7 @@ hombre.addEventListener("click", (e)=>{
              formAdd.style.display = "block";
                 btnAdd.style.display = "block";
                 btnsForm.style.display = "block";
-                // el boxCarga en "" me queta el formulario para ingresar productos , intentarlo con css mejor.
+                
         MinEdit.innerHTML = "";
         boxNames.innerHTML = "";
                 boxContent.innerHTML = "";

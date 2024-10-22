@@ -1,4 +1,4 @@
-import path from "path";
+import path, { join } from "path";
 import {__dirname} from "../app.js";
 import bd from "../model/bd.js";
 import { ScrT } from "../app.js";
@@ -169,44 +169,57 @@ const ActualizarProd = async (req, res)=>{
         descuento: req.body.InpDesc,
         precio: req.body.InpPrecio,
         cuotas: req.body.InpSInt,
+        seccion: validar.seccion,
+        subSeccion: validar.subSeccion,
         imagen: img,
+        
     }
    
 let imagenProd = products.imagen;
 
+ // Recorrer las imágenes previas
+ for (let i = 0; i < ImgPrevPath.length; i++) {
+    const imgPrevia = ImgPrevPath[i]; // Imagen previa en la iteración actual
+    const lasImgs = path.join(__dirname, './public/uploads', imgPrevia);
 
-  
- 
-  ImgPrevPath.forEach(img =>{
-    
-        const lasImgs = path.join(__dirname, './public/uploads', img)
-        console.log(lasImgs); 
-        let ImgSinRuta = path.basename(lasImgs);
-   
-    if(imagenProd && ImgSinRuta !== imgDefoult){
-        fs.unlink(lasImgs, (err) => {
-        if (err) {
-            console.error('Error al eliminar la imagen anterior:', err);
-            return res.status(500).send('Error al actualizar la imagen');
+    let imgDelEdSplit = imagenProd.split(",");
+    let imgDEditBase = imgDelEdSplit.map(ruta => ruta.split("\\").pop());
+
+    // Solo eliminar si la imagen previa no es la imagen por defecto y no está en las nuevas imágenes
+    if (imgPrevia !== imgDefoult && !imgDEditBase.includes(imgPrevia)) {
+        if (fs.existsSync(lasImgs)) { // Comprobar si la imagen aún existe antes de intentar eliminarla
+            fs.unlink(lasImgs, (err) => {
+                if (err) {
+                    console.error('Error al eliminar la imagen anterior:', err);
+                    return res.status(500).send('Error al actualizar la imagen');
+                }
+                console.log('Imagen anterior eliminada correctamente:', imgPrevia);
+            });
+        } else {
+            console.log('Imagen ya eliminada o inexistente:', imgPrevia);
         }
-        console.log('Imagen anterior eliminada correctamente');
-    })
-}else if(imagenProd && ImgSinRuta === imgDefoult){
-    fs.appendFile(lasImgs, imagenProd, (err) =>{
-     if(err){
-         console.error('Error al remplazar la imagen anterior:', err);
-             return res.status(500).send('Error al actualizar la imagen');
-     }
-     console.log("Imagen anterior reemplazada con exito")
-    })
- } 
-
-else{
-console.log('Manteniendo la imagen anterior:', img);
+    } else {
+        console.log('Manteniendo la imagen o es la imagen por defecto:', imgPrevia);
+    }
 }
-})
 
+// Subir las nuevas imágenes
+for (let file of req.files) {
+    const destino = path.join(__dirname, './public/uploads', file.filename);
+    
+    fs.copyFile(file.path, destino, (err) => {
+        if (err) {
+            console.error('Error al subir la nueva imagen:', err);
+            return res.status(500).send('Error al subir la imagen');
+        }
+        console.log('Nueva imagen subida correctamente:', file.filename);
+    });
+}
+
+// Actualizar el producto en la base de datos
 await bd.UpdateProd(products);
+return res.status(200).send('Producto actualizado con éxito');
+
 
 } 
 
