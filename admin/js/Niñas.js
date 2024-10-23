@@ -105,6 +105,11 @@ nenas.addEventListener("click", (e)=>{
         datosProducto.appendChild(hr);
         datosProducto.appendChild(nombreProducto);
         datosProducto.appendChild(descuento);
+        if(desc === 0){
+            
+            datosProducto.removeChild(descuento);
+            precio.innerHTML = `$ ${rebajadoDe} `;
+        }
         datosProducto.appendChild(precio);
         datosProducto.appendChild(cuotas);
         datosProducto.appendChild(stock);
@@ -204,6 +209,11 @@ nenas.addEventListener("click", (e)=>{
         datosProducto.appendChild(hr);
         datosProducto.appendChild(nombreProducto);
         datosProducto.appendChild(descuento);
+        if(desc === 0){
+            
+            datosProducto.removeChild(descuento);
+            precio.innerHTML = `$ ${rebajadoDe} `;
+        }
         datosProducto.appendChild(precio);
         datosProducto.appendChild(cuotas);
         datosProducto.appendChild(stock);
@@ -301,6 +311,11 @@ nenas.addEventListener("click", (e)=>{
         datosProducto.appendChild(hr);
         datosProducto.appendChild(nombreProducto);
         datosProducto.appendChild(descuento);
+        if(desc === 0){
+            
+            datosProducto.removeChild(descuento);
+            precio.innerHTML = `$ ${rebajadoDe} `;
+        }
         datosProducto.appendChild(precio);
         datosProducto.appendChild(cuotas);
         datosProducto.appendChild(stock);

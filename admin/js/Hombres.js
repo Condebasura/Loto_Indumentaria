@@ -9,6 +9,7 @@ const boxContent = document.createElement("div");
 const MinEdit = document.querySelector(".Min_Edit");
 const $fragment = document.createDocumentFragment();
 
+
 const Eliminar = async (el)=>{
     const res = await fetch("/Product/delete", {
         method: "POST",
@@ -72,12 +73,16 @@ const Editar = async (el)=>{
    const nomProd = document.createElement("input");
    const LabelStock = document.createElement("label");
    const InpStock = document.createElement("input");
-   const LabelDesc = document.createElement("label")
+   const LabelDesc = document.createElement("label");
    const InpDesc = document.createElement("input");
    const LabPrecio = document.createElement("label");
    const InpPrecio = document.createElement("input");
    const LabSInt = document.createElement("label");
-   const InpSInt = document.createElement("select")
+   const InpSInt = document.createElement("select");
+   const LabSeccion = document.createElement("label");
+   const InpSeccion = document.createElement("input");
+   const LabsubSeccion = document.createElement("label");
+const InpsubSeccion = document.createElement("input");
    const archivo = document.createElement("input");
    const btn = document.createElement("button");
 
@@ -89,6 +94,8 @@ const Editar = async (el)=>{
    LabelDesc.innerHTML = "Descuento del";
    LabPrecio.innerHTML = "Precio";
    LabSInt.innerHTML = "Cuotas(Sin interes)";
+   LabSeccion.innerHTML = "Seccion";
+   LabsubSeccion.innerHTML = "Prenda";
    archivo.innerHTML = "Seleccionar imagenes";
     btn.innerHTML = "Finalizar Edicion";
 
@@ -96,7 +103,11 @@ const Editar = async (el)=>{
    InpStock.value = el.stock;
    InpDesc.value = el.descuento;
    InpPrecio.value = el.precio;
+   InpSeccion.value = el.seccion;
+   InpsubSeccion.value = el.subSeccion;
 
+   InpSeccion.setAttribute("readonly", "")
+   InpsubSeccion.setAttribute("readonly", "")
    archivo.setAttribute("type", "file");
    archivo.setAttribute("acept", "image/*");
    archivo.setAttribute("name", "archivos")
@@ -126,7 +137,10 @@ const Editar = async (el)=>{
         }
     } 
 
-    
+    form.appendChild(LabSeccion);
+    form.appendChild(InpSeccion);
+    form.appendChild(LabsubSeccion);
+    form.appendChild(InpsubSeccion);
     form.appendChild(archivo);
     form.appendChild(btn);
     boxContent.innerHTML = "";
@@ -143,7 +157,10 @@ const Editar = async (el)=>{
    const NDesc = document.createElement("p");
    const NPrecio = document.createElement("p");
    const NInt = document.createElement("p");
-
+   const EstImg = el.imagen.split(",");
+   
+   
+   
    MinEdit.innerHTML = "";
    titulo.innerHTML = "Se esta Editando";
    NameProd.innerHTML = `Producto: ${el.producto}`;
@@ -151,6 +168,7 @@ const Editar = async (el)=>{
    NDesc.innerHTML = `Descuento: ${el.descuento}`;
    NPrecio.innerHTML = `Precio: ${el.precio}`;
    NInt.innerHTML = `Interes: ${el.cuotas}`;
+
    
    
 
@@ -160,6 +178,26 @@ const Editar = async (el)=>{
    MinEdit.appendChild(NDesc);
    MinEdit.appendChild(NPrecio);
    MinEdit.appendChild(NInt);
+   EstImg.forEach( async (imagen) =>{
+    const ImgDefault = "a4937c6a789a8856d0632422c7af52fa";
+    const img = document.createElement("img");
+    
+    let imgURl = `http://localhost:3000/uploads/${imagen}`;
+    let imagenResponse = await fetch(imgURl );
+    let imgBlob = await imagenResponse.blob();
+    let imagenObjectURL = URL.createObjectURL(imgBlob);
+    if(imagen === ImgDefault){
+       img.src = "";
+    }else{
+
+        img.src = imagenObjectURL;
+    }
+    
+       img.style.maxHeight = "30px";
+       img.style.maxWidth = "2em";
+       
+       MinEdit.appendChild(img);
+})
 
 
 
@@ -223,15 +261,17 @@ hombre.addEventListener("click", (e)=>{
         boxNames.appendChild(pantalones);
         boxNames.appendChild(accesorios);
         boxCargas.appendChild(boxNames);
+
         Add.addEventListener("click", (e)=>{
             e.preventDefault();
             if(e.target){
+                
              formAdd.style.display = "block";
                 btnAdd.style.display = "block";
                 btnsForm.style.display = "block";
                 
-        MinEdit.innerHTML = "";
-        boxNames.innerHTML = "";
+                MinEdit.innerHTML = "";
+                boxNames.innerHTML = "";
                 boxContent.innerHTML = "";
             }
         })
@@ -306,6 +346,11 @@ hombre.addEventListener("click", (e)=>{
         datosProducto.appendChild(hr);
         datosProducto.appendChild(nombreProducto);
         datosProducto.appendChild(descuento);
+        if(desc === 0){
+            
+            datosProducto.removeChild(descuento);
+            precio.innerHTML = `$ ${rebajadoDe} `;
+        }
         datosProducto.appendChild(precio);
         datosProducto.appendChild(cuotas);
         datosProducto.appendChild(stock);
@@ -402,6 +447,11 @@ hombre.addEventListener("click", (e)=>{
     datosProducto.appendChild(hr);
     datosProducto.appendChild(nombreProducto);
     datosProducto.appendChild(descuento);
+    if(desc === 0){
+            
+        datosProducto.removeChild(descuento);
+        precio.innerHTML = `$ ${rebajadoDe} `;
+    }
     datosProducto.appendChild(precio);
     datosProducto.appendChild(cuotas);
     datosProducto.appendChild(stock);
@@ -474,7 +524,8 @@ hombre.addEventListener("click", (e)=>{
     nombreProducto.setAttribute("class", "name");
     datosProducto.setAttribute("class","datos");
     descuento.setAttribute("class", "precio");
-    edit.setAttribute("class","fa-solid fa-pen-to-square");        delet.setAttribute( "class","fa-solid fa-trash-can");
+    edit.setAttribute("class","fa-solid fa-pen-to-square");       
+     delet.setAttribute( "class","fa-solid fa-trash-can");
     delet.setAttribute( "class","fa-solid fa-trash-can");
 
     let img1 = el.imagen.split(",")[0];
@@ -499,6 +550,11 @@ hombre.addEventListener("click", (e)=>{
     datosProducto.appendChild(hr);
     datosProducto.appendChild(nombreProducto);
     datosProducto.appendChild(descuento);
+    if(desc === 0){
+            
+        datosProducto.removeChild(descuento);
+        precio.innerHTML = `$ ${rebajadoDe} `;
+    }
     datosProducto.appendChild(precio);
     datosProducto.appendChild(cuotas);
     datosProducto.appendChild(stock);

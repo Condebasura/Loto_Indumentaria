@@ -113,6 +113,11 @@ box.appendChild(datosProducto);
 datosProducto.appendChild(hr);
 datosProducto.appendChild(nombreProducto);
 datosProducto.appendChild(descuento);
+if(desc === 0){
+            
+    datosProducto.removeChild(descuento);
+    precio.innerHTML = `$ ${rebajadoDe} `;
+}
 datosProducto.appendChild(precio);
 datosProducto.appendChild(cuotas);
 datosProducto.appendChild(stock);
@@ -211,6 +216,11 @@ box.appendChild(datosProducto);
 datosProducto.appendChild(hr);
 datosProducto.appendChild(nombreProducto);
 datosProducto.appendChild(descuento);
+if(desc === 0){
+            
+    datosProducto.removeChild(descuento);
+    precio.innerHTML = `$ ${rebajadoDe} `;
+}
 datosProducto.appendChild(precio);
 datosProducto.appendChild(cuotas);
 datosProducto.appendChild(stock);
@@ -311,6 +321,11 @@ box.appendChild(datosProducto);
 datosProducto.appendChild(hr);
 datosProducto.appendChild(nombreProducto);
 datosProducto.appendChild(descuento);
+if(desc === 0){
+            
+    datosProducto.removeChild(descuento);
+    precio.innerHTML = `$ ${rebajadoDe} `;
+}
 datosProducto.appendChild(precio);
 datosProducto.appendChild(cuotas);
 datosProducto.appendChild(stock);
@@ -409,6 +424,11 @@ box.appendChild(datosProducto);
 datosProducto.appendChild(hr);
 datosProducto.appendChild(nombreProducto);
 datosProducto.appendChild(descuento);
+if(desc === 0){
+            
+    datosProducto.removeChild(descuento);
+    precio.innerHTML = `$ ${rebajadoDe} `;
+}
 datosProducto.appendChild(precio);
 datosProducto.appendChild(cuotas);
 datosProducto.appendChild(stock);

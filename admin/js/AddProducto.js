@@ -40,6 +40,9 @@ form.addEventListener("submit",async (e)=>{
                 parrafo.innerHTML = data.mensaje;
                 modal.appendChild(parrafo);
                 modal.showModal();
+                setTimeout(() => {
+                return location.reload();    
+                }, 3000);
             }else if(res.status === 209){
                 let modal = document.getElementById("modal");
                 let parrafo = document.createElement("p");

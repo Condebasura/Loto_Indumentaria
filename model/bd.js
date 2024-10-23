@@ -135,7 +135,7 @@ const validaDatos =(id)=>{
 
 const UpdateProd = async(products)=>{
     try {
-        const sql = 'UPDATE products SET  producto = ?, stock = ? , descuento = ? , precio = ? , cuotas = ?, seccion = ? , subSeccion = ?, imagen = ? WHERE id = ? ';
+        const sql = 'UPDATE products SET id = ?, producto = ?, stock = ? , descuento = ? , precio = ? , cuotas = ?, seccion = ? , subSeccion = ?, imagen = ? WHERE id = ? ';
         bd.run(sql, [ products.id,products.producto , products.stock, products.descuento , products.precio , products.cuotas ,products.seccion , products.subSeccion, products.imagen , products.id ], (err)=>{
             if(err){
                 console.log(err.message)
@@ -159,7 +159,7 @@ const DeleteProd = (id)=>{
 console.log("Producto eliminado con exito")
         }
     })
-}
+};
 
      export default {bd,
         ConsultProduct,

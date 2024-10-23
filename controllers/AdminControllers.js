@@ -154,7 +154,6 @@ const ActualizarProd = async (req, res)=>{
     let ImgPrevPath = path.basename(imgPrev).split(',')
    const ImgBSNM = path.basename(imgPrev);
     
-   // ahora se borran de uploads , se suben las nuevas ,pero no a la bd y tampoco se modifican en la bd.
    
     let imagenes = req.files.map(file => file.filename);
     while(imagenes.length < 5 ){
@@ -164,6 +163,7 @@ const ActualizarProd = async (req, res)=>{
   let img = imagenes.join(',');
 
     const products = {
+        id: validar.id,
         producto: req.body.nomProd,
         stock: req.body.InpStock,
         descuento: req.body.InpDesc,
@@ -189,6 +189,7 @@ let imagenProd = products.imagen;
     if (imgPrevia !== imgDefoult && !imgDEditBase.includes(imgPrevia)) {
         if (fs.existsSync(lasImgs)) { // Comprobar si la imagen aún existe antes de intentar eliminarla
             fs.unlink(lasImgs, (err) => {
+                // Cambiar que cuando no se elige ninguna imagen se eliminan las anteriores y se suben las por defecto!!
                 if (err) {
                     console.error('Error al eliminar la imagen anterior:', err);
                     return res.status(500).send('Error al actualizar la imagen');
