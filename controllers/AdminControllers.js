@@ -156,6 +156,14 @@ const ActualizarProd = async (req, res)=>{
     
    
     let imagenes = req.files.map(file => file.filename);
+    if (imagenes.length === 0) {
+        imagenes = ImgPrevPath.filter(img => img !== imgDefoult); 
+    }
+
+   
+    if (imagenes.length === 0) {
+        imagenes = [imgDefoult]; 
+    }
     while(imagenes.length < 5 ){
         imagenes.push(imgDefoult);
     };
@@ -177,19 +185,17 @@ const ActualizarProd = async (req, res)=>{
    
 let imagenProd = products.imagen;
 
- // Recorrer las imágenes previas
- for (let i = 0; i < ImgPrevPath.length; i++) {
+for (let i = 0; i < ImgPrevPath.length; i++) {
     const imgPrevia = ImgPrevPath[i]; // Imagen previa en la iteración actual
     const lasImgs = path.join(__dirname, './public/uploads', imgPrevia);
 
     let imgDelEdSplit = imagenProd.split(",");
     let imgDEditBase = imgDelEdSplit.map(ruta => ruta.split("\\").pop());
 
-    // Solo eliminar si la imagen previa no es la imagen por defecto y no está en las nuevas imágenes
+    // Eliminar solo si la imagen previa no es la imagen por defecto y no está en las nuevas imágenes
     if (imgPrevia !== imgDefoult && !imgDEditBase.includes(imgPrevia)) {
-        if (fs.existsSync(lasImgs)) { // Comprobar si la imagen aún existe antes de intentar eliminarla
+        if (fs.existsSync(lasImgs)) {
             fs.unlink(lasImgs, (err) => {
-                // Cambiar que cuando no se elige ninguna imagen se eliminan las anteriores y se suben las por defecto!!
                 if (err) {
                     console.error('Error al eliminar la imagen anterior:', err);
                     return res.status(500).send('Error al actualizar la imagen');
@@ -203,6 +209,7 @@ let imagenProd = products.imagen;
         console.log('Manteniendo la imagen o es la imagen por defecto:', imgPrevia);
     }
 }
+
 
 // Subir las nuevas imágenes
 for (let file of req.files) {
