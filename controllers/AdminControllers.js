@@ -169,7 +169,8 @@ const ActualizarProd = async (req, res)=>{
     };
         
   let img = imagenes.join(',');
-
+try {
+    
     const products = {
         id: validar.id,
         producto: req.body.nomProd,
@@ -226,9 +227,13 @@ for (let file of req.files) {
 
 // Actualizar el producto en la base de datos
 await bd.UpdateProd(products);
-return res.status(200).send('Producto actualizado con éxito');
+return res.status(200).json({mensaje:'Producto actualizado con éxito'});
 
 
+} 
+catch (error) {
+res.status(409).json({mwnsaje: "Ocurrio un problema al actualizar el producto!!"})    
+}
 } 
 
 

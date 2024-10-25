@@ -233,6 +233,26 @@ const InpsubSeccion = document.createElement("input");
 
         const data = await res.json();
 
+         
+        if(res.ok){
+            let modal = document.getElementById("modal");
+            let parrafo = document.createElement("p");
+            modal.innerHTML = "";
+            parrafo.innerHTML = data.mensaje;
+            modal.appendChild(parrafo);
+            modal.showModal();
+            setTimeout(() => {
+            return location.reload();    
+            }, 3000);
+        }else if(res.status === 200){
+            let modal = document.getElementById("modal");
+            let parrafo = document.createElement("p");
+            modal.innerHTML = "";
+            parrafo.innerHTML = data.mensaje;
+            modal.appendChild(parrafo);
+            modal.showModal();
+        }
+
     } catch (error) {
         console.log(error.message);
     }
