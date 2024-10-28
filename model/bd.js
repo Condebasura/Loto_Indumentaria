@@ -28,7 +28,7 @@ import sqlite3 from "sqlite3";
      const getProducts = async ()=>{
        try {
         return await new Promise((resolve, reject)=>{
-            let sql = 'SELECT * FROM products';
+            let sql = 'SELECT * FROM products ';
             
             bd.all(sql,[], (err,row)=>{
                 if(err){
@@ -132,6 +132,10 @@ const validaDatos =(id)=>{
         });
     })
 };
+
+
+
+
 
 const UpdateProd = async(products)=>{
     try {

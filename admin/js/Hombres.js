@@ -310,6 +310,7 @@ hombre.addEventListener("click", (e)=>{
        if(el.seccion == "Hombre" && el.subSeccion == "Remeras") {
         MinEdit.innerHTML = "";
         boxContent.innerHTML = "";
+        
         const box = document.createElement("div");
         let datosProducto = document.createElement("div");
        let img = document.createElement("img");
@@ -361,6 +362,7 @@ hombre.addEventListener("click", (e)=>{
        })
     
         $fragment.appendChild(box);
+        console.log($fragment)
         box.appendChild(img);
         box.appendChild(datosProducto);
         datosProducto.appendChild(hr);

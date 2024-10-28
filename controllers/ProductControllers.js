@@ -27,9 +27,11 @@ const GetVisualProducto = (req, res) =>{
 };
 
 const DataProduct = async (req, res)=>{
-  
-   const data = await bd.getProducts()
-   res.json(data);
+    
+   const data = await bd.getProducts();
+ 
+    res.status(200).json(data);
+   
 };
 
 

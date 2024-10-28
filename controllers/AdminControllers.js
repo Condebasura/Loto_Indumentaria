@@ -132,13 +132,18 @@ const postProduct = async (req , res)=>{
 
 const DataProd = async (req, res)=>{
 try{
-
+  console.log(req.body);
     const validar = await bd.validaDatos(req.body.id);
-    if(validar){
+   
+    
+    if(!validar){
+        res.status(404).json({mensaje:"No hay productos para mostrar!!"})
+    }else{
         const imgbox = path.join(__dirname, `./public/uploads` , validar.imagen);
         console.log(imgbox);
+        
         console.log(`Los datos de ${req.body.id} coinciden con los de la bd`)
-        res.json(validar);
+        res.status(200).json(validar);
     }
 }catch(err){
     console.log(err.message);
