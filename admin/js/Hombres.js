@@ -300,14 +300,14 @@ hombre.addEventListener("click", (e)=>{
            
          if(e.target){
           
-            const res = await fetch("/Hombres.html/producto").then(res =>  res.json()).then(async data=>{
+            const res = await fetch("/Hombres/producto").then(res =>  res.json()).then(async data=>{
                 
                 let datos = JSON.stringify(data);
      let obj = JSON.parse(datos);
     
      for(let el of obj){
         
-       if(el.seccion == "Hombre" && el.subSeccion == "Remeras") {
+       if(el.subSeccion == "Remeras") {
         MinEdit.innerHTML = "";
         boxContent.innerHTML = "";
         
@@ -404,14 +404,14 @@ hombre.addEventListener("click", (e)=>{
        
      if(e.target){
       
-        const res = await fetch("/Hombres.html/producto").then(res =>  res.json()).then(async data=>{
+        const res = await fetch("/Hombres/producto").then(res =>  res.json()).then(async data=>{
             
             let datos = JSON.stringify(data);
     let obj = JSON.parse(datos);
     
     for(let el of obj){
     
-    if(el.seccion == "Hombre" && el.subSeccion == "Pantalones") {
+    if( el.subSeccion == "Pantalones") {
         MinEdit.innerHTML = "";
         boxContent.innerHTML = "";
     const box = document.createElement("div");
@@ -505,7 +505,7 @@ hombre.addEventListener("click", (e)=>{
        
      if(e.target){
       
-        const res = await fetch("/Hombres.html/producto").then(res =>  res.json()).then(async data=>{
+        const res = await fetch("/Hombres/producto").then(res =>  res.json()).then(async data=>{
             
             let datos = JSON.stringify(data);
     let obj = JSON.parse(datos);

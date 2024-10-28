@@ -24,6 +24,27 @@ import sqlite3 from "sqlite3";
      };
 
 
+// Crear una consulta para seleccionar los productos por cada seccion
+const GetProdHom = async ()=>{
+    try {
+        return await new Promise((resolve, reject)=>{
+            let sql = 'SELECT * FROM products WHERE seccion = "Hombre"';
+            bd.all(sql,[], (err, row)=>{
+                if(err){
+                    console.log(err);
+                    reject(err);
+
+
+                }else{
+                    resolve(row);
+                }
+            })
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
      const getProducts = async ()=>{
        try {
@@ -167,6 +188,7 @@ console.log("Producto eliminado con exito")
 
      export default {bd,
         ConsultProduct,
+        GetProdHom,
         getProducts,
         InsertProducto,
         consultaUser,

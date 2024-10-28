@@ -34,7 +34,19 @@ const DataProduct = async (req, res)=>{
    
 };
 
-
+const DataProdHom = async (req, res)=>{
+    try {
+        const data = await bd.GetProdHom();
+        if(!data){
+            res.status(404).json({mensaje: "Sin datos para mostrar"});
+        }else{
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export default {
     GetIndex, 
@@ -44,6 +56,7 @@ export default {
   GetNiños,
   GetVisualProducto,
   DataProduct,
+  DataProdHom,
 
     
 
