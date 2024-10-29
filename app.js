@@ -88,9 +88,14 @@ app.get("/Hombres/Remeras", ProductControllers.DataProdHomR);
 app.get("/Hombres/Pantalones", ProductControllers.DataProdHomP);
 app.get("/Hombres/Accesorios", ProductControllers.DataProdHomA);
 app.get("/Mujeres/Remeras", ProductControllers.DataProdMujR);
-
-//app.get("/Nenas/producto", ProductControllers.DataProduct);
-//app.get("/Child.html/producto", ProductControllers.DataProduct);
+app.get("/Mujeres/Pantalones", ProductControllers.DataProdMujP);
+app.get("/Mujeres/Vestidos", ProductControllers.DataProdMujV);
+app.get("/Mujeres/Accesorios", ProductControllers.DataProdMujA);
+app.get("/Nena/Remeras", ProductControllers.DataProdNenaR);
+app.get("/Nena/Pantalones", ProductControllers.DataProdNenaP);
+app.get("/Nena/Vestidos", ProductControllers.DataProdNenaV);
+app.get("/Nene/Remeras", ProductControllers.DataProdNeneR);
+app.get("/Nene/Pantalones", ProductControllers.DataProdNeneP);
 app.get("/visualProducto.html", ProductControllers.GetVisualProducto);
 app.post("/admin/IniciarCrear/Crear" , AdminControllers.CrearUser);
 app.get("/admin/IniciarCrear", AdminControllers.getAdmin);

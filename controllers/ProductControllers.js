@@ -32,7 +32,7 @@ const DataProdHomR = async (req, res)=>{
     try {
         const data = await bd.GetProdHomR();
         if(data){
-            console.log(data);
+            
             res.status(200).json(data);
         }
     } catch (error) {
@@ -44,7 +44,7 @@ const DataProdHomP  = async (req, res)=>{
     try {
         const data = await bd.GetProdHomP();
         if(data){
-            console.log(data);
+            
             res.status(200).json(data);
         }
     } catch (error) {
@@ -56,7 +56,7 @@ const DataProdHomA = async (req, res)=>{
     try {
         const data = await bd.GetProdHomA();
         if(data){
-            console.log(data);
+            
             res.status(200).json(data);
         }
     } catch (error) {
@@ -69,7 +69,7 @@ const DataProdMujR = async (req, res)=>{
     try {
         const data = await bd.GetProdMujR();
         if(data){
-            console.log(data);
+            
             res.status(200).json(data);
         }
     } catch (error) {
@@ -81,7 +81,7 @@ const DataProdMujP = async (req, res)=>{
     try {
         const data = await bd.GetProdMujP();
         if(data){
-            console.log(data);
+           
             res.status(200).json(data);
         }
     } catch (error) {
@@ -93,7 +93,7 @@ const DataProdMujV = async (req, res)=>{
     try {
         const data = await bd.GetProdMujV();
         if(data){
-            console.log(data);
+           
             res.status(200).json(data);
         }
     } catch (error) {
@@ -105,7 +105,7 @@ const DataProdMujA = async (req, res)=>{
     try {
         const data = await bd.GetProdMujA();
         if(data){
-            console.log(data);
+            
             res.status(200).json(data);
         }
     } catch (error) {
@@ -117,7 +117,7 @@ const DataProdNenaR = async (req, res)=>{
     try {
         const data = await bd.GetProdNenaR();
         if(data){
-            console.log(data);
+            
             res.status(200).json(data);
         }
     } catch (error) {
@@ -129,7 +129,7 @@ const DataProdNenaP = async (req, res)=>{
     try {
         const data = await bd.GetProdNanaP();
         if(data){
-            console.log(data);
+           
             res.status(200).json(data);
         }
     } catch (error) {
@@ -141,7 +141,7 @@ const DataProdNenaV = async (req, res)=>{
     try {
         const data = await bd.GetProdNenaV();
         if(data){
-            console.log(data);
+           
             res.status(200).json(data);
         }
     } catch (error) {
@@ -153,7 +153,7 @@ const DataProdNeneR = async (req, res)=>{
     try {
         const data = await bd.GetProdNeneR();
         if(data){
-            console.log(data);
+           
             res.status(200).json(data);
         }
     } catch (error) {
@@ -165,7 +165,7 @@ const DataProdNeneP = async (req, res)=>{
     try {
         const data = await bd.GetProdNaneP();
         if(data){
-            console.log(data);
+            
             res.status(200).json(data);
         }
     } catch (error) {

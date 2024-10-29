@@ -49,7 +49,7 @@ const GetProdHomR = async ()=>{
      const GetProdHomP = async ()=>{
        try {
         return await new Promise((resolve, reject)=>{
-            let sql = 'SELECT * FROM products WHERE seccion = "Hombres" AND subSeccion = "Pantalones" ';
+            let sql = 'SELECT * FROM products WHERE seccion = "Hombre" AND subSeccion = "Pantalones" ';
             
             bd.all(sql,[], (err,row)=>{
                 if(err){
@@ -68,7 +68,7 @@ const GetProdHomR = async ()=>{
      const GetProdHomA = async ()=>{
         try {
          return await new Promise((resolve, reject)=>{
-             let sql = 'SELECT * FROM products WHERE seccion = "Hombres" AND subSeccion = "Accesorios"';
+             let sql = 'SELECT * FROM products WHERE seccion = "Hombre" AND subSeccion = "Accesorios"';
              
              bd.all(sql,[], (err,row)=>{
                  if(err){
@@ -87,7 +87,7 @@ const GetProdHomR = async ()=>{
       const GetProdMujR = async ()=>{
         try {
          return await new Promise((resolve, reject)=>{
-             let sql = 'SELECT * FROM products WHERE seccion = "Mujeres" AND subSeccion = "Remeras"';
+             let sql = 'SELECT * FROM products WHERE seccion = "Mujer" AND subSeccion = "Remeras"';
              
              bd.all(sql,[], (err,row)=>{
                  if(err){
@@ -107,7 +107,7 @@ const GetProdHomR = async ()=>{
       const GetProdMujP = async ()=>{
         try {
          return await new Promise((resolve, reject)=>{
-             let sql = 'SELECT * FROM products WHERE seccion = "Mujeres" AND subSeccion = "Pantalones" ';
+             let sql = 'SELECT * FROM products WHERE seccion = "Mujer" AND subSeccion = "Pantalones" ';
              
              bd.all(sql,[], (err,row)=>{
                  if(err){
@@ -126,7 +126,7 @@ const GetProdHomR = async ()=>{
       const GetProdMujV = async ()=>{
         try {
          return await new Promise((resolve, reject)=>{
-             let sql = 'SELECT * FROM products WHERE seccion = "Mujeres" AND subSeccion = "Vestidos" ';
+             let sql = 'SELECT * FROM products WHERE seccion = "Mujer" AND subSeccion = "Vestidos" ';
              
              bd.all(sql,[], (err,row)=>{
                  if(err){
@@ -146,7 +146,7 @@ const GetProdHomR = async ()=>{
       const GetProdMujA = async ()=>{
         try {
          return await new Promise((resolve, reject)=>{
-             let sql = 'SELECT * FROM products WHERE seccion = "Mujeres" AND subSeccion = "Accesorios"';
+             let sql = 'SELECT * FROM products WHERE seccion = "Mujer" AND subSeccion = "Accesorios"';
              
              bd.all(sql,[], (err,row)=>{
                  if(err){
