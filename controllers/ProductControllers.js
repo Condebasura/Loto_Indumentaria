@@ -26,20 +26,145 @@ const GetVisualProducto = (req, res) =>{
   res.sendFile(path.join(__dirname, 'public', 'html', 'visualProducto.html'))
 };
 
-const DataProduct = async (req, res)=>{
-    
-   const data = await bd.getProducts();
- 
-    res.status(200).json(data);
-   
+
+
+const DataProdHomR = async (req, res)=>{
+    try {
+        const data = await bd.GetProdHomR();
+        if(data){
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
 };
 
-const DataProdHom = async (req, res)=>{
+const DataProdHomP  = async (req, res)=>{
     try {
-        const data = await bd.GetProdHom();
-        if(!data){
-            res.status(404).json({mensaje: "Sin datos para mostrar"});
-        }else{
+        const data = await bd.GetProdHomP();
+        if(data){
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+const DataProdHomA = async (req, res)=>{
+    try {
+        const data = await bd.GetProdHomA();
+        if(data){
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+
+const DataProdMujR = async (req, res)=>{
+    try {
+        const data = await bd.GetProdMujR();
+        if(data){
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+const DataProdMujP = async (req, res)=>{
+    try {
+        const data = await bd.GetProdMujP();
+        if(data){
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+const DataProdMujV = async (req, res)=>{
+    try {
+        const data = await bd.GetProdMujV();
+        if(data){
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+const DataProdMujA = async (req, res)=>{
+    try {
+        const data = await bd.GetProdMujA();
+        if(data){
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+const DataProdNenaR = async (req, res)=>{
+    try {
+        const data = await bd.GetProdNenaR();
+        if(data){
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+const DataProdNenaP = async (req, res)=>{
+    try {
+        const data = await bd.GetProdNanaP();
+        if(data){
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+const DataProdNenaV = async (req, res)=>{
+    try {
+        const data = await bd.GetProdNenaV();
+        if(data){
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+const DataProdNeneR = async (req, res)=>{
+    try {
+        const data = await bd.GetProdNeneR();
+        if(data){
+            console.log(data);
+            res.status(200).json(data);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+const DataProdNeneP = async (req, res)=>{
+    try {
+        const data = await bd.GetProdNaneP();
+        if(data){
             console.log(data);
             res.status(200).json(data);
         }
@@ -48,6 +173,8 @@ const DataProdHom = async (req, res)=>{
     }
 }
 
+
+
 export default {
     GetIndex, 
     GetHombres,
@@ -55,8 +182,19 @@ export default {
    GetNiñas,
   GetNiños,
   GetVisualProducto,
-  DataProduct,
-  DataProdHom,
+  DataProdHomR,
+  DataProdHomP,
+  DataProdHomA,
+  DataProdMujR,
+  DataProdMujP,
+  DataProdMujV,
+  DataProdMujA,
+  DataProdNenaR,
+  DataProdNenaP,
+  DataProdNenaV,
+  DataProdNeneR,
+  DataProdNeneP,
+         
 
     
 

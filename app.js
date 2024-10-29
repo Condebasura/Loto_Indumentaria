@@ -84,10 +84,13 @@ app.get("/Hombres.html", ProductControllers.GetHombres);
 app.get("/Mujeres.html", ProductControllers.GetMujeres);
 app.get("/Nenas.html", ProductControllers.GetNiñas);
 app.get("/Child.html", ProductControllers.GetNiños);
-app.get("/Hombres/producto", ProductControllers.DataProdHom);
-app.get("/Mujeres.html/producto", ProductControllers.DataProduct);
-app.get("/Nenas.html/producto", ProductControllers.DataProduct);
-app.get("/Child.html/producto", ProductControllers.DataProduct);
+app.get("/Hombres/Remeras", ProductControllers.DataProdHomR);
+app.get("/Hombres/Pantalones", ProductControllers.DataProdHomP);
+app.get("/Hombres/Accesorios", ProductControllers.DataProdHomA);
+app.get("/Mujeres/Remeras", ProductControllers.DataProdMujR);
+
+//app.get("/Nenas/producto", ProductControllers.DataProduct);
+//app.get("/Child.html/producto", ProductControllers.DataProduct);
 app.get("/visualProducto.html", ProductControllers.GetVisualProducto);
 app.post("/admin/IniciarCrear/Crear" , AdminControllers.CrearUser);
 app.get("/admin/IniciarCrear", AdminControllers.getAdmin);
@@ -100,7 +103,7 @@ app.delete("/product/delete/:id/:img", AdminControllers.EliminarProducto);
 app.get("/admin/logout", AdminControllers.logout);
 app.post("/admin/addProducto",upload.array("archivos", 5), AdminControllers.postProduct);
 
-
+ 
 app.listen(port, ()=>{
     console.log(`la app esta escuchando el pueto ${port}` );
 }

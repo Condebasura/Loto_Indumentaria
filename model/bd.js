@@ -25,10 +25,10 @@ import sqlite3 from "sqlite3";
 
 
 // Crear una consulta para seleccionar los productos por cada seccion
-const GetProdHom = async ()=>{
+const GetProdHomR = async ()=>{
     try {
         return await new Promise((resolve, reject)=>{
-            let sql = 'SELECT * FROM products WHERE seccion = "Hombre"';
+            let sql = 'SELECT * FROM products WHERE seccion = "Hombre" AND subSeccion = "Remeras"';
             bd.all(sql,[], (err, row)=>{
                 if(err){
                     console.log(err);
@@ -46,10 +46,10 @@ const GetProdHom = async ()=>{
 }
 
 
-     const getProducts = async ()=>{
+     const GetProdHomP = async ()=>{
        try {
         return await new Promise((resolve, reject)=>{
-            let sql = 'SELECT * FROM products ';
+            let sql = 'SELECT * FROM products WHERE seccion = "Hombres" AND subSeccion = "Pantalones" ';
             
             bd.all(sql,[], (err,row)=>{
                 if(err){
@@ -64,6 +64,200 @@ const GetProdHom = async ()=>{
         console.log(error);
        }
      };
+
+     const GetProdHomA = async ()=>{
+        try {
+         return await new Promise((resolve, reject)=>{
+             let sql = 'SELECT * FROM products WHERE seccion = "Hombres" AND subSeccion = "Accesorios"';
+             
+             bd.all(sql,[], (err,row)=>{
+                 if(err){
+                     reject(err);
+                 }else{
+                     resolve(row);
+                 }
+             })
+         })
+         
+        } catch (error) {
+         console.log(error);
+        }
+      };
+
+      const GetProdMujR = async ()=>{
+        try {
+         return await new Promise((resolve, reject)=>{
+             let sql = 'SELECT * FROM products WHERE seccion = "Mujeres" AND subSeccion = "Remeras"';
+             
+             bd.all(sql,[], (err,row)=>{
+                 if(err){
+                     reject(err);
+                 }else{
+                     resolve(row);
+                 }
+             })
+         })
+         
+        } catch (error) {
+         console.log(error);
+        }
+      };
+
+
+      const GetProdMujP = async ()=>{
+        try {
+         return await new Promise((resolve, reject)=>{
+             let sql = 'SELECT * FROM products WHERE seccion = "Mujeres" AND subSeccion = "Pantalones" ';
+             
+             bd.all(sql,[], (err,row)=>{
+                 if(err){
+                     reject(err);
+                 }else{
+                     resolve(row);
+                 }
+             })
+         })
+         
+        } catch (error) {
+         console.log(error);
+        }
+      };
+
+      const GetProdMujV = async ()=>{
+        try {
+         return await new Promise((resolve, reject)=>{
+             let sql = 'SELECT * FROM products WHERE seccion = "Mujeres" AND subSeccion = "Vestidos" ';
+             
+             bd.all(sql,[], (err,row)=>{
+                 if(err){
+                     reject(err);
+                 }else{
+                     resolve(row);
+                 }
+             })
+         })
+         
+        } catch (error) {
+         console.log(error);
+        }
+      };
+
+
+      const GetProdMujA = async ()=>{
+        try {
+         return await new Promise((resolve, reject)=>{
+             let sql = 'SELECT * FROM products WHERE seccion = "Mujeres" AND subSeccion = "Accesorios"';
+             
+             bd.all(sql,[], (err,row)=>{
+                 if(err){
+                     reject(err);
+                 }else{
+                     resolve(row);
+                 }
+             })
+         })
+         
+        } catch (error) {
+         console.log(error);
+        }
+      };
+
+
+      const GetProdNenaR = async ()=>{
+        try {
+         return await new Promise((resolve, reject)=>{
+             let sql = 'SELECT * FROM products WHERE seccion = "Niña" AND subSeccion = "Remeras" ';
+             
+             bd.all(sql,[], (err,row)=>{
+                 if(err){
+                     reject(err);
+                 }else{
+                     resolve(row);
+                 }
+             })
+         })
+         
+        } catch (error) {
+         console.log(error);
+        }
+      };
+
+      const GetProdNanaP = async ()=>{
+        try {
+         return await new Promise((resolve, reject)=>{
+             let sql = 'SELECT * FROM products WHERE seccion = "Niña" AND subSeccion = "Pantalones" ';
+             
+             bd.all(sql,[], (err,row)=>{
+                 if(err){
+                     reject(err);
+                 }else{
+                     resolve(row);
+                 }
+             })
+         })
+         
+        } catch (error) {
+         console.log(error);
+        }
+      };
+
+      const GetProdNenaV = async ()=>{
+        try {
+         return await new Promise((resolve, reject)=>{
+             let sql = 'SELECT * FROM products WHERE seccion = "Niña" AND subSeccion = "Vestidos" ';
+             
+             bd.all(sql,[], (err,row)=>{
+                 if(err){
+                     reject(err);
+                 }else{
+                     resolve(row);
+                 }
+             })
+         })
+         
+        } catch (error) {
+         console.log(error);
+        }
+      };
+
+      
+      const GetProdNeneR = async ()=>{
+        try {
+         return await new Promise((resolve, reject)=>{
+             let sql = 'SELECT * FROM products WHERE seccion = "Niño" AND subSeccion = "Remeras" ';
+             
+             bd.all(sql,[], (err,row)=>{
+                 if(err){
+                     reject(err);
+                 }else{
+                     resolve(row);
+                 }
+             })
+         })
+         
+        } catch (error) {
+         console.log(error);
+        }
+      };
+
+      const GetProdNaneP = async ()=>{
+        try {
+         return await new Promise((resolve, reject)=>{
+             let sql = 'SELECT * FROM products WHERE seccion = "Niño" AND subSeccion = "Pantalones" ';
+             
+             bd.all(sql,[], (err,row)=>{
+                 if(err){
+                     reject(err);
+                 }else{
+                     resolve(row);
+                 }
+             })
+         })
+         
+        } catch (error) {
+         console.log(error);
+        }
+      };
 
     const InsertProducto = async (products)=>{
         try{
@@ -188,8 +382,18 @@ console.log("Producto eliminado con exito")
 
      export default {bd,
         ConsultProduct,
-        GetProdHom,
-        getProducts,
+        GetProdHomR,
+        GetProdHomP,
+        GetProdHomA,
+        GetProdMujR,
+        GetProdMujP,
+        GetProdMujV,
+        GetProdMujA,
+        GetProdNenaR,
+        GetProdNanaP,
+        GetProdNenaV,
+        GetProdNeneR,
+          GetProdNaneP,
         InsertProducto,
         consultaUser,
         InsertUser,
