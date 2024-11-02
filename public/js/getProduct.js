@@ -1,19 +1,26 @@
-const HRem = document.querySelector(".H-Rem"),
- HPant = document.querySelector(".H-Pant"),
- HAcce = document.querySelector(".H-Acce"),
- caja = document.querySelector(".cont-ul");
+const hombre = document.querySelector(".hombre");
+const boxCargas = document.querySelector(".boxCargas");
+const boxRutas = document.createElement("div");
+const caja = document.createElement("div");
+const texto = document.createElement("h3");
 const $fragment = document.createDocumentFragment();
 
 const DatosProdClient = async (data) =>{
     let datos = JSON.stringify(data);
     let obj = JSON.parse(datos);
-   
+    if (obj.length === 0) {
+        caja.innerHTML = "";
+
+        texto.innerHTML = "No hay productos!!";
+        $fragment.appendChild(texto);
+
+    } else {
     for(let el of obj){
-       
-      
-       caja.innerHTML = "";
-       const box = document.createElement("div");
-       let datosProducto = document.createElement("div");
+        
+        
+        caja.innerHTML = "";
+        const box = document.createElement("div");
+        let datosProducto = document.createElement("div");
       let img = document.createElement("img");
        let nombreProducto = document.createElement("h3");
        let hr = document.createElement("hr");
@@ -35,7 +42,7 @@ const DatosProdClient = async (data) =>{
        }else if(el.stock === 0){
            stock.innerHTML = "sin stock";
        }
-   
+       caja.setAttribute("class", "cont-ul");
        box.setAttribute("class", "box_pilcha");
        img.setAttribute("class", "image");
        nombreProducto.setAttribute("class", "name");
@@ -72,8 +79,31 @@ const DatosProdClient = async (data) =>{
    
    
    }
-   caja.appendChild($fragment);
 }
+   boxCargas.appendChild(caja);
+   caja.appendChild($fragment);
+};
+
+
+
+hombre.addEventListener("click", (e)=>{
+ e.preventDefault();
+ if(e.target){
+boxRutas.innerHTML = "";
+caja.innerHTML = "";
+    const HRem = document.createElement("a");
+    const HPant = document.createElement("a");
+    const HAcce = document.createElement("a");
+    HRem.innerHTML = "Remeras";
+    HPant.innerHTML = "Pantalones";
+    HAcce.innerHTML = "Accesorios";
+    boxRutas.appendChild(HRem);
+    boxRutas.appendChild(HPant);
+    boxRutas.appendChild(HAcce);
+    boxCargas.appendChild(boxRutas);
+    
+
+
     HRem.addEventListener("click",async (e)=>{
         e.preventDefault();
        
@@ -117,4 +147,6 @@ HAcce.addEventListener("click",async (e)=>{
 }
 
 });
+ }
 
+});

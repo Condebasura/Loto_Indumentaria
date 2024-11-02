@@ -1,14 +1,24 @@
+const Child = document.querySelector(".niño");
 
-const ChRem = document.querySelector(".Ch-Rem"),
-ChPant = document.querySelector(".Ch-Pant"),
- caja = document.querySelector(".cont-ul");
+Child.addEventListener("click", (e)=>{
+e.preventDefault();
 
-const $fragment = document.createDocumentFragment();
+if(e.target){
 
+     boxRutas.innerHTML = "";
+     caja.innerHTML = "";
 
-ChRem.addEventListener("click",async (e)=>{
-    e.preventDefault();
-   
+     const ChRem =  document.createElement("a");
+     const ChPant =  document.createElement("a");
+     ChRem.innerHTML = "Remeras";
+     ChPant.innerHTML = "Pantalones";
+     boxRutas.appendChild(ChRem);
+     boxRutas.appendChild(ChPant);
+     boxCargas.appendChild(boxRutas);
+
+    ChRem.addEventListener("click",async (e)=>{
+        e.preventDefault();
+        
  if(e.target){
   
     const res = await fetch("/Nene/Remeras").then(res =>  res.json()).then(async data=>{
@@ -25,15 +35,17 @@ ChRem.addEventListener("click",async (e)=>{
 
 ChPant.addEventListener("click",async (e)=>{
     e.preventDefault();
-   
- if(e.target){
-  
-    const res = await fetch("/Nene/Pantalones").then(res =>  res.json()).then(async data=>{
-        DatosProdClient(data);
-  
+    
+    if(e.target){
+        
+        const res = await fetch("/Nene/Pantalones").then(res =>  res.json()).then(async data=>{
+            DatosProdClient(data);
+            
         }).catch(err => console.log("error", err))
-                
+        
+    }
+    
+});
 }
 
-});
-
+})

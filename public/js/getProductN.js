@@ -1,11 +1,23 @@
-const  NRem = document.querySelector(".N-Rem"),
-NPant = document.querySelector(".N-Pant"),
-NVest = document.querySelector(".N-Vest");
-caja = document.querySelector(".cont-ul");
-const $fragment = document.createDocumentFragment();
+const Nena = document.querySelector(".niña");
+
+Nena.addEventListener("click", (e)=>{
+    e.preventDefault();
+    if(e.target){
+    boxRutas.innerHTML = "";
+    caja.innerHTML = "";
+        const NRem = document.createElement("a");
+        const NPant = document.createElement("a");
+        const NVest = document.createElement("a");
+         NRem.innerHTML = "Remeras";
+         NPant.innerHTML = "Pantalones";
+         NVest.innerHTML = "Vestidos";
+         boxRutas.appendChild(NRem);
+         boxRutas.appendChild(NPant);
+         boxRutas.appendChild(NVest);
+         boxCargas.appendChild(boxRutas);
 
 
-NRem.addEventListener("click",async (e)=>{
+        NRem.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
@@ -16,7 +28,7 @@ NRem.addEventListener("click",async (e)=>{
        
         }).catch(err => console.log("error", err))
                 
-}
+    }
 
 });
 
@@ -51,4 +63,6 @@ NVest.addEventListener("click",async (e)=>{
 
 });
 
+}
+})
 
