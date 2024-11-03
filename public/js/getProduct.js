@@ -86,7 +86,7 @@ const DatosProdClient = async (data) =>{
 
 
 
-hombre.addEventListener("click", (e)=>{
+hombre.addEventListener("click", async(e)=>{
  e.preventDefault();
  if(e.target){
 boxRutas.innerHTML = "";

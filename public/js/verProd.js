@@ -11,7 +11,8 @@ const interes = document.querySelector(".int");
 let ProdStock = document.querySelector(".con_Stock");
 let Cant = document.querySelector(".cantidad");
 
-  
+
+
    const link = document.querySelector(".med_pago");
   link.addEventListener("click", (e) =>{
 e.preventDefault();
