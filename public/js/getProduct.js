@@ -150,3 +150,206 @@ HAcce.addEventListener("click",async (e)=>{
  }
 
 });
+
+const mujer = document.querySelector(".mujer");
+
+mujer.addEventListener("click", (e)=>{
+    e.preventDefault();
+
+    if(e.target){
+        boxRutas.innerHTML = "";
+        caja.innerHTML = "";
+        const MRem = document.createElement("a");
+        const MPant = document.createElement("a");
+        const MVest = document.createElement("a");
+        const MAcce = document.createElement("a");
+        MRem.innerHTML = "Remeras";
+        MPant.innerHTML = "Pantalones";
+        MVest.innerHTML = "Vestidos";
+        MAcce.innerHTML = "Accesorios";
+        boxRutas.appendChild(MRem);
+        boxRutas.appendChild(MPant);
+        boxRutas.appendChild(MVest);
+        boxRutas.appendChild(MAcce);
+        boxCargas.appendChild(boxRutas);
+ 
+
+MRem.addEventListener("click",async (e)=>{
+    e.preventDefault();
+   
+ if(e.target){
+  
+    const res = await fetch("/Mujeres/Remeras").then(res =>  res.json()).then(async data=>{
+        
+      DatosProdClient(data);
+    
+});
+ }
+
+});
+
+MPant.addEventListener("click",async (e)=>{
+    e.preventDefault();
+   
+ if(e.target){
+  
+    const res = await fetch("/Mujeres/Pantalones").then(res =>  res.json()).then(async data=>{
+        
+        DatosProdClient(data);
+                
+    });
+}
+});
+
+
+MVest.addEventListener("click",async (e)=>{
+    e.preventDefault();
+   
+ if(e.target){
+  
+    const res = await fetch("/Mujeres/Vestidos").then(res =>  res.json()).then(async data=>{
+        
+        DatosProdClient(data)
+    })
+    }
+
+});
+
+MAcce.addEventListener("click",async (e)=>{
+    e.preventDefault();
+   
+ if(e.target){
+  
+    const res = await fetch("/Mujeres/Accesorios").then(res =>  res.json()).then(async data=>{
+        
+        DatosProdClient(data);
+     
+})
+ }
+})
+
+}
+});
+
+const Nena = document.querySelector(".niña");
+
+Nena.addEventListener("click", (e)=>{
+    e.preventDefault();
+    if(e.target){
+    boxRutas.innerHTML = "";
+    caja.innerHTML = "";
+        const NRem = document.createElement("a");
+        const NPant = document.createElement("a");
+        const NVest = document.createElement("a");
+         NRem.innerHTML = "Remeras";
+         NPant.innerHTML = "Pantalones";
+         NVest.innerHTML = "Vestidos";
+         boxRutas.appendChild(NRem);
+         boxRutas.appendChild(NPant);
+         boxRutas.appendChild(NVest);
+         boxCargas.appendChild(boxRutas);
+
+
+        NRem.addEventListener("click",async (e)=>{
+    e.preventDefault();
+   
+ if(e.target){
+  
+    const res = await fetch("/Nena/Remeras").then(res =>  res.json()).then(async data=>{
+        
+        DatosProdClient(data);
+       
+        }).catch(err => console.log("error", err))
+                
+    }
+
+});
+
+
+NPant.addEventListener("click",async (e)=>{
+    e.preventDefault();
+   
+ if(e.target){
+  
+    const res = await fetch("/Nena/Pantalones").then(res =>  res.json()).then(async data=>{
+        
+        DatosProdClient(data);
+       
+        }).catch(err => console.log("error", err))
+                
+}
+
+});
+
+NVest.addEventListener("click",async (e)=>{
+    e.preventDefault();
+   
+ if(e.target){
+  
+    const res = await fetch("/Nena/Vestidos").then(res =>  res.json()).then(async data=>{
+        
+        DatosProdClient(data);
+       
+        }).catch(err => console.log("error", err))
+                
+}
+
+});
+
+}
+});
+
+const Child = document.querySelector(".niño");
+
+Child.addEventListener("click", (e)=>{
+e.preventDefault();
+
+if(e.target){
+
+     boxRutas.innerHTML = "";
+     caja.innerHTML = "";
+
+     const ChRem =  document.createElement("a");
+     const ChPant =  document.createElement("a");
+     ChRem.innerHTML = "Remeras";
+     ChPant.innerHTML = "Pantalones";
+     boxRutas.appendChild(ChRem);
+     boxRutas.appendChild(ChPant);
+     boxCargas.appendChild(boxRutas);
+
+    ChRem.addEventListener("click",async (e)=>{
+        e.preventDefault();
+        
+ if(e.target){
+  
+    const res = await fetch("/Nene/Remeras").then(res =>  res.json()).then(async data=>{
+        
+        DatosProdClient(data)
+       
+        }).catch(err => console.log("error", err))
+                
+}
+
+
+});
+
+
+ChPant.addEventListener("click",async (e)=>{
+    e.preventDefault();
+    
+    if(e.target){
+        
+        const res = await fetch("/Nene/Pantalones").then(res =>  res.json()).then(async data=>{
+            DatosProdClient(data);
+            
+        }).catch(err => console.log("error", err))
+        
+    }
+    
+});
+}
+
+})
+
+
+

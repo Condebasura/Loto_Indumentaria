@@ -80,6 +80,8 @@ const upload = multer({dest: 'public/uploads/'});
 app.get("/consulta", bd.ConsultProduct);
 app.get("/admin/consulta", bd.consultaUser);
 app.get("/", ProductControllers.GetIndex);
+app.post("/search", ProductControllers.SearchProd)
+app.get("/search", ProductControllers.SearchProd)
 app.get("/Hombres/Remeras", ProductControllers.DataProdHomR);
 app.get("/Hombres/Pantalones", ProductControllers.DataProdHomP);
 app.get("/Hombres/Accesorios", ProductControllers.DataProdHomA);

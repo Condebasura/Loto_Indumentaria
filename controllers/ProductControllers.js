@@ -26,7 +26,19 @@ const GetVisualProducto = (req, res) =>{
   res.sendFile(path.join(__dirname, 'public', 'html', 'visualProducto.html'))
 };
 
+const SearchProd = async (req, res)=>{
+    try {
+        const producto = req.body;
+     const data = await bd.consProducto();
+     if(data)
+        
+        console.log(data)
+        
 
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 const DataProdHomR = async (req, res)=>{
     try {
@@ -181,6 +193,7 @@ export default {
    GetMujeres,
    GetNiñas,
   GetNiños,
+  SearchProd,
   GetVisualProducto,
   DataProdHomR,
   DataProdHomP,

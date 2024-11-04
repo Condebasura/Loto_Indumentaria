@@ -8,24 +8,30 @@ const fragment = document.createDocumentFragment();
 
 
 
-const urls =[
-   'H-Rem',
-   'H-Pant',
-   'H-Acce',
-   'M-Rem',
-   'M-Pant',
-   'M-Vest',
-   'M-Acce',
-   'N-Rem',
-   'N-Pant',
-   'N-Vest',
-   'Ch-Rem',
-   'Ch-Pant'
-];
 // en camino a que funcione el buscador, falta tiempo ,!!!
-search.addEventListener("keypress", async (e, el) => {
- 
-        if(search.value == "" && e.key == "Enter"){
+search.addEventListener("search", async (e) => {
+e.preventDefault()
+ if(e.target){
+
+   const valor = search.value;
+const response = await fetch("/search", {
+   method:  "POST",
+   headers: {
+      "Content-Type": "application/json",
+   },
+   body: JSON.stringify({valor})
+});    
+const result = await response.json();
+console.log(result)
+    const res = await fetch("/search" ).then(res => res.json()).then(async data =>{
+       const datos =  JSON.stringify(data);
+       let obj = JSON.parse(datos);
+
+       console.log(obj)
+      })   
+      
+   }
+   /*  if(search.value == "" && e.key == "Enter"){
          Prod.classList.remove("product_search");
          
 
@@ -74,7 +80,7 @@ search.addEventListener("keypress", async (e, el) => {
                
                fragment.appendChild(clone);
                
-            } 
+            } /*
       });
      
     
@@ -86,13 +92,13 @@ search.addEventListener("keypress", async (e, el) => {
       }else{
          Prod.removeChild(noResult);
          
-      }*/
+      }
       
       Prod.appendChild(fragment);
 })
 
 }
-  }
+  }*/
 
  
 
