@@ -28,13 +28,23 @@ const GetVisualProducto = (req, res) =>{
 
 const SearchProd = async (req, res)=>{
     try {
-        const producto = req.body;
-     const data = await bd.consProducto();
-     if(data)
-        
-        console.log(data)
-        
+        const products = {
+            producto: req.body.valor,
+        }
 
+        const prod = products.producto;
+        const data = await bd.consProducto(products);
+
+        const DatProd = data[0].producto;
+
+        if(DatProd.includes(prod)){
+            res.status(200).json(data);
+        }else{
+            res.status(404).json({mensaje: "Sin datos"})
+        }
+       
+    
+        
     } catch (error) {
         console.log(error)
     }

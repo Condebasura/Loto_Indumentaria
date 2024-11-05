@@ -23,17 +23,19 @@ import sqlite3 from "sqlite3";
      
      };
 
-     const consProducto = async (producto)=>{
+     const consProducto = async (products)=>{
         try {
             return await new Promise((resolve, reject)=>{
-                let sql = "SELECT *  FROM products WHERE producto = ?";
+                let sql = 'SELECT *  FROM products WHERE producto LIKE ?';
+                let prod = products.producto;
                 
-                bd.all(sql, [producto], (err, row)=>{
+                bd.all(sql, [`%${prod}%`], (err, rows)=>{
                     if(err){
                         console.log(err);
                         reject(err);
                     }else{
-                        resolve(row);
+                        resolve(rows);
+                    
                     }
                 })
             })
