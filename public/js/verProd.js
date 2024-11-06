@@ -16,6 +16,7 @@ const boxRutas = document.createElement("div");
 const caja = document.createElement("div");
 const texto = document.createElement("h3");
 const boxCargas = document.querySelector(".content");
+const form = document.querySelector(".form_Pago");
 const $fragment = document.createDocumentFragment();
 
 const DatosProdClient = async (data) =>{

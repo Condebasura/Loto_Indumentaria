@@ -12,6 +12,12 @@ import ProductControllers from "./controllers/ProductControllers.js";
 import AdminControllers from "./controllers/AdminControllers.js";
 import bd from "./model/bd.js";
 
+
+
+
+
+
+
 const ScrT = "Puerto-Pasto-Coso"
 // Directorio dependiendo del tipo de sistema
 const __dirname = (process.platform === "win32")? fileURLToPath(new URL(".", import.meta.url)):path.dirname(new URL(import.meta.url).pathname);

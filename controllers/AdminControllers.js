@@ -5,7 +5,6 @@ import { ScrT } from "../app.js";
 import jwt from "jsonwebtoken";
 import fs from 'fs';
 
-
 const getAdmin = (req, res )=>{
     res.sendFile(path.join(__dirname, 'admin', 'html', 'IniciarCrear.html'))
 }
@@ -240,9 +239,6 @@ catch (error) {
 res.status(409).json({mwnsaje: "Ocurrio un problema al actualizar el producto!!"})    
 }
 } 
-
-
-
 
 
 const EliminarProducto = async (req , res)=>{
