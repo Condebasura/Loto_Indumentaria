@@ -4,6 +4,8 @@ import bd from "../model/bd.js";
 import { ScrT } from "../app.js";
 import jwt from "jsonwebtoken";
 import fs from 'fs';
+import { MercadoPagoConfig, Payment } from 'mercadopago';
+import { error } from "console";
 
 const getAdmin = (req, res )=>{
     res.sendFile(path.join(__dirname, 'admin', 'html', 'IniciarCrear.html'))
@@ -240,7 +242,14 @@ res.status(409).json({mwnsaje: "Ocurrio un problema al actualizar el producto!!"
 }
 } 
 
-
+const pago = async (req, res)=>{
+    const client = new MercadoPagoConfig({ accessToken: 'TEST-8903627529364535-110700-9770d295c0baff074494e738ea48e878-15967463' });
+    
+    const payment = new Payment(client);
+    payment.create({ body: req.body })
+    .then(res.status(200).json(payment))
+    .catch(console.log(error));
+}
 const EliminarProducto = async (req , res)=>{
     
     try{
@@ -304,6 +313,7 @@ export default {
     getDashbord,
     DataProd,
     ActualizarProd,
+    pago,
     EliminarProducto,
     logout,
 }

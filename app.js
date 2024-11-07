@@ -58,7 +58,20 @@ app.use(cors(corsOptions));
 app.use(helmet({ contentSecurityPolicy:{
     directives:{
       defaultSrc:["'self'"],
-
+      scriptSrc: [
+        "'self'",
+        "https://sdk.mercadopago.com",
+        "https://http2.mlstatic.com",
+         "'nonce-random_nonce_value'",
+      ],
+      connectSrc: [
+        "'self'",
+        "https://sdk.mercadopago.com",
+        "https://http2.mlstatic.com",
+        "https://api.mercadopago.com",
+          "https://events.mercadopago.com",
+        "https://api.mercadolibre.com",
+      ],
       styleSrc: ["'self'", "https://kit.fontawesome.com/523f183385.js","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" ,"'unsafe-inline'"],
   
       fontSrc: ["'self'", "https://kit.fontawesome.com/",  "cdnjs.cloudflare.com"],
@@ -111,7 +124,7 @@ app.post("/Product/delete", AdminControllers.DataProd);
 app.delete("/product/delete/:id/:img", AdminControllers.EliminarProducto);
 app.get("/admin/logout", AdminControllers.logout);
 app.post("/admin/addProducto",upload.array("archivos", 5), AdminControllers.postProduct);
-
+app.post("/process_payment", AdminControllers.pago);
  
 app.listen(port, ()=>{
     console.log(`la app esta escuchando el pueto ${port}` );

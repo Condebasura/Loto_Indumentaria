@@ -32,10 +32,10 @@ const SearchProd = async (req, res)=>{
             producto: req.body.valor,
         }
 
-        const prod = products.producto;
+        const prod = products.producto.toLowerCase();
         const data = await bd.consProducto(products);
 
-        const DatProd = data[0].producto;
+        const DatProd = data[0].producto.toLowerCase();
 
         if(DatProd.includes(prod)){
             res.status(200).json(data);

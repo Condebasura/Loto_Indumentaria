@@ -11,8 +11,9 @@ const fragment = document.createDocumentFragment();
 search.addEventListener("search", async (e) => {
    e.preventDefault()
    if (e.target) {
-
+         
       const valor = search.value;
+      
       const response = await fetch("/search", {
          method: "POST",
          headers: {
@@ -43,8 +44,9 @@ search.addEventListener("search", async (e) => {
          let imagenResponse = await fetch(imgURl);
          let imgBlob = await imagenResponse.blob();
          let imagenObjectURL = URL.createObjectURL(imgBlob);
-         
-         if (el.producto.toLowerCase().includes(search.value.toLowerCase())) {
+          const valorNormal = valor.toLowerCase();
+          
+         if (el.producto.toLowerCase().includes(valorNormal)) {
             
             template.querySelector("h3").textContent = el.producto;
             template.querySelector("h3").style.fontSize = "16px";
@@ -59,19 +61,22 @@ search.addEventListener("search", async (e) => {
 
             fragment.appendChild(clone);
 
-
-
-
+            
+            
+            
+            
 
 
          }
-
+         
       }
+      Prod.innerHTML = "";
       Prod.appendChild(fragment);
+      
    
 
    }
-})
+});
 
 
 
