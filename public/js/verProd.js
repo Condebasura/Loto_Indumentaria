@@ -19,6 +19,113 @@ const boxCargas = document.querySelector(".content");
 const btn = document.querySelector(".comprar");
 const $fragment = document.createDocumentFragment();
 
+
+const pagar = async (bestPrecio)=>{
+const precio = document.querySelector(".bestprecio");
+const precnmb = precio.innerHTML;
+const Elnum = precnmb.slice(1,7);
+const EnNumeros = Number(Elnum);
+
+
+
+  const modal = document.getElementById("modal");
+  if (typeof MercadoPago === 'undefined') {
+      console.error('El SDK de MercadoPago no está definido. Verifica que se haya cargado correctamente.');
+      return;
+    }
+      const mp = new MercadoPago('TEST-cda8ecd5-5002-43a8-a7d3-172588165057', {
+          locale: 'es-AR'
+        });
+        const bricksBuilder = mp.bricks();
+        if (window.paymentBrickController) {
+          // Opcional: elimina el Brick previo para evitar duplicados
+          window.paymentBrickController.unmount();
+        }
+          const renderPaymentBrick = async (bricksBuilder) => {
+            const settings = {
+              initialization: {
+                /*
+                  "amount" es el monto total a pagar por todos los medios de pago con excepción de la Cuenta de Mercado Pago y Cuotas sin tarjeta de crédito, las cuales tienen su valor de procesamiento determinado en el backend a través del "preferenceId"
+                */
+                amount: EnNumeros,
+                description: `${producto}`,
+                preferenceId: "15967463",
+                payer: {
+                  firstName: "",
+                  lastName: "",
+                  email: "",
+                },
+              },
+              customization: {
+                visual: {
+                  style: {
+                    theme: "default",
+                  },
+                },
+                paymentMethods: {
+                  creditCard: "all",
+                  debitCard: "all",
+                   ticket: "all",
+                    bankTransfer: "all",
+                  atm: "all",
+                   onboarding_credits: "all",
+                   wallet_purchase: "all",
+                  maxInstallments: 1
+                },
+              },
+              callbacks: {
+                onReady: () => {
+                  const parrafo = document.createElement("span");
+                  parrafo.innerHTML = `Va a efectuar el pago de ${producto.innerHTML} con un valor de $ ${Elnum}`;
+                  modal.appendChild(parrafo); 
+                  
+                 
+                },
+                onSubmit: ({ selectedPaymentMethod, formData }) => {
+                  // callback llamado al hacer clic en el botón de envío de datos
+                  return new  Promise((resolve, reject) => {
+                    fetch("/process_payment", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify(formData,selectedPaymentMethod),
+                    })
+                      .then((response) => response.json())
+                      .then(async(response) => {
+                        // recibir el resultado del pago
+                        resolve(response);
+                        
+                        
+                      })
+                      .catch((error) => {
+                        // manejar la respuesta de error al intentar crear el pago
+                        reject();
+                      });
+                  });
+                },
+                onError: (error) => {
+                  // callback llamado para todos los casos de error de Brick
+                  console.error(error);
+                },
+              },
+            };
+            
+            window.paymentBrickController = await bricksBuilder.create(
+              "payment",
+              "paymentBrick_container",
+              settings,
+              
+            );
+          };
+          renderPaymentBrick(bricksBuilder);
+          console.log()
+          
+      modal.showModal();
+  }
+
+
+
 const DatosProdClient = async (data) =>{
     let datos = JSON.stringify(data);
     let obj = JSON.parse(datos);
@@ -541,7 +648,6 @@ const   CodeError = () =>{
     interes.value = preNum / cuoNum;
     interes.textContent = interes.textContent + interes.value.toFixed(2);
     
-    
     for(let i = 0 ; i < S_tock; i ++){
       let valor = document.createElement("option");
       valor.innerHTML = `${i + 1}/u de ${S_tock} disp`
@@ -569,94 +675,8 @@ const   CodeError = () =>{
 informeImg();
 
 
-const pagar = async ()=>{
-    const modal = document.getElementById("modal");
-    if (typeof MercadoPago === 'undefined') {
-        console.error('El SDK de MercadoPago no está definido. Verifica que se haya cargado correctamente.');
-        return;
-      }
-        const mp = new MercadoPago('TEST-cda8ecd5-5002-43a8-a7d3-172588165057', {
-            locale: 'es-AR'
-          });
-          const bricksBuilder = mp.bricks();
-          if (window.paymentBrickController) {
-            // Opcional: elimina el Brick previo para evitar duplicados
-            window.paymentBrickController.unmount();
-          }
-            const renderPaymentBrick = async (bricksBuilder) => {
-              const settings = {
-                initialization: {
-                  /*
-                    "amount" es el monto total a pagar por todos los medios de pago con excepción de la Cuenta de Mercado Pago y Cuotas sin tarjeta de crédito, las cuales tienen su valor de procesamiento determinado en el backend a través del "preferenceId"
-                  */
-                  amount: 10000,
-                  preferenceId: "15967463",
-                  payer: {
-                    firstName: "",
-                    lastName: "",
-                    email: "",
-                  },
-                },
-                customization: {
-                  visual: {
-                    style: {
-                      theme: "default",
-                    },
-                  },
-                  paymentMethods: {
-                    creditCard: "all",
-                    debitCard: "all",
-                     ticket: "all",
-                      bankTransfer: "all",
-                    atm: "all",
-                     onboarding_credits: "all",
-                     wallet_purchase: "all",
-                    maxInstallments: 1
-                  },
-                },
-                callbacks: {
-                  onReady: () => {
-                    /*
-                     Callback llamado cuando el Brick está listo.
-                     Aquí puede ocultar cargamentos de su sitio, por ejemplo.
-                    */
-                  },
-                  onSubmit: ({ selectedPaymentMethod, formData }) => {
-                    // callback llamado al hacer clic en el botón de envío de datos
-                    return new Promise((resolve, reject) => {
-                      fetch("/process_payment", {
-                        method: "POST",
-                        headers: {
-                          "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(formData),
-                      })
-                        .then((response) => response.json())
-                        .then((response) => {
-                          // recibir el resultado del pago
-                          resolve();
-                        })
-                        .catch((error) => {
-                          // manejar la respuesta de error al intentar crear el pago
-                          reject();
-                        });
-                    });
-                  },
-                  onError: (error) => {
-                    // callback llamado para todos los casos de error de Brick
-                    console.error(error);
-                  },
-                },
-              };
-              window.paymentBrickController = await bricksBuilder.create(
-                "payment",
-                "paymentBrick_container",
-                settings
-              );
-            };
-            renderPaymentBrick(bricksBuilder);
-        modal.showModal();
-    }
 
 btn.addEventListener("click", pagar);
+
+
 export {archivo };

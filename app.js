@@ -58,6 +58,9 @@ app.use(cors(corsOptions));
 app.use(helmet({ contentSecurityPolicy:{
     directives:{
       defaultSrc:["'self'"],
+      frameSrc: ["'self'", 
+        "https://api-static.mercadopago.com", 
+        "https://www.mercadopago.com"],
       scriptSrc: [
         "'self'",
         "https://sdk.mercadopago.com",
@@ -71,6 +74,7 @@ app.use(helmet({ contentSecurityPolicy:{
         "https://api.mercadopago.com",
           "https://events.mercadopago.com",
         "https://api.mercadolibre.com",
+        "https://api-static.mercadopago.com/secure-fields",
       ],
       styleSrc: ["'self'", "https://kit.fontawesome.com/523f183385.js","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" ,"'unsafe-inline'"],
   

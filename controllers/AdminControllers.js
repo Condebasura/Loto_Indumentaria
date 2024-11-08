@@ -243,12 +243,15 @@ res.status(409).json({mwnsaje: "Ocurrio un problema al actualizar el producto!!"
 } 
 
 const pago = async (req, res)=>{
+
+    console.log(req.body)
     const client = new MercadoPagoConfig({ accessToken: 'TEST-8903627529364535-110700-9770d295c0baff074494e738ea48e878-15967463' });
     
     const payment = new Payment(client);
-    payment.create({ body: req.body })
-    .then(res.status(200).json(payment))
-    .catch(console.log(error));
+   const payBody =  payment.create({ body: req.body })
+   .then(res.status(200).json(payment))
+   .catch(console.log(error.message));
+   console.log(payBody)
 }
 const EliminarProducto = async (req , res)=>{
     
