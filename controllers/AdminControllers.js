@@ -5,7 +5,9 @@ import { ScrT } from "../app.js";
 import jwt from "jsonwebtoken";
 import fs from 'fs';
 import { MercadoPagoConfig, Payment } from 'mercadopago';
+
 import { error } from "console";
+
 
 const getAdmin = (req, res )=>{
     res.sendFile(path.join(__dirname, 'admin', 'html', 'IniciarCrear.html'))
@@ -244,14 +246,35 @@ res.status(409).json({mwnsaje: "Ocurrio un problema al actualizar el producto!!"
 
 const pago = async (req, res)=>{
 
-    console.log(req.body)
+    try{
     const client = new MercadoPagoConfig({ accessToken: 'TEST-8903627529364535-110700-9770d295c0baff074494e738ea48e878-15967463' });
+    console.log("El body",req.body)
+  const PaymentData = {
+      token: req.body.token,
+      issuer_id: req.body.issuer_id,
+      payment_method_id: req.body.payment_method_id,
+      transaction_amount:Number(req.body.transaction_amount),
+    installments: Number(req.body.installments),
+    payer:{
+email: req.body.payer.email,
+identification: req.body.payer.identification,
+
+    }
+  };
+console.log("El PaymentData",PaymentData);
+const payment = new Payment(client);
+const response = payment.create(PaymentData)
+  // Ver porque el response no devuelve nada.
+    const paymentid = response.response.id;
+    res.status(200).json({paymentid});
+    console.log(paymentid)
+}
+  catch(error){
+    console.error("Error creando el pago:", error ? JSON.stringify(error, Object.getOwnPropertyNames(error)) : "Error desconocido");
+    res.status(500).json({ error: "Hubo un error al crear el pago" });
     
-    const payment = new Payment(client);
-   const payBody =  payment.create({ body: req.body })
-   .then(res.status(200).json(payment))
-   .catch(console.log(error.message));
-   console.log(payBody)
+  
+}
 }
 const EliminarProducto = async (req , res)=>{
     

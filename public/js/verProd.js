@@ -23,7 +23,7 @@ const $fragment = document.createDocumentFragment();
 const pagar = async (bestPrecio)=>{
 const precio = document.querySelector(".bestprecio");
 const precnmb = precio.innerHTML;
-const Elnum = precnmb.slice(1,7);
+const Elnum = precnmb.slice(1,8);
 const EnNumeros = Number(Elnum);
 
 
@@ -48,7 +48,7 @@ const EnNumeros = Number(Elnum);
                   "amount" es el monto total a pagar por todos los medios de pago con excepción de la Cuenta de Mercado Pago y Cuotas sin tarjeta de crédito, las cuales tienen su valor de procesamiento determinado en el backend a través del "preferenceId"
                 */
                 amount: EnNumeros,
-                description: `${producto}`,
+                description: producto,
                 preferenceId: "15967463",
                 payer: {
                   firstName: "",
@@ -81,28 +81,27 @@ const EnNumeros = Number(Elnum);
                   
                  
                 },
-                onSubmit: ({ selectedPaymentMethod, formData }) => {
+                onSubmit: async ({ selectedPaymentMethod, formData }) => {
                   // callback llamado al hacer clic en el botón de envío de datos
-                  return new  Promise((resolve, reject) => {
-                    fetch("/process_payment", {
+                  
+                  const res = await fetch("/process_payment", {
                       method: "POST",
                       headers: {
                         "Content-Type": "application/json",
                       },
                       body: JSON.stringify(formData,selectedPaymentMethod),
                     })
-                      .then((response) => response.json())
-                      .then(async(response) => {
-                        // recibir el resultado del pago
-                        resolve(response);
+
+                    const data = res.json();
+                        const obj = JSON.parse(data);
+                        console.log(obj);
+                      if(res.status === 200){
                         
                         
-                      })
-                      .catch((error) => {
-                        // manejar la respuesta de error al intentar crear el pago
-                        reject();
-                      });
-                  });
+                      }else{
+console.log("nose")
+                      }
+                     
                 },
                 onError: (error) => {
                   // callback llamado para todos los casos de error de Brick
@@ -119,7 +118,8 @@ const EnNumeros = Number(Elnum);
             );
           };
           renderPaymentBrick(bricksBuilder);
-          console.log()
+          
+          
           
       modal.showModal();
   }
