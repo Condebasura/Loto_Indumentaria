@@ -9,6 +9,7 @@ import { MercadoPagoConfig, Payment } from 'mercadopago';
 import { error } from "console";
 
 
+
 const getAdmin = (req, res )=>{
     res.sendFile(path.join(__dirname, 'admin', 'html', 'IniciarCrear.html'))
 }
@@ -248,24 +249,32 @@ const pago = async (req, res)=>{
 
     try{
     const client = new MercadoPagoConfig({ accessToken: 'TEST-8903627529364535-110700-9770d295c0baff074494e738ea48e878-15967463' });
-    console.log("El body",req.body)
+    console.log("El body", req.body.transaction_amount)
   const PaymentData = {
-      token: req.body.token,
-      issuer_id: req.body.issuer_id,
-      payment_method_id: req.body.payment_method_id,
-      transaction_amount:Number(req.body.transaction_amount),
-    installments: Number(req.body.installments),
-    payer:{
-email: req.body.payer.email,
-identification: req.body.payer.identification,
+    body:{
 
+        token: req.body.token,
+        issuer_id: req.body.issuer_id,
+        payment_method_id: req.body.payment_method_id,
+        transaction_amount:Number(req.body.transaction_amount),
+        installments: Number(req.body.installments),
+        payer:{
+            email: req.body.payer.email,
+            identification: req.body.payer.identification,
+        }
+
+    },
+    requestOptions: {
+        idempotencyKey: req.body.idempotencyKet,
     }
   };
-console.log("El PaymentData",PaymentData);
+
 const payment = new Payment(client);
-const response = payment.create(PaymentData)
-  // Ver porque el response no devuelve nada.
-    const paymentid = response.response.id;
+
+const response = await payment.create(PaymentData)
+
+    const paymentid = response.id;
+
     res.status(200).json({paymentid});
     console.log(paymentid)
 }

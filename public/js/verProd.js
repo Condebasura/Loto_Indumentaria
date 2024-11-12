@@ -29,6 +29,7 @@ const EnNumeros = Number(Elnum);
 
 
   const modal = document.getElementById("modal");
+  
   if (typeof MercadoPago === 'undefined') {
       console.error('El SDK de MercadoPago no está definido. Verifica que se haya cargado correctamente.');
       return;
@@ -81,27 +82,69 @@ const EnNumeros = Number(Elnum);
                   
                  
                 },
-                onSubmit: async ({ selectedPaymentMethod, formData }) => {
+                onSubmit: ({ selectedPaymentMethod, formData }) => {
                   // callback llamado al hacer clic en el botón de envío de datos
-                  
-                  const res = await fetch("/process_payment", {
+                  return new Promise((resolve, reject) => {
+                    fetch("/process_payment", {
                       method: "POST",
                       headers: {
                         "Content-Type": "application/json",
                       },
-                      body: JSON.stringify(formData,selectedPaymentMethod),
+                      body: JSON.stringify(formData),
                     })
-
-                    const data = res.json();
-                        const obj = JSON.parse(data);
-                        console.log(obj);
-                      if(res.status === 200){
+                      .then((response) => response.json())
+                      .then((response) => {
+                        
+                       
+                        resolve(response);
+                        
+                        const mp = new MercadoPago('TEST-cda8ecd5-5002-43a8-a7d3-172588165057', { // Add your public key credential
+                          locale: 'es-AR'
+                        });
+                        const bricksStatus = mp.bricks();
+                        const renderStatusScreenBrick = async (bricksStatus) => {
+                          const settings = {
+                            initialization: {
+                              paymentId: response.paymentid, // Payment identifier, from which the status will be checked
+                            },
+                            customization: {
+                              visual: {
+                                hideStatusDetails: true,
+                                hideTransactionDate: true,
+                                style: {
+                                  theme: 'default', // 'default' | 'dark' | 'bootstrap' | 'flat'
+                                }
+                              },
+                              backUrls: {
+                                'error': '<http://<your domain>/error>',
+                                'return': '<http://localhost:3000>'
+                              }
+                            },
+                            callbacks: {
+                              onReady: () => {
+                              
+                              },
+                              onError: (error) => {
+                                // Callback called for all Brick error cases
+                              },
+                            },
+                          };
+                          
+                          window.statusScreenBrickController = await bricksStatus.create('statusScreen', 'statusScreenBrick_container', settings);
+                        };
+                        // ver porque no puedo crear un modal aparte para el pago efectuado y no se muestra el cuadro correcto
+                        modal.showModal();
+                        renderStatusScreenBrick(bricksStatus);
                         
                         
-                      }else{
-console.log("nose")
-                      }
-                     
+                         
+                      })
+                    
+                      .catch((error) => {
+                        // manejar la respuesta de error al intentar crear el pago
+                        reject();
+                      });
+                  });
                 },
                 onError: (error) => {
                   // callback llamado para todos los casos de error de Brick
@@ -118,9 +161,6 @@ console.log("nose")
             );
           };
           renderPaymentBrick(bricksBuilder);
-          
-          
-          
       modal.showModal();
   }
 
