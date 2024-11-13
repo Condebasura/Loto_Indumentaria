@@ -18,6 +18,8 @@ import bd from "./model/bd.js";
 
 
 
+
+
 const ScrT = "Puerto-Pasto-Coso"
 // Directorio dependiendo del tipo de sistema
 const __dirname = (process.platform === "win32")? fileURLToPath(new URL(".", import.meta.url)):path.dirname(new URL(import.meta.url).pathname);
@@ -53,6 +55,10 @@ const corsOptions = {
      // Encabezados permitidos
   
 };
+
+
+
+
 app.use(morgan("dev"));
 app.use(cors(corsOptions));
 app.use(helmet({ contentSecurityPolicy:{
@@ -65,7 +71,7 @@ app.use(helmet({ contentSecurityPolicy:{
         "'self'",
         "https://sdk.mercadopago.com",
         "https://http2.mlstatic.com",
-         "'nonce-random_nonce_value'",
+         
       ],
       connectSrc: [
         "'self'",
@@ -76,12 +82,15 @@ app.use(helmet({ contentSecurityPolicy:{
         "https://api.mercadolibre.com",
         "https://api-static.mercadopago.com/secure-fields",
       ],
-      styleSrc: ["'self'", "https://kit.fontawesome.com/523f183385.js","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" ,"'unsafe-inline'"],
+      styleSrc: ["'self'", "https://kit.fontawesome.com/523f183385.js",
+        "statusScreen.js","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" ,"'unsafe-inline'"],
   
       fontSrc: ["'self'", "https://kit.fontawesome.com/",  "cdnjs.cloudflare.com"],
   imgSrc: ["'self'", "data:", "blob:", 'https://http2.mlstatic.com'],
     }
   }}));
+  
+
 
 app.use(express.static(path.join(__dirname , 'public')));
 app.use(express.static(path.join(__dirname, 'admin')));

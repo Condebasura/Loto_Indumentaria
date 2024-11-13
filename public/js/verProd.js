@@ -16,6 +16,8 @@ const boxRutas = document.createElement("div");
 const caja = document.createElement("div");
 const texto = document.createElement("h3");
 const boxCargas = document.querySelector(".content");
+const datosProd = document.querySelector(".img-prod");
+const datos = document.querySelector(".datos")
 const btn = document.querySelector(".comprar");
 const $fragment = document.createDocumentFragment();
 
@@ -92,8 +94,10 @@ const EnNumeros = Number(Elnum);
                       },
                       body: JSON.stringify(formData),
                     })
+                    
                       .then((response) => response.json())
                       .then((response) => {
+                    console.log("despues del post , dentro de then, despues de response");
                         
                        
                         resolve(response);
@@ -116,8 +120,8 @@ const EnNumeros = Number(Elnum);
                                 }
                               },
                               backUrls: {
-                                'error': '<http://<your domain>/error>',
-                                'return': '<http://localhost:3000>'
+                                'error': 'http://localhost:3000/visualProducto.html',
+                                'return':  "http://localhost:3000/visualProducto.html",
                               }
                             },
                             callbacks: {
@@ -132,9 +136,19 @@ const EnNumeros = Number(Elnum);
                           
                           window.statusScreenBrickController = await bricksStatus.create('statusScreen', 'statusScreenBrick_container', settings);
                         };
-                        // ver porque no puedo crear un modal aparte para el pago efectuado y no se muestra el cuadro correcto
-                        modal.showModal();
-                        renderStatusScreenBrick(bricksStatus);
+                             
+                             const payCont = document.getElementById("paymentBrick_container");
+                            const statusScreen = document.createElement("div")
+                            statusScreen.setAttribute("id", "statusScreenBrick_container");
+                            modal.remove(payCont)
+                            renderStatusScreenBrick(bricksStatus);
+                            boxCargas.removeChild(datosProd);
+                            boxCargas.removeChild(datos);
+                            boxCargas.appendChild(statusScreen);
+                            
+                            
+
+                           
                         
                         
                          
