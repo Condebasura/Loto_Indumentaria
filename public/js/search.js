@@ -13,6 +13,7 @@ search.addEventListener("search", async (e) => {
    if (e.target) {
          
       const valor = search.value;
+      console.log(valor)
       
       const response = await fetch("/search", {
          method: "POST",
@@ -23,16 +24,16 @@ search.addEventListener("search", async (e) => {
       });
       const result = await response.json();
 
-      if(search.value == "" && e.key == "Enter"){
+      if( valor === ""){
          Prod.classList.remove("product_search");
+         Prod.classList.remove("product");
          
 
         }
-    if(e.key === "Enter" && search.value != ""){  
+   else if( valor !== "" ){  
      
-      Prod.classList.add("product_search");
       Prod.classList.remove("product");
-    }
+      Prod.classList.add("product_search");
       for (let el of result) {
          let bestPrecio = Number(el.precio);
          let desc = Number(el.descuento);
@@ -56,10 +57,11 @@ search.addEventListener("search", async (e) => {
             template.querySelector("a").setAttribute("class", "ver_prod");
             // encontrar la manera de que se carguen los datos al ingresar al producto en la busqueda
             template.querySelector("a").href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
-
+            
             let clone = document.importNode(template, true);
-
+            
             fragment.appendChild(clone);
+         }
 
             
             

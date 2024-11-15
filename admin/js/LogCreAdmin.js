@@ -40,6 +40,12 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         modal.appendChild(form)
         modal.showModal();
     
+        document.addEventListener("keyup", (e)=>{
+            e.preventDefault();
+            if(e.key === "Escape"){
+                modal.showModal();
+            }
+        })
         form.addEventListener("submit", (e)=>{
             e.preventDefault();
 
@@ -56,7 +62,16 @@ document.addEventListener("DOMContentLoaded", (e)=>{
                         });
                         const data = await res.text();
                         if(res.status === 401){
-                            console.log("Credenciales incorrectas")
+                            const parrafo = document.createElement("p");
+                            parrafo.innerHTML = "Credenciales incorrectas";
+                            parrafo.style.fontSize = "12px";
+                            parrafo.style.color = "red";
+                            parrafo.style.margin = "0%";
+                            form.appendChild(parrafo);
+                            
+                            setTimeout(() => {
+                                form.removeChild(parrafo)
+                            }, 5000);
                         }
                         else if(res.status === 200){
                             console.log("inicio correcto");
@@ -194,20 +209,26 @@ document.addEventListener("DOMContentLoaded", (e)=>{
                       modal.style.background = "rgba(190, 20 ,50 , 0.86)";
                       parr.style.textShadow = "2px 2px 2px #000";
                       parr.style.color = "white"
-                      modal.showModal()
-                      return location.reload();
+                      modal.showModal();
+                      setTimeout(() => {
+                        
+                          return location.reload();
+                      }, 2000);
             }
               else if(res.status === 200){
                     modal.innerHTML = "";
                let obj = JSON.parse(data);
                  let parrafo = document.createElement("p");
                     parrafo.innerHTML = obj.mensaje;
-                    modal.style.background ="rgba(130,803, 120, 0.46)";
-                    parrafo.style.textShadow = "2px 2px 2px #000";
-                    parrafo.style.color = "white"
+                    modal.style.background ="rgba(30,723, 20)";
+                    parrafo.style.textShadow = "2px 2px 5px #000";
+                    parrafo.style.color = "rgb(255,255,255)"
                      modal.appendChild(parrafo);
                      modal.showModal()
-                     return location.reload();
+                     setTimeout(() => {
+                        
+                        return location.reload();
+                    }, 2000);
                     }
                      
             }

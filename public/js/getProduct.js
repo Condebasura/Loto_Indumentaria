@@ -3,6 +3,7 @@ const boxCargas = document.querySelector(".boxCargas");
 const boxRutas = document.createElement("div");
 const caja = document.createElement("div");
 const texto = document.createElement("h3");
+const footer = document.querySelector("footer");
 const $fragment = document.createDocumentFragment();
 
 const DatosProdClient = async (data) =>{
@@ -10,11 +11,14 @@ const DatosProdClient = async (data) =>{
     let obj = JSON.parse(datos);
     if (obj.length === 0) {
         caja.innerHTML = "";
-
+       footer.style.position = "fixed";
+       footer.style.bottom = "1px";
         texto.innerHTML = "No hay productos!!";
         $fragment.appendChild(texto);
 
     } else {
+          footer.style.position = "static";
+       footer.style.bottom = "1px";
     for(let el of obj){
         
         
