@@ -54,10 +54,13 @@ const pagar = async (bestPrecio) => {
         description: producto,
         preferenceId: "15967463",
         payer: {
-          firstName: "",
-          lastName: "",
+          
           email: "",
-        },
+          identification:{
+            type: "",
+            number: "",
+          }
+        }
       },
       customization: {
         visual: {
@@ -95,12 +98,16 @@ const pagar = async (bestPrecio) => {
               .then((response) => {
                 console.log("despues del post , dentro de then, despues de response");
 
+                console.log("El response",response);
                   const url = window.location.href;
                 resolve(response);
-
                 const mp = new MercadoPago('TEST-cda8ecd5-5002-43a8-a7d3-172588165057', { // Add your public key credential
                   locale: 'es-AR'
-                });
+                }).catch(error => {
+                   reject(error)  
+                  console.log(error)
+                }
+              )
                 const bricksStatus = mp.bricks();
                 const renderStatusScreenBrick = async (bricksStatus) => {
                   const settings = {

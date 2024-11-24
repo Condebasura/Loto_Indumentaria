@@ -4,7 +4,7 @@ import bd from "../model/bd.js";
 import { ScrT } from "../app.js";
 import jwt from "jsonwebtoken";
 import fs from 'fs';
-import { MercadoPagoConfig, Payment } from 'mercadopago';
+import { IdentificationType, MercadoPagoConfig, Payment } from 'mercadopago';
 
 import { error } from "console";
 
@@ -250,37 +250,52 @@ const pago = async (req, res)=>{
     try{
     const client = new MercadoPagoConfig({ accessToken: 'TEST-8903627529364535-110700-9770d295c0baff074494e738ea48e878-15967463' });
     console.log("El body", req.body.transaction_amount)
-  const PaymentData = {
-    body:{
+const typeIdenti = req.body.payer.identification.type;
+const numIdenti = req.body.payer.identification.number;
 
-        token: req.body.token,
-        issuer_id: req.body.issuer_id,
-        payment_method_id: req.body.payment_method_id,
-        transaction_amount:Number(req.body.transaction_amount),
-        installments: Number(req.body.installments),
-        payer:{
-            email: req.body.payer.email,
-            identification: req.body.payer.identification,
+
+console.log(typeIdenti, numIdenti)
+    const PaymentData = {
+        
+        body:{
+            
+            token: req.body.token,
+            issuer_id: req.body.issuer_id,
+            payment_method_id: req.body.payment_method_id,
+            transaction_amount:Number(req.body.transaction_amount),
+            installments: Number(req.body.installments),
+            payer:{
+                email: req.body.payer.email,
+                identification:{
+                    type: req.body.payer.identification.type,
+                    number: req.body.payer.identification.number,
+                }
         }
 
-    },
-    requestOptions: {
-        idempotencyKey: req.body.idempotencyKet,
-    }
-  };
+            
+    
+    
+    
+    
+}
 
-const payment = new Payment(client);
-
-const response = await payment.create(PaymentData)
-
+        };
+       console.log(PaymentData.body.payer.identification)
+    
+    console.log("PaymentData", PaymentData)
+    const payment = new Payment(client);
+    
+    const response = await payment.create(PaymentData)
+    
     const paymentid = response.id;
-
+    console.log("El paymentid",paymentid)
+    
     res.status(200).json({paymentid});
-    console.log(paymentid)
+
 }
   catch(error){
     console.error("Error creando el pago:", error ? JSON.stringify(error, Object.getOwnPropertyNames(error)) : "Error desconocido");
-    res.status(500).json({ error: "Hubo un error al crear el pago" });
+    res.status(500).json( JSON.stringify(error , Object.getOwnPropertyNames(error)) );
     
   
 }
