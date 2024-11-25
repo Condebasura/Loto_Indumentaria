@@ -266,19 +266,16 @@ console.log(typeIdenti, numIdenti)
             installments: Number(req.body.installments),
             payer:{
                 email: req.body.payer.email,
-                identification:{
-                    type: req.body.payer.identification.type,
-                    number: req.body.payer.identification.number,
-                }
-        }
-
-            
-    
-    
-    
-    
-}
-
+            },
+              /*identification:{
+                    type: typeIdenti,
+                    number: numIdenti,
+                }*/
+  
+},
+ requestOptions: {
+idempotencyKey: req.body.requestOptions,
+},
         };
        console.log(PaymentData.body.payer.identification)
     

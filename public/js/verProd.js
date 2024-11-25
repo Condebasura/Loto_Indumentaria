@@ -56,11 +56,12 @@ const pagar = async (bestPrecio) => {
         payer: {
           
           email: "",
-          identification:{
+        },
+       /* identification:{
             type: "",
             number: "",
-          }
-        }
+          }*/
+        
       },
       customization: {
         visual: {
