@@ -254,6 +254,7 @@ const typeIdenti = req.body.payer.identification.type;
 const numIdenti = req.body.payer.identification.number;
 
 
+
 console.log(typeIdenti, numIdenti)
     const PaymentData = {
         
@@ -265,29 +266,30 @@ console.log(typeIdenti, numIdenti)
             transaction_amount:Number(req.body.transaction_amount),
             installments: Number(req.body.installments),
             payer:{
+            
                 email: req.body.payer.email,
             },
-              /*identification:{
-                    type: typeIdenti,
-                    number: numIdenti,
-                }*/
+            identification:{
+                type: typeIdenti ,
+                number: numIdenti,
+            }
   
 },
  requestOptions: {
-idempotencyKey: req.body.requestOptions,
+idempotencyKey: req.body.requestOptions || `key-${Date.now()}`,
 },
         };
-       console.log(PaymentData.body.payer.identification)
+       
     
     console.log("PaymentData", PaymentData)
     const payment = new Payment(client);
     
     const response = await payment.create(PaymentData)
-    
+    console.log("Respuesta de mercadopago", response)
     const paymentid = response.id;
     console.log("El paymentid",paymentid)
     
-    res.status(200).json({paymentid});
+    res.status(200).json(paymentid);
 
 }
   catch(error){

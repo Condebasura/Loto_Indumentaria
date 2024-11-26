@@ -54,13 +54,13 @@ const pagar = async (bestPrecio) => {
         description: producto,
         preferenceId: "15967463",
         payer: {
-          
+        
           email: "",
         },
-       /* identification:{
+           identification:{
             type: "",
             number: "",
-          }*/
+        }
         
       },
       customization: {
@@ -86,7 +86,7 @@ const pagar = async (bestPrecio) => {
         },
         onSubmit: ({ selectedPaymentMethod, formData }) => {
           // callback llamado al hacer clic en el botón de envío de datos
-          return new Promise((resolve, reject) => {
+          return new Promise(  (resolve, reject) => {
             fetch("/process_payment", {
               method: "POST",
               headers: {
@@ -95,25 +95,27 @@ const pagar = async (bestPrecio) => {
               body: JSON.stringify(formData),
             })
 
-              .then((response) => response.json())
+              .then((response) =>  response.json())
               .then((response) => {
                 console.log("despues del post , dentro de then, despues de response");
 
                 console.log("El response",response);
                   const url = window.location.href;
-                resolve(response);
+                resolve(response)
+
+                
+               
                 const mp = new MercadoPago('TEST-cda8ecd5-5002-43a8-a7d3-172588165057', { // Add your public key credential
                   locale: 'es-AR'
-                }).catch(error => {
-                   reject(error)  
-                  console.log(error)
-                }
-              )
+                })
+              
                 const bricksStatus = mp.bricks();
                 const renderStatusScreenBrick = async (bricksStatus) => {
-                  const settings = {
-                    initialization: {
-                      paymentId: response.paymentid, // Payment identifier, from which the status will be checked
+                  
+
+                    const settings = {
+                      initialization: {
+                      paymentId:  response.paymentId, // Payment identifier, from which the status will be checked
                     },
                     customization: {
                       visual: {
@@ -140,27 +142,19 @@ const pagar = async (bestPrecio) => {
 
                   window.statusScreenBrickController = await bricksStatus.create('statusScreen', 'statusScreenBrick_container', settings);
                 };
-
-
+                
+                
                 const statusScreen = document.createElement("div")
                 statusScreen.setAttribute("id", "statusScreenBrick_container");
                 
                 
-
+                
                 boxCargas.removeChild(PayBrinck);
                 renderStatusScreenBrick(bricksStatus);
                 boxCargas.appendChild(statusScreen);
                 
-
-
-
-
-
-
-
-
               })
-
+            
               .catch((error) => {
                 // manejar la respuesta de error al intentar crear el pago
                 reject();
