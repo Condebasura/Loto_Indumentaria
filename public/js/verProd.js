@@ -54,13 +54,12 @@ const pagar = async (bestPrecio) => {
         description: producto,
         preferenceId: "15967463",
         payer: {
-        
+          firstName: "",
+            lastName: "",
           email: "",
+          
+          
         },
-           identification:{
-            type: "",
-            number: "",
-        }
         
       },
       customization: {
@@ -115,7 +114,7 @@ const pagar = async (bestPrecio) => {
 
                     const settings = {
                       initialization: {
-                      paymentId:  response.paymentId, // Payment identifier, from which the status will be checked
+                      paymentId:  response, // Payment identifier, from which the status will be checked
                     },
                     customization: {
                       visual: {
@@ -144,7 +143,7 @@ const pagar = async (bestPrecio) => {
                 };
                 
                 
-                const statusScreen = document.createElement("div")
+                const statusScreen = document.createElement("div");
                 statusScreen.setAttribute("id", "statusScreenBrick_container");
                 
                 
@@ -157,7 +156,7 @@ const pagar = async (bestPrecio) => {
             
               .catch((error) => {
                 // manejar la respuesta de error al intentar crear el pago
-                reject();
+                reject(error);
               });
           });
         },

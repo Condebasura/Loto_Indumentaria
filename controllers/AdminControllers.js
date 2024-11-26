@@ -7,6 +7,7 @@ import fs from 'fs';
 import { IdentificationType, MercadoPagoConfig, Payment } from 'mercadopago';
 
 import { error } from "console";
+import { type } from "os";
 
 
 
@@ -249,13 +250,8 @@ const pago = async (req, res)=>{
 
     try{
     const client = new MercadoPagoConfig({ accessToken: 'TEST-8903627529364535-110700-9770d295c0baff074494e738ea48e878-15967463' });
-    console.log("El body", req.body.transaction_amount)
-const typeIdenti = req.body.payer.identification.type;
-const numIdenti = req.body.payer.identification.number;
-
-
-
-console.log(typeIdenti, numIdenti)
+    
+  
     const PaymentData = {
         
         body:{
@@ -266,13 +262,9 @@ console.log(typeIdenti, numIdenti)
             transaction_amount:Number(req.body.transaction_amount),
             installments: Number(req.body.installments),
             payer:{
-            
                 email: req.body.payer.email,
+              
             },
-            identification:{
-                type: typeIdenti ,
-                number: numIdenti,
-            }
   
 },
  requestOptions: {
@@ -285,7 +277,7 @@ idempotencyKey: req.body.requestOptions || `key-${Date.now()}`,
     const payment = new Payment(client);
     
     const response = await payment.create(PaymentData)
-    console.log("Respuesta de mercadopago", response)
+    
     const paymentid = response.id;
     console.log("El paymentid",paymentid)
     
