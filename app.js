@@ -20,34 +20,66 @@ import bd from "./model/bd.js";
 
 
 
-const ScrT = "Puerto-Pasto-Coso"
+const ADMIN_SECRET = "Puerto-Pasto-Coso";
+const USER_SECRET = "Doyo-Tacho-Picho";
 // Directorio dependiendo del tipo de sistema
 const __dirname = (process.platform === "win32")? fileURLToPath(new URL(".", import.meta.url)):path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
 const port = 3000;
 
-
-
-
-app.use("usuario",expressjwt({
-  secret: ScrT , algorithms: ['HS256'],
+// Middleware para usuario
+const usuarioAuth = expressjwt({
+  secret: USER_SECRET,
+  algorithms: ["HS256"],
   credentialsRequired: false,
   getToken: function fromHeaderOrQuerystring(req) {
     if (
       req.headers.authorization &&
       req.headers.authorization.split(" ")[0] === "Bearer"
     ) {
-     
       return req.headers.authorization.split(" ")[1];
     } else if (req.query && req.query.token) {
-     
       return req.query.token;
     }
     return null;
   },
-  
-}));
+});
+
+// Middleware para admin
+const adminAuth = expressjwt({
+  secret: ADMIN_SECRET,
+  algorithms: ["HS256"],
+  credentialsRequired: false,
+  getToken: function fromHeaderOrQuerystring(req) {
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.split(" ")[0] === "Bearer"
+    ) {
+      return req.headers.authorization.split(" ")[1];
+    } else if (req.query && req.query.token) {
+      return req.query.token;
+    }
+    return null;
+  },
+});
+
+// Rutas protegidas para usuarios
+app.use("usuario", usuarioAuth, (req, res) => {
+  if (!req.auth) {
+    return res.status(401).send("No autenticado");
+  }
+  res.send("Acceso permitido para usuario");
+});
+
+// Rutas protegidas para admin
+app.use("admin", adminAuth, (req, res) => {
+  if (!req.auth) {
+    return res.status(401).send("No autenticado");
+  }
+  res.send("Acceso permitido para admin");
+});
+
 const corsOptions = {
     origin: '*' ,  // Origen permitido (puedes usar * para permitir todo)
     methods: 'GET,POST,PUT,DELETE', // Métodos permitidos
@@ -146,5 +178,6 @@ app.listen(port, ()=>{
 
 export  {
     __dirname,
-    ScrT,
+    ADMIN_SECRET,
+    USER_SECRET,
 }

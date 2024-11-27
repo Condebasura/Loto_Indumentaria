@@ -1,13 +1,13 @@
 import path, { join } from "path";
 import {__dirname} from "../app.js";
 import bd from "../model/bd.js";
-import { ScrT } from "../app.js";
+import {ADMIN_SECRET } from "../app.js";
+import { USER_SECRET } from "../app.js";
 import jwt from "jsonwebtoken";
 import fs from 'fs';
 import { IdentificationType, MercadoPagoConfig, Payment } from 'mercadopago';
 
-import { error } from "console";
-import { type } from "os";
+
 
 
 
@@ -38,7 +38,7 @@ const PostUser = async(req, res)=>{
              }
               const token = jwt.sign({
                 pay, User
-              }, ScrT);
+              }, ADMIN_SECRET);
               res.cookie('mitoken', token,  { sameSite: 'Strict' } , {
                 httpOnly: true
             });
@@ -59,7 +59,7 @@ const getDashbord = async(req,res)=>{
         if(!tkn){
            return  res.status(401).json({mensaje:"Credenciales incorrectas"});
         }
-    jwt.verify(tkn, ScrT, async(err)=>{
+    jwt.verify(tkn, ADMIN_SECRET, async(err)=>{
         if(err){
             console.error(err.message);
 			return	 res.status(409).json({mensaje: "Ocurio un error al cargar"});
