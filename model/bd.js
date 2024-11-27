@@ -202,7 +202,7 @@ const GetProdHomR = async ()=>{
         }
       };
 
-      const GetProdNanaP = async ()=>{
+      const GetProdNenaP = async ()=>{
         try {
          return await new Promise((resolve, reject)=>{
              let sql = 'SELECT * FROM products WHERE seccion = "Niña" AND subSeccion = "Pantalones" ';
@@ -260,7 +260,7 @@ const GetProdHomR = async ()=>{
         }
       };
 
-      const GetProdNaneP = async ()=>{
+      const GetProdNeneP = async ()=>{
         try {
          return await new Promise((resolve, reject)=>{
              let sql = 'SELECT * FROM products WHERE seccion = "Niño" AND subSeccion = "Pantalones" ';
@@ -411,10 +411,10 @@ console.log("Producto eliminado con exito")
         GetProdMujV,
         GetProdMujA,
         GetProdNenaR,
-        GetProdNanaP,
+        GetProdNenaP,
         GetProdNenaV,
         GetProdNeneR,
-          GetProdNaneP,
+          GetProdNeneP,
         InsertProducto,
         consultaUser,
         InsertUser,

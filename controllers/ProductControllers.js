@@ -149,7 +149,7 @@ const DataProdNenaR = async (req, res)=>{
 
 const DataProdNenaP = async (req, res)=>{
     try {
-        const data = await bd.GetProdNanaP();
+        const data = await bd.GetProdNenaP();
         if(data){
            
             res.status(200).json(data);
@@ -185,7 +185,7 @@ const DataProdNeneR = async (req, res)=>{
 
 const DataProdNeneP = async (req, res)=>{
     try {
-        const data = await bd.GetProdNaneP();
+        const data = await bd.GetProdNeneP();
         if(data){
             
             res.status(200).json(data);
