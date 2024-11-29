@@ -10,6 +10,7 @@ import cookieParser from "cookie-parser";
 import { fileURLToPath } from "url";
 import ProductControllers from "./controllers/ProductControllers.js";
 import AdminControllers from "./controllers/AdminControllers.js";
+import UsuarioControllers from "./controllers/UsuarioControllers.js";
 import bd from "./model/bd.js";
 
 
@@ -169,7 +170,9 @@ app.post("/Product/delete", AdminControllers.DataProd);
 app.delete("/product/delete/:id/:img", AdminControllers.EliminarProducto);
 app.get("/admin/logout", AdminControllers.logout);
 app.post("/admin/addProducto",upload.array("archivos", 5), AdminControllers.postProduct);
+app.post("/usuario", UsuarioControllers.PostUsuario);
 app.post("/process_payment", AdminControllers.pago);
+
  
 app.listen(port, ()=>{
     console.log(`la app esta escuchando el pueto ${port}` );

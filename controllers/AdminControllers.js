@@ -2,7 +2,6 @@ import path, { join } from "path";
 import {__dirname} from "../app.js";
 import bd from "../model/bd.js";
 import {ADMIN_SECRET } from "../app.js";
-import { USER_SECRET } from "../app.js";
 import jwt from "jsonwebtoken";
 import fs from 'fs';
 import { IdentificationType, MercadoPagoConfig, Payment } from 'mercadopago';
