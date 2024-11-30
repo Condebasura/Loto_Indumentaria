@@ -42,7 +42,31 @@ const PostUsuario = async (req, res)=>{
     }
 };
 
+const CrearUsuario = async (req, res)=>{
+    try {
+         const usuario = {
+            nombre: req.body.InputNombre,
+            email: req.body.InputCorreo, 
+            password: req.body.InputPassword,
+
+         }
+           const EnUso = await bd.EmailenUso(usuario)
+           if(!EnUso){
+              await bd.CrearUsuario(usuario);
+              res.status(200);
+              res.json({mensaje: "Usuario creado con exito"});
+           }else if(EnUso){
+            res.status(409);
+            res.json({mensaje:`El email ${usuario.email} Ya esta en uso`});
+
+           }
+
+    } catch (error) {
+        res.json({mensaje:"Ocurrio un error al insertar los datos!!"})
+    }
+}
 
 export default{
     PostUsuario,
+    CrearUsuario,
 }

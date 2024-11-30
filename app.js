@@ -171,6 +171,7 @@ app.delete("/product/delete/:id/:img", AdminControllers.EliminarProducto);
 app.get("/admin/logout", AdminControllers.logout);
 app.post("/admin/addProducto",upload.array("archivos", 5), AdminControllers.postProduct);
 app.post("/usuario", UsuarioControllers.PostUsuario);
+app.post("/CrearUsuario", UsuarioControllers.CrearUsuario)
 app.post("/process_payment", AdminControllers.pago);
 
  

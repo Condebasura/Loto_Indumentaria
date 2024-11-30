@@ -37,7 +37,45 @@ Create.addEventListener("click", (e)=>{
 
          modal.showModal();
 
+        form.addEventListener("submit", (e)=>{
+          e.preventDefault();
 
+          const PastData = async (InputNombre, InputCorreo , InputPassword)=>{
+            try {
+                
+                const res = await fetch("CrearUsuario",{
+                  method: "POST",
+                  headers:{
+                    "Content-Type": "application/json"
+                  },
+                  body: JSON.stringify({InputNombre, InputCorreo, InputPassword})
+                 });
+                 const data = await res.text();
+
+                 if(res.status === 200){
+                    modal.innerHTML = "";
+                    const obj = JSON.parse(data);
+                    const parrafo = document.createElement("p");
+                    parrafo.innerHTML = obj.mensaje;
+                    modal.appendChild(parrafo);
+                    modal.showModal();
+
+                 }else if(res.status === 409){
+                    modal.innerHTML = "";
+                    const obj = JSON.parse(data);
+                    const parrafo = document.createElement("p");
+                    parrafo.innerHTML = obj.mensaje;
+                    modal.appendChild(parrafo);
+                    modal.showModal();
+                 }
+
+            } catch (error) {
+                console.log(error.mensaje)
+            }
+          }
+
+          PastData(InputNombre.value, InputCorreo.value, InputPassword.value)
+        })
 
         }
     })

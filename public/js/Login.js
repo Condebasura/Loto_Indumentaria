@@ -92,6 +92,8 @@ Login.addEventListener("click", (e)=>{
                         DivUser.appendChild(Perfil);
                         DivUser.appendChild(Logout);
                         modal.close();
+                         
+
                      }
 
              } catch (error) {
