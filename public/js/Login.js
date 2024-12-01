@@ -1,4 +1,4 @@
-const DivUser = document.querySelector(".Login_Regis");
+
 const Create = document.querySelector(".Create");
 const Login = document.querySelector(".Login");
 const modal = document.getElementById("modal");
@@ -14,6 +14,7 @@ Login.addEventListener("click", (e)=>{
          const InputEmail = document.createElement("input");
          const LabelPass = document.createElement("label");
          const InputPass = document.createElement("input");
+         const NoPass = document.createElement("p");
          const parrafo = document.createElement("p");
          const btn = document.createElement("button");
           
@@ -27,6 +28,7 @@ Login.addEventListener("click", (e)=>{
          titulo.innerHTML = "Iniciar Sesion";
          LabelEmail.innerHTML = "Email";
          LabelPass.innerHTML = "Password";
+         NoPass.innerHTML = "Olvido la contraseña ?";
          
          btn.innerHTML = "iniciar sesion";
 
@@ -38,6 +40,7 @@ Login.addEventListener("click", (e)=>{
          form.appendChild(InputEmail);
          form.appendChild(LabelPass);
          form.appendChild(InputPass);
+         form.appendChild(NoPass);
          form.appendChild(parrafo);
          form.appendChild(btn);
         
@@ -83,15 +86,9 @@ Login.addEventListener("click", (e)=>{
                         let coso = document.cookie = 'SesionTKs=' + " "+tokenJWT + ';path=/';
                         document.cookie = 'SesionTks=' + " " +tokenJWT + ';path=/';
                          
-                        const Perfil = document.createElement("span");
-                        const Logout = document.createElement("span");
-                        Perfil.innerHTML = "usuario";
-                        Logout.innerHTML = "Logout";
-                        DivUser.removeChild(Login);
-                        DivUser.removeChild(Create);
-                        DivUser.appendChild(Perfil);
-                        DivUser.appendChild(Logout);
+                        
                         modal.close();
+                        window.location.reload();
                          
 
                      }
@@ -103,7 +100,43 @@ Login.addEventListener("click", (e)=>{
 
            }
            IniSesion(InputEmail.value , InputPass.value)
-           
+
+           const loader = document.createElement("div");
+           loader.setAttribute("class", "fa-solid fa-circle-notch"); 
+           NoPass.addEventListener("click", async(e)=>{
+               e.preventDefault();
+               NoPass.appendChild(loader);
+               if(e.target){
+                   loader.style.display = "inline-block";
+                   
+                   let mail = InputEmail.value;
+                   
+                 const res = await fetch("RecuperarPass", {
+                   method: "POST",
+                   headers: {
+                       "Content-Type": "application/json"
+                   },
+                   body: JSON.stringify({mail})
+                  })
+                  const result = await res.text();
+                  const datos = await JSON.parse(result);
+                  try{
+                    if(res.status === 250){
+       
+                          modal.innerHTML = "";
+                          let parrafoRecu = document.createElement("h2");
+                          parrafoRecu.setAttribute("class", "SendEmail");
+                          parrafoRecu.innerHTML = datos.mensaje;
+                          modal.appendChild(parrafoRecu);
+                          modal.showModal();
+                          NoPass.removeChild(loader);
+                       }
+                       
+                   }catch(err){
+                       console.log(err);
+                   }
+               }
+           })
         })
 
     }

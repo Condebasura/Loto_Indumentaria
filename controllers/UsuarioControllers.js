@@ -66,7 +66,96 @@ const CrearUsuario = async (req, res)=>{
     }
 }
 
+
+const GetUsuario = async (req, res)=>{
+try {
+    const token = req.cookies.mitoken;
+    const secret = USER_SECRET;
+    if(!token){
+        return res.status(401).render("CloseSesion", {mensaje: "La sesion ha caducado"})
+    }
+jwt.verify(token, secret, async(err, usuario)=>{
+    if(err){
+        console.error(err.message);
+					return res.status(409).json({mensaje: "Ocurio un error al cargar los datos del usuario"});
+    }else{
+        res.status(200).json({token});
+    }
+})
+} catch (error) {
+    console.log(error.mensaje)
+}
+};
+
+const PostRecuPass = async (req, res)=>{
+     try {
+        const UserEmail = req.body.InputEmail;
+
+        const transport = nodemailer.createTransport({
+            host: "smtp.freesmtpservers.com", 
+            port:587 ,
+            saecure:false,
+            tls: {
+                rejectUnauthorized: false 
+              }
+            
+           
+        });
+        async function main() {
+            const secret = USER_SECRET;
+            const token = jwt.sign({UserEmail}, secret,{
+                expiresIn: '1h'
+            });
+            const info = await transport.sendMail({
+                from: '"Loto Indumentaria <Loto_Indumentaria@gmail.com>',
+                to: `${UserEmail}`,
+                subject: "Cambio de contraseña",
+                text:'',
+                html:`<div style="display: flex;
+			  flex-direction: column;
+			  align-items: center;
+			  justify-content: center;
+			  background-color: rgb(156, 6, 8,0.40);
+			  padding: 2em;
+			  margin:2em;
+			  box-shadow: 2px 2px 12px #444545;">
+			  <h2>En el siguiente enlace podras cambiar tu contraseña</h2>
+			  <a href= "http://localhost:3000/RecuPass?token=${token}"  style="border-style: none;
+      background-color: rgba(28, 60, 202, 1);
+      color: white;
+      padding: 3px;
+	  text-decoration: none;
+      border-radius: 4px;
+			  ">Cambiar Contraseña</a> </div>`,
+            })
+            console.log("Mensaje enviado %s", info);
+
+        }
+        await main();
+        res.status(250).json({mensaje: `Se envio un email a ${UserEmail}`})
+     } catch (error) {
+        console.log(error)
+     }
+}
+
+
+
+
+
+const Logout = async (req, res)=>{
+    try {
+        await res.cookie('mitoken', '', {expires: new Date(0), httpOnly: true});
+			await res.cookie('SesionTks', '', {expires: new Date(0), httpOnly: true});
+            return res.sendFile(path.join(__dirname , '/'))
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export default{
     PostUsuario,
     CrearUsuario,
+    PostRecuPass,
+    GetUsuario,
+    Logout,
 }
