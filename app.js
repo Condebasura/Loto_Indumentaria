@@ -104,6 +104,7 @@ app.use(helmet({ contentSecurityPolicy:{
         "'self'",
         "https://sdk.mercadopago.com",
         "https://http2.mlstatic.com",
+        "https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js",
          
       ],
       connectSrc: [
@@ -173,7 +174,9 @@ app.post("/admin/addProducto",upload.array("archivos", 5), AdminControllers.post
 app.post("/usuario", UsuarioControllers.PostUsuario);
 app.post("/CrearUsuario", UsuarioControllers.CrearUsuario);
 app.post("/RecuperarPass", UsuarioControllers.PostRecuPass);
+app.get("/RecuPass", UsuarioControllers.getRecuPassword)
 app.get("/usuario", UsuarioControllers.GetUsuario);
+app.put("/RecuPass/changPass", UsuarioControllers.ChangePass);
 app.get("/logout", UsuarioControllers.Logout)
 app.post("/process_payment", AdminControllers.pago);
 

@@ -18,10 +18,10 @@ Login.addEventListener("click", (e)=>{
          const parrafo = document.createElement("p");
          const btn = document.createElement("button");
           
-         InputEmail.setAttribute("required", "")
-         InputPass.setAttribute("required", "")
-         InputEmail.setAttribute("type", "email")
-         InputPass.setAttribute("type", "password")
+         InputEmail.setAttribute("type","email");
+         InputPass.setAttribute("type", "password");
+         InputEmail.setAttribute("required", "");
+         InputPass.setAttribute("required", "");
          btn.setAttribute("type", "submit");
         
         
@@ -81,6 +81,8 @@ Login.addEventListener("click", (e)=>{
                         const obj =JSON.parse(data);
                         return parrafo.innerHTML = obj.mensaje;
                      }else if(res.status === 200){
+                      Login.style.display = "none";
+                      Create.style.display = "none";
                         const obj = JSON.parse(data);
                         const tokenJWT = obj.token;
                         let coso = document.cookie = 'SesionTKs=' + " "+tokenJWT + ';path=/';
@@ -89,6 +91,9 @@ Login.addEventListener("click", (e)=>{
                         
                         modal.close();
                         window.location.reload();
+                        Login.style.display = "none";
+                      Create.style.display = "none";
+                       
                          
 
                      }
@@ -110,6 +115,7 @@ Login.addEventListener("click", (e)=>{
                    loader.style.display = "inline-block";
                    
                    let mail = InputEmail.value;
+                   console.log(mail)
                    
                  const res = await fetch("RecuperarPass", {
                    method: "POST",

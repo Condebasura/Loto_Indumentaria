@@ -9,6 +9,9 @@ import dotenv from 'dotenv';
 
 
 dotenv.config();
+const getRecuPassword = (req, res) =>{
+    res.sendFile(path.join(__dirname , 'public', 'html', 'RecuPass.html'))
+}
 
 const PostUsuario = async (req, res)=>{
     try {
@@ -88,16 +91,17 @@ jwt.verify(token, secret, async(err, usuario)=>{
 };
 
 const PostRecuPass = async (req, res)=>{
+    
      try {
-        const UserEmail = req.body.InputEmail;
-
+        const UserEmail = await req.body.mail;
         const transport = nodemailer.createTransport({
             host: "smtp.freesmtpservers.com", 
-            port:587 ,
-            saecure:false,
-            tls: {
-                rejectUnauthorized: false 
-              }
+            port:25 ,
+            secure: false, 
+            auth:{
+                user: "", 
+                pass:"",
+            },
             
            
         });
@@ -139,6 +143,30 @@ const PostRecuPass = async (req, res)=>{
 }
 
 
+const ChangePass = async(req, res)=>{
+    try{
+   
+        const usuario = {
+       email: req.body.inputEmail,
+       password: req.body.inputPass,
+    }
+    let datos = await bd.DataUser({email:usuario.email});
+    
+    if(usuario.password.length < 6){
+       console.log("esta vacio");
+        res.status(409);
+        res.json({mensaje: "Ingrese al menos 6 digitos"});
+    }else{
+       
+       await bd.UpdatePass(usuario);
+       res.status(200);
+       res.json({mensaje: "Se actualizo la contraseña correctamente"})
+    }
+   }catch(err){
+       console.log(err)
+   }
+   
+   }
 
 
 
@@ -153,9 +181,11 @@ const Logout = async (req, res)=>{
 }
 
 export default{
+    getRecuPassword,
     PostUsuario,
     CrearUsuario,
     PostRecuPass,
     GetUsuario,
+    ChangePass,
     Logout,
 }
