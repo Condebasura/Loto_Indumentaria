@@ -39,7 +39,7 @@ const SearchProd = async (req, res)=>{
 
         if(DatProd.includes(prod)){
             res.status(200).json(data);
-        }else{
+        }else if(!DatProd.includes(prod)){
             res.status(404).json({mensaje: "Sin datos"})
         }
        

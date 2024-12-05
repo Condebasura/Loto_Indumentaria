@@ -20,7 +20,7 @@ search.addEventListener("search", async (e) => {
          headers: {
             "Content-Type": "application/json",
          },
-         body: JSON.stringify({ valor })
+         body: JSON.stringify({valor})
       });
       const result = await response.json();
 
@@ -55,7 +55,7 @@ search.addEventListener("search", async (e) => {
             template.querySelector("img").setAttribute("class", "img_search");
             template.querySelector("a").textContent = "Ver";
             template.querySelector("a").setAttribute("class", "ver_prod");
-            // encontrar la manera de que se carguen los datos al ingresar al producto en la busqueda
+            
             template.querySelector("a").href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
             
             let clone = document.importNode(template, true);
