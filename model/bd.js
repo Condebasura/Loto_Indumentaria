@@ -24,15 +24,15 @@ import sqlite3 from "sqlite3";
      
      };
 
-     const consProducto = async (products)=>{
+     const consProducto = async (producto)=>{
         try {
             return await new Promise((resolve, reject)=>{
                 let sql = 'SELECT *  FROM products WHERE producto LIKE ?';
-                let prod = products.producto;
+                let prod = producto;
                 
                 bd.all(sql, [`%${prod}%`], (err, rows)=>{
                     if(err){
-                        console.log(err);
+                        console.log("El error del reject",err);
                         reject(err);
                     }else{
                         resolve(rows);
@@ -41,7 +41,7 @@ import sqlite3 from "sqlite3";
                 })
             })
         } catch (error) {
-            console.log(error)
+            console.log("El error del catch",error)
         }
      }
 

@@ -23,15 +23,16 @@ search.addEventListener("search", async (e) => {
          body: JSON.stringify({valor})
       });
       const result = await response.json();
+      
 
-      if( valor === ""){
-         Prod.classList.remove("product_search");
-         Prod.classList.remove("product");
-         
-
-        }
-   else if( valor !== "" ){  
-     
+         if( valor === ""){
+            Prod.classList.remove("product_search");
+            Prod.classList.remove("product");
+            
+            
+         }
+         else if( valor !== "" ){  
+            
       Prod.classList.remove("product");
       Prod.classList.add("product_search");
       for (let el of result) {
@@ -45,8 +46,8 @@ search.addEventListener("search", async (e) => {
          let imagenResponse = await fetch(imgURl);
          let imgBlob = await imagenResponse.blob();
          let imagenObjectURL = URL.createObjectURL(imgBlob);
-          const valorNormal = valor.toLowerCase();
-          
+         const valorNormal = valor.toLowerCase();
+         
          if (el.producto.toLowerCase().includes(valorNormal)) {
             
             template.querySelector("h3").textContent = el.producto;
@@ -62,22 +63,23 @@ search.addEventListener("search", async (e) => {
             
             fragment.appendChild(clone);
          }
-
-            
-            
-            
-            
-
-
-         }
+         
+         
+         
+         
+         
+         
          
       }
-      Prod.innerHTML = "";
-      Prod.appendChild(fragment);
+      
+   }
+
+   Prod.innerHTML = "";
+   Prod.appendChild(fragment);
+}
       
    
 
-   }
 });
 
 
