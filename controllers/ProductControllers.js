@@ -35,11 +35,8 @@ const SearchProd = async (req, res)=>{
         const prod = producto.toLowerCase();
         const data = await bd.consProducto(producto);
 
-        console.log("el data",data)
-        console.log("el Prod",prod)
         const DatProd = data[0].producto.toLowerCase();
         
-          console.log("el DAtaProd",DatProd)
         if(!DatProd){
             res.status(404).json({mensaje: "Sin datos"})
         }else if(DatProd){

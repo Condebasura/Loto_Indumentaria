@@ -33,14 +33,29 @@ const dataUsuario = async () => {
         const datos = decodedPayload;
         const Perfil = document.createElement("span");
         const Logout = document.createElement("span");
+        const li = document.createElement("li");
+        const editPerfil = document.createElement("a");
+        const favoritos = document.createElement("a");
+        const compras = document.createElement("a");
+
+        
         Perfil.setAttribute("class", "PerfilUser");
         Logout.setAttribute("class", "Logout");
+       
         Perfil.innerHTML = `${datos.nombre}`;
         Logout.innerHTML = "Logout";
+        editPerfil.innerHTML = "Perfil";
+        favoritos.innerHTML = "Favoritos";
+        compras.innerHTML = "Compras";
+        li.appendChild(editPerfil);
+        li.appendChild(favoritos);
+        li.appendChild(compras);
+        Perfil.appendChild(li);
         DivUser.removeChild(Login);
         DivUser.removeChild(Create);
         DivUser.appendChild(Perfil);
         DivUser.appendChild(Logout);
+        
         
         Logout.addEventListener("click", async (e)=>{
             try {
