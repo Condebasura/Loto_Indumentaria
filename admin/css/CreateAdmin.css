@@ -1,0 +1,14 @@
+.cardCreate{
+    width: 18rem;
+    margin-top: 2em !important;
+    background-color: rgba(60, 86, 60, 0.685) !important;
+}
+
+.Login{
+    color: azure !important;
+    text-decoration-line: none !important;
+}
+
+.Login:hover{
+text-shadow: 2px 2px 2px #000 !important;
+}

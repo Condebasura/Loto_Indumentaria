@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 
         
 
-         card.setAttribute("class", "card mt-5 ");
+         card.setAttribute("class", "card mt-5");
          cardHeader.setAttribute("class", "card-header text-center  text-bg-success");
          cardBody.setAttribute("class", "card-body");
          cardFooter.setAttribute("class", "card-footer text-end text-bg-success");
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         document.addEventListener("keyup", (e)=>{
             e.preventDefault();
             if(e.key === "Escape"){
-                modal.showModal();
+                window.location.reload();
             }
         })
         form.addEventListener("submit", (e)=>{
@@ -172,57 +172,83 @@ document.addEventListener("DOMContentLoaded", (e)=>{
     Create.addEventListener("click",(e)=>{
         e.preventDefault();
         if(e.target){
-            modal.close();
-            modal.innerHTML = "";
+
+        const cardCreate = document.createElement("div");
+        const cardHeaderCreate = document.createElement("div");
+        const cardBodyCreate = document.createElement("div");
+        const cardFooterCreate = document.createElement("div");
+        
+        
+
           const form2 = document.createElement("form")
-          const titulo2 = document.createElement("span");
+          const titulo2 = document.createElement("h4");
+          
+          const divUserCreate = document.createElement("div");
+          const InputUser2 = document.createElement("input");
           const LabelUser2 = document.createElement("label");
-        const InputUser2 = document.createElement("input");
-       const LabelPass2 = document.createElement("label");
-        const InputPass2 = document.createElement("input");
+
+         const divPassCreate = document.createElement("div"); 
+         const InputPass2 = document.createElement("input");
+         const LabelPass2 = document.createElement("label");
+
         const btn2 = document.createElement("button");
         const Login = document.createElement("a");
+         
+        cardCreate.setAttribute("class", "card mt-5");
+        cardHeaderCreate.setAttribute("class", "card-header text-center text-bg-primary");
+        cardBodyCreate.setAttribute("class", "card-body");
+        cardFooterCreate.setAttribute("class", "card-footer text-end text-bg-primary");
 
-        InputPass2.setAttribute("type", "password")
+        form2.setAttribute("class", "form  m-3 text-center");
+
+        divUserCreate.setAttribute("class", "form-floating mb-3 p-1");
+        InputUser2.setAttribute("type","text");
+        InputUser2.setAttribute("class","form-control");
+        InputUser2.setAttribute("id","floatingInput");
+        InputUser2.setAttribute("placeholder","Usuario");
+        LabelUser2.setAttribute("for", "floatingInput");
+
+        divPassCreate.setAttribute("class", "form-floating mb-3 p-1");
+        InputPass2.setAttribute("type", "password");
+        InputPass2.setAttribute("placeholder","Contraseña");
+        InputPass2.setAttribute("class","form-control");
+        InputPass2.setAttribute("id","floatingPassword");
+        LabelPass2.setAttribute("for","floatingPassword");
+
         btn2.setAttribute("type", "submit");
+        btn2.setAttribute("class", "btn btn-success");
+
+        Login.setAttribute("class", "Login");
+
         btn2.innerHTML = "Enviar";
         Login.innerHTML = "Login";
         titulo2.innerHTML = "Create";
         LabelUser2.innerHTML = "Usuario";
         LabelPass2.innerHTML = "Contraseña";
         Login.style.cursor = "pointer";
-        cuerpo.style.backgroundColor =  "rgba(50,40,20,0.111)"
-       modal.style.backgroundColor = " rgba(130,803, 120, 0.46)";
-       form2.style.display = "flex";
-       form2.style.flexDirection = "column";
-       form2.style.gap =  ".5em";
-       form2.style.justifyContent = "center";
-       form2.style.alignItems = "center";
-         Login.style.fontSize = "10px";
-         form2.appendChild(titulo2)
-        form2.appendChild(LabelUser2)
-        form2.appendChild(InputUser2)
-        form2.appendChild(LabelPass2)
-        form2.appendChild(InputPass2)
-        form2.appendChild(btn2);
-        form2.appendChild(Login)
-        modal.appendChild(form2)
-        modal.showModal();
+       
+         divUserCreate.appendChild(InputUser2);
+         divUserCreate.appendChild(LabelUser2);
+         divPassCreate.appendChild(InputPass2);
+         divPassCreate.appendChild(LabelPass2);
+         form2.appendChild(divUserCreate);
+         form2.appendChild(divPassCreate);
+         form2.appendChild(btn2);
+         
+         cardHeaderCreate.appendChild(titulo2);
+         cardBodyCreate.appendChild(form2);
+         cardFooterCreate.appendChild(Login);
+         cardCreate.appendChild(cardHeaderCreate);
+         cardCreate.appendChild(cardBodyCreate);
+         cardCreate.appendChild(cardFooterCreate);
+         elBody.appendChild(cardCreate);
+         elBody.removeChild(card);
+
+
         Login.addEventListener("click", (e)=>{
             e.preventDefault();
             if(e.target){
-                modal.innerHTML = "";
-                Create.style.cursor = "pointer";
-                cuerpo.style.backgroundColor =  "rgba(50,40,20,0.11)"
-               modal.style.backgroundColor = " rgba(113,173, 813, 0.46)";
-               form.style.display = "flex";
-               form.style.flexDirection = "column";
-               form.style.gap =  ".5em";
-               form.style.justifyContent = "center";
-               form.style.alignItems = "center";
-               Create.style.fontSize = "10px";
-               btn.style.cursor = "pointer";
-                modal.appendChild(form);  
+           window.location.reload(); 
             }
         })
         form2.addEventListener("submit", (e)=>{
