@@ -4,10 +4,22 @@
     justify-content: center;
     align-items: center;
     height: 35rem;
-    
+    background-color: #8b8b8d98 !important;
  }
  
  .card{
     width: 18rem;
     margin-top: 2em !important;
+    background-color: rgba(60, 86, 60, 0.685) !important;
+}
+
+
+.Crea{
+   color: azure !important;
+text-decoration-line: none !important;
+
+}
+.Crea:hover{
+color: blue !important;
+
 }

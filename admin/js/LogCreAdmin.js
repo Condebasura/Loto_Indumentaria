@@ -12,23 +12,45 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 
         const form = document.createElement("form");
         const titulo = document.createElement("h4");
+
+        const divUser = document.createElement("div");
         const LabelUser = document.createElement("label");
         const InputUser = document.createElement("input");
-       const LabelPass = document.createElement("label");
+       
+        const divPass = document.createElement("div");
+        const LabelPass = document.createElement("label");
         const InputPass = document.createElement("input");
         const btn = document.createElement("button");
         const Create = document.createElement("a");
 
-        // continuar aca , ver el cambio de cards para  la creacion de usuario
+        
 
-         card.setAttribute("class", "card mt-5");
-         cardHeader.setAttribute("class", "card-header text-center");
+         card.setAttribute("class", "card mt-5 ");
+         cardHeader.setAttribute("class", "card-header text-center  text-bg-success");
          cardBody.setAttribute("class", "card-body");
-         cardFooter.setAttribute("class", "card-footer text-end");
+         cardFooter.setAttribute("class", "card-footer text-end text-bg-success");
           
+        form.setAttribute("class", "form m-3 text-center ");
 
+        divUser.setAttribute("class", "form-floating mb-3 p-1 ");
+         InputUser.setAttribute("type","text");
+         InputUser.setAttribute("class","form-control");
+         InputUser.setAttribute("id","floatingInput");
+         InputUser.setAttribute("placeholder", "Usuario")
+         LabelUser.setAttribute("for","floatingInput");
+         
+        divPass.setAttribute("class", "form-floating mb-3 p-1");
         InputPass.setAttribute("type", "password");
+        InputPass.setAttribute("placeholder", "Contraseña")
+        InputPass.setAttribute("class", "form-control");
+        InputPass.setAttribute("id", "floatingPassword");
+        LabelPass.setAttribute("for", "floatingPassword");
+
         btn.setAttribute("type", "submit");
+        btn.setAttribute("class", "btn btn-primary");
+       
+        Create.setAttribute("class", "Crea")
+
         btn.innerHTML = "Entrar";
         Create.innerHTML = "Crear Usuario";
         titulo.innerHTML = "Login";
@@ -39,10 +61,12 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 
        
        
-        form.appendChild(LabelUser)
-        form.appendChild(InputUser)
-        form.appendChild(LabelPass)
-        form.appendChild(InputPass)
+        divUser.appendChild(InputUser);
+        divUser.appendChild(LabelUser);
+        divPass.appendChild(InputPass)
+        divPass.appendChild(LabelPass)
+        form.appendChild(divUser);
+        form.appendChild(divPass);
         form.appendChild(btn);
         
         
