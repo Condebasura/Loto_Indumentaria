@@ -3,7 +3,13 @@ document.addEventListener("DOMContentLoaded", (e)=>{
     e.preventDefault();
 
     if(e.target){
-        let modal = document.getElementById("modal");
+        const elBody = document.querySelector("body");
+        const card = document.createElement("div");
+        const cardHeader = document.createElement("div");
+        const cardBody = document.createElement("div");
+        const cardFooter = document.createElement("div");
+
+
         const form = document.createElement("form");
         const titulo = document.createElement("spam");
         const LabelUser = document.createElement("label");
@@ -12,6 +18,11 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         const InputPass = document.createElement("input");
         const btn = document.createElement("button");
         const Create = document.createElement("a");
+
+        // continuar aca , ver el cambio de cards para  la creacion de usuario
+
+         card.setAttribute("class", "card")
+         cardHeader.setAttribute("class", "card-header")
         InputPass.setAttribute("type", "password");
         btn.setAttribute("type", "submit");
         btn.innerHTML = "Entrar";
@@ -30,16 +41,21 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 
        Create.style.fontSize = "10px";
        btn.style.cursor = "pointer";
-        form.appendChild(titulo)
-        form.appendChild(LabelUser)
-        form.appendChild(InputUser)
-        form.appendChild(LabelPass)
-        form.appendChild(InputPass)
-        form.appendChild(btn);
-        form.appendChild(Create)
-        modal.appendChild(form)
-        modal.showModal();
-    
+       
+       cardHeader.appendChild(titulo)
+       form.appendChild(LabelUser)
+       form.appendChild(InputUser)
+       form.appendChild(LabelPass)
+       form.appendChild(InputPass)
+       form.appendChild(btn);
+       form.appendChild(Create)
+      
+       
+       cardBody.appendChild(form);
+       card.appendChild(cardHeader);
+       card.appendChild(cardBody);
+         elBody.appendChild(card);
+       
         document.addEventListener("keyup", (e)=>{
             e.preventDefault();
             if(e.key === "Escape"){

@@ -105,6 +105,8 @@ app.use(helmet({ contentSecurityPolicy:{
         "https://sdk.mercadopago.com",
         "https://http2.mlstatic.com",
         "https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js",
+        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js",
+         
          
       ],
       connectSrc: [
@@ -117,7 +119,7 @@ app.use(helmet({ contentSecurityPolicy:{
         "https://api-static.mercadopago.com/secure-fields",
       ],
       styleSrc: ["'self'", "https://kit.fontawesome.com/523f183385.js",
-        "statusScreen.js","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" ,"'unsafe-inline'"],
+        "statusScreen.js","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" ,"'unsafe-inline'", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"],
   
       fontSrc: ["'self'", "https://kit.fontawesome.com/",  "cdnjs.cloudflare.com"],
   imgSrc: ["'self'", "data:", "blob:", 'https://http2.mlstatic.com'],
