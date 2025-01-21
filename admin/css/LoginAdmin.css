@@ -1,0 +1,13 @@
+ body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 35rem;
+    
+ }
+ 
+ .card{
+    width: 18rem;
+    margin-top: 2em !important;
+}

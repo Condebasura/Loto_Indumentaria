@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 
 
         const form = document.createElement("form");
-        const titulo = document.createElement("spam");
+        const titulo = document.createElement("h4");
         const LabelUser = document.createElement("label");
         const InputUser = document.createElement("input");
        const LabelPass = document.createElement("label");
@@ -21,8 +21,12 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 
         // continuar aca , ver el cambio de cards para  la creacion de usuario
 
-         card.setAttribute("class", "card")
-         cardHeader.setAttribute("class", "card-header")
+         card.setAttribute("class", "card mt-5");
+         cardHeader.setAttribute("class", "card-header text-center");
+         cardBody.setAttribute("class", "card-body");
+         cardFooter.setAttribute("class", "card-footer text-end");
+          
+
         InputPass.setAttribute("type", "password");
         btn.setAttribute("type", "submit");
         btn.innerHTML = "Entrar";
@@ -31,29 +35,23 @@ document.addEventListener("DOMContentLoaded", (e)=>{
         LabelUser.innerHTML = "Usuario";
         LabelPass.innerHTML = "Contraseña";
         Create.style.cursor = "pointer";
-        cuerpo.style.backgroundColor =  "rgba(50,40,20,0.111)"
-        modal.style.backgroundColor = " rgba(113,173, 813, 0.46)";
-       form.style.display = "flex";
-       form.style.flexDirection = "column";
-       form.style.gap =  ".5em";
-       form.style.justifyContent = "center";
-       form.style.alignItems = "center";
+       
 
-       Create.style.fontSize = "10px";
-       btn.style.cursor = "pointer";
        
-       cardHeader.appendChild(titulo)
-       form.appendChild(LabelUser)
-       form.appendChild(InputUser)
-       form.appendChild(LabelPass)
-       form.appendChild(InputPass)
-       form.appendChild(btn);
-       form.appendChild(Create)
-      
        
+        form.appendChild(LabelUser)
+        form.appendChild(InputUser)
+        form.appendChild(LabelPass)
+        form.appendChild(InputPass)
+        form.appendChild(btn);
+        
+        
+        cardHeader.appendChild(titulo)
        cardBody.appendChild(form);
+       cardFooter.appendChild(Create);
        card.appendChild(cardHeader);
        card.appendChild(cardBody);
+       card.appendChild(cardFooter)
          elBody.appendChild(card);
        
         document.addEventListener("keyup", (e)=>{
