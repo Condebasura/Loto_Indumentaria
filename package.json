@@ -1,20 +1,46 @@
 {
   "name": "loto_indumentaria",
-  "version": "1.0.0",
-  "description": "Pagina web la cual uso para hacer pruebas mientras voy aprendiendo los lenguajes",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Actualizacion",
+  "main": "app.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "json:server": "json-server --no-logs ./sec.json" 
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Condebasura/Loto_Indumentaria.git"
   },
   "author": "Pablo C. Zabala",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Condebasura/Loto_Indumentaria/issues"
   },
-  "homepage": "https://github.com/Condebasura/Loto_Indumentaria#readme"
-}  
+  "homepage": "https://github.com/Condebasura/Loto_Indumentaria#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cookie": "^1.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-jwt": "^8.4.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "mercadopago": "^2.0.15",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.15",
+    "qs": "^6.13.0",
+    "sqlite3": "^5.1.7",
+    "uuid": "^10.0.0"
+  },
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^10.0.0"
+  }
+}

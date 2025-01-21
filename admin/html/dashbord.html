@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/box_producto.css">
+    <link rel="stylesheet" href="../css/dashbord.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"  crossorigin="anonymous">
+    <title>Dashbord</title>
+</head>
+<body class="box_body">
+    <div class="box_select">
+
+        <ul>
+            <li class="AddProducto">Add Producto</li>
+            <li class="Hombres">Hombres</li>
+            <li class="Mujeres">Mujeres</li>
+            <li class="Nenas">Nenas</li>
+            <li class="Nenes">Nenes</li>
+            
+        </ul>
+        <div class="Min_Edit"></div>
+    <button class="salir">salir</button>
+
+    </div>
+    <div class="box_cargas">
+       
+        <dialog id="modal">
+       </dialog>
+
+         <main class="container_flex">
+          <section class="card-producto">
+              <form class="formAdd" data-form>
+              <h1 class="card__title">Ingresar Producto </h1>
+              <div class="input-container">
+                  <label class="input-label" for="producto">Nombre Del Producto</label>
+                 <input 
+                 name="producto"
+                 id="producto"
+                 class="ProductName"
+                 type="text"
+                 placeholder="Nombre Del Producto"
+                 required
+                 data-producto
+                 />
+                
+             </div>
+             <div class="input-container">
+                 <label for="stk">Stock</label>
+                 <input
+                  type="number"
+                  class="stock"
+                  name="Stock"
+                  id="stk" />
+             </div>
+             <div class="input-container">
+                 <label for="Desc">Descuento del</label>
+                 <input 
+                 type="number"
+                 name="Descuento"
+                 class="Desc"
+                 id="Desc"
+                 step=".01"
+                 placeholder="Descuento en %"
+                 
+                 />
+                 <label class="input-label" for="precio">Precio</label>
+                 
+                 <input 
+                 name="Precio"
+                 id="precio"
+                 class="bestprecio"
+                 type="number"
+                 step=".01"
+                 placeholder= "Precio"
+                 required
+                 data-precio
+                 />
+                
+             </div>
+             
+             
+                 <div class="content_select_cuo">
+                 <label class="input-select" for="cuota">Cuotas (Sin interes)</label>
+                 <select 
+                 name="Cuotas" 
+                 id="cuota"
+                 class="cuotas"
+                 data-cuotas
+                 
+                 >
+                 <option class="c_uotas" value="1">1</option>
+                 <option class="c_uotas" value="2">2</option>
+                 <option class="c_uotas" value="3">3 </option>
+                 <option class="c_uotas" value="6">6 </option>
+                 <option class="c_uotas" value="9">9</option>
+                 <option class="c_uotas" value="12">12</option>
+             </select>
+                 </div>
+             
+             
+                 <div class="content_select">
+                     <label class="input-select" for="seccion">Seccion</label>
+                     <select 
+                     name="Seccion" 
+                     id="seccion"
+                     class="seccion"
+                     data-seccion>
+                     <option class="sector" value="Hombre">Hombre</option>
+                     <option class="sector" value="Mujer">Mujer</option>
+                     <option class="sector" value="Niña">Niña</option>
+                     <option class="sector" value="Niño">Niño</option>
+                     </select>
+                 
+                 
+                     <label class="input-select" for="sub_seccion">Prenda</label>
+                     <select 
+                     name="Sub_seccion" 
+                     id="sub_seccion"
+                     class="sub_seccion"
+                     data-sub_seccion
+                     >
+                     <option class="prenda" value="Remeras">Remeras</option>
+                     <option class="prenda" value="Pantalones">Pantalones</option>
+                     <option class="prenda" value="Vestidos">Vestidos</option>
+                     <option class="prenda" value="Accesorios">Accesorios</option>
+                 
+                 </select>
+                 
+                 
+             
+             <!--<div data-No></div>--->
+                <div class="input-container_flex">
+                 <label class="input-archivo" for="archivos"></label>
+                 <input 
+                 name="archivos"
+                 id="archivos"
+                 class="image"
+                 type="file"
+                 accept="image/*" multiple
+                 data-archivo
+                 />
+                 <button type="submit" class=" button">Agregar Producto</button>
+                </div>
+            </form>
+            
+        </section>
+    </main>
+     
+     
+         </div>
+         <script src="../js/Hombres.js"></script>
+         <script src="../js/Mujeres.js"></script>
+         <script src="../js/Niñas.js"></script>
+         <script src="../js/Niños.js"></script>
+    <script src="../js/dashbord.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js" integrity="sha512-UNM1njAgOFUa74Z0bADwAq8gbTcqZC8Ej4xPSzpnh0l6KMevwvkBvbldF9uR++qKeJ+MOZHRjV1HZjoRvjDfNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="module" src="../js/AddProducto.js"></script>
+        
+</body>
+
+</html>
