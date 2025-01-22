@@ -12,3 +12,11 @@
 .Login:hover{
 text-shadow: 2px 2px 2px #000 !important;
 }
+
+.modal-content{
+    width: 18rem !important;
+    
+}
+.modal{
+    padding-left: 13em !important
+}

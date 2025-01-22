@@ -1,4 +1,5 @@
-let cuerpo = document.querySelector(".body")
+let cuerpo = document.querySelector(".body");
+const modalContainer = document.getElementById("modalContainer"); 
 document.addEventListener("DOMContentLoaded", (e)=>{
     e.preventDefault();
 
@@ -103,8 +104,9 @@ document.addEventListener("DOMContentLoaded", (e)=>{
                             const parrafo = document.createElement("p");
                             parrafo.innerHTML = "Credenciales incorrectas";
                             parrafo.style.fontSize = "12px";
-                            parrafo.style.color = "red";
-                            parrafo.style.margin = "0%";
+                            parrafo.style.backgroundColor = "red";
+                            parrafo.style.color = "white";
+                            parrafo.style.margin = "1em";
                             form.appendChild(parrafo);
                             
                             setTimeout(() => {
@@ -265,34 +267,91 @@ document.addEventListener("DOMContentLoaded", (e)=>{
                 const data = await res.text();
                 
                 if (res.status === 409){
-                    modal.innerHTML = "";
-                let objt = JSON.parse(data);
-                  let parr = document.createElement("p");
+                 
+                    const modalTabx = document.createElement("div");
+                    const modalDialog = document.createElement("div");
+                    const modalContent = document.createElement("div");
+                    const modalHeader = document.createElement("div");
+                    let titulo = document.createElement("h4");
+                    const btnClose = document.createElement("button");
+                    const modalBody = document.createElement("div");
+                    
+
+
+
+                     let objt = JSON.parse(data);
+                     let parr = document.createElement("p");
                      parr.innerHTML = objt.mensaje;
-                      modal.appendChild(parr);
-                      modal.style.background = "rgba(190, 20 ,50 , 0.86)";
-                      parr.style.textShadow = "2px 2px 2px #000";
-                      parr.style.color = "white"
-                      modal.showModal();
-                      setTimeout(() => {
-                        
-                          return location.reload();
-                      }, 2000);
+                     titulo.innerHTML = "Oops!!";
+                     
+                     modalTabx.setAttribute("tabindex","-1");
+                     modalTabx.setAttribute("class","modal ");
+                     modalDialog.setAttribute("class", "modal-dialog");
+                     modalContent.setAttribute("class","modal-content");
+                     modalHeader.setAttribute("class", "modal-header text-bg-danger");
+                     titulo.setAttribute("class", "modal-title");
+                     btnClose.setAttribute("class", "btn-close");
+                     modalBody.setAttribute("class", "modal-body text-center");
+
+                     modalHeader.appendChild(titulo);
+                     modalHeader.appendChild(btnClose);
+                     modalBody.appendChild(parr);
+
+                     modalContent.appendChild(modalHeader);
+                     modalContent.appendChild(modalBody);
+                     modalDialog.appendChild(modalContent);
+                     modalTabx.appendChild(modalDialog);
+
+                     modalContainer.innerHTML = "";
+                     modalContainer.appendChild(modalTabx);
+
+                     const bootstrapModal = new bootstrap.Modal(modalTabx);
+                     bootstrapModal.show();
+
+                     
             }
               else if(res.status === 200){
-                    modal.innerHTML = "";
+                    
                let obj = JSON.parse(data);
-                 let parrafo = document.createElement("p");
+
+                    const modalTabx = document.createElement("div");
+                    const modalDialog = document.createElement("div");
+                    const modalContent = document.createElement("div");
+                    const modalHeader = document.createElement("div");
+                    let titulo = document.createElement("h4");
+                    const btnClose = document.createElement("button");
+                    const modalBody = document.createElement("div");
+                    let parrafo = document.createElement("p");
+
+
+               modalTabx.setAttribute("tabindex","-1");
+               modalTabx.setAttribute("class","modal ");
+               modalDialog.setAttribute("class", "modal-dialog");
+               modalContent.setAttribute("class","modal-content");
+               
+               titulo.setAttribute("class", "modal-title");
+               btnClose.setAttribute("class", "btn-close");
+               modalBody.setAttribute("class", "modal-body text-center");
                     parrafo.innerHTML = obj.mensaje;
-                    modal.style.background ="rgba(30,723, 20)";
-                    parrafo.style.textShadow = "2px 2px 5px #000";
-                    parrafo.style.color = "rgb(255,255,255)"
-                     modal.appendChild(parrafo);
-                     modal.showModal()
-                     setTimeout(() => {
-                        
-                        return location.reload();
-                    }, 2000);
+                   titulo.innerHTML = "Exito!!";
+
+                   modalHeader.setAttribute("class", "modal-header text-bg-success");
+
+                   modalHeader.appendChild(titulo);
+                   modalHeader.appendChild(btnClose);
+                   modalBody.appendChild(parrafo);
+
+                   modalContent.appendChild(modalHeader);
+                   modalContent.appendChild(modalBody);
+                   modalDialog.appendChild(modalContent);
+                   modalTabx.appendChild(modalDialog);
+
+                   modalContainer.innerHTML = "";
+                   modalContainer.appendChild(modalTabx);
+
+                   const bootstrapModal = new bootstrap.Modal(modalTabx);
+                   bootstrapModal.show();
+                    
                     }
                      
             }
