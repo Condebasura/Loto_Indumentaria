@@ -1,12 +1,5 @@
-.box_body{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    height: 50em;
-    justify-items: center;
 
-    justify-content: center;
-    gap: 2em
-}
+ 
 
 .box_select{
     display: flex;
@@ -21,3 +14,6 @@ form{
     align-items: center;
     gap: 1em;
 }
+
+
+
