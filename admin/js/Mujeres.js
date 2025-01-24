@@ -6,8 +6,6 @@ mujer.addEventListener("click", (e)=>{
 
     if(e.target){
         formAdd.style.display = "none";
-        btnAdd.style.display = "none";
-        btnsForm.style.display = "none";
         boxNames.innerHTML = "";
         MinEdit.innerHTML = "";
         boxContent.innerHTML = "";
@@ -27,9 +25,8 @@ mujer.addEventListener("click", (e)=>{
         Add.addEventListener("click", (e)=>{
             e.preventDefault();
             if(e.target){
-             formAdd.style.display = "block";
-                btnAdd.style.display = "block";
-                btnsForm.style.display = "block";
+             formAdd.style.display = "flex";
+               
                
                 boxNames.innerHTML = "";
         MinEdit.innerHTML = "";

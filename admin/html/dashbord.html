@@ -11,13 +11,13 @@
 </head>
 <body class="box_body">
     <div class="container-fluid">
-        <div class="row gx-5">
+        <div class="row gx-5 m-1 ">
 
      
-    <div class="box_select col-2 text-center  border">
+    <div class="box_select col-lg-2 col-ms-6  col text-center  border  ">
 
-        <ul class="list-group mt-5 p-2">
-            <li class="AddProducto list-group-item mb-2 btn btn-outline-primary">Add Producto</li>
+        <ul class=" list-group mt-5 p-2 ">
+            <li class="AddProducto list-group-item mb-2 btn btn-outline-primary">Agregar Producto</li>
             <li class="Hombres list-group-item mb-2 btn btn-outline-success">Hombres</li>
             <li class="Mujeres list-group-item mb-2 btn btn-outline-success">Mujeres</li>
             <li class="Nenas list-group-item mb-2 btn btn-outline-success">Nenas</li>
@@ -28,129 +28,142 @@
     <button class="salir btn btn-outline-danger mt-5">salir</button>
 
     </div>
-    <div class="box_cargas col-10">
+    <div class="box_cargas col-lg-10 col-ms-6 col">
        
         <dialog id="modal">
        </dialog>
 
-         <main class="container_flex">
-          <section class="card-producto">
-              <form class="formAdd" data-form>
-              <h1 class="card__title">Ingresar Producto </h1>
-              <div class="input-container">
-                  <label class="input-label" for="producto">Nombre Del Producto</label>
-                 <input 
-                 name="producto"
-                 id="producto"
-                 class="ProductName"
-                 type="text"
-                 placeholder="Nombre Del Producto"
-                 required
-                 data-producto
-                 />
+         
+              <form class="formAdd form m-2 " data-form>
+              <h3 class="card__title">Ingresar Producto </h3>
+              <div class="input-container form-floating">
+                  <input 
+                  name="producto"
+                  id="producto floatingInput"
+                  class="ProductName form-control"
+                  type="text"
+                  placeholder="Nombre Del Producto"
+                  required
+                  data-producto
+                  />
+                  <label class="input-label" for="producto floatingInput">Nombre Del Producto</label>
                 
              </div>
-             <div class="input-container">
-                 <label for="stk">Stock</label>
+             <div class="input-container form-floating ">
                  <input
-                  type="number"
-                  class="stock"
-                  name="Stock"
-                  id="stk" />
+                 type="number"
+                 class="stock form-control"
+                 name="Stock"
+                 placeholder="Stock"
+                 id="stk floatingInput " />
+                 <label for="stk floatingInput">Stock</label>
              </div>
-             <div class="input-container">
-                 <label for="Desc">Descuento del</label>
+
+             <div class="input-container form-floating">
                  <input 
                  type="number"
                  name="Descuento"
-                 class="Desc"
-                 id="Desc"
+                 class="Desc form-control"
+                 id="Desc floatingInput"
                  step=".01"
                  placeholder="Descuento en %"
-                 
-                 />
-                 <label class="input-label" for="precio">Precio</label>
-                 
-                 <input 
-                 name="Precio"
-                 id="precio"
-                 class="bestprecio"
-                 type="number"
-                 step=".01"
-                 placeholder= "Precio"
-                 required
-                 data-precio
-                 />
-                
+                  />
+                 <label for="Desc floatingInput">Descuento en %</label>
              </div>
-             
-             
-                 <div class="content_select_cuo">
-                 <label class="input-select" for="cuota">Cuotas (Sin interes)</label>
-                 <select 
-                 name="Cuotas" 
-                 id="cuota"
-                 class="cuotas"
-                 data-cuotas
+                
+                 <div class="input-container form-floating ">
+
+                     <input 
+                     name="Precio"
+                     id="precio floatingInput "
+                     class="bestprecio form-control"
+                     type="number"
+                     step=".01"
+                     placeholder= "Precio"
+                     required
+                     data-precio
+                     />
+                     <label class="input-label" for="precio floatingInput">Precio</label>
+                    </div>
+                
                  
-                 >
-                 <option class="c_uotas" value="1">1</option>
-                 <option class="c_uotas" value="2">2</option>
-                 <option class="c_uotas" value="3">3 </option>
-                 <option class="c_uotas" value="6">6 </option>
-                 <option class="c_uotas" value="9">9</option>
-                 <option class="c_uotas" value="12">12</option>
-             </select>
+             
+             
+                 <div class="content_select_cuo form-floating ">
+                     <select 
+                     name="Cuotas" 
+                     id="cuota floatingSelect"
+                     class="cuotas form-select"
+                     data-cuotas
+                     aria-label="Floating label select example"
+                     
+                     >
+                     <option selected>(Sin interes)</option>
+                     <option class="c_uotas" value="1">1</option>
+                     <option class="c_uotas" value="2">2</option>
+                     <option class="c_uotas" value="3">3 </option>
+                     <option class="c_uotas" value="6">6 </option>
+                     <option class="c_uotas" value="9">9</option>
+                     <option class="c_uotas" value="12">12</option>
+                    </select>
+                    <label for="cuota floatingSelect">Cuotas</label>
                  </div>
              
-             
-                 <div class="content_select">
-                     <label class="input-select" for="seccion">Seccion</label>
+                 <div class="row gx-2">
+                 <div class="content_select form-floating col">
                      <select 
                      name="Seccion" 
-                     id="seccion"
-                     class="seccion"
+                     id="seccion floatingSelect"
+                     class="seccion form-select"
+                     aria-label="Floating label select example"
                      data-seccion>
+                     <option selected>Seleccionar</option>
                      <option class="sector" value="Hombre">Hombre</option>
                      <option class="sector" value="Mujer">Mujer</option>
                      <option class="sector" value="Niña">Niña</option>
                      <option class="sector" value="Niño">Niño</option>
-                     </select>
+                    </select>
+                    <label class="input-select" for="seccion floatingSelect">Seccion</label>
+                 </div>
                  
-                 
-                     <label class="input-select" for="sub_seccion">Prenda</label>
+
+                 <div class="content_select form-floating col">
                      <select 
                      name="Sub_seccion" 
-                     id="sub_seccion"
-                     class="sub_seccion"
+                     id="sub_seccion floatingSelect"
+                     class="sub_seccion form-select"
                      data-sub_seccion
+                     aria-label="Floating label select example"
                      >
+                     <option selected>Seleccionar</option>
                      <option class="prenda" value="Remeras">Remeras</option>
                      <option class="prenda" value="Pantalones">Pantalones</option>
                      <option class="prenda" value="Vestidos">Vestidos</option>
                      <option class="prenda" value="Accesorios">Accesorios</option>
-                 
-                 </select>
-                 
-                 
-             
-             <!--<div data-No></div>--->
-                <div class="input-container_flex">
-                 <label class="input-archivo" for="archivos"></label>
-                 <input 
-                 name="archivos"
-                 id="archivos"
-                 class="image"
-                 type="file"
-                 accept="image/*" multiple
-                 data-archivo
-                 />
-                 <button type="submit" class=" button">Agregar Producto</button>
+                     
+                    </select>
+                    <label class="input-select" for="sub_seccion floatingSelect">Prenda</label>
+                 </div>
                 </div>
+             
+                <div class="inputFile mb-3  ">
+                    <label class="input-archivo form-label" for="archivos formFileMultiple"></label>
+                    <input 
+                    name="archivos"
+                    id="archivos formFileMultiple"
+                    class="image form-control"
+                    type="file"
+                    accept="image/*"
+                     multiple
+                    data-archivo
+                    >
+                </div>
+
+                    <button type="submit" class="button btn btn-outline-primary">Agregar Producto</button>
+                
             </form>
             
-        </section>
-    </main>
+      
      
      
          </div>

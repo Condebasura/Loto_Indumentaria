@@ -6,8 +6,6 @@ nenas.addEventListener("click", (e)=>{
 
     if(e.target){
         formAdd.style.display = "none";
-        btnAdd.style.display = "none";
-        btnsForm.style.display = "none";
         boxContent.innerHTML = "";
         MinEdit.innerHTML = "";
         boxNames.innerHTML = "";
@@ -25,9 +23,8 @@ nenas.addEventListener("click", (e)=>{
         Add.addEventListener("click", (e)=>{
             e.preventDefault();
             if(e.target){
-             formAdd.style.display = "block";
-                btnAdd.style.display = "block";
-                btnsForm.style.display = "block";
+             formAdd.style.display = "flex";
+                ;
                 // el boxCarga en "" me queta el formulario para ingresar productos , intentarlo con css mejor.
         MinEdit.innerHTML = "";
         boxNames.innerHTML = "";

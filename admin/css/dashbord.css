@@ -1,18 +1,26 @@
 
- 
+ .box_body{
+    background-color: rgba(209, 212, 212, 0.548);
+    
+    
+ }
 
 .box_select{
+    background-color: rgba(197, 204, 197, 0.705) !important;
     display: flex;
     flex-direction: column;
     list-style-type: none;
+    
 }
 
-form{
+
+.form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
+    
 }
 
 

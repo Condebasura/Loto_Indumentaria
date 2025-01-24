@@ -1,5 +1,5 @@
 const Add = document.querySelector(".AddProducto");
-const formAdd = document.querySelector(".container_flex");
+const formAdd = document.querySelector(".formAdd");
 const btnsForm = document.querySelector(".input-container_flex");
 const boxCargas = document.querySelector(".box_cargas");
 const btnAdd = document.querySelector(".button");
@@ -371,8 +371,6 @@ hombre.addEventListener("click", (e) => {
 
     if (e.target) {
         formAdd.style.display = "none";
-        btnAdd.style.display = "none";
-        btnsForm.style.display = "none";
         boxNames.innerHTML = "";
         boxContent.innerHTML = "";
         MinEdit.innerHTML = "";
@@ -391,9 +389,8 @@ hombre.addEventListener("click", (e) => {
             e.preventDefault();
             if (e.target) {
 
-                formAdd.style.display = "block";
-                btnAdd.style.display = "block";
-                btnsForm.style.display = "block";
+                formAdd.style.display = "flex";
+               
 
                 MinEdit.innerHTML = "";
                 boxNames.innerHTML = "";

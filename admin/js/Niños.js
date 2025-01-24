@@ -8,8 +8,6 @@ nenes.addEventListener("click", (e)=>{
         MinEdit.innerHTML = "";
         boxContent.innerHTML = "";
         formAdd.style.display = "none";
-        btnAdd.style.display = "none";
-        btnsForm.style.display = "none";
         const remeras = document.createElement("a");
         const pantalones = document.createElement("a");
         
@@ -23,9 +21,8 @@ nenes.addEventListener("click", (e)=>{
         Add.addEventListener("click", (e)=>{
             e.preventDefault();
             if(e.target){
-             formAdd.style.display = "block";
-                btnAdd.style.display = "block";
-                btnsForm.style.display = "block";
+             formAdd.style.display = "flex";
+               
                 // el boxCarga en "" me queta el formulario para ingresar productos , intentarlo con css mejor.
                 boxNames.innerHTML = "";
         MinEdit.innerHTML = "";
