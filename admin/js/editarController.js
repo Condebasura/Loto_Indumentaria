@@ -5,7 +5,7 @@ const formulario = document.querySelector("[data-form]");
 const producto = document.querySelector(".name");
 const precio = document.querySelector(".bestprecio");
 const cuotas = document.querySelector(".cuotas");
-let newArchivo = document.querySelector(".image");
+let newArchivo = document.querySelector(".imagen");
 
 
 

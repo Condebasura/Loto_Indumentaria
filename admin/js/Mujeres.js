@@ -17,11 +17,17 @@ mujer.addEventListener("click", (e)=>{
         pantalones.innerHTML = "Pantalones";
         vestidos.innerHTML = "Vestidos";
          accesorios.innerHTML = "Accesorios";
+        
+         remeras.setAttribute("class", "list-group-item mb-2 mt-5 btn btn-outline-secondary");
+         pantalones.setAttribute("class", "list-group-item mb-2 btn btn-outline-secondary");
+         vestidos.setAttribute("class", "list-group-item mb-2 btn btn-outline-secondary");
+         accesorios.setAttribute("class", "list-group-item mb-2 btn btn-outline-secondary");
+
         boxNames.appendChild(remeras);
         boxNames.appendChild(pantalones);
         boxNames.appendChild(vestidos);
         boxNames.appendChild(accesorios);
-        boxCargas.appendChild(boxNames);
+        ulNombres.appendChild(boxNames);
         Add.addEventListener("click", (e)=>{
             e.preventDefault();
             if(e.target){

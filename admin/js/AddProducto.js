@@ -6,7 +6,7 @@ precio = document.querySelector(".bestprecio"),
 cuotas = document.querySelector(".cuotas"),
 seccion = document.querySelector(".seccion"),
 subSeccion = document.querySelector(".sub_seccion"),
-archivos = document.querySelector(".image");
+archivos = document.querySelector(".imagen");
 
 
 archivos.addEventListener("change", (e)=>{

@@ -10,6 +10,8 @@
     display: flex;
     flex-direction: column;
     list-style-type: none;
+    border-radius: 1em;
+
     
 }
 
@@ -20,8 +22,16 @@
     justify-content: center;
     align-items: center;
     gap: 1em;
+    width: 100vh !important;
+    border-radius: 1em;
+    background-color: rgba(60, 86, 60, 0.499) !important;
     
 }
 
+
+.card__title{
+    color: white;
+    text-shadow: 2px 2px 2px #000;
+}
 
 

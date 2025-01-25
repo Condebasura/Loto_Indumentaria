@@ -15,10 +15,15 @@ nenas.addEventListener("click", (e)=>{
         remeras.innerHTML = "Remeras";
         pantalones.innerHTML = "Pantalones";
          vestidos.innerHTML = "Vestidos";
+         
+         remeras.setAttribute("class", "list-group-item mb-2 mt-5 btn btn-outline-secondary");
+         pantalones.setAttribute("class", "list-group-item mb-2 btn btn-outline-secondary");
+         vestidos.setAttribute("class", "list-group-item mb-2 btn btn-outline-secondary");
+
         boxNames.appendChild(remeras);
         boxNames.appendChild(pantalones);
         boxNames.appendChild(vestidos);
-        boxCargas.appendChild(boxNames);
+        ulNombres.appendChild(boxNames);
 
         Add.addEventListener("click", (e)=>{
             e.preventDefault();

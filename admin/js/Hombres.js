@@ -6,6 +6,7 @@ const btnAdd = document.querySelector(".button");
 const hombre = document.querySelector(".Hombres");
 const boxNames = document.createElement("div");
 const boxContent = document.createElement("div");
+const ulNombres = document.querySelector(".list-group");
 const MinEdit = document.querySelector(".Min_Edit");
 const texto = document.createElement("h3");
 const $fragment = document.createDocumentFragment();
@@ -357,6 +358,7 @@ const DataProductos = async (data) => {
 
             edit.addEventListener("click", async (e) => {
                 e.preventDefault();
+                ulNombres.removeChild(boxNames);
                 Editar(el);
             })
 
@@ -377,13 +379,16 @@ hombre.addEventListener("click", (e) => {
         const remeras = document.createElement("a");
         const pantalones = document.createElement("a");
         const accesorios = document.createElement("a");
+         remeras.setAttribute("class", "list-group-item mb-2 mt-5 btn btn-outline-secondary");
+         pantalones.setAttribute("class", "list-group-item mb-2 btn btn-outline-secondary");
+         accesorios.setAttribute("class", "list-group-item mb-2 btn btn-outline-secondary");
         remeras.innerHTML = "Remeras";
         pantalones.innerHTML = "Pantalones";
         accesorios.innerHTML = "Accesorios";
         boxNames.appendChild(remeras);
         boxNames.appendChild(pantalones);
         boxNames.appendChild(accesorios);
-        boxCargas.appendChild(boxNames);
+        ulNombres.appendChild(boxNames);
 
         Add.addEventListener("click", (e) => {
             e.preventDefault();
