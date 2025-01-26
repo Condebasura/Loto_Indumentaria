@@ -11,22 +11,27 @@
     flex-direction: column;
     list-style-type: none;
     border-radius: 1em;
+    
 
     
 }
 
 
-.form{
+
+
+   .form{
+    width: 38rem !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
-    width: 100vh !important;
-    border-radius: 1em;
-    background-color: rgba(60, 86, 60, 0.499) !important;
+    background-color: rgba(197, 204, 197, 0.705) !important;
     
-}
+    box-shadow: 2px 2px 12px #a8a8a8;
+   }
+    
+
 
 
 .card__title{
