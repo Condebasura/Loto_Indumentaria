@@ -1,12 +1,12 @@
 
  .box_body{
-    background-color: rgba(209, 212, 212, 0.548);
+    background-color: rgba(25, 9, 238, 0.829);
     
     
  }
 
 .box_select{
-    background-color: rgba(197, 204, 197, 0.705) !important;
+    background-color:rgba(66, 53, 243, 0.685) !important;
     display: flex;
     flex-direction: column;
     list-style-type: none;
@@ -17,26 +17,36 @@
 }
 
 
-
+.box_cargas{
+    border-radius: 2em !important;
+    background-color:rgb(224, 231, 224) !important ;
+   
+}
 
    .form{
-    width: 38rem !important;
+    border-radius: 2em !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
-    background-color: rgba(197, 204, 197, 0.705) !important;
+    background-color: rgb(247, 248, 247) !important;
     
-    box-shadow: 2px 2px 12px #a8a8a8;
+    
+   }
+
+
+   .form-control , .form-select{
+    box-shadow: 1px 1px 2px #a8a8a8;
    }
     
 
 
 
 .card__title{
-    color: white;
-    text-shadow: 2px 2px 2px #000;
+    color: rgb(2, 8, 66);
+    text-shadow: 2px 2px 2px #b3b1b1;
+    position: relative; right:  2px;
+    
 }
-
 
