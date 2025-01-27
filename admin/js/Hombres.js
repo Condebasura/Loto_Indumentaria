@@ -68,26 +68,49 @@ const Eliminar = async (el) => {
 };
 
 const Editar = async (el) => {
-    const boxpilcha = document.querySelector(".box_pilcha");
+    
     const form = document.createElement("form");
-    const Nombre = document.createElement("h2");
+    const Nombre = document.createElement("h3");
+    
+    const divProd = document.createElement("div"); 
     const LabelProd = document.createElement("label");
     const nomProd = document.createElement("input");
+
+    const divStock = document.createElement("div");
     const LabelStock = document.createElement("label");
     const InpStock = document.createElement("input");
+
+    const divDesc = document.createElement("div");
     const LabelDesc = document.createElement("label");
     const InpDesc = document.createElement("input");
+
+    const divPrecio = document.createElement("div");
     const LabPrecio = document.createElement("label");
     const InpPrecio = document.createElement("input");
+    
+    const divSInt = document.createElement("div");
     const LabSInt = document.createElement("label");
     const InpSInt = document.createElement("select");
+
+    const divSec = document.createElement("div");
     const LabSeccion = document.createElement("label");
     const InpSeccion = document.createElement("input");
+
+    const divSubSec = document.createElement("div");
     const LabsubSeccion = document.createElement("label");
     const InpsubSeccion = document.createElement("input");
+
+    const divArchivo = document.createElement("div");
+    const LabelArch = document.createElement("label");
     const archivo = document.createElement("input");
     const btn = document.createElement("button");
 
+   form.setAttribute("class", "form m-0");
+   Nombre.setAttribute("class", "tituloEdit");
+
+   divProd.setAttribute("class", "form-floating");
+   LabelProd.setAttribute("for", "floatingInput");
+   nomProd.setAttribute("class", "form-control");
 
 
     Nombre.innerHTML = "Editar Producto";
