@@ -1,14 +1,18 @@
 
 const logout = document.querySelector(".salir");
+const formEdit = document.querySelector(".formEdit");
 
 
 Add.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
-     formAdd.style.display = "flex";
+      // buscar el error, al estar en el editor y cambiar a agregar no edaparece el editor
         boxNames.innerHTML = "";
         boxContent.innerHTML = "";
         MinEdit.innerHTML = "";
+        formAdd.style.display = "flex";
+        
+        
     }
 })
 

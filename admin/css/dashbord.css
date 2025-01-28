@@ -25,12 +25,13 @@
 
    .form{
     border-radius: 2em !important;
+      max-width: 70vh !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
-    background-color: rgb(247, 248, 247) !important;
+    background-color: rgba(180, 182, 180, 0.486) !important;
     
     
    }
@@ -41,12 +42,33 @@
    }
     
 
-
+/*;*/
 
 .card__title{
     color: rgb(2, 8, 66);
     text-shadow: 2px 2px 2px #b3b1b1;
-    position: relative; right:  2px;
+    font-family: "Monserrat", serif;
+    font-weight:400 ;
+   
     
 }
 
+
+
+
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {  }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {  }
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {  }
+
+/* X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { }
+
+/* XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {  }

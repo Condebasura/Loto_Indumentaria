@@ -69,7 +69,7 @@ const Eliminar = async (el) => {
 
 const Editar = async (el) => {
     
-    const form = document.createElement("form");
+    const formEdit = document.createElement("form");
     const Nombre = document.createElement("h3");
     
     const divProd = document.createElement("div"); 
@@ -92,6 +92,7 @@ const Editar = async (el) => {
     const LabSInt = document.createElement("label");
     const InpSInt = document.createElement("select");
 
+    const divContSecYSubSec = document.createElement("div");
     const divSec = document.createElement("div");
     const LabSeccion = document.createElement("label");
     const InpSeccion = document.createElement("input");
@@ -105,12 +106,63 @@ const Editar = async (el) => {
     const archivo = document.createElement("input");
     const btn = document.createElement("button");
 
-   form.setAttribute("class", "form m-0");
+   formEdit.setAttribute("class", "formEdit form mt-3 mb-3");
    Nombre.setAttribute("class", "tituloEdit");
 
    divProd.setAttribute("class", "form-floating");
    LabelProd.setAttribute("for", "floatingInput");
    nomProd.setAttribute("class", "form-control");
+   nomProd.setAttribute("id", "floatingInput");
+
+   divStock.setAttribute("class", "form-floating");
+   LabelStock.setAttribute("for", "floatingInput");
+   InpStock.setAttribute("class", "form-control");
+   InpStock.setAttribute("id", "floatingInput");
+
+   divDesc.setAttribute("class", "form-floating");
+   LabelDesc.setAttribute("for" , "floatingInput");
+   InpDesc.setAttribute("class", "form-control");
+   InpDesc.setAttribute("id","floatinInput");
+
+   divPrecio.setAttribute("class", "form-floating");
+   LabPrecio.setAttribute("for", "floatingInput");
+   InpPrecio.setAttribute("class", "form-control");
+   InpPrecio.setAttribute("id", "floatingInput");
+
+   divSInt.setAttribute("class", "form-floating");
+   LabSInt.setAttribute("class", "floatingSelect");
+   InpSInt.setAttribute("id", "floatingSelect");
+   InpSInt.setAttribute("class", "form-select");
+   InpSInt.setAttribute("aria-label", "Floating label select example");
+
+   divContSecYSubSec.setAttribute("class", "row gx-2")
+   divSec.setAttribute("class", "form-floating col");
+   LabSeccion.setAttribute("for", "floatingSelect");
+   InpSeccion.setAttribute("id", "floatingSelect");
+   InpSeccion.setAttribute("class", "form-select");
+   InpSeccion.setAttribute("aria-label", "Floating label select example");
+
+   divSubSec.setAttribute("class", "form-floating col");
+   LabsubSeccion.setAttribute("for", "floatingSelect");
+   InpsubSeccion.setAttribute("id", "floatingSelect");
+   InpsubSeccion.setAttribute("class", "form-select");
+   InpsubSeccion.setAttribute("aria-label", "Floating label select example");
+
+   divArchivo.setAttribute("class", "inputFile mb-3");
+   LabelArch.setAttribute("class" , "input-archivo form-label");
+   LabelArch.setAttribute("for", "archivos formFileMultiple");
+   archivo.setAttribute("id", "archivos formFileMultiple");
+   archivo.setAttribute("class", "imagen form-control");
+   archivo.setAttribute("type", "file");
+   archivo.setAttribute("accept", "image/*");
+   archivo.setAttribute("multiple", "");
+
+   btn.setAttribute("class", "button btn btn-primary pb-2");
+   btn.setAttribute("type", "submit");
+
+
+
+
 
 
     Nombre.innerHTML = "Editar Producto";
@@ -118,7 +170,7 @@ const Editar = async (el) => {
     LabelStock.innerHTML = "Stock";
     LabelDesc.innerHTML = "Descuento del";
     LabPrecio.innerHTML = "Precio";
-    LabSInt.innerHTML = "Cuotas(Sin interes)";
+    LabSInt.innerHTML = "Cuotas";
     LabSeccion.innerHTML = "Seccion";
     LabsubSeccion.innerHTML = "Prenda";
     archivo.innerHTML = "Seleccionar imagenes";
@@ -140,17 +192,17 @@ const Editar = async (el) => {
     btn.setAttribute("type", "submit");
 
 
-    form.appendChild(Nombre);
-    form.appendChild(LabelProd);
-    form.appendChild(nomProd);
-    form.appendChild(LabelStock);
-    form.appendChild(InpStock);
-    form.appendChild(LabelDesc)
-    form.appendChild(InpDesc)
-    form.appendChild(LabPrecio)
-    form.appendChild(InpPrecio)
-    form.appendChild(LabSInt)
-    form.appendChild(InpSInt)
+    formEdit.appendChild(Nombre);
+    divProd.appendChild(nomProd);
+    divProd.appendChild(LabelProd);
+    divStock.appendChild(InpStock);
+    divStock.appendChild(LabelStock);
+    divDesc.appendChild(InpDesc)
+    divDesc.appendChild(LabelDesc)
+    divPrecio.appendChild(InpPrecio)
+    divPrecio.appendChild(LabPrecio)
+    divSInt.appendChild(InpSInt)
+    divSInt.appendChild(LabSInt)
     let Nums = ["1", "2", "3", "6", "9", "12"];
     for (let i of Nums) {
         if (i.length > 0) {
@@ -161,19 +213,31 @@ const Editar = async (el) => {
 
         }
     }
+    
+    divSec.appendChild(InpSeccion);
+    divSec.appendChild(LabSeccion);
+    divSubSec.appendChild(InpsubSeccion);
+    divSubSec.appendChild(LabsubSeccion);
+    divContSecYSubSec.appendChild(divSec);
+    divContSecYSubSec.appendChild(divSubSec);
+    divArchivo.appendChild(LabelArch);
+    divArchivo.appendChild(archivo);
 
-    form.appendChild(LabSeccion);
-    form.appendChild(InpSeccion);
-    form.appendChild(LabsubSeccion);
-    form.appendChild(InpsubSeccion);
-    form.appendChild(archivo);
-    form.appendChild(btn);
+    formEdit.appendChild(divProd);
+    formEdit.appendChild(divStock);
+    formEdit.appendChild(divDesc);
+    formEdit.appendChild(divPrecio);
+    formEdit.appendChild(divSInt);
+    formEdit.appendChild(divContSecYSubSec);
+    formEdit.appendChild(divArchivo);
+    formEdit.appendChild(btn);
     boxContent.innerHTML = "";
-    $fragment.appendChild(form);
+    boxCargas.innerHTML = "";
+    $fragment.appendChild(formEdit);
 
 
-    boxCargas.appendChild(boxContent);
-    boxContent.appendChild($fragment);
+    
+    boxCargas.appendChild($fragment);
 
     // Seccion del mini editor (Muestra lo que se esta editando)
     const titulo = document.createElement("h3");
@@ -234,7 +298,7 @@ const Editar = async (el) => {
     })
     const data = await res.json();
 
-    form.addEventListener("submit", async (e) => {
+    formEdit.addEventListener("submit", async (e) => {
         e.preventDefault();
         let formdata = new FormData(e.target);
         formdata.append("nomProd", nomProd.value);
@@ -261,6 +325,7 @@ const Editar = async (el) => {
 
             if (res.ok) {
                 let modal = document.getElementById("modal");
+                console.log(modal)
                 let parrafo = document.createElement("p");
                 modal.innerHTML = "";
                 parrafo.innerHTML = data.mensaje;
@@ -304,6 +369,7 @@ const DataProductos = async (data) => {
 
             MinEdit.innerHTML = "";
             boxContent.innerHTML = "";
+            boxCargas.innerHTML = "";
             texto.innerHTML = "";
             const box = document.createElement("div");
             let datosProducto = document.createElement("div");
