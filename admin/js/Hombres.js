@@ -9,6 +9,7 @@ const boxContent = document.createElement("div");
 const ulNombres = document.querySelector(".list-group");
 const MinEdit = document.querySelector(".Min_Edit");
 const texto = document.createElement("h3");
+const boxSelect = document.querySelector(".box_select");
 const $fragment = document.createDocumentFragment();
 
 
@@ -68,7 +69,6 @@ const Eliminar = async (el) => {
 };
 
 const Editar = async (el) => {
-    
     const formEdit = document.createElement("form");
     const Nombre = document.createElement("h3");
     
@@ -105,7 +105,7 @@ const Editar = async (el) => {
     const LabelArch = document.createElement("label");
     const archivo = document.createElement("input");
     const btn = document.createElement("button");
-
+   boxContent.setAttribute("class", "text-center   row justify-content-center")
    formEdit.setAttribute("class", "formEdit form mt-3 mb-3");
    Nombre.setAttribute("class", "tituloEdit");
 
@@ -236,19 +236,36 @@ const Editar = async (el) => {
     $fragment.appendChild(formEdit);
 
 
-    
-    boxCargas.appendChild($fragment);
+    boxCargas.appendChild(boxContent);
+    boxContent.appendChild($fragment);
 
     // Seccion del mini editor (Muestra lo que se esta editando)
+   const cardHeader = document.createElement("div");
+   const cardBody = document.createElement("div");
+   const ulCard = document.createElement("ul");
+   const cardFooter = document.createElement("div");
+
     const titulo = document.createElement("h3");
-    const NameProd = document.createElement("span");
-    const NStock = document.createElement("p");
-    const NDesc = document.createElement("p");
-    const NPrecio = document.createElement("p");
-    const NInt = document.createElement("p");
+    const NameProd = document.createElement("li");
+    const NStock = document.createElement("li");
+    const NDesc = document.createElement("li");
+    const NPrecio = document.createElement("li");
+    const NInt = document.createElement("li");
     const EstImg = el.imagen.split(",");
 
-
+   MinEdit.classList.add("Min_Edit" ,"card"
+,"mb-5");
+   
+   MinEdit.classList.remove("d-none");
+   cardHeader.setAttribute("class", "card-header");
+   cardBody.setAttribute("class", "card-body");
+   ulCard.setAttribute("class", "list-group list-group-flush");
+   NameProd.setAttribute("class", "list-group-item m-0"); 
+   NStock.setAttribute("class", "list-group-item ");
+   NDesc.setAttribute("class", "list-group-item "); 
+   NPrecio.setAttribute("class", "list-group-item "); 
+    NInt.setAttribute("class", "list-group-item ");
+   cardFooter.setAttribute("class", "card-footer");
 
     MinEdit.innerHTML = "";
     titulo.innerHTML = "Se esta Editando";
@@ -258,24 +275,28 @@ const Editar = async (el) => {
     NPrecio.innerHTML = `Precio: ${el.precio}`;
     NInt.innerHTML = `Interes: ${el.cuotas}`;
 
+  
 
 
+    cardHeader.appendChild(titulo);
+    ulCard.appendChild(NameProd);
+    ulCard.appendChild(NStock);
+    ulCard.appendChild(NDesc);
+    ulCard.appendChild(NPrecio);
+    ulCard.appendChild(NInt);
+    cardBody.appendChild(ulCard);
 
-    MinEdit.appendChild(titulo);
-    MinEdit.appendChild(NameProd);
-    MinEdit.appendChild(NStock);
-    MinEdit.appendChild(NDesc);
-    MinEdit.appendChild(NPrecio);
-    MinEdit.appendChild(NInt);
     EstImg.forEach(async (imagen) => {
         const ImgDefault = "a4937c6a789a8856d0632422c7af52fa";
         const img = document.createElement("img");
+        img.setAttribute("class", "border border-success ms-1")
 
         let imgURl = `http://localhost:3000/uploads/${imagen}`;
         let imagenResponse = await fetch(imgURl);
         let imgBlob = await imagenResponse.blob();
         let imagenObjectURL = URL.createObjectURL(imgBlob);
         if (imagen === ImgDefault) {
+            img.classList.remove("border", "border-success", "ms-1");
             img.src = "";
         } else {
 
@@ -285,10 +306,12 @@ const Editar = async (el) => {
         img.style.maxHeight = "30px";
         img.style.maxWidth = "2em";
 
-        MinEdit.appendChild(img);
+        cardFooter.appendChild(img);
     })
 
-
+     MinEdit.appendChild(cardHeader);
+     MinEdit.appendChild(cardBody);
+     MinEdit.appendChild(cardFooter);
 
     const res = await fetch("/Product/edit", {
         method: "POST",
@@ -357,7 +380,7 @@ const DataProductos = async (data) => {
     let obj = JSON.parse(datos);
 
     if (obj.length === 0) {
-        MinEdit.innerHTML = "";
+        MinEdit.classList.display = "none";
         boxContent.innerHTML = "";
 
         texto.innerHTML = "No hay productos!!";
@@ -366,8 +389,14 @@ const DataProductos = async (data) => {
     } else {
 
         for (let el of obj) {
+            
+            if(!MinEdit.classList.contains("d-none")){
 
-            MinEdit.innerHTML = "";
+          MinEdit.classList.remove("Min_Edit","card"
+,"mb-5");
+                
+                MinEdit.classList.add("d-none");
+              }
             boxContent.innerHTML = "";
             boxCargas.innerHTML = "";
             texto.innerHTML = "";
@@ -395,6 +424,9 @@ const DataProductos = async (data) => {
             } else if (el.stock === 0) {
                 stock.innerHTML = "sin stock";
             }
+            boxContent.classList.add("boxContent");
+            boxContent.classList.remove("text-center","row", "justify-content-center");
+            
 
             box.setAttribute("class", "box_pilcha");
             img.setAttribute("class", "image");
@@ -464,7 +496,13 @@ hombre.addEventListener("click", (e) => {
         formAdd.style.display = "none";
         boxNames.innerHTML = "";
         boxContent.innerHTML = "";
-        MinEdit.innerHTML = "";
+        if(!MinEdit.classList.contains("d-none")){
+
+            MinEdit.classList.remove("Min_Edit");
+            MinEdit.classList.remove("card");
+            MinEdit.classList.remove("mb-5");
+            MinEdit.classList.add("d-none");
+          }
         const remeras = document.createElement("a");
         const pantalones = document.createElement("a");
         const accesorios = document.createElement("a");
@@ -495,7 +533,7 @@ hombre.addEventListener("click", (e) => {
             e.preventDefault();
 
             if (e.target) {
-
+               
                 const res = await fetch("/Hombres/Remeras").then(res => res.json()).then(async data => {
                     DataProductos(data);
 

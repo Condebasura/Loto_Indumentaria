@@ -5,9 +5,15 @@ nenes.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
         boxNames.innerHTML = "";
-        MinEdit.innerHTML = "";
         boxContent.innerHTML = "";
         formAdd.style.display = "none";
+        if(!MinEdit.classList.contains("d-none")){
+
+            MinEdit.classList.remove("Min_Edit","card"
+  ,"mb-5");
+                  
+                  MinEdit.classList.add("d-none");
+                }
         const remeras = document.createElement("a");
         const pantalones = document.createElement("a");
         

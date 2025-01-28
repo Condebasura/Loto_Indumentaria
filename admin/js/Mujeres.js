@@ -7,8 +7,14 @@ mujer.addEventListener("click", (e)=>{
     if(e.target){
         formAdd.style.display = "none";
         boxNames.innerHTML = "";
-        MinEdit.innerHTML = "";
         boxContent.innerHTML = "";
+        if(!MinEdit.classList.contains("d-none")){
+
+            MinEdit.classList.remove("Min_Edit","card"
+  ,"mb-5");
+                  
+                  MinEdit.classList.add("d-none");
+                }
         const remeras = document.createElement("a");
         const pantalones = document.createElement("a");
         const vestidos = document.createElement("a");

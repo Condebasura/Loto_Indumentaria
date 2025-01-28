@@ -1,16 +1,29 @@
 
 const logout = document.querySelector(".salir");
-const formEdit = document.querySelector(".formEdit");
+
+
 
 
 Add.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
-      // buscar el error, al estar en el editor y cambiar a agregar no edaparece el editor
-        boxNames.innerHTML = "";
-        boxContent.innerHTML = "";
-        MinEdit.innerHTML = "";
-        formAdd.style.display = "flex";
+      
+        boxCargas.appendChild(formAdd);
+        if(boxContent.contains($fragment)){
+
+            boxContent.removeChild($fragment)
+        }else{
+            boxCargas.removeChild(boxContent)
+        }
+      boxNames.innerHTML = "";
+      if(!MinEdit.classList.contains("d-none")){
+
+        MinEdit.classList.remove("Min_Edit","card"
+,"mb-5");
+              
+              MinEdit.classList.add("d-none");
+            }
+      formAdd.style.display = "flex";
         
         
     }
