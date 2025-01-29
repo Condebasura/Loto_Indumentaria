@@ -44,7 +44,7 @@
 
 /*;*/
 
-.card__title{
+.card__title , .tituloEdit{
     color: rgb(2, 8, 66);
     text-shadow: 2px 2px 2px #b3b1b1;
     font-family: "Monserrat", serif;
@@ -54,9 +54,46 @@
 }
 
 
+.image{width: 100% ;
+    flex-wrap: wrap;
+   height: 200px ;
+border-radius:  6px;}
 
+.box_pilcha{
+max-width: 18rem !important;
+max-height: max-content !important;
 
+}
+.box_pilcha:hover{box-shadow: 3px 2px 25px #7e7979;}
 
+.fa-trash-can{
+    border-style: none;
+    font-size: 1em;
+    padding: 6px;
+}
+
+.fa-trash-can:hover{
+    cursor: pointer;
+    color: red;
+    text-shadow: 2px 2px 2px  #b3b3b3;
+  
+}
+.fa-pen-to-square{
+border-style: none;
+list-style-type: none;
+color: black;
+font-size:  1em;
+padding: 6px;
+
+}
+
+.fa-pen-to-square:hover{
+cursor: pointer;
+color: blue;
+border-color: beige;
+text-shadow: 2px 2px 2px #dbdadd;
+
+}
 
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {  }

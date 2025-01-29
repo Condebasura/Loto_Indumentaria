@@ -157,7 +157,7 @@ const Editar = async (el) => {
    archivo.setAttribute("accept", "image/*");
    archivo.setAttribute("multiple", "");
 
-   btn.setAttribute("class", "button btn btn-primary pb-2");
+   btn.setAttribute("class", "button btn btn-primary pb-1");
    btn.setAttribute("type", "submit");
 
 
@@ -245,7 +245,7 @@ const Editar = async (el) => {
    const ulCard = document.createElement("ul");
    const cardFooter = document.createElement("div");
 
-    const titulo = document.createElement("h3");
+    const titulo = document.createElement("h4");
     const NameProd = document.createElement("li");
     const NStock = document.createElement("li");
     const NDesc = document.createElement("li");
@@ -254,18 +254,18 @@ const Editar = async (el) => {
     const EstImg = el.imagen.split(",");
 
    MinEdit.classList.add("Min_Edit" ,"card"
-,"mb-5");
+,"mb-5" , "me-2", "text-start");
    
    MinEdit.classList.remove("d-none");
-   cardHeader.setAttribute("class", "card-header");
-   cardBody.setAttribute("class", "card-body");
-   ulCard.setAttribute("class", "list-group list-group-flush");
-   NameProd.setAttribute("class", "list-group-item m-0"); 
-   NStock.setAttribute("class", "list-group-item ");
-   NDesc.setAttribute("class", "list-group-item "); 
-   NPrecio.setAttribute("class", "list-group-item "); 
-    NInt.setAttribute("class", "list-group-item ");
-   cardFooter.setAttribute("class", "card-footer");
+   cardHeader.setAttribute("class", " card-header text-bg-secondary text-center");
+   cardBody.setAttribute("class", "card-body p-0 text-start");
+   ulCard.setAttribute("class", "list-group list-group-flush ");
+   NameProd.setAttribute("class", "list-group-item border-bottom border-primary-subtle" ); 
+   NStock.setAttribute("class", "list-group-item border-bottom border-primary-subtle");
+   NDesc.setAttribute("class", "list-group-item border-bottom border-primary-subtle"); 
+   NPrecio.setAttribute("class", "list-group-item border-bottom border-primary-subtle"); 
+    NInt.setAttribute("class", "list-group-item border-bottom border-primary-subtle");
+   cardFooter.setAttribute("class", "card-footer ");
 
     MinEdit.innerHTML = "";
     titulo.innerHTML = "Se esta Editando";
@@ -393,22 +393,25 @@ const DataProductos = async (data) => {
             if(!MinEdit.classList.contains("d-none")){
 
           MinEdit.classList.remove("Min_Edit","card"
-,"mb-5");
+,"mb-5" , "pe-2");
                 
                 MinEdit.classList.add("d-none");
               }
             boxContent.innerHTML = "";
             boxCargas.innerHTML = "";
             texto.innerHTML = "";
+
+
             const box = document.createElement("div");
             let datosProducto = document.createElement("div");
             let img = document.createElement("img");
-            let nombreProducto = document.createElement("h3");
+            let nombreProducto = document.createElement("h5");
             let hr = document.createElement("hr");
             let descuento = document.createElement("p");
             let precio = document.createElement("span");
             let stock = document.createElement("p");
             let cuotas = document.createElement("p");
+            const cardF = document.createElement("div");
             let edit = document.createElement("a");
             let delet = document.createElement("a");
 
@@ -424,15 +427,17 @@ const DataProductos = async (data) => {
             } else if (el.stock === 0) {
                 stock.innerHTML = "sin stock";
             }
-            boxContent.classList.add("boxContent");
-            boxContent.classList.remove("text-center","row", "justify-content-center");
+            boxContent.classList.add("boxContent", "row", "gy-3" , "gx-5" );
+            boxContent.classList.remove("text-center", "justify-content-center");
             
 
-            box.setAttribute("class", "box_pilcha");
-            img.setAttribute("class", "image");
-            nombreProducto.setAttribute("class", "name");
-            datosProducto.setAttribute("class", "datos");
+            box.setAttribute("class", "box_pilcha card col m-3 ");
+            img.setAttribute("class", "image card-img-top");
+
+            datosProducto.setAttribute("class", "datos card-body");
+            nombreProducto.setAttribute("class", "name card-title");
             descuento.setAttribute("class", "precio");
+            cardF.setAttribute("class", "card-footer");
             edit.setAttribute("class", "fa-solid fa-pen-to-square");
             delet.setAttribute("class", "fa-solid fa-trash-can");
 
@@ -467,9 +472,9 @@ const DataProductos = async (data) => {
             datosProducto.appendChild(precio);
             datosProducto.appendChild(cuotas);
             datosProducto.appendChild(stock);
-            datosProducto.appendChild(edit);
-            datosProducto.appendChild(delet);
-
+            cardF.appendChild(edit);
+            cardF.appendChild(delet);
+             datosProducto.appendChild(cardF);
 
             delet.addEventListener("click", async (e) => {
                 e.preventDefault();
@@ -498,9 +503,9 @@ hombre.addEventListener("click", (e) => {
         boxContent.innerHTML = "";
         if(!MinEdit.classList.contains("d-none")){
 
-            MinEdit.classList.remove("Min_Edit");
-            MinEdit.classList.remove("card");
-            MinEdit.classList.remove("mb-5");
+            MinEdit.classList.remove("Min_Edit" ,"card"
+,"mb-5", "pe-2");
+           
             MinEdit.classList.add("d-none");
           }
         const remeras = document.createElement("a");

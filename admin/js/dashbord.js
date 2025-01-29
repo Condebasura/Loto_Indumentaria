@@ -19,7 +19,7 @@ Add.addEventListener("click", (e)=>{
       if(!MinEdit.classList.contains("d-none")){
 
         MinEdit.classList.remove("Min_Edit","card"
-,"mb-5");
+,"mb-5" , "pe-2");
               
               MinEdit.classList.add("d-none");
             }
