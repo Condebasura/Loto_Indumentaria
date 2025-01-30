@@ -407,10 +407,11 @@ const DataProductos = async (data) => {
             let img = document.createElement("img");
             let nombreProducto = document.createElement("h5");
             let hr = document.createElement("hr");
-            let descuento = document.createElement("p");
-            let precio = document.createElement("span");
-            let stock = document.createElement("p");
-            let cuotas = document.createElement("p");
+            const cardUl = document.createElement("ul"); 
+            let descuento = document.createElement("li");
+            let precio = document.createElement("li");
+            let stock = document.createElement("li");
+            let cuotas = document.createElement("li");
             const cardF = document.createElement("div");
             let edit = document.createElement("a");
             let delet = document.createElement("a");
@@ -421,11 +422,11 @@ const DataProductos = async (data) => {
             let rebajadoDe = bestPrecio - porcentaje;
 
             if (el.stock >= 5) {
-                stock.innerHTML = "stock disponible";
+                stock.innerHTML = `<small class="link-success"> stock disponible </small>`;
             } else if (el.stock > 0 && el.stock <= 4) {
-                stock.innerHTML = "Ultimos disponible";
+                stock.innerHTML = ` <small class="link-danger"> Ultimos disponible </small>`;
             } else if (el.stock === 0) {
-                stock.innerHTML = "sin stock";
+                stock.innerHTML = `<small class="link-secondary"> sin stock </small>`;
             }
             boxContent.classList.add("boxContent", "row", "gy-3" , "gx-5" );
             boxContent.classList.remove("text-center", "justify-content-center");
@@ -436,7 +437,14 @@ const DataProductos = async (data) => {
 
             datosProducto.setAttribute("class", "datos card-body");
             nombreProducto.setAttribute("class", "name card-title");
-            descuento.setAttribute("class", "precio");
+           
+            cardUl.setAttribute("class", "list-group list-group-flush m-0 p-0")
+            descuento.setAttribute("class", "precio list-group-item link-danger");
+            precio.setAttribute("class", "list-group-item ");
+            stock.setAttribute("class", "list-group-item");
+            cuotas.setAttribute("class", "list-group-item");
+
+
             cardF.setAttribute("class", "card-footer");
             edit.setAttribute("class", "fa-solid fa-pen-to-square");
             delet.setAttribute("class", "fa-solid fa-trash-can");
@@ -448,9 +456,9 @@ const DataProductos = async (data) => {
             let imagenObjectURL = URL.createObjectURL(imgBlob);
             img.src = imagenObjectURL;
             descuento.innerHTML = `Antes: $ ${el.precio}`
-            precio.innerHTML = `$ ${rebajadoDe}    ${el.descuento}  %OFF`;
+            precio.innerHTML = `$ ${rebajadoDe}   <small class="text-bg-success p-1 rounded"> ${el.descuento}  %OFF </small>`;
             nombreProducto.innerHTML = el.producto;
-            cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
+            cuotas.innerHTML = `<small>${el.cuotas} cuotas sin interes </small>`;
             img.addEventListener("click", (e) => {
                 e.preventDefault();
                 if (e.target) {
@@ -463,15 +471,18 @@ const DataProductos = async (data) => {
             box.appendChild(datosProducto);
             datosProducto.appendChild(hr);
             datosProducto.appendChild(nombreProducto);
-            datosProducto.appendChild(descuento);
+            nombreProducto.appendChild(hr);
+            cardUl.appendChild(descuento);
             if (desc === 0) {
 
-                datosProducto.removeChild(descuento);
+                cardUl.removeChild(descuento);
                 precio.innerHTML = `$ ${rebajadoDe} `;
             }
-            datosProducto.appendChild(precio);
-            datosProducto.appendChild(cuotas);
-            datosProducto.appendChild(stock);
+            cardUl.appendChild(precio);
+            cardUl.appendChild(cuotas);
+            cardUl.appendChild(stock);
+            datosProducto.appendChild(cardUl);
+
             cardF.appendChild(edit);
             cardF.appendChild(delet);
              datosProducto.appendChild(cardF);
