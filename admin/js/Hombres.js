@@ -438,7 +438,7 @@ const DataProductos = async (data) => {
             datosProducto.setAttribute("class", "datos card-body");
             nombreProducto.setAttribute("class", "name card-title");
            
-            cardUl.setAttribute("class", "list-group list-group-flush m-0 p-0")
+            cardUl.setAttribute("class", "list-group list-group-flush m-0 p-0 text-start text-md-center")
             descuento.setAttribute("class", "precio list-group-item link-danger");
             precio.setAttribute("class", "list-group-item ");
             stock.setAttribute("class", "list-group-item");

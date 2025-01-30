@@ -96,7 +96,12 @@ text-shadow: 2px 2px 2px #dbdadd;
 }
 
 /* Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) {  }
+@media (min-width: 576px) { 
+    .box_pilcha{
+max-width: 25rem !important;
+
+    }
+ }
 
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {  }
