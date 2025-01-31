@@ -252,7 +252,8 @@ const Editar = async (el) => {
     const NPrecio = document.createElement("li");
     const NInt = document.createElement("li");
     const EstImg = el.imagen.split(",");
-
+   boxContent.setAttribute("class", " mt-4 col-md-6 col-12");
+   
    MinEdit.classList.add("Min_Edit" ,"card"
 ,"mb-5" , "me-2", "text-start");
    
@@ -428,11 +429,11 @@ const DataProductos = async (data) => {
             } else if (el.stock === 0) {
                 stock.innerHTML = `<small class="link-secondary"> sin stock </small>`;
             }
-            boxContent.classList.add("boxContent", "row", "gy-3" , "gx-5" );
-            boxContent.classList.remove("text-center", "justify-content-center");
+            boxContent.classList.add("boxContent", "row", "gy-sm-3" , "gx-sm-5", "gx-0", "gy-0" );
+            boxContent.classList.remove("text-center", "justify-content-center", "mt-4" ,"col-md-6" ,"col-12");
             
 
-            box.setAttribute("class", "box_pilcha card col m-3 ");
+            box.setAttribute("class", "box_pilcha card col-sm-6 col m-3 ");
             img.setAttribute("class", "image card-img-top");
 
             datosProducto.setAttribute("class", "datos card-body");
