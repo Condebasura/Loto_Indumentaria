@@ -285,12 +285,13 @@ document.addEventListener("DOMContentLoaded", (e)=>{
                      titulo.innerHTML = "Oops!!";
                      
                      modalTabx.setAttribute("tabindex","-1");
-                     modalTabx.setAttribute("class","modal ");
-                     modalDialog.setAttribute("class", "modal-dialog");
+                     modalTabx.setAttribute("class","modal d-flex justify-content-center align-items-center text-center");
+                     modalDialog.setAttribute("class", "modal-dialog ");
                      modalContent.setAttribute("class","modal-content");
                      modalHeader.setAttribute("class", "modal-header text-bg-danger");
                      titulo.setAttribute("class", "modal-title");
                      btnClose.setAttribute("class", "btn-close");
+                     btnClose.setAttribute("type", "button");
                      modalBody.setAttribute("class", "modal-body text-center");
 
                      modalHeader.appendChild(titulo);
@@ -307,6 +308,18 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 
                      const bootstrapModal = new bootstrap.Modal(modalTabx);
                      bootstrapModal.show();
+
+                     btnClose.addEventListener("click", (e)=>{
+                        if(e.target){
+                            
+                            
+                            modalTabx.setAttribute("class", "modal d-none");
+                                
+                                bootstrapModal.hide();
+                              
+
+                        }
+                     })
 
                      
             }
@@ -325,7 +338,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
 
 
                modalTabx.setAttribute("tabindex","-1");
-               modalTabx.setAttribute("class","modal ");
+               modalTabx.setAttribute("class","modal d-flex justify-content-center align-items-center text-center");
                modalDialog.setAttribute("class", "modal-dialog");
                modalContent.setAttribute("class","modal-content");
                

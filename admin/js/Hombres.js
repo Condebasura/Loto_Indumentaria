@@ -11,6 +11,7 @@ const MinEdit = document.querySelector(".Min_Edit");
 const texto = document.createElement("h3");
 const boxSelect = document.querySelector(".box_select");
 const $fragment = document.createDocumentFragment();
+const modalContainer = document.getElementById("modalContainer");
 
 
 const Eliminar = async (el) => {
@@ -22,37 +23,73 @@ const Eliminar = async (el) => {
         body: JSON.stringify({ id: el.id })
     });
     const data = await res.json();
-    let modal = document.getElementById("modal");
     let parrafo = document.createElement("h2");
-    let cajaBtn = document.createElement("div");
-    let aceptar = document.createElement("button");
+let aceptar = document.createElement("button");
     let cancelar = document.createElement("button");
-    parrafo.setAttribute("class", "p_delete");
-    cajaBtn.setAttribute("class", "cajabtn");
-    aceptar.setAttribute("class", "aceptar");
-    cancelar.setAttribute("class", "cancelar");
-    parrafo.innerHTML = `Se va a eliminar de su lista el producto: <h1>${el.producto}</h1>`;
-    aceptar.textContent = "Aceptar";
-    cancelar.textContent = "Cancelar";
-    modal.showModal();
-    modal.innerHTML = "";
-    modal.appendChild(parrafo);
-    cajaBtn.appendChild(aceptar);
-    cajaBtn.appendChild(cancelar);
-    modal.appendChild(cajaBtn);
+ parrafo.setAttribute("class", "p_delete");
+aceptar.setAttribute("class", "aceptar btn btn-outline-success");
+    cancelar.setAttribute("class", "cancelar btn btn-outline-danger");
+
+    const modalTabx = document.createElement("div");
+    const modalDialog = document.createElement("div");
+    const modalContent = document.createElement("div");
+    const modalHeader = document.createElement("div");
+    let titulo = document.createElement("h4");
+    
+    const modalBody = document.createElement("div");
+     const modalFooter  = document.createElement("div");
+    
+
+
+modalTabx.setAttribute("tabindex","-1");
+modalTabx.setAttribute("class","modal d-flex justify-content-center align-items-center text-center");
+modalDialog.setAttribute("class", "modal-dialog");
+modalContent.setAttribute("class","modal-content");
+
+titulo.setAttribute("class", "modal-title");
+
+modalHeader.setAttribute("class", "modal-header text-bg-danger");
+modalBody.setAttribute("class", "modal-body text-center");
+modalFooter.setAttribute("class", "modal-footer");
+    
+parrafo.innerHTML = `Se va a eliminar de su lista el producto: <h1>${el.producto}</h1>`;
+aceptar.textContent = "Aceptar";
+  cancelar.textContent = "Cancelar";
+   titulo.innerHTML = "Eliminar";
+
+
+   modalHeader.appendChild(titulo);
+   modalBody.appendChild(parrafo);
+    modalFooter.appendChild(cancelar);
+    modalFooter.appendChild(aceptar);
+
+   modalContent.appendChild(modalHeader);
+   modalContent.appendChild(modalBody);
+   modalContent.appendChild(modalFooter);
+   modalDialog.appendChild(modalContent);
+   modalTabx.appendChild(modalDialog);
+
+   modalContainer.innerHTML = "";
+   modalContainer.appendChild(modalTabx);
+
+   const bootstrapModal = new bootstrap.Modal(modalTabx);
+   bootstrapModal.show();
+
+
+    
+
 
     aceptar.addEventListener("click", async (e) => {
         e.preventDefault();
         try {
-
+            
             let id = el.id;
             let img = el.imagen;
-            let modalDelete = document.getElementById("modal");
-            let parrafoDelete = document.createElement("p");
-            parrafoDelete.innerHTML = `El producto ${el.producto} fue eliminado con exito`;
-            modalDelete.showModal();
-            modalDelete.innerHTML = "";
-            setTimeout(() => { modalDelete.appendChild(parrafoDelete), location.reload(), 100000 });
+            modalContent.removeChild(modalFooter);
+            modalHeader.setAttribute("class", "modal-header text-bg-success");
+            titulo.innerHTML = "Exito !!"
+            parrafo.innerHTML = `El producto ${el.producto} fue eliminado con exito`;
+            setTimeout(() => {  location.reload(), 100000 });
             await fetch(`/product/delete/${id}/${img}`, {
                 method: "DELETE",
             });
@@ -63,7 +100,9 @@ const Eliminar = async (el) => {
     });
 
     cancelar.addEventListener("click", () => {
-        modal.close();
+       modalTabx.setAttribute("class", "d-none");
+        bootstrapModal.hide();
+
     })
 
 };
@@ -106,7 +145,7 @@ const Editar = async (el) => {
     const archivo = document.createElement("input");
     const btn = document.createElement("button");
    boxContent.setAttribute("class", "text-center   row justify-content-center")
-   formEdit.setAttribute("class", "formEdit form mt-3 mb-3");
+   formEdit.setAttribute("class", "formEdit form mt-3 mb-3 p-5");
    Nombre.setAttribute("class", "tituloEdit");
 
    divProd.setAttribute("class", "form-floating");
@@ -348,23 +387,57 @@ const Editar = async (el) => {
 
 
             if (res.ok) {
-                let modal = document.getElementById("modal");
-                console.log(modal)
+                
                 let parrafo = document.createElement("p");
-                modal.innerHTML = "";
-                parrafo.innerHTML = data.mensaje;
-                modal.appendChild(parrafo);
-                modal.showModal();
+                
+                const modalTabx = document.createElement("div");
+                const modalDialog = document.createElement("div");
+                const modalContent = document.createElement("div");
+                const modalHeader = document.createElement("div");
+                let titulo = document.createElement("h4");
+                const btnClose = document.createElement("button");
+                const modalBody = document.createElement("div");
+                
+
+
+           modalTabx.setAttribute("tabindex","-1");
+           modalTabx.setAttribute("class","modal d-flex justify-content-center align-items-center text-center");
+           modalDialog.setAttribute("class", "modal-dialog");
+           modalContent.setAttribute("class","modal-content");
+           
+           titulo.setAttribute("class", "modal-title");
+           btnClose.setAttribute("class", "btn-close");
+           modalBody.setAttribute("class", "modal-body text-center");
+           
+           parrafo.innerHTML = data.mensaje;
+               titulo.innerHTML = "Exito!!";
+
+               modalHeader.setAttribute("class", "modal-header text-bg-success");
+
+               modalHeader.appendChild(titulo);
+               modalHeader.appendChild(btnClose);
+               modalBody.appendChild(parrafo);
+
+               modalContent.appendChild(modalHeader);
+               modalContent.appendChild(modalBody);
+               modalDialog.appendChild(modalContent);
+               modalTabx.appendChild(modalDialog);
+
+               modalContainer.innerHTML = "";
+               modalContainer.appendChild(modalTabx);
+
+               const bootstrapModal = new bootstrap.Modal(modalTabx);
+               bootstrapModal.show();
+
                 setTimeout(() => {
                     return location.reload();
-                }, 3000);
+                }, 1000);
             } else if (res.status === 200) {
-                let modal = document.getElementById("modal");
+                
                 let parrafo = document.createElement("p");
-                modal.innerHTML = "";
                 parrafo.innerHTML = data.mensaje;
-                modal.appendChild(parrafo);
-                modal.showModal();
+                modalBody.appendChild(parrafo);
+                
             }
 
         } catch (error) {
@@ -429,7 +502,7 @@ const DataProductos = async (data) => {
             } else if (el.stock === 0) {
                 stock.innerHTML = `<small class="link-secondary"> sin stock </small>`;
             }
-            boxContent.classList.add("boxContent", "row", "gy-sm-3" , "gx-sm-5", "gx-0", "gy-0" );
+            boxContent.classList.add("boxContent", "row", "gy-sm-3" , "gx-sm-5", "gx-0", "gy-0" , "ps-0" );
             boxContent.classList.remove("text-center", "justify-content-center", "mt-4" ,"col-md-6" ,"col-12");
             
 

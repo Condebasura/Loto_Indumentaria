@@ -47,7 +47,7 @@ form.addEventListener("submit",async (e)=>{
                 modTitulo.innerHTML = "Exito !"
                 parrafo.innerHTML = data.mensaje;
                 
-                modTbi.setAttribute("class", "modal");
+                modTbi.setAttribute("class", "modal d-flex justify-content-center align-items-center text-center");
                 modTbi.setAttribute("tabindex", "-1");
                 modDialog.setAttribute("class", "modal-dialog");
                 modContent.setAttribute("class", "modal-content");
@@ -69,9 +69,10 @@ form.addEventListener("submit",async (e)=>{
                 const bootstrapModal = new bootstrap.Modal(modTbi);
                 bootstrapModal.show();
                 
-                setTimeout(() => {
+               setTimeout(() => {
                 return location.reload();    
                 }, 3000);
+
             }else if(res.status === 209){
                 
                 const modTbi = document.createElement("div");
@@ -82,10 +83,10 @@ form.addEventListener("submit",async (e)=>{
                 const modBody = document.createElement("div");
                 let parrafo = document.createElement("p");
                 
-                modTitulo.innerHTML = "Oops ! !"
+                modTitulo.innerHTML = "Oops !!"
                 parrafo.innerHTML = data.mensaje;
                 
-                modTbi.setAttribute("class", "modal");
+                modTbi.setAttribute("class", "modal d-flex justify-content-center align-items-center text-center");
                 modTbi.setAttribute("tabindex", "-1");
                 modDialog.setAttribute("class", "modal-dialog");
                 modContent.setAttribute("class", "modal-content");
