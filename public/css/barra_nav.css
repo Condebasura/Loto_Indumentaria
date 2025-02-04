@@ -4,6 +4,11 @@
    
 }
 
+.img_logo{
+    border-radius: 2em;
+}
+
 .nameLogo{
     font-size: 10px;
+    font-family:cursive;
 }

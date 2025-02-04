@@ -117,11 +117,12 @@ app.use(helmet({ contentSecurityPolicy:{
           "https://events.mercadopago.com",
         "https://api.mercadolibre.com",
         "https://api-static.mercadopago.com/secure-fields",
+        
       ],
       styleSrc: ["'self'", "https://kit.fontawesome.com/523f183385.js",
-        "statusScreen.js","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" ,"'unsafe-inline'", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"],
+        "statusScreen.js","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" ,"'unsafe-inline'", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",],
   
-      fontSrc: ["'self'", "https://kit.fontawesome.com/",  "cdnjs.cloudflare.com"],
+      fontSrc: ["'self'", "https://kit.fontawesome.com/",  "cdnjs.cloudflare.com",],
   imgSrc: ["'self'", "data:", "blob:", 'https://http2.mlstatic.com'],
     }
   }}));
