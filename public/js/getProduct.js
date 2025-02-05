@@ -1,10 +1,14 @@
 const hombre = document.querySelector(".hombre");
 const boxCargas = document.querySelector(".boxCargas");
-const boxRutas = document.createElement("div");
+const boxNavbarNav = document.querySelector(".navbar-nav");
+const boxRutas = document.createElement("li");
+const searching = document.querySelector(".sech");
 const caja = document.createElement("div");
 const texto = document.createElement("h3");
 const footer = document.querySelector("footer");
 const $fragment = document.createDocumentFragment();
+
+
 
 const DatosProdClient = async (data) =>{
     let datos = JSON.stringify(data);
@@ -95,16 +99,25 @@ hombre.addEventListener("click", async(e)=>{
  if(e.target){
 boxRutas.innerHTML = "";
 caja.innerHTML = "";
-    const HRem = document.createElement("a");
-    const HPant = document.createElement("a");
-    const HAcce = document.createElement("a");
-    HRem.innerHTML = "Remeras";
-    HPant.innerHTML = "Pantalones";
-    HAcce.innerHTML = "Accesorios";
-    boxRutas.appendChild(HRem);
-    boxRutas.appendChild(HPant);
-    boxRutas.appendChild(HAcce);
-    boxCargas.appendChild(boxRutas);
+
+const HRem = document.createElement("a");
+const HPant = document.createElement("a");
+const HAcce = document.createElement("a");
+HRem.innerHTML = "Remeras";
+HPant.innerHTML = "Pantalones";
+HAcce.innerHTML = "Accesorios";
+boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2");
+HRem.setAttribute("class", "link-success link-underline-opacity-0 ms-2");
+HPant.setAttribute("class", "link-primary link-underline-opacity-0 ms-2");
+HAcce.setAttribute("class", "link-danger link-underline-opacity-0 ms-2");
+
+        boxRutas.appendChild(HRem);
+        boxRutas.appendChild(HPant);
+        boxRutas.appendChild(HAcce);
+        boxNavbarNav.appendChild(boxRutas)
+        
+          
+        
     
 
 
@@ -171,24 +184,38 @@ mujer.addEventListener("click", (e)=>{
         MPant.innerHTML = "Pantalones";
         MVest.innerHTML = "Vestidos";
         MAcce.innerHTML = "Accesorios";
+
+        boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2");
+        MRem.setAttribute("class", "link-success link-underline-opacity-0 ms-2");
+        MPant.setAttribute("class", "link-primary link-underline-opacity-0 ms-2");
+        MVest.setAttribute("class", "link-danger link-underline-opacity-0 ms-2");
+        MAcce.setAttribute("class", "link-warning link-underline-opacity-0 ms-2");
         boxRutas.appendChild(MRem);
         boxRutas.appendChild(MPant);
         boxRutas.appendChild(MVest);
         boxRutas.appendChild(MAcce);
-        boxCargas.appendChild(boxRutas);
+        boxNavbarNav.appendChild(boxRutas);
  
 
 MRem.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+    MRem.classList.remove("link-success", "link-underline-opacity-0" );
+    MRem.classList.add("btn", "btn-outline-success" )
+
     const res = await fetch("/Mujeres/Remeras").then(res =>  res.json()).then(async data=>{
         
       DatosProdClient(data);
     
 });
- }
+  // Hacerlo pero con la linea en button
+ } document.addEventListener("click", (e)=>{
+     if(!MRem.contains(e.target)){
+        MRem.classList.add("link-success", "link-underline-opacity-0" )
+        MRem.classList.remove("btn", "btn-outline-success" ,"p-0")
+        }
+    })
 
 });
 
