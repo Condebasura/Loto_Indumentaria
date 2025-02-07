@@ -3,6 +3,22 @@ const Create = document.querySelector(".Create");
 const Login = document.querySelector(".Login");
 const modal = document.getElementById("modal");
 
+window.addEventListener("resize", (e)=>{
+
+  
+  if(window.innerWidth <= 1024 ){
+    
+    return Login.innerHTML = "Iniciar";
+    
+  }else if(window.innerWidth > 1024){
+  
+   return Login.innerHTML = "Iniciar Sesion";
+   
+  }
+})
+
+
+
 Login.addEventListener("click", (e)=>{
     e.preventDefault();
 
