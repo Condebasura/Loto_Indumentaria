@@ -186,7 +186,7 @@ mujer.addEventListener("click", (e)=>{
         MVest.innerHTML = "Vestidos";
         MAcce.innerHTML = "Accesorios";
 
-        boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2");
+        boxRutas.setAttribute("class", "nav-item ms-lg-5  ms-0 m-2");
         MRem.setAttribute("class", "link-success link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
         MPant.setAttribute("class", "link-primary link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
         MVest.setAttribute("class", "link-danger link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
