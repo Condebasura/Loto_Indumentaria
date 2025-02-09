@@ -125,7 +125,7 @@ HAcce.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0
         e.preventDefault();
        
      if(e.target){
-     
+     boxCargas.innerHTML ="";
         const res = await fetch("/Hombres/Remeras").then(res =>  res.json()).then(async data=>{
             
           DatosProdClient(data);
