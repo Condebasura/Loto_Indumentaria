@@ -15,14 +15,15 @@ const DatosProdClient = async (data) =>{
     let obj = JSON.parse(datos);
     if (obj.length === 0) {
         caja.innerHTML = "";
-       footer.style.position = "fixed";
-       footer.style.bottom = "1px";
+        footer.classList.remove("position-static");
+       footer.classList.add("position-fixed");
+    
         texto.innerHTML = "No hay productos!!";
         $fragment.appendChild(texto);
 
     } else {
-          footer.style.position = "static";
-       footer.style.bottom = "1px";
+        footer.classList.remove("position-fixed");
+         footer.classList.add("position-static");
     for(let el of obj){
         
         
@@ -125,11 +126,11 @@ HAcce.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0
         e.preventDefault();
        
      if(e.target){
-     boxCargas.innerHTML ="";
+     
         const res = await fetch("/Hombres/Remeras").then(res =>  res.json()).then(async data=>{
             
           DatosProdClient(data);
-          
+        
             }).catch(err => console.log("error", err))
                     
     }
