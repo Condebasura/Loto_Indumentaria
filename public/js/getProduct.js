@@ -6,6 +6,8 @@ const searching = document.querySelector(".sech");
 const caja = document.createElement("div");
 const texto = document.createElement("h3");
 const footer = document.querySelector("footer");
+const spiner = document.createElement("div");
+const span = document.createElement("span");
 const $fragment = document.createDocumentFragment();
 
 
@@ -14,20 +16,23 @@ const DatosProdClient = async (data) =>{
     let datos = JSON.stringify(data);
     let obj = JSON.parse(datos);
     if (obj.length === 0) {
+        boxCargas.innerHTML = "";
         caja.innerHTML = "";
-      //  footer.classList.remove("position-static");
-      // footer.classList.add("position-fixed");
+    
     
         texto.innerHTML = "No hay productos!!";
         $fragment.appendChild(texto);
 
     } else {
-        //footer.classList.remove("position-fixed");
-        // footer.classList.add("position-static");
-    for(let el of obj){
-        
-        
-        caja.innerHTML = "";
+      spiner.setAttribute("class", "spinner-border text-success");
+      spiner.setAttribute("role", "status");
+      span.setAttribute("class","visually-hidden");
+      spiner.appendChild(span);
+      for(let el of obj){
+          
+          boxCargas.innerHTML = "";
+          
+          caja.innerHTML = "";
         const box = document.createElement("div");
         let datosProducto = document.createElement("div");
       let img = document.createElement("img");
@@ -89,8 +94,12 @@ const DatosProdClient = async (data) =>{
    
    }
 }
-   boxCargas.appendChild(caja);
+
+boxCargas.appendChild(caja);
+
+
    caja.appendChild($fragment);
+   
 };
 
 
@@ -99,7 +108,6 @@ hombre.addEventListener("click", async(e)=>{
  e.preventDefault();
  if(e.target){
 boxRutas.innerHTML = "";
-caja.innerHTML = "";
 
 const HRem = document.createElement("a");
 const HPant = document.createElement("a");
@@ -177,7 +185,7 @@ mujer.addEventListener("click", (e)=>{
 
     if(e.target){
         boxRutas.innerHTML = "";
-        caja.innerHTML = "";
+
         const MRem = document.createElement("a");
         const MPant = document.createElement("a");
         const MVest = document.createElement("a");
@@ -263,7 +271,7 @@ Nena.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
     boxRutas.innerHTML = "";
-    caja.innerHTML = "";
+
         const NRem = document.createElement("a");
         const NPant = document.createElement("a");
         const NVest = document.createElement("a");
@@ -339,7 +347,7 @@ e.preventDefault();
 if(e.target){
 
      boxRutas.innerHTML = "";
-     caja.innerHTML = "";
+
 
      const ChRem =  document.createElement("a");
      const ChPant =  document.createElement("a");
