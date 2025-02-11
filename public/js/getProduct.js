@@ -15,15 +15,15 @@ const DatosProdClient = async (data) =>{
     let obj = JSON.parse(datos);
     if (obj.length === 0) {
         caja.innerHTML = "";
-        footer.classList.remove("position-static");
-       footer.classList.add("position-fixed");
+      //  footer.classList.remove("position-static");
+      // footer.classList.add("position-fixed");
     
         texto.innerHTML = "No hay productos!!";
         $fragment.appendChild(texto);
 
     } else {
-        footer.classList.remove("position-fixed");
-         footer.classList.add("position-static");
+        //footer.classList.remove("position-fixed");
+        // footer.classList.add("position-static");
     for(let el of obj){
         
         
