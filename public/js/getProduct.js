@@ -6,6 +6,7 @@ const searching = document.querySelector(".sech");
 const caja = document.createElement("div");
 const texto = document.createElement("h3");
 const footer = document.querySelector("footer");
+
 const spiner = document.createElement("div");
 const span = document.createElement("span");
 const $fragment = document.createDocumentFragment();
@@ -19,50 +20,61 @@ const DatosProdClient = async (data) =>{
         boxCargas.innerHTML = "";
         caja.innerHTML = "";
     
-    
+          
+
         texto.innerHTML = "No hay productos!!";
         $fragment.appendChild(texto);
 
     } else {
-      spiner.setAttribute("class", "spinner-border text-success");
-      spiner.setAttribute("role", "status");
-      span.setAttribute("class","visually-hidden");
-      spiner.appendChild(span);
+        
+
+      
+    
+
+   
       for(let el of obj){
           
           boxCargas.innerHTML = "";
           
           caja.innerHTML = "";
-        const box = document.createElement("div");
+          const box = document.createElement("div");
         let datosProducto = document.createElement("div");
       let img = document.createElement("img");
-       let nombreProducto = document.createElement("h3");
+       let nombreProducto = document.createElement("h5");
        let hr = document.createElement("hr");
-       let descuento = document.createElement("p");
-       let precio = document.createElement("span");
-       let stock = document.createElement("p");
-       let cuotas = document.createElement("p");
+       const cardUl = document.createElement("ul");
+       let descuento = document.createElement("li");
+       let precio = document.createElement("li");
+       let stock = document.createElement("li");
+       let cuotas = document.createElement("li");
        let car = document.createElement("a");
-       //descuento
+       const  cardFotter = document.createElement("div");
        let bestPrecio = Number(el.precio);
        let desc = Number(el.descuento);
        let porcentaje = (bestPrecio * desc) / 100;
        let rebajadoDe = bestPrecio - porcentaje;
        
-       if(el.stock >= 5){
-           stock.innerHTML = "stock disponible";
-       }else if(el.stock > 0 && el.stock <= 4){
-           stock.innerHTML = "Ultimos disponible";
-       }else if(el.stock === 0){
-           stock.innerHTML = "sin stock";
-       }
-       caja.setAttribute("class", "cont-ul");
-       box.setAttribute("class", "box_pilcha");
-       img.setAttribute("class", "image");
-       nombreProducto.setAttribute("class", "name");
-       datosProducto.setAttribute("class","datos");
-       descuento.setAttribute("class", "precio");
-       car.setAttribute("class", "fas fa-shopping-cart");
+       if (el.stock >= 5) {
+        stock.innerHTML = `<small class="link-success"> stock disponible </small>`;
+    } else if (el.stock > 0 && el.stock <= 4) {
+        stock.innerHTML = ` <small class="link-danger"> Ultimos disponible </small>`;
+    } else if (el.stock === 0) {
+        stock.innerHTML = `<small class="link-secondary"> sin stock </small>`;
+    }  
+       caja.setAttribute("class", "cont-ul row gy-sm-3  gx-sm-5 gx-0 gy-0  ps-0 mt-5");
+       box.setAttribute("class", "box_pilcha card col-sm-6 col m-3");
+       img.setAttribute("class", "image card-img-top");
+        
+        
+       nombreProducto.setAttribute("class", "name card-title");
+       cardUl.setAttribute("class", "list-group list-group-flush m-0 p-0 text-start text-md-center")
+       datosProducto.setAttribute("class","datos card-body");
+       descuento.setAttribute("class", "precio list-group-item link-danger");
+       precio.setAttribute("class", "list-group-item ");
+       cuotas.setAttribute("class", "list-group-item");
+       stock.setAttribute("class", "list-group-item")
+       car.setAttribute("class", "fas fa-shopping-cart mt-2");
+       cardFotter.setAttribute("class", "card-footer text-center");
        let img1 = el.imagen.split(",")[0];
        let imgURl = `http://localhost:3000/uploads/${img1}`;
        let imagenResponse = await fetch(imgURl);
@@ -70,9 +82,9 @@ const DatosProdClient = async (data) =>{
        let imagenObjectURL = URL.createObjectURL(imgBlob);
        img.src = imagenObjectURL;
        descuento.innerHTML = `Antes: $ ${el.precio}`
-       precio.innerHTML = `$ ${rebajadoDe}    ${el.descuento}  %OFF`;
+       precio.innerHTML = `$ ${rebajadoDe} <small class="text-bg-success p-1 rounded">   ${el.descuento}  %OFF </small>`;
        nombreProducto.innerHTML = el.producto;
-       cuotas.innerHTML = `${el.cuotas} cuotas sin interes`;
+       cuotas.innerHTML = `<small> ${el.cuotas} cuotas sin interes </small>`;
       img.addEventListener("click", (e)=>{
        e.preventDefault();
        if(e.target){
@@ -83,13 +95,22 @@ const DatosProdClient = async (data) =>{
        $fragment.appendChild(box);
        box.appendChild(img);
        box.appendChild(datosProducto);
+       box.appendChild(cardFotter);
        datosProducto.appendChild(hr);
        datosProducto.appendChild(nombreProducto);
-       datosProducto.appendChild(descuento);
-       datosProducto.appendChild(precio);
-       datosProducto.appendChild(cuotas);
-       datosProducto.appendChild(stock);
-       datosProducto.appendChild(car);
+       datosProducto.appendChild(cardUl)
+
+       cardUl.appendChild(descuento);
+
+       if (desc === 0) {
+
+        cardUl.removeChild(descuento);
+        precio.innerHTML = `$ ${rebajadoDe} `;
+    }
+       cardUl.appendChild(precio);
+       cardUl.appendChild(cuotas);
+       cardUl.appendChild(stock);
+       cardFotter.appendChild(car);
    
    
    }
