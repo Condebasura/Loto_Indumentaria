@@ -1,6 +1,6 @@
 
 const search = document.querySelector(".input");
-
+const boxCargas = document.querySelector(".boxCargas");
 const template = document.getElementById("result").content;
 const Prod = document.querySelector(".product");
 const fragment = document.createDocumentFragment();
@@ -13,7 +13,7 @@ search.addEventListener("search", async (e) => {
    if (e.target) {
          
       const valor = search.value;
-      console.log(valor)
+      
       
       const response = await fetch("/search", {
          method: "POST",
@@ -24,18 +24,34 @@ search.addEventListener("search", async (e) => {
       });
       const result = await response.json();
       
+      if( response.status === 400 ){
 
-         if( valor === ""){
-            Prod.classList.remove("product_search");
-            Prod.classList.remove("product");
+         
+               boxCargas.innerHTML = "";
+               Prod.classList.remove("product");
+              Prod.classList.add("product_search", "row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5", "text-center", "justify-content-center");
+               template.querySelector("h3").textContent = result.mensaje;
+           
+               let clone = document.importNode(template, true);
+               
+               fragment.appendChild(clone);
             
             
          }
-         else if( valor !== "" ){  
+         else if( response.status === 404 ){  
+            boxCargas.innerHTML = "";
+            Prod.classList.remove("product");
+            Prod.classList.add("product_search", "row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5", "text-center", "justify-content-center");
+            template.querySelector("h3").textContent = result.mensaje;
+           
+            let clone = document.importNode(template, true);
             
+            fragment.appendChild(clone);
+         }else if(response.status === 200){
       Prod.classList.remove("product");
-      Prod.classList.add("product_search");
+      Prod.classList.add("product_search", "row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5");
       for (let el of result) {
+
          let bestPrecio = Number(el.precio);
          let desc = Number(el.descuento);
          let porcentaje = (bestPrecio * desc) / 100;
@@ -52,10 +68,11 @@ search.addEventListener("search", async (e) => {
             
             template.querySelector("h3").textContent = el.producto;
             template.querySelector("h3").style.fontSize = "16px";
+            template.querySelector("h3").setAttribute("class", "card-title")
             template.querySelector("img").src = imagenObjectURL;
-            template.querySelector("img").setAttribute("class", "img_search");
+            template.querySelector("img").setAttribute("class", "img_search card-img-top");
             template.querySelector("a").textContent = "Ver";
-            template.querySelector("a").setAttribute("class", "ver_prod");
+            template.querySelector("a").setAttribute("class", "ver_prod card-text");
             
             template.querySelector("a").href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
             

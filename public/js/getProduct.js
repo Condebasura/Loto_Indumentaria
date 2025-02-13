@@ -27,11 +27,6 @@ const DatosProdClient = async (data) =>{
 
     } else {
         
-
-      
-    
-
-   
       for(let el of obj){
           
           boxCargas.innerHTML = "";
@@ -118,7 +113,6 @@ const DatosProdClient = async (data) =>{
 
 boxCargas.appendChild(caja);
 
-
    caja.appendChild($fragment);
    
 };
@@ -157,7 +151,8 @@ HAcce.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0
      if(e.target){
      
         const res = await fetch("/Hombres/Remeras").then(res =>  res.json()).then(async data=>{
-            
+           
+            console.log(data)
           DatosProdClient(data);
         
             }).catch(err => console.log("error", err))

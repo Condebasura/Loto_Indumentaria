@@ -45,7 +45,7 @@ import sqlite3 from "sqlite3";
         }
      }
 
-// Crear una consulta para seleccionar los productos por cada seccion
+
 const GetProdHomR = async ()=>{
     try {
         return await new Promise((resolve, reject)=>{

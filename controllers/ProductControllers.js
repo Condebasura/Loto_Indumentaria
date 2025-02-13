@@ -30,23 +30,27 @@ const SearchProd = async (req, res)=>{
     try {
        
           const   producto = req.body.valor;
-        
+        console.log(producto);
 
-        const prod = producto.toLowerCase();
-        const data = await bd.consProducto(producto);
-
-        const DatProd = data[0].producto.toLowerCase();
-        
-        if(!DatProd){
-            res.status(404).json({mensaje: "Sin datos"})
-        }else if(DatProd){
-            res.status(200).json(data);
+        if(!producto){
+            return res.status(400).json({mensaje: "Falta el valor de búsqueda"})
         }
-       
+
+        const data = await bd.consProducto(producto);
+         
+        if(!data || data.length === 0){
+
+            return  res.status(404).json({mensaje: "Sin datos"})
+        }
+        const DatProd = data[0].producto.toLowerCase();
+        res.status(200).json(data);
     
+     
+       
+     
         
     } catch (error) {
-        console.log(error)
+        console.log("el error",error )
     }
 }
 

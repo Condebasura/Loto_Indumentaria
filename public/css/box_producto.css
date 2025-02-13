@@ -1,4 +1,4 @@
-.box_pilcha{
+.box_pilcha {
     max-width: 18rem !important;
     min-width: 18rem !important;
     max-height: max-content !important;
@@ -6,7 +6,21 @@
     }
     .box_pilcha:hover{box-shadow: 3px 2px 25px #7e7979;}
 
-    .image{width: 100% ;
+    .image , .img_search{width: 100% ;
         flex-wrap: wrap;
        height: 200px ;
     border-radius:  6px;}
+
+
+    .box-prod{
+        max-width: 15rem !important;
+        min-width: 15rem !important;
+        max-height: max-content !important;
+        
+        }
+
+        .box-prod:hover{box-shadow: 3px 2px 25px #7e7979;}
+
+        .ver_prod{
+            text-decoration: none;
+        }
