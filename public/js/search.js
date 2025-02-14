@@ -48,6 +48,8 @@ search.addEventListener("search", async (e) => {
             
             fragment.appendChild(clone);
          }else if(response.status === 200){
+            boxCargas.innerHTML = "";
+            
       Prod.classList.remove("product");
       Prod.classList.add("product_search", "row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5");
       for (let el of result) {

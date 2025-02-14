@@ -6,7 +6,7 @@ const searching = document.querySelector(".sech");
 const caja = document.createElement("div");
 const texto = document.createElement("h3");
 const footer = document.querySelector("footer");
-
+const cajaUltimas = document.querySelector(".cajaUltimas");
 const spiner = document.createElement("div");
 const span = document.createElement("span");
 const $fragment = document.createDocumentFragment();
@@ -413,4 +413,55 @@ ChPant.addEventListener("click",async (e)=>{
 })
 
 
+const UltimasEntradas  = async ()=>{
 
+try {
+
+    let Hombres = ["/Hombres/Remeras", "/Hombres/Pantalones", "/Hombres/Accesorios"];
+ let HombresIndex = Math.floor(Math.random()* Hombres.length);
+let HombresAleatorio = Hombres[HombresIndex];
+
+    const res = await fetch(HombresAleatorio).then(res => res.json()).then(async data=>{
+    let dataRandom = data.at(-1);
+
+    
+    
+    
+    const card = document.createElement("div");
+    card.setAttribute("class", "card col-2");
+    let Imgtop = document.createElement("img");
+    Imgtop.setAttribute("class", "image card-img-top");
+    
+    let img1 = dataRandom.imagen.split(",")[0];
+    let imgURl = `http://localhost:3000/uploads/${img1}`;
+    let imagenResponse = await fetch(imgURl);
+    let imgBlob = await imagenResponse.blob();
+    let imagenObjectURL = URL.createObjectURL(imgBlob);
+    Imgtop.src = imagenObjectURL;
+
+    const cardBody = document.createElement("div");
+    cardBody.setAttribute("class", "card-body");
+   const cardTitulo = document.createElement("h5");
+    cardTitulo.setAttribute("class", "card-title");
+    cardTitulo.innerHTML = dataRandom.producto;
+
+    card.appendChild(Imgtop);
+    card.appendChild(cardBody);
+    cardBody.appendChild(cardTitulo);
+    cajaUltimas.appendChild(card);
+
+
+
+
+    })
+    
+} catch (error) {
+    console.log(error)
+}
+
+
+}
+
+
+
+UltimasEntradas()
