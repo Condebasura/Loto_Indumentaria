@@ -28,7 +28,7 @@ search.addEventListener("search", async (e) => {
 
          
                boxCargas.innerHTML = "";
-               Prod.classList.remove("product");
+               Prod.classList.remove("product", "d-none");
               Prod.classList.add("product_search", "row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5", "text-center", "justify-content-center");
                template.querySelector("h3").textContent = result.mensaje;
            
@@ -40,8 +40,8 @@ search.addEventListener("search", async (e) => {
          }
          else if( response.status === 404 ){  
             boxCargas.innerHTML = "";
-            Prod.classList.remove("product");
-            Prod.classList.add("product_search", "row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5", "text-center", "justify-content-center");
+            Prod.classList.remove("product", "d-none");
+            Prod.classList.add("product_search","row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5", "text-center", "justify-content-center");
             template.querySelector("h3").textContent = result.mensaje;
            
             let clone = document.importNode(template, true);
@@ -50,8 +50,8 @@ search.addEventListener("search", async (e) => {
          }else if(response.status === 200){
             boxCargas.innerHTML = "";
             
-      Prod.classList.remove("product");
-      Prod.classList.add("product_search", "row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5");
+      Prod.classList.remove("product", "d-none");
+      Prod.classList.add("product_search","row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5");
       for (let el of result) {
 
          let bestPrecio = Number(el.precio);

@@ -24,3 +24,13 @@
         .ver_prod{
             text-decoration: none;
         }
+
+       .tituloUltimas{
+        font-size: 6vh !important;
+        color: rgba(216, 214, 214, 0.807) !important;
+        text-shadow: 1px 1px 3px #080808 !important;
+       }
+
+       .cardUltimas:hover{
+        box-shadow: 3px 2px 15px #7e7979;
+         cursor: pointer;}

@@ -1,8 +1,10 @@
 const hombre = document.querySelector(".hombre");
 const boxCargas = document.querySelector(".boxCargas");
+const contUltimas = document.querySelector(".contUltimas");
 const boxNavbarNav = document.querySelector(".navbar-nav");
 const boxRutas = document.createElement("li");
 const searching = document.querySelector(".sech");
+const prodSearch = document.querySelector(".product");
 const caja = document.createElement("div");
 const texto = document.createElement("h3");
 const footer = document.querySelector("footer");
@@ -19,6 +21,10 @@ const DatosProdClient = async (data) =>{
     if (obj.length === 0) {
         boxCargas.innerHTML = "";
         caja.innerHTML = "";
+        contUltimas.innerHTML = "";
+        prodSearch.classList.remove("product_search")
+        prodSearch.classList.add("product", "d-none");
+        
     
           
 
@@ -30,8 +36,11 @@ const DatosProdClient = async (data) =>{
       for(let el of obj){
           
           boxCargas.innerHTML = "";
-          
+        contUltimas.innerHTML = "";
           caja.innerHTML = "";
+          prodSearch.classList.remove("product_search")
+          prodSearch.classList.add("product", "d-none");
+
           const box = document.createElement("div");
         let datosProducto = document.createElement("div");
       let img = document.createElement("img");
@@ -56,7 +65,7 @@ const DatosProdClient = async (data) =>{
     } else if (el.stock === 0) {
         stock.innerHTML = `<small class="link-secondary"> sin stock </small>`;
     }  
-       caja.setAttribute("class", "cont-ul row gy-sm-3  gx-sm-5 gx-0 gy-0  ps-0 mt-5");
+       caja.setAttribute("class", "cont-ul justify-content-center text-center row gy-sm-3  gx-sm-5 gx-0 gy-0  ps-0 mt-5");
        box.setAttribute("class", "box_pilcha card col-sm-6 col m-3");
        img.setAttribute("class", "image card-img-top");
         
@@ -413,7 +422,7 @@ ChPant.addEventListener("click",async (e)=>{
 })
 
 
-const UltimasEntradas  = async ()=>{
+const UltimasEntradasH  = async ()=>{
 
 try {
 
@@ -426,29 +435,44 @@ let HombresAleatorio = Hombres[HombresIndex];
 
     
     
-    
+    const boxCard = document.createElement("div");
     const card = document.createElement("div");
-    card.setAttribute("class", "card col-2");
+    boxCard.setAttribute("class", "boxCard col-md-2 col-sm-6 m-3");
+    card.setAttribute("class", "card cardUltimas  border-2 col-12 m-2");
     let Imgtop = document.createElement("img");
     Imgtop.setAttribute("class", "image card-img-top");
     
+    
+    let bestPrecio = Number(dataRandom.precio);
+    let desc = Number(dataRandom.descuento);
+       let porcentaje = (bestPrecio * desc) / 100;
+       let rebajadoDe = bestPrecio - porcentaje;
+
+    console.log(dataRandom)
     let img1 = dataRandom.imagen.split(",")[0];
     let imgURl = `http://localhost:3000/uploads/${img1}`;
     let imagenResponse = await fetch(imgURl);
     let imgBlob = await imagenResponse.blob();
     let imagenObjectURL = URL.createObjectURL(imgBlob);
     Imgtop.src = imagenObjectURL;
+    Imgtop.addEventListener("click", (e)=>{
+        e.preventDefault();
+        if(e.target){
+            return window.location.href = `/visualProducto.html?id=${dataRandom.id}&estaimg=${dataRandom.imagen}&producto=${dataRandom.producto}&precio=${rebajadoDe}&descuento=${dataRandom.descuento}&cuotas=${dataRandom.cuotas}&stock=${dataRandom.stock}`
+        }
+       }) 
 
     const cardBody = document.createElement("div");
     cardBody.setAttribute("class", "card-body");
    const cardTitulo = document.createElement("h5");
-    cardTitulo.setAttribute("class", "card-title");
-    cardTitulo.innerHTML = dataRandom.producto;
-
+    cardTitulo.setAttribute("class", "card-title tituloUltimas");
+    cardTitulo.innerHTML = "HOMBRES";
+     
+    boxCard.appendChild(card);
+    boxCard.appendChild(cardTitulo);
     card.appendChild(Imgtop);
-    card.appendChild(cardBody);
-    cardBody.appendChild(cardTitulo);
-    cajaUltimas.appendChild(card);
+    
+    cajaUltimas.appendChild(boxCard);
 
 
 
@@ -462,6 +486,135 @@ let HombresAleatorio = Hombres[HombresIndex];
 
 }
 
+const UltimasEntradasM = async ()=>{
+
+    try {
+    
+        let Mujeres = ["/Mujeres/Remeras", "/Mujeres/Pantalones","/Mujeres/Vestidos" ,"/Mujeres/Accesorios"];
+     let MujeresIndex = Math.floor(Math.random()* Mujeres.length);
+    let MujeresAleatorio = Mujeres[MujeresIndex];
+    
+        const res = await fetch(MujeresAleatorio).then(res => res.json()).then(async data=>{
+        let dataRandom = data.at(-1);
+    
+        
+        
+        const boxCard = document.createElement("div");
+        const card = document.createElement("div");
+        boxCard.setAttribute("class", "boxCard col-md-2 col-sm-6 m-3");
+        card.setAttribute("class", "card cardUltimas  border-2 col-12 m-2");
+        let Imgtop = document.createElement("img");
+        Imgtop.setAttribute("class", "image card-img-top");
+        
+        
+        let bestPrecio = Number(dataRandom.precio);
+        let desc = Number(dataRandom.descuento);
+           let porcentaje = (bestPrecio * desc) / 100;
+           let rebajadoDe = bestPrecio - porcentaje;
+    
+        console.log(dataRandom)
+        let img1 = dataRandom.imagen.split(",")[0];
+        let imgURl = `http://localhost:3000/uploads/${img1}`;
+        let imagenResponse = await fetch(imgURl);
+        let imgBlob = await imagenResponse.blob();
+        let imagenObjectURL = URL.createObjectURL(imgBlob);
+        Imgtop.src = imagenObjectURL;
+        Imgtop.addEventListener("click", (e)=>{
+            e.preventDefault();
+            if(e.target){
+                return window.location.href = `/visualProducto.html?id=${dataRandom.id}&estaimg=${dataRandom.imagen}&producto=${dataRandom.producto}&precio=${rebajadoDe}&descuento=${dataRandom.descuento}&cuotas=${dataRandom.cuotas}&stock=${dataRandom.stock}`
+            }
+           }) 
+    
+        const cardBody = document.createElement("div");
+        cardBody.setAttribute("class", "card-body");
+       const cardTitulo = document.createElement("h5");
+        cardTitulo.setAttribute("class", "card-title tituloUltimas");
+        cardTitulo.innerHTML = "MUJERES";
+         
+        boxCard.appendChild(card);
+        boxCard.appendChild(cardTitulo);
+        card.appendChild(Imgtop);
+        
+        cajaUltimas.appendChild(boxCard);
+    
+    
+    
+    
+        })
+        
+    } catch (error) {
+        console.log(error)
+    }
+    
+    
+    };
 
 
-UltimasEntradas()
+    const UltimasEntradasN = async ()=>{
+
+        try {
+        
+            let NenasEs = ["/Nena/Remeras", "/Nena/Pantalones", "/Nena/Vestidos", "/Nene/Remeras", "/Nene/Pantalones"];
+         let NenasEsIndex = Math.floor(Math.random()* NenasEs.length);
+        let NenasEsAleatorio = NenasEs[NenasEsIndex];
+        
+            const res = await fetch(NenasEsAleatorio).then(res => res.json()).then(async data=>{
+            let dataRandom = data.at(-1);
+        
+            
+            
+            const boxCard = document.createElement("div");
+            const card = document.createElement("div");
+            boxCard.setAttribute("class", "boxCard col-md-2 col-sm-6 m-3");
+            card.setAttribute("class", "card cardUltimas  border-2 col-12 m-2");
+            let Imgtop = document.createElement("img");
+            Imgtop.setAttribute("class", "image card-img-top");
+            
+            
+            let bestPrecio = Number(dataRandom.precio);
+            let desc = Number(dataRandom.descuento);
+               let porcentaje = (bestPrecio * desc) / 100;
+               let rebajadoDe = bestPrecio - porcentaje;
+        
+            console.log(dataRandom)
+            let img1 = dataRandom.imagen.split(",")[0];
+            let imgURl = `http://localhost:3000/uploads/${img1}`;
+            let imagenResponse = await fetch(imgURl);
+            let imgBlob = await imagenResponse.blob();
+            let imagenObjectURL = URL.createObjectURL(imgBlob);
+            Imgtop.src = imagenObjectURL;
+            Imgtop.addEventListener("click", (e)=>{
+                e.preventDefault();
+                if(e.target){
+                    return window.location.href = `/visualProducto.html?id=${dataRandom.id}&estaimg=${dataRandom.imagen}&producto=${dataRandom.producto}&precio=${rebajadoDe}&descuento=${dataRandom.descuento}&cuotas=${dataRandom.cuotas}&stock=${dataRandom.stock}`
+                }
+               }) 
+        
+            const cardBody = document.createElement("div");
+            cardBody.setAttribute("class", "card-body");
+           const cardTitulo = document.createElement("h5");
+            cardTitulo.setAttribute("class", "card-title tituloUltimas");
+            cardTitulo.innerHTML = "NENAS/ES";
+             
+            boxCard.appendChild(card);
+            boxCard.appendChild(cardTitulo);
+            card.appendChild(Imgtop);
+            
+            cajaUltimas.appendChild(boxCard);
+        
+        
+        
+        
+            })
+            
+        } catch (error) {
+            console.log(error)
+        }
+        
+        
+        }
+
+UltimasEntradasH();
+UltimasEntradasM();
+UltimasEntradasN();
