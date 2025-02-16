@@ -3,11 +3,13 @@ const search = document.querySelector(".input");
 const boxCargas = document.querySelector(".boxCargas");
 const template = document.getElementById("result").content;
 const Prod = document.querySelector(".product");
+const contUltimas = document.querySelector(".contUltimas");
+let textH1 = document.createElement("h1");
 const fragment = document.createDocumentFragment();
 
 
 
-// en camino a que funcione el buscador, falta tiempo ,!!!
+
 search.addEventListener("search", async (e) => {
    e.preventDefault()
    if (e.target) {
@@ -23,37 +25,51 @@ search.addEventListener("search", async (e) => {
          body: JSON.stringify({valor})
       });
       const result = await response.json();
+    
+      search.addEventListener("focus", ()=>{
+         if(search.value.trim() === ""){
+            Prod.classList.add("product", "d-none");
+            Prod.classList.remove("product_search","row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" ,  "mt-5", "text-center", "justify-content-center","fixed-top", "z-3", "border","border-2" ,"text-bg-success", "bg-opacity-75", "p-5");
+         }
+      });
+
+      search.addEventListener("input", ()=>{
+         if(search.value.trim() === ""){
+            Prod.classList.add("product", "d-none");
+      Prod.classList.remove("product_search","row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" ,  "mt-5", "text-center", "justify-content-center","fixed-top", "z-3", "border","border-2" ,"text-bg-success", "bg-opacity-75", "p-5");
+         }
+      });
       
       if( response.status === 400 ){
-
-         
-               boxCargas.innerHTML = "";
-               Prod.classList.remove("product", "d-none");
-              Prod.classList.add("product_search", "row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5", "text-center", "justify-content-center");
-               template.querySelector("h3").textContent = result.mensaje;
-           
-               let clone = document.importNode(template, true);
                
-               fragment.appendChild(clone);
+             
+         Prod.classList.add("product", "d-none");
+         Prod.classList.remove("product_search","row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" ,  "mt-5", "text-center", "justify-content-center","fixed-top", "z-3", "border","border-2" ,"text-bg-success", "bg-opacity-75", "p-5");
+              
             
             
          }
+         
          else if( response.status === 404 ){  
-            boxCargas.innerHTML = "";
-            Prod.classList.remove("product", "d-none");
-            Prod.classList.add("product_search","row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5", "text-center", "justify-content-center");
-            template.querySelector("h3").textContent = result.mensaje;
-           
-            let clone = document.importNode(template, true);
-            
-            fragment.appendChild(clone);
-         }else if(response.status === 200){
-            boxCargas.innerHTML = "";
-            
-      Prod.classList.remove("product", "d-none");
-      Prod.classList.add("product_search","row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" , "ps-0" , "mt-5");
-      for (let el of result) {
 
+            
+            Prod.classList.remove("product", "d-none");
+            Prod.classList.add("product_search","row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" ,  "mt-5", "text-center", "justify-content-center","fixed-top", "z-3", "border","border-2" ,"text-bg-success", "bg-opacity-75", "p-5");
+            
+            Prod.innerHTML = "";
+              textH1.innerHTML = result.mensaje;
+              Prod.appendChild(textH1);
+            
+         }else if(response.status === 200){
+            
+          
+            textH1.innerHTML = "Resultado de la Busqueda";
+      Prod.classList.remove("product", "d-none");
+      Prod.classList.add("product_search","row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" ,  "mt-5", "text-center", "justify-content-center","fixed-top", "z-3", "border","border-2" ,"text-bg-success", "bg-opacity-75", "p-5", "overflow-y-auto");
+       
+      for (let el of result) {
+          
+          
          let bestPrecio = Number(el.precio);
          let desc = Number(el.descuento);
          let porcentaje = (bestPrecio * desc) / 100;
@@ -66,11 +82,12 @@ search.addEventListener("search", async (e) => {
          let imagenObjectURL = URL.createObjectURL(imgBlob);
          const valorNormal = valor.toLowerCase();
          
+         
          if (el.producto.toLowerCase().includes(valorNormal)) {
             
             template.querySelector("h3").textContent = el.producto;
             template.querySelector("h3").style.fontSize = "16px";
-            template.querySelector("h3").setAttribute("class", "card-title")
+            template.querySelector("h3").setAttribute("class", "card-title text-truncate");
             template.querySelector("img").src = imagenObjectURL;
             template.querySelector("img").setAttribute("class", "img_search card-img-top");
             template.querySelector("a").textContent = "Ver";
@@ -92,8 +109,9 @@ search.addEventListener("search", async (e) => {
       }
       
    }
-
+   
    Prod.innerHTML = "";
+   Prod.appendChild(textH1);
    Prod.appendChild(fragment);
 }
       

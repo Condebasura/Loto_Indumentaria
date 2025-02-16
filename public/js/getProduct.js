@@ -22,7 +22,7 @@ const DatosProdClient = async (data) =>{
         boxCargas.innerHTML = "";
         caja.innerHTML = "";
         contUltimas.innerHTML = "";
-        prodSearch.classList.remove("product_search")
+       // prodSearch.classList.remove("product_search")
         prodSearch.classList.add("product", "d-none");
         
     
@@ -38,7 +38,7 @@ const DatosProdClient = async (data) =>{
           boxCargas.innerHTML = "";
         contUltimas.innerHTML = "";
           caja.innerHTML = "";
-          prodSearch.classList.remove("product_search")
+         // prodSearch.classList.remove("product_search")
           prodSearch.classList.add("product", "d-none");
 
           const box = document.createElement("div");
@@ -65,12 +65,12 @@ const DatosProdClient = async (data) =>{
     } else if (el.stock === 0) {
         stock.innerHTML = `<small class="link-secondary"> sin stock </small>`;
     }  
-       caja.setAttribute("class", "cont-ul justify-content-center text-center row gy-sm-3  gx-sm-5 gx-0 gy-0  ps-0 mt-5");
+       caja.setAttribute("class", "cont-ul z-n1 justify-content-center text-center row gy-sm-3  gx-sm-5 gx-0 gy-0  ps-0 mt-5");
        box.setAttribute("class", "box_pilcha card col-sm-6 col m-3");
        img.setAttribute("class", "image card-img-top");
         
         
-       nombreProducto.setAttribute("class", "name card-title");
+       nombreProducto.setAttribute("class", "name card-title text-truncate");
        cardUl.setAttribute("class", "list-group list-group-flush m-0 p-0 text-start text-md-center")
        datosProducto.setAttribute("class","datos card-body");
        descuento.setAttribute("class", "precio list-group-item link-danger");
@@ -119,7 +119,7 @@ const DatosProdClient = async (data) =>{
    
    }
 }
-
+boxCargas.appendChild(prodSearch);
 boxCargas.appendChild(caja);
 
    caja.appendChild($fragment);
@@ -437,8 +437,8 @@ let HombresAleatorio = Hombres[HombresIndex];
     
     const boxCard = document.createElement("div");
     const card = document.createElement("div");
-    boxCard.setAttribute("class", "boxCard col-md-2 col-sm-6 m-3");
-    card.setAttribute("class", "card cardUltimas  border-2 col-12 m-2");
+    boxCard.setAttribute("class", "boxCard text-center col-md-2 col-sm-6 m-3");
+    card.setAttribute("class", "card cardUltimas mx-auto  border-2 col-12 ");
     let Imgtop = document.createElement("img");
     Imgtop.setAttribute("class", "image card-img-top");
     
@@ -501,8 +501,8 @@ const UltimasEntradasM = async ()=>{
         
         const boxCard = document.createElement("div");
         const card = document.createElement("div");
-        boxCard.setAttribute("class", "boxCard col-md-2 col-sm-6 m-3");
-        card.setAttribute("class", "card cardUltimas  border-2 col-12 m-2");
+        boxCard.setAttribute("class", "boxCard text-center col-md-2 col-sm-6 m-3");
+        card.setAttribute("class", "card cardUltimas mx-auto border-2 col-12 ");
         let Imgtop = document.createElement("img");
         Imgtop.setAttribute("class", "image card-img-top");
         
@@ -566,8 +566,8 @@ const UltimasEntradasM = async ()=>{
             
             const boxCard = document.createElement("div");
             const card = document.createElement("div");
-            boxCard.setAttribute("class", "boxCard col-md-2 col-sm-6 m-3");
-            card.setAttribute("class", "card cardUltimas  border-2 col-12 m-2");
+            boxCard.setAttribute("class", "boxCard text-center col-md-2 col-sm-6 m-3");
+            card.setAttribute("class", "card cardUltimas mx-auto border-2 col-12");
             let Imgtop = document.createElement("img");
             Imgtop.setAttribute("class", "image card-img-top");
             

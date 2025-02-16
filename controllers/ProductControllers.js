@@ -40,7 +40,7 @@ const SearchProd = async (req, res)=>{
          
         if(!data || data.length === 0){
 
-            return  res.status(404).json({mensaje: "Sin datos"})
+            return  res.status(404).json({mensaje: "Sin Resultados"})
         }
         const DatProd = data[0].producto.toLowerCase();
         res.status(200).json(data);
