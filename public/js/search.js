@@ -91,7 +91,7 @@ search.addEventListener("search", async (e) => {
             template.querySelector("img").src = imagenObjectURL;
             template.querySelector("img").setAttribute("class", "img_search card-img-top");
             template.querySelector("a").textContent = "Ver";
-            template.querySelector("a").setAttribute("class", "ver_prod card-text");
+            template.querySelector("a").setAttribute("class", "ver_prod card-text btn btn-outline-success py-0");
             
             template.querySelector("a").href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
             
@@ -121,23 +121,12 @@ search.addEventListener("search", async (e) => {
 
 
 
-let salir = document.createElement("button");
-salir.textContent = "salir";
 
-salir.addEventListener("click", e =>{
-   if(e.target || search.value == ""){
-      
-      Prod.innerHTML = "";
-      Prod.classList.remove("product_search");
-      
-      
-}
-});
 window.addEventListener("keyup", e =>{
-if(e.key === "Escape" || search.value == "") {
+if(e.key.trim() === "Escape" || search.value.trim() === "") {
    
-   Prod.innerHTML = "";
-   Prod.classList.remove("product_search");
+   Prod.classList.add("product", "d-none");
+   Prod.classList.remove("product_search","row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" ,  "mt-5", "text-center", "justify-content-center","fixed-top", "z-3", "border","border-2" ,"text-bg-success", "bg-opacity-75", "p-5");
    
    
    

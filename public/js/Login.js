@@ -1,7 +1,7 @@
 
 const Create = document.querySelector(".Create");
 const Login = document.querySelector(".Login");
-const modal = document.getElementById("modal");
+const modalcotainer = document.querySelector(".modalContainer")
 
 window.addEventListener("resize", (e)=>{
 
