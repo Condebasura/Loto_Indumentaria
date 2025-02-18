@@ -21,7 +21,7 @@ window.addEventListener("resize", (e)=>{
 
 
 Login.addEventListener("click", (e)=>{
-    e.preventDefault();
+    
 
     if(e.target){
       const modTbi = document.createElement("div");
@@ -41,6 +41,7 @@ Login.addEventListener("click", (e)=>{
          const NoPass = document.createElement("p");
          const parrafo = document.createElement("p");
          const btn = document.createElement("button");
+         const btnClosed = document.createElement("button");
         
          modTbi.setAttribute("class", "modal d-flex ");
                 modTbi.setAttribute("tabindex", "-1");
@@ -48,7 +49,12 @@ Login.addEventListener("click", (e)=>{
                 modContent.setAttribute("class", "modal-content");
                 modHeader.setAttribute("class", "modal-header text-bg-success text-center justify-content-center");
                 titulo.setAttribute("class", "modal-title");
+                btnClosed.setAttribute("class", "btn-close");
+                btnClosed.setAttribute("arial-label", "Close");
+                btnClosed.setAttribute("type", "button");
+                btnClosed.setAttribute("data-bs-dismiss", "modal");
                 modBody.setAttribute("class", "modal-body");
+                modTbi.setAttribute("aria-hidden", "true")
                 
                 
          form.setAttribute("class", "form-Login");
@@ -79,6 +85,7 @@ Login.addEventListener("click", (e)=>{
          btn.innerHTML = "iniciar sesion";
 
          modHeader.appendChild(titulo);
+         modHeader.appendChild(btnClosed);
                 
          
          
@@ -90,10 +97,10 @@ Login.addEventListener("click", (e)=>{
          divPass.appendChild(LabelPass);
          form.appendChild(divEmail);
          form.appendChild(divPass);
-         modBody.appendChild(form);
-         modBody.appendChild(NoPass);
          form.appendChild(parrafo);
          form.appendChild(btn);
+         modBody.appendChild(form);
+         modBody.appendChild(NoPass);
          
          modContent.appendChild(modHeader);
          modContent.appendChild(modBody);
@@ -102,8 +109,7 @@ Login.addEventListener("click", (e)=>{
          modalcontainer.innerHTML = "";
          modalcontainer.appendChild(modTbi);
 
-                const bootstrapModal = new bootstrap.Modal(modTbi);
-                bootstrapModal.show();
+                
 
         InputEmail.addEventListener("keyup", ()=>{
          if(InputEmail.value === ""){
@@ -118,6 +124,8 @@ Login.addEventListener("click", (e)=>{
           }
         })
 
+        const bootstrapModal = new bootstrap.Modal(modTbi);
+                bootstrapModal.show();
 
         form.addEventListener("submit",  (e)=>{
            e.preventDefault();
