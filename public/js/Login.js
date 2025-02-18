@@ -1,7 +1,8 @@
 
 const Create = document.querySelector(".Create");
 const Login = document.querySelector(".Login");
-const modalcotainer = document.querySelector(".modalContainer")
+let modalcontainer = document.getElementById("modalContainer");
+
 
 window.addEventListener("resize", (e)=>{
 
@@ -23,46 +24,86 @@ Login.addEventListener("click", (e)=>{
     e.preventDefault();
 
     if(e.target){
-         modal.innerHTML = "";
+      const modTbi = document.createElement("div");
+      const modDialog = document.createElement("div");
+      const modContent = document.createElement("div");
+      const modHeader = document.createElement("div");
+      const modBody = document.createElement("div");  
+
          const form = document.createElement("form");
-         const titulo = document.createElement("h3");
+         const titulo = document.createElement("h5");
+         const divEmail = document.createElement("div");
          const LabelEmail = document.createElement("label");
          const InputEmail = document.createElement("input");
+         const divPass = document.createElement("div");
          const LabelPass = document.createElement("label");
          const InputPass = document.createElement("input");
          const NoPass = document.createElement("p");
          const parrafo = document.createElement("p");
          const btn = document.createElement("button");
+        
+         modTbi.setAttribute("class", "modal d-flex ");
+                modTbi.setAttribute("tabindex", "-1");
+                modDialog.setAttribute("class", "modal-dialog");
+                modContent.setAttribute("class", "modal-content");
+                modHeader.setAttribute("class", "modal-header text-bg-success text-center justify-content-center");
+                titulo.setAttribute("class", "modal-title");
+                modBody.setAttribute("class", "modal-body");
+                
+                
+         form.setAttribute("class", "form-Login");
           
+          divEmail.setAttribute("class","form-floating mb-3");
+          InputEmail.setAttribute("class", "form-control");
+          InputEmail.setAttribute("id", "floatingInput");
+          LabelEmail.setAttribute("for", "floatingInput");
+           
+          divPass.setAttribute("class","form-floating");
+          InputPass.setAttribute("class", "form-control");
+          InputPass.setAttribute("id", "floatingPassword");
+          LabelPass.setAttribute("for", "floatingPassword");
+
+
          InputEmail.setAttribute("type","email");
          InputPass.setAttribute("type", "password");
-         InputEmail.setAttribute("required", "");
-         InputPass.setAttribute("required", "");
+         
          btn.setAttribute("type", "submit");
+         btn.setAttribute("class", "btn btn-primary")
         
         
          titulo.innerHTML = "Iniciar Sesion";
          LabelEmail.innerHTML = "Email";
          LabelPass.innerHTML = "Password";
-         NoPass.innerHTML = "Olvido la contraseña ?";
+         NoPass.innerHTML = `<small>Olvido la contraseña ?</small>`;
          
          btn.innerHTML = "iniciar sesion";
 
+         modHeader.appendChild(titulo);
+                
          
-          
          
-         form.appendChild(titulo);
-         form.appendChild(LabelEmail);
-         form.appendChild(InputEmail);
-         form.appendChild(LabelPass);
-         form.appendChild(InputPass);
-         form.appendChild(NoPass);
+         
+         
+         divEmail.appendChild(InputEmail);
+         divEmail.appendChild(LabelEmail);
+         divPass.appendChild(InputPass);
+         divPass.appendChild(LabelPass);
+         form.appendChild(divEmail);
+         form.appendChild(divPass);
+         modBody.appendChild(form);
+         modBody.appendChild(NoPass);
          form.appendChild(parrafo);
          form.appendChild(btn);
-        
-         modal.appendChild(form);
+         
+         modContent.appendChild(modHeader);
+         modContent.appendChild(modBody);
+         modDialog.appendChild(modContent);
+         modTbi.appendChild(modDialog);
+         modalcontainer.innerHTML = "";
+         modalcontainer.appendChild(modTbi);
 
-        modal.showModal()
+                const bootstrapModal = new bootstrap.Modal(modTbi);
+                bootstrapModal.show();
 
         InputEmail.addEventListener("keyup", ()=>{
          if(InputEmail.value === ""){
