@@ -18,13 +18,11 @@ window.addEventListener("resize", (e)=>{
   }
 })
 
-
-
 Login.addEventListener("click", (e)=>{
-    
 
-    if(e.target){
-      const modTbi = document.createElement("div");
+  if(e.target){
+ modalcontainer.innerHTML = "";
+  const modTbi = document.createElement("div");
       const modDialog = document.createElement("div");
       const modContent = document.createElement("div");
       const modHeader = document.createElement("div");
@@ -41,33 +39,40 @@ Login.addEventListener("click", (e)=>{
          const NoPass = document.createElement("p");
          const parrafo = document.createElement("p");
          const btn = document.createElement("button");
-         const btnClosed = document.createElement("button");
-        
-         modTbi.setAttribute("class", "modal d-flex ");
+         
+         
+                Login.setAttribute("type", "button");
+                Login.setAttribute("data-bs-target", "#exampleModal");  
+                Login.setAttribute("data-bs-toggle", "modal");  
+                modTbi.setAttribute("class", "modal fade d-flex ");
                 modTbi.setAttribute("tabindex", "-1");
+                modTbi.setAttribute("id", "exampleModal");
+                modTbi.setAttribute("aria-labelledby", "exampleModalLabel");
+                modTbi.setAttribute("aria-hidden", "true");
+                modTbi.setAttribute("inert", "");
+
                 modDialog.setAttribute("class", "modal-dialog");
                 modContent.setAttribute("class", "modal-content");
                 modHeader.setAttribute("class", "modal-header text-bg-success text-center justify-content-center");
                 titulo.setAttribute("class", "modal-title");
-                btnClosed.setAttribute("class", "btn-close");
-                btnClosed.setAttribute("arial-label", "Close");
-                btnClosed.setAttribute("type", "button");
-                btnClosed.setAttribute("data-bs-dismiss", "modal");
+                titulo.setAttribute("id", "exampleModalLabel");
                 modBody.setAttribute("class", "modal-body");
-                modTbi.setAttribute("aria-hidden", "true")
+              
                 
                 
-         form.setAttribute("class", "form-Login");
+         form.setAttribute("class", "form-Login p-3");
           
           divEmail.setAttribute("class","form-floating mb-3");
           InputEmail.setAttribute("class", "form-control");
           InputEmail.setAttribute("id", "floatingInput");
+          InputEmail.setAttribute("placeholder", "Email");
           LabelEmail.setAttribute("for", "floatingInput");
            
           divPass.setAttribute("class","form-floating");
           InputPass.setAttribute("class", "form-control");
-          InputPass.setAttribute("id", "floatingPassword");
-          LabelPass.setAttribute("for", "floatingPassword");
+          InputPass.setAttribute("id", "floatingInput");
+          InputPass.setAttribute("placeholder", "password");
+          LabelPass.setAttribute("for", "floatingInput");
 
 
          InputEmail.setAttribute("type","email");
@@ -80,17 +85,12 @@ Login.addEventListener("click", (e)=>{
          titulo.innerHTML = "Iniciar Sesion";
          LabelEmail.innerHTML = "Email";
          LabelPass.innerHTML = "Password";
-         NoPass.innerHTML = `<small>Olvido la contraseña ?</small>`;
+         NoPass.innerHTML = `Olvido la contraseña ?`;
          
          btn.innerHTML = "iniciar sesion";
 
          modHeader.appendChild(titulo);
-         modHeader.appendChild(btnClosed);
-                
-         
-         
-         
-         
+      
          divEmail.appendChild(InputEmail);
          divEmail.appendChild(LabelEmail);
          divPass.appendChild(InputPass);
@@ -123,9 +123,17 @@ Login.addEventListener("click", (e)=>{
 
           }
         })
-
+          
+        modTbi.removeAttribute("inert");
+    modTbi.removeAttribute("aria-hidden");
         const bootstrapModal = new bootstrap.Modal(modTbi);
                 bootstrapModal.show();
+           
+        modTbi.addEventListener("hidden.bs.modal", ()=>{
+          modalcontainer.innerHTML = "";
+          modTbi.setAttribute("aria-hidden", "true");
+          modTbi.setAttribute("inert", "");
+        })
 
         form.addEventListener("submit",  (e)=>{
            e.preventDefault();
@@ -138,7 +146,7 @@ Login.addEventListener("click", (e)=>{
                      headers:{
                         "Content-Type": "application/json"
                      },
-                      body: JSON.stringify({InputEmail, InputPass})
+                     body: JSON.stringify({InputEmail, InputPass})
                    });
                      const data = await res.text();
 
@@ -165,7 +173,7 @@ Login.addEventListener("click", (e)=>{
 
              } catch (error) {
                 console.log(error)
-             }
+              }
 
 
            }
@@ -174,8 +182,8 @@ Login.addEventListener("click", (e)=>{
            const loader = document.createElement("div");
            loader.setAttribute("class", "fa-solid fa-circle-notch"); 
            NoPass.addEventListener("click", async(e)=>{
-               e.preventDefault();
-               NoPass.appendChild(loader);
+             e.preventDefault();
+             NoPass.appendChild(loader);
                if(e.target){
                    loader.style.display = "inline-block";
                    
@@ -205,12 +213,13 @@ Login.addEventListener("click", (e)=>{
                        
                    }catch(err){
                        console.log(err);
-                   }
-               }
-           })
+                      }
+                    }
+                  })
         })
+      }
+      });
+  
 
-    }
-});
 
 
