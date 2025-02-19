@@ -1,23 +1,76 @@
 const Create =  document.querySelector(".Create");
-
+let modalcontainer = document.getElementById("modalContainer"); 
 
 Create.addEventListener("click", (e)=>{
     e.preventDefault()
     if(e.target){
-         modal.innerHTML = "";
+         modalcontainer.innerHTML = "";
+          
+         const modTbi = document.createElement("div");
+         const modDialog = document.createElement("div");
+         const modContent = document.createElement("div");
+         const modHeader = document.createElement("div");
+         const modBody = document.createElement("div"); 
+
          const form = document.createElement("form");
-         const title = document.createElement("h3");
+         const title = document.createElement("h5");
+         const divNombre = document.createElement("div");
          const LabelNombre = document.createElement("label");
          const InputNombre = document.createElement("input");
+         const divCorreo = document.createElement("div");
          const LabelCorreo = document.createElement("label");
          const InputCorreo = document.createElement("input");
+         const divPassword = document.createElement("div");
          const LabelPassword = document.createElement("label");
          const InputPassword = document.createElement("input");
         const BtnReg = document.createElement("button");
 
+        
+        Create.setAttribute("type", "button");
+        Create.setAttribute("data-bs-target", "#exampleModal");  
+        Create.setAttribute("data-bs-toggle", "modal");  
+        modTbi.setAttribute("class", "modal fade backCrea d-flex ");
+        modTbi.setAttribute("tabindex", "-1");
+        modTbi.setAttribute("id", "exampleModal");
+        modTbi.setAttribute("aria-labelledby", "exampleModalLabel");
+        modTbi.setAttribute("aria-hidden", "true");
+        modTbi.setAttribute("inert", "");
+
+        modDialog.setAttribute("class", "modal-dialog");
+        modContent.setAttribute("class", "modal-content");
+        modHeader.setAttribute("class", "modal-header text-bg-primary text-center justify-content-center");
+        title.setAttribute("class", "modal-title");
+        title.setAttribute("id", "exampleModalLabel");
+        modBody.setAttribute("class", "modal-body");
+      
+        
+        
+        form.setAttribute("class", "form-Login p-3 justify-content-center text-center");
+         
+        divNombre.setAttribute("class", "form-floating mb-3");
+        InputNombre.setAttribute("class", "form-control");
+        InputNombre.setAttribute("id", "floatingInput");
+        InputNombre.setAttribute("placeholder", "Nombre Completo");
+        LabelNombre.setAttribute("for", "floatingInput")
+
+        divCorreo.setAttribute("class", "form-floating mb-3");
+        InputCorreo.setAttribute("class", "form-control");
+        InputCorreo.setAttribute("id", "floatingInput");
+        InputCorreo.setAttribute("placeholder","Email");
+        LabelCorreo.setAttribute("for","floatingInput");
+
+        divPassword.setAttribute("class", "form-floating mb-3");
+        InputPassword.setAttribute("class","form-control");
+        InputPassword.setAttribute("id","floatinInput");
+        InputPassword.setAttribute("placeholder","Password");
+        LabelPassword.setAttribute("for","floatingInput");
+        
+
+
          InputCorreo.setAttribute("type", "email");
          InputPassword.setAttribute("type", "password");
          BtnReg.setAttribute("type", "submit");
+         BtnReg.setAttribute("class", "btn btn-success");
 
          title.innerHTML = "Crear Cuenta";
          LabelNombre.innerHTML = "Nombre Completo";
@@ -25,17 +78,36 @@ Create.addEventListener("click", (e)=>{
          LabelPassword.innerHTML = "Password";
          BtnReg.innerHTML = "Crear";
 
-         form.appendChild(title);
-         form.appendChild(LabelNombre);
-         form.appendChild(InputNombre);
-         form.appendChild(LabelCorreo);
-         form.appendChild(InputCorreo);
-         form.appendChild(LabelPassword);
-         form.appendChild(InputPassword);
+         modHeader.appendChild(title);
+         divNombre.appendChild(InputNombre);
+         divNombre.appendChild(LabelNombre);
+         divCorreo.appendChild(InputCorreo);
+         divCorreo.appendChild(LabelCorreo);
+         divPassword.appendChild(InputPassword);
+         divPassword.appendChild(LabelPassword);
+         form.appendChild(divNombre);
+         form.appendChild(divCorreo);
+         form.appendChild(divPassword);
          form.appendChild(BtnReg);
-         modal.appendChild(form);
+         modBody.appendChild(form);
+         
+         modContent.appendChild(modHeader);
+         modContent.appendChild(modBody);
+         modDialog.appendChild(modContent);
+         modTbi.appendChild(modDialog);
+         modalcontainer.innerHTML = "";
+         modalcontainer.appendChild(modTbi);
+         
+         modTbi.removeAttribute("inert");
+         modTbi.removeAttribute("aria-hidden");
+             const bootstrapModal = new bootstrap.Modal(modTbi);
+                     bootstrapModal.show();
 
-         modal.showModal();
+                     modTbi.addEventListener("hidden.bs.modal", ()=>{
+                      modalcontainer.innerHTML = "";
+                      modTbi.setAttribute("aria-hidden", "true");
+                      modTbi.setAttribute("inert", "");
+                    })           
 
         form.addEventListener("submit", (e)=>{
           e.preventDefault();
@@ -53,20 +125,22 @@ Create.addEventListener("click", (e)=>{
                  const data = await res.text();
 
                  if(res.status === 200){
-                    modal.innerHTML = "";
+                    modBody.innerHTML = "";
                     const obj = JSON.parse(data);
                     const parrafo = document.createElement("p");
+                    parrafo.setAttribute("class", "link-success");
                     parrafo.innerHTML = obj.mensaje;
-                    modal.appendChild(parrafo);
-                    modal.showModal();
+                    modBody.appendChild(parrafo);
+                    
 
                  }else if(res.status === 409){
-                    modal.innerHTML = "";
+                    modBody.innerHTML = "";
                     const obj = JSON.parse(data);
                     const parrafo = document.createElement("p");
+                    parrafo.setAttribute("class", "link-danger");
                     parrafo.innerHTML = obj.mensaje;
-                    modal.appendChild(parrafo);
-                    modal.showModal();
+                    modBody.appendChild(parrafo);
+                    
                  }
 
             } catch (error) {

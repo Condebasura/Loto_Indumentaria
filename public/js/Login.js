@@ -44,7 +44,7 @@ Login.addEventListener("click", (e)=>{
                 Login.setAttribute("type", "button");
                 Login.setAttribute("data-bs-target", "#exampleModal");  
                 Login.setAttribute("data-bs-toggle", "modal");  
-                modTbi.setAttribute("class", "modal fade d-flex ");
+                modTbi.setAttribute("class", "modal fade backLogin d-flex ");
                 modTbi.setAttribute("tabindex", "-1");
                 modTbi.setAttribute("id", "exampleModal");
                 modTbi.setAttribute("aria-labelledby", "exampleModalLabel");
@@ -60,7 +60,7 @@ Login.addEventListener("click", (e)=>{
               
                 
                 
-         form.setAttribute("class", "form-Login p-3");
+         form.setAttribute("class", "form-Login p-3 justify-content-center text-center");
           
           divEmail.setAttribute("class","form-floating mb-3");
           InputEmail.setAttribute("class", "form-control");
@@ -71,7 +71,7 @@ Login.addEventListener("click", (e)=>{
           divPass.setAttribute("class","form-floating");
           InputPass.setAttribute("class", "form-control");
           InputPass.setAttribute("id", "floatingInput");
-          InputPass.setAttribute("placeholder", "password");
+          InputPass.setAttribute("placeholder", "Password");
           LabelPass.setAttribute("for", "floatingInput");
 
 
@@ -79,9 +79,12 @@ Login.addEventListener("click", (e)=>{
          InputPass.setAttribute("type", "password");
          
          btn.setAttribute("type", "submit");
-         btn.setAttribute("class", "btn btn-primary")
+         btn.setAttribute("class", "btn btn-primary");
+         
         
-        
+        NoPass.setAttribute("class", "NoPass mt-2");
+        parrafo.setAttribute("class", "link-danger m-2")
+
          titulo.innerHTML = "Iniciar Sesion";
          LabelEmail.innerHTML = "Email";
          LabelPass.innerHTML = "Password";
@@ -99,8 +102,8 @@ Login.addEventListener("click", (e)=>{
          form.appendChild(divPass);
          form.appendChild(parrafo);
          form.appendChild(btn);
+         form.appendChild(NoPass);
          modBody.appendChild(form);
-         modBody.appendChild(NoPass);
          
          modContent.appendChild(modHeader);
          modContent.appendChild(modBody);
@@ -152,6 +155,7 @@ Login.addEventListener("click", (e)=>{
 
                      if(res.status === 409){
                         const obj =JSON.parse(data);
+                      
                         return parrafo.innerHTML = obj.mensaje;
                      }else if(res.status === 200){
                       Login.style.display = "none";
