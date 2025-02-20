@@ -31,30 +31,38 @@ const dataUsuario = async () => {
 
     } else {
         const datos = decodedPayload;
-        const Perfil = document.createElement("span");
-        const Logout = document.createElement("span");
-        const li = document.createElement("li");
-        const editPerfil = document.createElement("a");
+        
+        const Logout = document.createElement("button");
+        const editPerfil = document.createElement("button");
+        const CajaCanvas = document.createElement("div");
         const favoritos = document.createElement("a");
         const compras = document.createElement("a");
 
         
-        Perfil.setAttribute("class", "PerfilUser");
-        Logout.setAttribute("class", "Logout");
+        
+    
+        Logout.setAttribute("class", "Logout ms-1 btn btn-danger");
+        editPerfil.setAttribute("class", "btn btn-outline-success rounded-circle");
+        editPerfil.setAttribute("data-bs-toggle", "offcanvas");
+        editPerfil.setAttribute("data-bs-target", "#offcanvasExample");
+        editPerfil.setAttribute("aria-controls", "offcanvasExample");
+
+        CajaCanvas.setAttribute("class", "offcanvas offcanvas-start");
+        CajaCanvas.setAttribute("tabindex", "-1");
+        CajaCanvas.setAttribute("id", "offcanvasExample");
+        CajaCanvas.setAttribute("aria-labelledby", "offcanvasExampleLabel");
        
-        Perfil.innerHTML = `${datos.nombre}`;
         Logout.innerHTML = "Logout";
-        editPerfil.innerHTML = "Perfil";
+        editPerfil.innerHTML = `${datos.nombre[0]}`;
         favoritos.innerHTML = "Favoritos";
         compras.innerHTML = "Compras";
-        li.appendChild(editPerfil);
-        li.appendChild(favoritos);
-        li.appendChild(compras);
-        Perfil.appendChild(li);
+        
+
         DivUser.removeChild(Login);
         DivUser.removeChild(Create);
-        DivUser.appendChild(Perfil);
+        DivUser.appendChild(editPerfil);
         DivUser.appendChild(Logout);
+        editPerfil.appendChild(CajaCanvas);
         
         
         Logout.addEventListener("click", async (e)=>{
@@ -64,7 +72,7 @@ const dataUsuario = async () => {
                         method:"GET",
                     });
                     DivUser.removeChild(Logout);
-                    DivUser.removeChild(Perfil);
+                    DivUser.removeChild(editPerfil);
                     DivUser.appendChild(Login);
                     DivUser.appendChild(Create);
                     
