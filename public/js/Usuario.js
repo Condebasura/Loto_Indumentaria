@@ -33,36 +33,76 @@ const dataUsuario = async () => {
         const datos = decodedPayload;
         
         const Logout = document.createElement("button");
-        const editPerfil = document.createElement("button");
+        const editPerfil = document.createElement("a");
         const CajaCanvas = document.createElement("div");
-        const favoritos = document.createElement("a");
-        const compras = document.createElement("a");
+        const canHeader = document.createElement("div");
+        let title = document.createElement("h5");
+        const btnClose = document.createElement("button");
+        const canBody = document.createElement("div");
+        const canFooter = document.createElement("div");
+        const ulFavComp = document.createElement("ul");
+        const favoritos = document.createElement("li");
+        const compras = document.createElement("li");
 
         
         
     
         Logout.setAttribute("class", "Logout ms-1 btn btn-danger");
+
         editPerfil.setAttribute("class", "btn btn-outline-success rounded-circle");
         editPerfil.setAttribute("data-bs-toggle", "offcanvas");
-        editPerfil.setAttribute("data-bs-target", "#offcanvasExample");
+        editPerfil.setAttribute("href", "#offcanvasExample");
+        editPerfil.setAttribute("role", "button");
         editPerfil.setAttribute("aria-controls", "offcanvasExample");
+        editPerfil.setAttribute("data-bs-target", "#offcanvasExample");
 
         CajaCanvas.setAttribute("class", "offcanvas offcanvas-start");
         CajaCanvas.setAttribute("tabindex", "-1");
         CajaCanvas.setAttribute("id", "offcanvasExample");
         CajaCanvas.setAttribute("aria-labelledby", "offcanvasExampleLabel");
+
+        
+        canHeader.setAttribute("class","offcanvas-header border-bottom");
+        title.setAttribute("class", "offcanvas-title");
+        title.setAttribute("id", "offcanvasExampleLabel");
+        btnClose.setAttribute("type","button");
+        btnClose.setAttribute("class","btn-close");
+        btnClose.setAttribute("data-bs-dismiss","offcanvas");
+        btnClose.setAttribute("aria-label","Close");
        
+        canBody.setAttribute("class", "offcanvas-body");
+        ulFavComp.setAttribute("class","list-group list-group-flush border mt-5");
+        favoritos.setAttribute("class", "list-group-item");
+        compras.setAttribute("class", "list-group-item");
+
+       canFooter.setAttribute("class", "offcanvas-footer mb-2 me-2 text-end justify-content-end");
+
+
         Logout.innerHTML = "Logout";
         editPerfil.innerHTML = `${datos.nombre[0]}`;
+        title.innerHTML = `${datos.nombre}`;
         favoritos.innerHTML = "Favoritos";
         compras.innerHTML = "Compras";
         
+        canHeader.appendChild(title);
+        canHeader.appendChild(btnClose);
+
+         ulFavComp.appendChild(favoritos)
+         ulFavComp.appendChild(compras);
+         canBody.appendChild(ulFavComp);
+        
+         canFooter.appendChild(Logout);
+        
+         CajaCanvas.appendChild(canHeader)
+        CajaCanvas.appendChild(canBody);
+        CajaCanvas.appendChild(canFooter);
+        document.body.appendChild(CajaCanvas);
 
         DivUser.removeChild(Login);
         DivUser.removeChild(Create);
         DivUser.appendChild(editPerfil);
-        DivUser.appendChild(Logout);
-        editPerfil.appendChild(CajaCanvas);
+        
+        
         
         
         Logout.addEventListener("click", async (e)=>{
@@ -71,10 +111,12 @@ const dataUsuario = async () => {
                     await fetch("/logout",{
                         method:"GET",
                     });
-                    DivUser.removeChild(Logout);
+                    const offcanvasInstance = bootstrap.Offcanvas.getInstance(CajaCanvas)
+                    offcanvasInstance.hide();
                     DivUser.removeChild(editPerfil);
                     DivUser.appendChild(Login);
                     DivUser.appendChild(Create);
+                    
                     
                 }
             } catch (error) {
