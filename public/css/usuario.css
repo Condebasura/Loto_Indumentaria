@@ -1,0 +1,12 @@
+.offcanvas-start{
+    width: 30vh !important;
+}
+
+.per,.fav, .comp{
+    cursor: pointer;
+   
+}
+.per:hover,.fav:hover, .comp:hover{
+    background-color: rgb(47, 170, 9);
+    color: white;
+}

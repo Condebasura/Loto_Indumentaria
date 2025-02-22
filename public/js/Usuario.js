@@ -41,10 +41,9 @@ const dataUsuario = async () => {
         const canBody = document.createElement("div");
         const canFooter = document.createElement("div");
         const ulFavComp = document.createElement("ul");
+        const perfil = document.createElement("li");
         const favoritos = document.createElement("li");
         const compras = document.createElement("li");
-
-        
         
     
         Logout.setAttribute("class", "Logout ms-1 btn btn-danger");
@@ -55,7 +54,7 @@ const dataUsuario = async () => {
         editPerfil.setAttribute("role", "button");
         editPerfil.setAttribute("aria-controls", "offcanvasExample");
         editPerfil.setAttribute("data-bs-target", "#offcanvasExample");
-
+    
         CajaCanvas.setAttribute("class", "offcanvas offcanvas-start");
         CajaCanvas.setAttribute("tabindex", "-1");
         CajaCanvas.setAttribute("id", "offcanvasExample");
@@ -70,10 +69,11 @@ const dataUsuario = async () => {
         btnClose.setAttribute("data-bs-dismiss","offcanvas");
         btnClose.setAttribute("aria-label","Close");
        
-        canBody.setAttribute("class", "offcanvas-body");
-        ulFavComp.setAttribute("class","list-group list-group-flush border mt-5");
-        favoritos.setAttribute("class", "list-group-item");
-        compras.setAttribute("class", "list-group-item");
+        canBody.setAttribute("class", "offcanvas-body p-0");
+        ulFavComp.setAttribute("class","list-group border-1 mt-5");
+        favoritos.setAttribute("class", "list-group-item fav ");
+        compras.setAttribute("class", "list-group-item comp");
+        perfil.setAttribute("class", "list-group-item per");
 
        canFooter.setAttribute("class", "offcanvas-footer mb-2 me-2 text-end justify-content-end");
 
@@ -81,12 +81,14 @@ const dataUsuario = async () => {
         Logout.innerHTML = "Logout";
         editPerfil.innerHTML = `${datos.nombre[0]}`;
         title.innerHTML = `${datos.nombre}`;
+        perfil.innerHTML = "Perfil";
         favoritos.innerHTML = "Favoritos";
         compras.innerHTML = "Compras";
         
         canHeader.appendChild(title);
         canHeader.appendChild(btnClose);
-
+        
+        ulFavComp.appendChild(perfil)
          ulFavComp.appendChild(favoritos)
          ulFavComp.appendChild(compras);
          canBody.appendChild(ulFavComp);
@@ -97,12 +99,10 @@ const dataUsuario = async () => {
         CajaCanvas.appendChild(canBody);
         CajaCanvas.appendChild(canFooter);
         document.body.appendChild(CajaCanvas);
-
+        
         DivUser.removeChild(Login);
         DivUser.removeChild(Create);
         DivUser.appendChild(editPerfil);
-        
-        
         
         
         Logout.addEventListener("click", async (e)=>{
