@@ -41,9 +41,19 @@ const dataUsuario = async () => {
         const canBody = document.createElement("div");
         const canFooter = document.createElement("div");
         const ulFavComp = document.createElement("ul");
+       
         const perfil = document.createElement("li");
+        const LogoPerfil = document.createElement("i");
+        const spanPerfil = document.createElement("span");
+
         const favoritos = document.createElement("li");
+        const LogoFav = document.createElement("i");
+        const spanFav = document.createElement("span");
+
+       
         const compras = document.createElement("li");
+        const LogoComp = document.createElement("i");
+        const spanCompras = document.createElement("span"); 
         
     
         Logout.setAttribute("class", "Logout ms-1 btn btn-danger");
@@ -61,7 +71,7 @@ const dataUsuario = async () => {
         CajaCanvas.setAttribute("aria-labelledby", "offcanvasExampleLabel");
 
         
-        canHeader.setAttribute("class","offcanvas-header border-bottom");
+        canHeader.setAttribute("class","offcanvas-header border-bottom text-bg-primary");
         title.setAttribute("class", "offcanvas-title");
         title.setAttribute("id", "offcanvasExampleLabel");
         btnClose.setAttribute("type","button");
@@ -72,8 +82,14 @@ const dataUsuario = async () => {
         canBody.setAttribute("class", "offcanvas-body p-0");
         ulFavComp.setAttribute("class","list-group border-1 mt-5");
         favoritos.setAttribute("class", "list-group-item fav ");
+        LogoFav.setAttribute("class", "fa-solid fa-heart");
+
         compras.setAttribute("class", "list-group-item comp");
+        LogoComp.setAttribute("class", "fa-solid fa-cart-shopping ");
+
+
         perfil.setAttribute("class", "list-group-item per");
+        LogoPerfil.setAttribute("class" , "fa-solid fa-address-card");
 
        canFooter.setAttribute("class", "offcanvas-footer mb-2 me-2 text-end justify-content-end");
 
@@ -81,16 +97,24 @@ const dataUsuario = async () => {
         Logout.innerHTML = "Logout";
         editPerfil.innerHTML = `${datos.nombre[0]}`;
         title.innerHTML = `${datos.nombre}`;
-        perfil.innerHTML = "Perfil";
-        favoritos.innerHTML = "Favoritos";
-        compras.innerHTML = "Compras";
+        spanPerfil.innerHTML = "  Perfil";
+        spanFav.innerHTML = "  Favoritos";
+        spanCompras.innerHTML = "  Compras";
         
         canHeader.appendChild(title);
         canHeader.appendChild(btnClose);
-        
-        ulFavComp.appendChild(perfil)
+        perfil.appendChild(LogoPerfil);
+        perfil.appendChild(spanPerfil);
+        ulFavComp.appendChild(perfil);
+
+        compras.appendChild(LogoComp);
+        compras.appendChild(spanCompras);
+         
+        favoritos.appendChild(LogoFav);
+        favoritos.appendChild(spanFav);
+
+        ulFavComp.appendChild(compras);
          ulFavComp.appendChild(favoritos)
-         ulFavComp.appendChild(compras);
          canBody.appendChild(ulFavComp);
         
          canFooter.appendChild(Logout);

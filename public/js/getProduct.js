@@ -51,7 +51,9 @@ const DatosProdClient = async (data) =>{
        let precio = document.createElement("li");
        let stock = document.createElement("li");
        let cuotas = document.createElement("li");
-       let car = document.createElement("a");
+       let liCompFav = document.createElement("li");
+       let car = document.createElement("i");
+       let fav = document.createElement("i");
        const  cardFotter = document.createElement("div");
        let bestPrecio = Number(el.precio);
        let desc = Number(el.descuento);
@@ -76,8 +78,10 @@ const DatosProdClient = async (data) =>{
        descuento.setAttribute("class", "precio list-group-item link-danger");
        precio.setAttribute("class", "list-group-item ");
        cuotas.setAttribute("class", "list-group-item");
-       stock.setAttribute("class", "list-group-item")
-       car.setAttribute("class", "fas fa-shopping-cart mt-2");
+       stock.setAttribute("class", "list-group-item");
+       liCompFav.setAttribute("class", " row justify-content-center");
+       car.setAttribute("class", "fas fa-shopping-cart car mt-2 col-3");
+       fav.setAttribute("class", "fa-solid fa-heart heart mt-2 col-3");
        cardFotter.setAttribute("class", "card-footer text-center");
        let img1 = el.imagen.split(",")[0];
        let imgURl = `http://localhost:3000/uploads/${img1}`;
@@ -114,7 +118,9 @@ const DatosProdClient = async (data) =>{
        cardUl.appendChild(precio);
        cardUl.appendChild(cuotas);
        cardUl.appendChild(stock);
-       cardFotter.appendChild(car);
+       liCompFav.appendChild(fav);
+       liCompFav.appendChild(car);
+       cardFotter.appendChild(liCompFav);
    
    
    }
