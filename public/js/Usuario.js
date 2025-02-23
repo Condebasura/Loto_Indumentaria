@@ -1,3 +1,4 @@
+let modalcontainer = document.getElementById("modalContainer");
 const DivUser = document.querySelector(".Login_Regis");
 const Create = document.querySelector(".Create");
 const Login = document.querySelector(".Login");
@@ -56,7 +57,7 @@ const dataUsuario = async () => {
         const spanCompras = document.createElement("span"); 
         
     
-        Logout.setAttribute("class", "Logout ms-1 btn btn-danger");
+        Logout.setAttribute("class", "Logout  btn btn-danger");
 
         editPerfil.setAttribute("class", "btn btn-outline-success rounded-circle");
         editPerfil.setAttribute("data-bs-toggle", "offcanvas");
@@ -91,7 +92,7 @@ const dataUsuario = async () => {
         perfil.setAttribute("class", "list-group-item per");
         LogoPerfil.setAttribute("class" , "fa-solid fa-address-card");
 
-       canFooter.setAttribute("class", "offcanvas-footer mb-2 me-2 text-end justify-content-end");
+       canFooter.setAttribute("class", "offcanvas-footer  text-end justify-content-end text-bg-dark p-3");
 
 
         Logout.innerHTML = "Logout";
@@ -128,6 +129,168 @@ const dataUsuario = async () => {
         DivUser.removeChild(Create);
         DivUser.appendChild(editPerfil);
         
+        perfil.addEventListener("click", (e)=>{
+            modalcontainer.innerHTML = "";
+
+           
+            
+            if(e.target){
+
+                const modalPerf = document.createElement("div");
+            modalPerf.setAttribute("class", "modal  modalPerf");
+            modalPerf.setAttribute("tabindex", "-1");
+
+           
+
+
+            modalPerf.innerHTML = `<div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header border-0 text-bg-primary p-3">
+            <h5 class="modal-title border-bottom">Datos personales</h5>
+            </div>
+
+            <div class="modal-body">
+            <form class="form m-3 ">
+            <div class="row g-3 ">
+            <div class="col-6 form-floating">
+             <input
+             name="nombre"
+             id="name floatingInput"
+             class="form-control"
+             type="text"
+             placeholder="Nombre"
+             />
+             <label class="input-label" for="floatingInput">Nombre
+             </label>
+
+            </div>
+            <div class="col-6 form-floating">
+             <input
+             name=" app apellido"
+             id="floatingInput"
+             class="form-control"
+             type="text"
+             placeholder="Apellido"
+             />
+             <label class="input-label" for="floatingInput">Apellido
+             </label>
+
+            </div>
+
+            <div class="col-6 form-floating text-truncate">
+             <input
+             name="Correo electronico"
+             id="email floatingInput"
+             class="form-control"
+             type="email"
+             placeholder=${datos.email}
+             disabled
+             />
+             <label class="input-label" for="floatingInput">${datos.email}
+             </label>
+
+            </div>
+             <div class="col-6 form-floating">
+             <input
+             name="Contraseña"
+             id=" pass floatingInput"
+             class="form-control"
+             type="password"
+             placeholder="password"
+             />
+             <label class="input-label" for="floatingInput">password
+             </label>
+
+            </div>
+            
+            <div class="col-6 form-floating">
+             <input
+             name="Telefono"
+             id="fone floatingInput"
+             class="form-control"
+             type="number"
+             placeholder="Telefono"
+             />
+             <label class="input-label" for="floatingInput">Telefono
+             </label>
+
+            </div>
+
+            <div class="col-6 form-floating">
+             <input
+             name="Direccion"
+             id=" dir floatingInput"
+             class="form-control"
+             type="text"
+             placeholder="Direccion"
+             />
+             <label class="input-label" for="floatingInput">Direccion
+             </label>
+
+            </div>
+              
+            <div class="col-6 form-floating">
+             <input
+             name="Pais"
+             id=" country floatingInput"
+             class="form-control"
+             type="text"
+             placeholder="Pais"
+             />
+             <label class="input-label" for="floatingInput">Pais
+             </label>
+
+            </div>
+
+             <div class="col-6  text-bg-danger p-1 rounded ">
+             <span> Los datos ingresados en el formulario no se guardaran, es solo de muestra !!
+             </span>
+             
+
+            </div>
+
+            </div>
+            </form>
+            </div>
+            <div class="modal-footer border-0 text-bg-dark p-3">
+            <button type="button" class="btn btn-outline-warning   " id="Cancelar">Cancelar
+            </button>
+            <button type="button" class="btn btn-outline-success " id="Guardar">Guardar
+            </button>
+            </div>
+            </div>
+            </div>`
+            ;
+
+            modalcontainer.innerHTML = "";
+            modalcontainer.appendChild(modalPerf);
+
+            modalPerf.removeAttribute("inert");
+            modalPerf.removeAttribute("aria-hidden");
+                const bootstrapModal = new bootstrap.Modal(modalPerf);
+                        bootstrapModal.show();
+                   
+                modalPerf.addEventListener("hidden.bs.modal", ()=>{
+                  modalcontainer.innerHTML = "";
+                  modalPerf.setAttribute("aria-hidden", "true");
+                  modalPerf.setAttribute("inert", "");
+                })
+                document.getElementById("Cancelar").addEventListener("click", ()=>{
+                    modalcontainer.innerHTML = "";
+                    modalPerf.setAttribute("aria-hidden", "true");
+                    modalPerf.setAttribute("inert", "");
+                    bootstrapModal.hide();
+                });
+
+                document.getElementById("Guardar").addEventListener("click", ()=>{
+                    modalcontainer.innerHTML = "";
+                    modalPerf.setAttribute("aria-hidden", "true");
+                    modalPerf.setAttribute("inert", "");
+                    bootstrapModal.hide();
+                })
+              
+            }
+        })
         
         Logout.addEventListener("click", async (e)=>{
             try {
