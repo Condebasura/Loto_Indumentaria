@@ -144,7 +144,7 @@ const dataUsuario = async () => {
 
 
             modalPerf.innerHTML = `<div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content contenido">
             <div class="modal-header border-0 text-bg-primary p-3">
             <h5 class="modal-title border-bottom">Datos personales</h5>
             </div>

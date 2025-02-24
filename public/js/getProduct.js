@@ -430,6 +430,12 @@ ChPant.addEventListener("click",async (e)=>{
 
 const UltimasEntradasH  = async ()=>{
 
+    const titulo = document.createElement("h3");
+    titulo.setAttribute("class", "titulo col-12 mb-3 text-bg-success bg-opacity-75 p-3");
+    titulo.innerHTML = "Ultimas entradas";
+
+    cajaUltimas.appendChild(titulo);
+
 try {
 
     let Hombres = ["/Hombres/Remeras", "/Hombres/Pantalones", "/Hombres/Accesorios"];

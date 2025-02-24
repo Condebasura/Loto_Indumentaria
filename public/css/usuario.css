@@ -11,14 +11,14 @@
     color: white;
 }
 
-.modal-content{
+.contenido{
     width: 80vh !important;
 }
 
  
 @media (max-width: 576px) {
 
-    .modal-content{
+    .contenido{
         width: 18rem !important;
     }
 
