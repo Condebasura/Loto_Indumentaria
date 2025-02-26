@@ -727,7 +727,6 @@ const informeImg = async () => {
 
 
 
-
 }
 
 informeImg();
