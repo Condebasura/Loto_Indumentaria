@@ -93,11 +93,26 @@ const DatosProdClient = async (data) =>{
        precio.innerHTML = `$ ${rebajadoDe} <small class="text-bg-success p-1 rounded">   ${el.descuento}  %OFF </small>`;
        nombreProducto.innerHTML = el.producto;
        cuotas.innerHTML = `<small> ${el.cuotas} cuotas sin interes </small>`;
-      img.addEventListener("click", (e)=>{
+      
+      
+       img.addEventListener("click", async (e)=>{
        e.preventDefault();
        if(e.target){
-        return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
-             
+       // return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
+           
+       let lasImgs = el.imagen.split(",");
+    
+  const loadImage = async (imgName) => {
+    let imgURL = `http://localhost:3000/uploads/${imgName}`;
+    let response = await fetch(imgURL);
+    let blob = await response.blob();
+    return URL.createObjectURL(blob);
+  };
+  
+  
+  let imagenes = await Promise.all(lasImgs.slice(1, 5).map(loadImage));
+       console.log(imagenes);
+
        }
       })
    
@@ -168,7 +183,7 @@ HAcce.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0
      
         const res = await fetch("/Hombres/Remeras").then(res =>  res.json()).then(async data=>{
            
-            console.log(data)
+    
           DatosProdClient(data);
         
             }).catch(err => console.log("error", err))
