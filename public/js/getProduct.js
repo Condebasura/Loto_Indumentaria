@@ -1,3 +1,4 @@
+
 const hombre = document.querySelector(".hombre");
 const boxCargas = document.querySelector(".boxCargas");
 const contUltimas = document.querySelector(".contUltimas");
@@ -12,6 +13,8 @@ const cajaUltimas = document.querySelector(".cajaUltimas");
 const spiner = document.createElement("div");
 const span = document.createElement("span");
 const $fragment = document.createDocumentFragment();
+
+
 
 
 
@@ -89,6 +92,10 @@ const DatosProdClient = async (data) =>{
        let imgBlob = await imagenResponse.blob();
        let imagenObjectURL = URL.createObjectURL(imgBlob);
        img.src = imagenObjectURL;
+       
+
+
+
        descuento.innerHTML = `Antes: $ ${el.precio}`
        precio.innerHTML = `$ ${rebajadoDe} <small class="text-bg-success p-1 rounded">   ${el.descuento}  %OFF </small>`;
        nombreProducto.innerHTML = el.producto;
@@ -98,7 +105,9 @@ const DatosProdClient = async (data) =>{
        img.addEventListener("click", async (e)=>{
        e.preventDefault();
        if(e.target){
-       // return window.location.href = `/visualProducto.html?id=${el.id}&estaimg=${el.imagen}&producto=${el.producto}&precio=${rebajadoDe}&descuento=${el.descuento}&cuotas=${el.cuotas}&stock=${el.stock}`
+       
+        boxCargas.innerHTML = "";
+        cajaUltimas.innerHTML = "";
            
        let lasImgs = el.imagen.split(",");
     
@@ -112,7 +121,39 @@ const DatosProdClient = async (data) =>{
   
   let imagenes = await Promise.all(lasImgs.slice(1, 5).map(loadImage));
        console.log(imagenes);
+      
+       // crear una funcion que haga cambiar de imagen ampliada "img_zoom" cada vez que se pasa por una de las miniaturas
+       const boxImg = document.createElement("div");
+       boxImg.setAttribute("class", "content");
+       boxImg.innerHTML = `<div class="img-prod">
+       <div class="contenedor_img">
+       <figure class="img_cont">
+       <div class="box_img">
+                        <img class="image" src="${imagenes[0]}" alt="">
+                    </div>
+                    <div class="box_img">
+                        <img class="image1" src="${imagenes[1]}" alt="">
+                    </div>
+                    <div class="box_img">
+                        <img class="image2" src="" alt="${imagenes[2]}">
+                    </div>
+                    <div class="box_img">
+                        <img class="image3" src="" alt="${imagenes[3]}">
+                    </div>
 
+                </figure>
+                <figure class="cont_zoom">
+                    <div class="box_img__zoom">
+                        <img class="image_zoom" src="" alt="">
+
+                    </div>
+                </figure>
+                </div>
+                </div> `
+                
+                boxCargas.appendChild(boxImg);
+                
+                
        }
       })
    
