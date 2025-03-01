@@ -117,33 +117,35 @@ const DatosProdClient = async (data) =>{
     let blob = await response.blob();
     return URL.createObjectURL(blob);
   };
+
   
-  
-  let imagenes = await Promise.all(lasImgs.slice(1, 5).map(loadImage));
-       console.log(imagenes);
+  let imagenes = await Promise.all(lasImgs.slice(0, 4).map(loadImage));
+       
+
+
       
        // crear una funcion que haga cambiar de imagen ampliada "img_zoom" cada vez que se pasa por una de las miniaturas
        const boxImg = document.createElement("div");
-       boxImg.setAttribute("class", "content");
+       boxImg.setAttribute("class", "content row ");
        boxImg.innerHTML = `<div class="img-prod">
        <div class="contenedor_img">
        <figure class="img_cont">
        <div class="box_img">
-                        <img class="image" src="${imagenes[0]}" alt="">
+                        <img class="MinImg border-1" src="${imagenes[0]}" alt="">
                     </div>
                     <div class="box_img">
-                        <img class="image1" src="${imagenes[1]}" alt="">
+                        <img class="MinImg1 border-1" src="${imagenes[1]}" alt="">
                     </div>
                     <div class="box_img">
-                        <img class="image2" src="" alt="${imagenes[2]}">
+                        <img class="MinImg2 border-1" src="${imagenes[2]}" alt="">
                     </div>
                     <div class="box_img">
-                        <img class="image3" src="" alt="${imagenes[3]}">
+                        <img class="MinImg3 border-1" src="${imagenes[3]}" alt="">
                     </div>
 
                 </figure>
                 <figure class="cont_zoom">
-                    <div class="box_img__zoom">
+                    <div class="box_img__zoom border-1">
                         <img class="image_zoom" src="" alt="">
 
                     </div>
@@ -152,7 +154,7 @@ const DatosProdClient = async (data) =>{
                 </div> `
                 
                 boxCargas.appendChild(boxImg);
-                
+            
                 
        }
       })
