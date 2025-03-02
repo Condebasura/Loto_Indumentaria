@@ -382,7 +382,8 @@ informeImg();
 
 
 
-btn.addEventListener("click", pagar);
+
+
 
 
 export { archivo };
