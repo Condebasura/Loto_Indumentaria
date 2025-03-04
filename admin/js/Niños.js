@@ -6,7 +6,7 @@ nenes.addEventListener("click", (e)=>{
     if(e.target){
         boxNames.innerHTML = "";
         boxContent.innerHTML = "";
-        formAdd.style.display = "none";
+        
         if(!MinEdit.classList.contains("d-none")){
 
             MinEdit.classList.remove("Min_Edit","card"
@@ -44,7 +44,7 @@ nenes.addEventListener("click", (e)=>{
             e.preventDefault();
            
          if(e.target){
-          
+            formAdd.style.display = "none";
             const res = await fetch("/Nene/Remeras").then(res =>  res.json()).then(async data=>{
                 
                 DataProductos(data);
@@ -61,7 +61,7 @@ nenes.addEventListener("click", (e)=>{
             e.preventDefault();
            
          if(e.target){
-          
+            formAdd.style.display = "none";
             const res = await fetch("/Nene/Pantalones").then(res =>  res.json()).then(async data=>{
                 
                 DataProductos(data);

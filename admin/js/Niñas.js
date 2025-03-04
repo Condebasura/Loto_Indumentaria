@@ -5,7 +5,7 @@ nenas.addEventListener("click", (e)=>{
     e.preventDefault();
 
     if(e.target){
-        formAdd.style.display = "none";
+        
         boxContent.innerHTML = "";
         boxNames.innerHTML = "";
         if(!MinEdit.classList.contains("d-none")){
@@ -47,7 +47,7 @@ nenas.addEventListener("click", (e)=>{
             e.preventDefault();
            
          if(e.target){
-          
+            formAdd.style.display = "none";
             const res = await fetch("/Nena/Remeras").then(res =>  res.json()).then(async data=>{
                 
                   DataProductos(data)
@@ -62,7 +62,7 @@ nenas.addEventListener("click", (e)=>{
             e.preventDefault();
            
          if(e.target){
-          
+            formAdd.style.display = "none";
             const res = await fetch("/Nena/Pantalones").then(res =>  res.json()).then(async data=>{
                 
                   DataProductos(data)
@@ -77,7 +77,7 @@ nenas.addEventListener("click", (e)=>{
             e.preventDefault();
            
          if(e.target){
-          
+            formAdd.style.display = "none";
             const res = await fetch("/Nena/Vestidos").then(res =>  res.json()).then(async data=>{
                 
                 DataProductos(data)

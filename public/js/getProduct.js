@@ -1,5 +1,3 @@
-
-
 const hombre = document.querySelector(".hombre");
 const boxCargas = document.querySelector(".boxCargas");
 const contUltimas = document.querySelector(".contUltimas");
@@ -21,7 +19,10 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
           
        
   boxCargas.innerHTML = "";
-  cajaUltimas.innerHTML = "";
+  contUltimas.classList.add("d-none");
+  
+
+  
      
  let lasImgs = el.imagen.split(",");
 
@@ -41,7 +42,7 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
 
 
  const boxImg = document.createElement("div");
- boxImg.setAttribute("class", "content col-lg-7 mt-5  me-2 border");
+ boxImg.setAttribute("class", "content  col-lg-7 ms-5 mt-5 p-2 me-2 bg-light text-dark border");
  boxImg.innerHTML = `<div class="img-prod conteiner-fluid">
  <div class="contenedor_img row">
  <figure class="img_cont col-2 ">
@@ -71,7 +72,7 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
           </div> `;
 
           let datProd = document.createElement("div");
-          datProd.setAttribute("class", "datos col-lg-3 mt-5 ms-2 border");
+          datProd.setAttribute("class", "datos col-lg-3 mt-5 p-2 ms-2 bg-light text-dark border");
           datProd.innerHTML = ` <div class="Stock_nombre">
           <span class=" con_Stock"></span>
           
@@ -113,19 +114,20 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
           
               
 
-                  <button type="button" class="comprar">Comprar</button>
+                  <button type="button" class="comprar btn btn-success"><span>Comprar </span><i class="fa-solid fa-bag-shopping"></i></button>
               
-              <button type="button" class="add">Agregar al Carrito</button>
+              <button type="button" class="add btn btn-outline-primary"><span>Agregar </span><i class="fa-solid fa-cart-shopping"></i></button>
           
       </div>
   </div>
 
 `
-          
+          boxCargas.style.backgroundColor = "rgb(223, 226, 228)";
            let contVisuProd = document.createElement("div")
-           contVisuProd.setAttribute("class", "contVisuProd row mt-5  gx-5")
+           contVisuProd.setAttribute("class", "contVisuProd z-n1 row mt-5  gx-5")
           contVisuProd.appendChild(boxImg);
           contVisuProd.appendChild(datProd);
+          boxCargas.appendChild(prodSearch);
           boxCargas.appendChild(contVisuProd);
 
          
@@ -169,7 +171,7 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
           ProdStock.classList.remove("con_Stock");
           ProdStock.classList.add("sin_Stock");
           ProdStock.innerHTML = "sin stock";
-        }
+        };
          
         let cuo = el.cuotas;
         let cuoNum = Number(cuo);
@@ -378,8 +380,8 @@ const DatosProdClient = async (data) =>{
           caja.innerHTML = "";
           
      
-         // prodSearch.classList.remove("product_search")
-          prodSearch.classList.add("product", "d-none");
+           //prodSearch.classList.add("product_search");
+         prodSearch.classList.add("product", "d-none");
 
           const box = document.createElement("div");
         let datosProducto = document.createElement("div");

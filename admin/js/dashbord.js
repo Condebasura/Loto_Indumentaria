@@ -7,14 +7,9 @@ const logout = document.querySelector(".salir");
 Add.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
-      
+      boxCargas.innerHTML = "";
         boxCargas.appendChild(formAdd);
-        if(boxContent.contains($fragment)){
-
-            boxContent.removeChild($fragment)
-        }else{
-            boxCargas.removeChild(boxContent)
-        }
+       
       boxNames.innerHTML = "";
       if(!MinEdit.classList.contains("d-none")){
 

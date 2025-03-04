@@ -5,7 +5,7 @@ mujer.addEventListener("click", (e)=>{
     e.preventDefault();
 
     if(e.target){
-        formAdd.style.display = "none";
+        
         boxNames.innerHTML = "";
         boxContent.innerHTML = "";
         if(!MinEdit.classList.contains("d-none")){
@@ -52,7 +52,7 @@ remeras.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+    formAdd.style.display = "none";
     const res = await fetch("/Mujeres/Remeras").then(res =>  res.json()).then(async data=>{
         
         DataProductos(data);
@@ -67,7 +67,7 @@ pantalones.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+    formAdd.style.display = "none";
     const res = await fetch("/Mujeres/Pantalones").then(res =>  res.json()).then(async data=>{
         
          DataProductos(data);
@@ -81,7 +81,7 @@ vestidos.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+    formAdd.style.display = "none";
     const res = await fetch("/Mujeres/Vestidos").then(res =>  res.json()).then(async data=>{
            
         DataProductos(data);
@@ -95,7 +95,7 @@ accesorios.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+    formAdd.style.display = "none";
     const res = await fetch("/Mujeres/Accesorios").then(res =>  res.json()).then(async data=>{
         
         DataProductos(data);
