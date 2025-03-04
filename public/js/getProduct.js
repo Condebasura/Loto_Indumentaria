@@ -138,10 +138,12 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
           let Cant = document.querySelector(".cantidad");
           const btn = document.querySelector(".comprar");
 
+            
 
           
           
           imgZoom.src = imagenObjectURL;
+          console.log(miniImg);
 
       miniImg.addEventListener("mousedown", (e)=>{
           foto = e.target;
@@ -769,7 +771,7 @@ ChPant.addEventListener("click",async (e)=>{
 });
 }
 
-})
+});
 
 
 const UltimasEntradasH  = async ()=>{
@@ -784,10 +786,11 @@ try {
 
     let Hombres = ["/Hombres/Remeras", "/Hombres/Pantalones", "/Hombres/Accesorios"];
  let HombresIndex = Math.floor(Math.random()* Hombres.length);
-let HombresAleatorio = Hombres[HombresIndex];
-
-    const res = await fetch(HombresAleatorio).then(res => res.json()).then(async data=>{
-    let dataRandom = data.at(-1);
+ let HombresAleatorio = Hombres[HombresIndex];
+ 
+ const res = await fetch(HombresAleatorio).then(res => res.json()).then(async data=>{
+   let dataRandom = data.at(-1);
+   
 
     
     
@@ -804,7 +807,7 @@ let HombresAleatorio = Hombres[HombresIndex];
        let porcentaje = (bestPrecio * desc) / 100;
        let rebajadoDe = bestPrecio - porcentaje;
 
-    console.log(dataRandom)
+    
     let img1 = dataRandom.imagen.split(",")[0];
     let imgURl = `http://localhost:3000/uploads/${img1}`;
     let imagenResponse = await fetch(imgURl);
@@ -814,11 +817,15 @@ let HombresAleatorio = Hombres[HombresIndex];
     Imgtop.addEventListener("click", (e)=>{
         e.preventDefault();
         if(e.target){
-          let datos = JSON.stringify(data);
+          let datos = JSON.stringify(dataRandom);
     let obj = JSON.parse(datos);
-          for(let el of obj)
-          verProd(el,bestPrecio, rebajadoDe,imagenObjectURL ,);
-        }
+        let el = obj;
+        console.log(el)
+          
+        
+          verProd(el,bestPrecio, rebajadoDe,imagenObjectURL );
+        
+      }
        }) 
 
     const cardBody = document.createElement("div");
@@ -871,7 +878,7 @@ const UltimasEntradasM = async ()=>{
            let porcentaje = (bestPrecio * desc) / 100;
            let rebajadoDe = bestPrecio - porcentaje;
     
-        console.log(dataRandom)
+        
         let img1 = dataRandom.imagen.split(",")[0];
         let imgURl = `http://localhost:3000/uploads/${img1}`;
         let imagenResponse = await fetch(imgURl);
@@ -881,9 +888,9 @@ const UltimasEntradasM = async ()=>{
         Imgtop.addEventListener("click", (e)=>{
             e.preventDefault();
             if(e.target){
-              let datos = JSON.stringify(data);
+              let datos = JSON.stringify(dataRandom);
               let obj = JSON.parse(datos);
-                    for(let el of obj)
+                    let el = obj
                     verProd(el,bestPrecio, rebajadoDe,imagenObjectURL);
             }
            }) ;
@@ -912,7 +919,7 @@ const UltimasEntradasM = async ()=>{
     
     };
 
-// Arreglar el problema en el random, porque cuando hay mas de un producto , si se entra se muestra solo el primero de su lista y no el ultimo
+
     const UltimasEntradasN = async ()=>{
 
         try {
@@ -939,7 +946,7 @@ const UltimasEntradasM = async ()=>{
                let porcentaje = (bestPrecio * desc) / 100;
                let rebajadoDe = bestPrecio - porcentaje;
         
-            console.log(dataRandom)
+          
             let img1 = dataRandom.imagen.split(",")[0];
             let imgURl = `http://localhost:3000/uploads/${img1}`;
             let imagenResponse = await fetch(imgURl);
@@ -949,9 +956,9 @@ const UltimasEntradasM = async ()=>{
             Imgtop.addEventListener("click", (e)=>{
                 e.preventDefault();
                 if(e.target){
-                  let datos = JSON.stringify(data);
+                  let datos = JSON.stringify(dataRandom);
                   let obj = JSON.parse(datos);
-                        for(let el of obj)
+                        let el = obj;
                         verProd(el,bestPrecio, rebajadoDe,imagenObjectURL);
                 }
                }) 
