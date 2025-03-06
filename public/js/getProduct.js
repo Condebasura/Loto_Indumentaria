@@ -42,10 +42,10 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
 
 
  const boxImg = document.createElement("div");
- boxImg.setAttribute("class", "content  col-lg-7 ms-5 mt-5 p-2 me-2 bg-light text-dark border");
+ boxImg.setAttribute("class", "content  col-lg-7 ms-0 ms-lg-5 mt-5 p-2 me-2 bg-light text-dark border");
  boxImg.innerHTML = `<div class="img-prod conteiner-fluid">
  <div class="contenedor_img row">
- <figure class="img_cont col-2 ">
+ <figure class="img_cont col-md-2 col ms-0">
  <div class="box_img img-fluid">
                   <img class="MinImg border-1  " src="${imagenes[0]}" alt="">
               </div>
@@ -62,9 +62,9 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
                   <img class="MinImg3 border-1 " src="${imagenes[4]}" alt="">
               </div>
           </figure>
-          <figure class="cont_zoom col-10">
+          <figure class="cont_zoom col-md-10 col">
               <div class="box_img__zoom">
-                  <img class="image_zoom " src="" alt="">
+                  <img class="image_zoom img-fluid pt-3" src="" alt="">
 
               </div>
           </figure>
@@ -72,9 +72,9 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
           </div> `;
 
           let datProd = document.createElement("div");
-          datProd.setAttribute("class", "datos col-lg-3 mt-5 p-2 ms-2 bg-light text-dark border");
-          datProd.innerHTML = ` <div class="Stock_nombre">
-          <span class=" con_Stock"></span>
+          datProd.setAttribute("class", "datos col-lg-3 mt-5 p-2 ms-0 ms-lg-2 bg-light text-dark text-center text-lg-start justify-content-center justify-content-lg-start  border");
+          datProd.innerHTML = ` <div class="Stock_nombre ">
+          <span class=" con_Stock text-center text-lg-start justify-content-center justify-content-lg-start "></span>
           
           <h1 class="name">${el.producto}</h1>
       </div>
@@ -84,7 +84,7 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
               <span class="cuotas">${el.cuotas} </span>
               <small class="int">cuotas sin interes de $ </small>
           </div>
-          <div class="cards">
+          <div class="cards text-center text-lg-start justify-content-center justify-content-lg-start">
               <img class="card" decoding="async"
                   src="https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg"
                   alt="visa">
@@ -493,7 +493,7 @@ const HAcce = document.createElement("a");
 HRem.innerHTML = "Remeras";
 HPant.innerHTML = "Pantalones";
 HAcce.innerHTML = "Accesorios";
-boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2");
+boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2 d-flex flex-column flex-lg-row");
 HRem.setAttribute("class", "link-success link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
 HPant.setAttribute("class", "link-primary link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
 HAcce.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
@@ -574,7 +574,7 @@ mujer.addEventListener("click", (e)=>{
         MVest.innerHTML = "Vestidos";
         MAcce.innerHTML = "Accesorios";
 
-        boxRutas.setAttribute("class", "nav-item ms-lg-5  ms-0 m-2");
+        boxRutas.setAttribute("class", "nav-item ms-lg-5  ms-0 m-2 d-flex flex-column flex-lg-row");
         MRem.setAttribute("class", "link-success link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
         MPant.setAttribute("class", "link-primary link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
         MVest.setAttribute("class", "link-danger link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
@@ -658,7 +658,7 @@ Nena.addEventListener("click", (e)=>{
          NPant.innerHTML = "Pantalones";
          NVest.innerHTML = "Vestidos";
          
-         boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2");
+         boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2 d-flex flex-column flex-lg-row");
          NRem.setAttribute("class", "link-success link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
          NPant.setAttribute("class", "link-primary link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
          NVest.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
@@ -733,7 +733,7 @@ if(e.target){
      ChRem.innerHTML = "Remeras";
      ChPant.innerHTML = "Pantalones";
       
-     boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2");
+     boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2 d-flex flex-column flex-lg-row");
      ChRem.setAttribute("class","link-success link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
      ChPant.setAttribute("class", "link-primary link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2")
 
@@ -798,7 +798,7 @@ try {
     
     const boxCard = document.createElement("div");
     const card = document.createElement("div");
-    boxCard.setAttribute("class", "boxCard text-center col-md-2 col-sm-6 m-3");
+    boxCard.setAttribute("class", "boxCard text-center col-lg-3 col-sm-6 m-3");
     card.setAttribute("class", "card cardUltimas mx-auto  border-2 col-12 ");
     let Imgtop = document.createElement("img");
     Imgtop.setAttribute("class", "image card-img-top");
@@ -869,7 +869,7 @@ const UltimasEntradasM = async ()=>{
         
         const boxCard = document.createElement("div");
         const card = document.createElement("div");
-        boxCard.setAttribute("class", "boxCard text-center col-md-2 col-sm-6 m-3");
+        boxCard.setAttribute("class", "boxCard text-center col-lg-3 col-sm-6 m-3");
         card.setAttribute("class", "card cardUltimas mx-auto border-2 col-12 ");
         let Imgtop = document.createElement("img");
         Imgtop.setAttribute("class", "image card-img-top");
@@ -937,7 +937,7 @@ const UltimasEntradasM = async ()=>{
             
             const boxCard = document.createElement("div");
             const card = document.createElement("div");
-            boxCard.setAttribute("class", "boxCard text-center col-md-2 col-sm-6 m-3");
+            boxCard.setAttribute("class", "boxCard text-center col-lg-3 col-sm-6 m-3");
             card.setAttribute("class", "card cardUltimas mx-auto border-2 col-12");
             let Imgtop = document.createElement("img");
             Imgtop.setAttribute("class", "image card-img-top");

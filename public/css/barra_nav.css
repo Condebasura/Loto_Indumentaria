@@ -1,4 +1,6 @@
-
+.offcanvas-end{
+    width: 30vh !important;
+}
 
 .nav-item{
     font-size: 14px;

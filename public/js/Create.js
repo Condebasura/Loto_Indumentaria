@@ -49,20 +49,24 @@ Create.addEventListener("click", (e)=>{
          
         divNombre.setAttribute("class", "form-floating mb-3");
         InputNombre.setAttribute("class", "form-control");
+        InputNombre.setAttribute("required", "");
         InputNombre.setAttribute("id", "floatingInput");
         InputNombre.setAttribute("placeholder", "Nombre Completo");
-        LabelNombre.setAttribute("for", "floatingInput")
+        LabelNombre.setAttribute("for", "floatingInput");
+
 
         divCorreo.setAttribute("class", "form-floating mb-3");
         InputCorreo.setAttribute("class", "form-control");
         InputCorreo.setAttribute("id", "floatingInput");
         InputCorreo.setAttribute("placeholder","Email");
+        InputCorreo.setAttribute("required", "");
         LabelCorreo.setAttribute("for","floatingInput");
 
         divPassword.setAttribute("class", "form-floating mb-3");
         InputPassword.setAttribute("class","form-control");
         InputPassword.setAttribute("id","floatinInput");
         InputPassword.setAttribute("placeholder","Password");
+        InputPassword.setAttribute("required", "");
         LabelPassword.setAttribute("for","floatingInput");
         
 

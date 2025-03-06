@@ -38,10 +38,10 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
   
   
    const boxImg = document.createElement("div");
-   boxImg.setAttribute("class", "content col-lg-7 mt-3  me-2 border bg-white");
+   boxImg.setAttribute("class", "content col-lg-7 mt-3 ms-0 ms-lg-5 mt-5 p-2  me-2 border bg-white");
    boxImg.innerHTML = `<div class="img-prod conteiner-fluid">
    <div class="contenedor_img row">
-   <figure class="img_cont col-2 ">
+   <figure class="img_cont col-md-2 col ms-0 ">
    <div class="box_img img-fluid">
                     <img class="MinImg border-1  " src="${imagenes[0]}" alt="">
                 </div>
@@ -58,9 +58,9 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
                     <img class="MinImg3 border-1 " src="${imagenes[4]}" alt="">
                 </div>
             </figure>
-            <figure class="cont_zoom col-10">
+            <figure class="cont_zoom col-md-10 col">
                 <div class="box_img__zoom">
-                    <img class="image_zoom " src="" alt="">
+                    <img class="image_zoom img-fluid pt-3" src="" alt="">
   
                 </div>
             </figure>
@@ -68,10 +68,10 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
             </div> `;
   
             let datProd = document.createElement("div");
-            datProd.setAttribute("class", "datos col-lg-3 mt-3 p-2 ms-2 border text-start bg-white ");
+            datProd.setAttribute("class", "datos col-lg-3 mt-5 p-2 ms-0 ms-lg-2 border text-center text-lg-start justify-content-center justify-content-lg-start bg-white ");
             console.log(datProd)
             datProd.innerHTML = ` <div class="Stock_nombre">
-            <span class=" con_Stock"></span>
+            <span class=" con_Stock text-center text-lg-start justify-content-center justify-content-lg-start"></span>
             
             <h1 class="name">${el.producto}</h1>
         </div>
@@ -81,7 +81,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
                 <span class="cuotas">${el.cuotas} </span>
                 <small class="int">cuotas sin interes de $ </small>
             </div>
-            <div class="cards">
+            <div class="cards text-center text-lg-start justify-content-center justify-content-lg-start">
                 <img class="card" decoding="async"
                     src="https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg"
                     alt="visa">

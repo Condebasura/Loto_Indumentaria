@@ -59,12 +59,7 @@
 height: 90%;    
 }
 
-.image_zoom{
-    padding-top: 3em;
-    max-width: 90%;
-    max-height: 60%;
-   
-}
+
 
 
 
@@ -186,47 +181,4 @@ height: 90%;
         }
          
 
-        @media(max-width:1160px) {
-                     .sech{position: absolute;right: 0em;;}
-                     .fa-search, .input{border-radius: 9px 9px 9px 9px;}
-
-                     .input{max-width: 7em;}
-
-
-               .brra-cont{max-width: 110%;}
-                          
-            .logo{position: relative;top: -5em;
-            font-size: 24px;}
-
-            header{position: absolute;left: 3px;top: 5em;
-            height: 1.6em;}
-
-            .hombre,.mujer, .niña , .niño{font-size: 15px;padding: 3px;}
-
-            .homb, .wom, .g, .ch{font-size: 13px;}
-
-            .fa-home{position: relative;left: 1em;
-                font-size:  15px;
-                 color: rgb(255, 255, 255);
-                text-decoration: none;}  
-                 
-                 .fa-home:hover{color:greenyellow;}
-        
-
-            .desp-hom{position: absolute;left: 1em;}
-            .desp-muj{position: absolute;left: 8em;}
-            .desp-niña{position: absolute;right: 6em ;}
-
-            
-        }
-
-        @media(max-width: 600px){
-            .slider-1, .slider-2, .slider-3{
-                margin-left: -1px;
-                margin-right: -1px;
-            }
-
-            .fa-search, .input{border-radius: 9px 9px 9px 9px;}
-
-            .input{max-width: 7em;}
-        }
+       
