@@ -38,7 +38,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
   boxImg.setAttribute("class", "content  col-lg-7 ms-5 mt-5 p-2 me-2 bg-light text-dark border");
   boxImg.innerHTML = `<div class="img-prod conteiner-fluid">
   <div class="contenedor_img row">
-  <figure class="img_cont col-2 ">
+  <figure class="img_cont col-md-2 col ms-0">
   <div class="box_img img-fluid">
                    <img class="MinImg border-1  " src="${imagenes[0]}" alt="">
                </div>
@@ -55,9 +55,9 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
                    <img class="MinImg3 border-1 " src="${imagenes[4]}" alt="">
                </div>
            </figure>
-           <figure class="cont_zoom col-10">
+           <figure class="cont_zoom col-md-10 col">
                <div class="box_img__zoom">
-                   <img class="image_zoom " src="" alt="">
+                   <img class="image_zoom img-fluid pt-3" src="" alt="">
  
                </div>
            </figure>
