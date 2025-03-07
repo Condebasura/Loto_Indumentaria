@@ -5,6 +5,7 @@ const template = document.getElementById("result").content;
 const Prod = document.querySelector(".product");
 const contUltimas = document.querySelector(".contUltimas");
 let textH1 = document.createElement("h1");
+let modalcontainer = document.getElementById("modalContainer");
 const fragment = document.createDocumentFragment();
 
 const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
@@ -188,10 +189,74 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
    const precnmb = precio.innerHTML;
    const Elnum = precnmb.slice(1, 8);
    const EnNumeros = Number(Elnum);
+
+
+   link.addEventListener("click", (e)=>{
+    e.preventDefault();
+    if(e.target){
+   modalcontainer.innerHTML = "";
+  
+    const urls = ["https://http2.mlstatic.com/storage/logos-api-admin/fe827370-f3be-11eb-8e0d-6f4af49bf82e-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/27764c60-ed7a-11ec-87df-cb682e3b026f-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/ba8b96a0-cd41-11ea-a668-0563a89e00fd-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/c9f71470-6f07-11ec-9b23-071a218bbe35-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/b2c93a40-f3be-11eb-9984-b7076edb0bb7-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/992bc350-f3be-11eb-826e-6db365b9e0dd-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/aa2b8f70-5c85-11ec-ae75-df2bef173be2-m.svg"];
+  
+     const modtabi = document.createElement("div");
+     const modDialog = document.createElement("div");
+     const modContent = document.createElement("div")
+     const modHeader = document.createElement("div");
+     let titulo = document.createElement("h5");
+     const btnClose = document.createElement("button");
+     const modBody = document.createElement("div");
+     const contCards = document.createElement("div");
+    
+     modtabi.setAttribute("class","modal");
+     modtabi.setAttribute("tabindex","-1");
+     modDialog.setAttribute("class","modal-dialog");
+     modContent.setAttribute("class","modal-content");
+     modHeader.setAttribute("class","modal-header text-bg-primary");
+     titulo.setAttribute("class","modal-title");
+     btnClose.setAttribute("class","btn-close");
+     btnClose.setAttribute("type","button");
+     btnClose.setAttribute("data-bs-dismiss","modal");
+     btnClose.setAttribute("aria-label","Close");
+     contCards.setAttribute("class", "row p-5 text-center justify-content-center");
+    titulo.innerHTML = "Medios de pago";
+     modtabi.appendChild(modDialog);
+     modDialog.appendChild(modContent);
+     modContent.appendChild(modHeader);
+     modContent.appendChild(modBody);
+  
+     modHeader.appendChild(titulo);
+     modHeader.appendChild(btnClose);
+  
+     modBody.appendChild(contCards);
+     urls.forEach(url => {
+       const divCards = document.createElement("div");
+       divCards.setAttribute("class", "col-lg-4 col p-3")
+       let imgCard = document.createElement("img");
+       imgCard.src = url;
+       contCards.appendChild(divCards);
+       divCards.appendChild(imgCard);
+      })
+      
+   modalcontainer.innerHTML = "";
+  modalcontainer.appendChild(modtabi);
+  
+  modtabi.removeAttribute("inert");
+  modtabi.removeAttribute("aria-hidden");
+      const bootstrapModal = new bootstrap.Modal(modtabi);
+              bootstrapModal.show();
+         
+      modtabi.addEventListener("hidden.bs.modal", ()=>{
+        modalcontainer.innerHTML = "";
+        modtabi.setAttribute("aria-hidden", "true");
+        modtabi.setAttribute("inert", "");
+      })
+  
+    }
+  });
  
  
  
-   const modal = document.getElementById("modal");
+   
  
    if (typeof MercadoPago === 'undefined') {
      console.error('El SDK de MercadoPago no está definido. Verifica que se haya cargado correctamente.');
