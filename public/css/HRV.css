@@ -127,6 +127,7 @@ height: 90%;
 .polit , .form_Env{
     font-size: 13px;
     color: rgb(71, 71, 248);
+    cursor: pointer;
 }
 
 .comp_add{

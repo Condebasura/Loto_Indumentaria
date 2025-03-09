@@ -254,8 +254,88 @@ modtabi.removeAttribute("aria-hidden");
     })
 
   }
-})
+});
 
+const funcModal = (textBody, titulo)=>{
+  modalcontainer.innerHTML = "";
+  
+   const modtabi = document.createElement("div");
+   const modDialog = document.createElement("div");
+   const modContent = document.createElement("div")
+   const modHeader = document.createElement("div");
+  
+   const btnClose = document.createElement("button");
+   const modBody = document.createElement("div");
+   
+  
+   modtabi.setAttribute("class","modal");
+   modtabi.setAttribute("tabindex","-1");
+   modDialog.setAttribute("class","modal-dialog");
+   modContent.setAttribute("class","modal-content");
+   modHeader.setAttribute("class","modal-header text-bg-primary");
+   titulo.setAttribute("class","modal-title");
+   btnClose.setAttribute("class","btn-close");
+   btnClose.setAttribute("type","button");
+   btnClose.setAttribute("data-bs-dismiss","modal");
+   btnClose.setAttribute("aria-label","Close");
+   textBody.setAttribute("class", "row p-5 justify-content-center");
+  
+   modtabi.appendChild(modDialog);
+   modDialog.appendChild(modContent);
+   modContent.appendChild(modHeader);
+   modContent.appendChild(modBody);
+
+   modHeader.appendChild(titulo);
+   modHeader.appendChild(btnClose);
+
+   modBody.appendChild(textBody);
+ 
+    
+ modalcontainer.innerHTML = "";
+modalcontainer.appendChild(modtabi);
+
+modtabi.removeAttribute("inert");
+modtabi.removeAttribute("aria-hidden");
+    const bootstrapModal = new bootstrap.Modal(modtabi);
+            bootstrapModal.show();
+       
+    modtabi.addEventListener("hidden.bs.modal", ()=>{
+      modalcontainer.innerHTML = "";
+      modtabi.setAttribute("aria-hidden", "true");
+      modtabi.setAttribute("inert", "")
+    })
+  }
+  
+  let formEnv = document.querySelector(".form_Env");
+  let polit = document.querySelector(".polit");
+
+formEnv.addEventListener("click",(e)=>{
+  e.preventDefault();
+  if(e.target){
+    let titulo = document.createElement("h4");
+    titulo.innerHTML = "Formas de envio";
+    let textBody = document.createElement("div");
+    textBody.innerHTML ="<p class='mb-4'><strong> realizamos envíos a todo el país con las siguientes opciones:</strong></p><br><p><i class='fa-solid fa-truck link-success'></i> <strong>Envío Estándar</strong> (3 a 7 días hábiles) - A través de correo postal. El costo varía según la ubicación.</p><br><p><i class='fa-solid fa-truck-fast link-danger'></i> <strong> Envío Rápido</strong> (24 a 48 horas hábiles) - Disponible en ciertas zonas. Consulta disponibilidad antes de comprar.</p><br><p><i class='fa-solid fa-cube link-warning'></i> <strong> Envíos Gratis</strong> En compras mayores a $150000 ofrecemos envío gratuito.</p>"
+  
+    funcModal(textBody, titulo);
+  
+  }
+});
+
+
+
+polit.addEventListener("click",(e)=>{
+  e.preventDefault();
+  if(e.target){
+    let titulo = document.createElement("h4");
+    titulo.innerHTML = "Politicas de Devolución";
+    let textBody = document.createElement("div");
+    textBody.innerHTML ="<p>Si no estás satisfecho con tu compra, puedes solicitar un cambio o devolución dentro de los 7 días posteriores a la recepción del pedido</p><br><p>•La prenda debe estar en su estado original, sin uso y con etiquetas.</p><br><p>•No aceptamos devoluciones en productos en oferta o personalizados.</p><br><p>•El costo del envío en devoluciones es a cargo del cliente, salvo por productos con defectos de fábrica.</p><br><p>•Para gestionar una devolución, contáctanos a través de nuestro email o WhatsApp.</p>"
+  
+    funcModal(textBody, titulo);
+  
+  }
+})
 const pagar = async (bestPrecio) => {
   const precio = document.querySelector(".bestprecio");
   const precnmb = precio.innerHTML;
