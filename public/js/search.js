@@ -66,9 +66,9 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
            </div> `;
  
            let datProd = document.createElement("div");
-           datProd.setAttribute("class", "datos col-lg-3 mt-5 p-2 ms-2 bg-light text-dark border");
+           datProd.setAttribute("class", "datos col-lg-3 mt-5 p-2 ms-0 ms-lg-2 bg-light text-dark text-center text-lg-start justify-content-center justify-content-lg-start  border");
            datProd.innerHTML = ` <div class="Stock_nombre">
-           <span class=" con_Stock"></span>
+           <span class=" con_Stock text-center text-lg-start justify-content-center justify-content-lg-start"></span>
            
            <h1 class="name">${el.producto}</h1>
        </div>
@@ -78,17 +78,17 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
                <span class="cuotas">${el.cuotas} </span>
                <small class="int">cuotas sin interes de $ </small>
            </div>
-           <div class="cards">
-               <img class="card" decoding="async"
+           <div class="cards  text-center text-lg-start justify-content-center justify-content-lg-start">
+               <img class="card m-2 p-1" decoding="async"
                    src="https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg"
                    alt="visa">
-               <img class="card" decoding="async"
+               <img class="card m-2 p-1" decoding="async"
                    src="https://http2.mlstatic.com/storage/logos-api-admin/b2c93a40-f3be-11eb-9984-b7076edb0bb7-m.svg"
                    alt="American Express">
-               <img class="card" decoding="async"
+               <img class="card m-2 p-1" decoding="async"
                    src="https://http2.mlstatic.com/storage/logos-api-admin/992bc350-f3be-11eb-826e-6db365b9e0dd-m.svg"
                    alt="Naranja">
-               <img class="card" decoding="async"
+               <img class="card m-2 p-1" decoding="async"
                    src="https://http2.mlstatic.com/storage/logos-api-admin/aa2b8f70-5c85-11ec-ae75-df2bef173be2-m.svg"
                    alt="Mastercard">
            </div>
@@ -148,8 +148,9 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
            imgZoom.setAttribute("src", imgSrc);
  
            document.addEventListener("mousedown", (e) =>{
-               if(e.target != foto || imgZoom.getAttribute("src") == null){
-                   imgZoom.setAttribute("src", imgSrc)
+               if(e.target != foto || imgZoom.getAttribute("src") == "null"){
+              
+                   imgZoom.setAttribute("src", imagenObjectURL)
                }
            })
        });
@@ -213,7 +214,7 @@ let link = document.querySelector(".med_pago");
    btnClose.setAttribute("type","button");
    btnClose.setAttribute("data-bs-dismiss","modal");
    btnClose.setAttribute("aria-label","Close");
-   contCards.setAttribute("class", "row p-5 text-center justify-content-center");
+   contCards.setAttribute("class", "row p-5 text-center justify-content-center gx-2 gy-2");
   titulo.innerHTML = "Medios de pago";
    modtabi.appendChild(modDialog);
    modDialog.appendChild(modContent);
@@ -226,8 +227,10 @@ let link = document.querySelector(".med_pago");
    modBody.appendChild(contCards);
    urls.forEach(url => {
      const divCards = document.createElement("div");
-     divCards.setAttribute("class", "col-lg-4 col p-3")
+     divCards.setAttribute("class", "col-3 col p-3 border m-2")
      let imgCard = document.createElement("img");
+     imgCard.setAttribute("class", "img-fluid");
+
      imgCard.src = url;
      contCards.appendChild(divCards);
      divCards.appendChild(imgCard);

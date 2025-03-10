@@ -85,20 +85,20 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
               <span class="cuotas">${el.cuotas} </span>
               <small class="int">cuotas sin interes de $ </small>
           </div>
-          <div class="cards text-center text-lg-start justify-content-center justify-content-lg-start">
-              <img class="card" decoding="async"
-                  src="https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg"
-                  alt="visa">
-              <img class="card" decoding="async"
-                  src="https://http2.mlstatic.com/storage/logos-api-admin/b2c93a40-f3be-11eb-9984-b7076edb0bb7-m.svg"
-                  alt="American Express">
-              <img class="card" decoding="async"
-                  src="https://http2.mlstatic.com/storage/logos-api-admin/992bc350-f3be-11eb-826e-6db365b9e0dd-m.svg"
-                  alt="Naranja">
-              <img class="card" decoding="async"
-                  src="https://http2.mlstatic.com/storage/logos-api-admin/aa2b8f70-5c85-11ec-ae75-df2bef173be2-m.svg"
-                  alt="Mastercard">
-          </div>
+         <div class="cards  text-center text-lg-start justify-content-center justify-content-lg-start">
+               <img class="card m-2 p-1" decoding="async"
+                   src="https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg"
+                   alt="visa">
+               <img class="card m-2 p-1" decoding="async"
+                   src="https://http2.mlstatic.com/storage/logos-api-admin/b2c93a40-f3be-11eb-9984-b7076edb0bb7-m.svg"
+                   alt="American Express">
+               <img class="card m-2 p-1" decoding="async"
+                   src="https://http2.mlstatic.com/storage/logos-api-admin/992bc350-f3be-11eb-826e-6db365b9e0dd-m.svg"
+                   alt="Naranja">
+               <img class="card m-2 p-1" decoding="async"
+                   src="https://http2.mlstatic.com/storage/logos-api-admin/aa2b8f70-5c85-11ec-ae75-df2bef173be2-m.svg"
+                   alt="Mastercard">
+           </div>
           <span class="cond_Pago"><a class="med_pago" href=""> ver mas medios
                   de pago </a></span>
       </div>
@@ -155,8 +155,8 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
           imgZoom.setAttribute("src", imgSrc);
 
           document.addEventListener("mousedown", (e) =>{
-              if(e.target != foto || imgZoom.getAttribute("src") == null){
-                  imgZoom.setAttribute("src", imgSrc)
+              if(e.target != foto || imgZoom.getAttribute("src") == "null"){
+                  imgZoom.setAttribute("src", imagenObjectURL)
               }
           })
       });
@@ -198,7 +198,9 @@ link.addEventListener("click", (e)=>{
   if(e.target){
  modalcontainer.innerHTML = "";
 
-  const urls = ["https://http2.mlstatic.com/storage/logos-api-admin/fe827370-f3be-11eb-8e0d-6f4af49bf82e-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/27764c60-ed7a-11ec-87df-cb682e3b026f-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/ba8b96a0-cd41-11ea-a668-0563a89e00fd-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/c9f71470-6f07-11ec-9b23-071a218bbe35-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/b2c93a40-f3be-11eb-9984-b7076edb0bb7-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/992bc350-f3be-11eb-826e-6db365b9e0dd-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/aa2b8f70-5c85-11ec-ae75-df2bef173be2-m.svg"];
+  const urls = ["https://http2.mlstatic.com/storage/logos-api-admin/fe827370-f3be-11eb-8e0d-6f4af49bf82e-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/27764c60-ed7a-11ec-87df-cb682e3b026f-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/ba8b96a0-cd41-11ea-a668-0563a89e00fd-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/c9f71470-6f07-11ec-9b23-071a218bbe35-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/b2c93a40-f3be-11eb-9984-b7076edb0bb7-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/992bc350-f3be-11eb-826e-6db365b9e0dd-m.svg", "https://http2.mlstatic.com/storage/logos-api-admin/aa2b8f70-5c85-11ec-ae75-df2bef173be2-xl.svg"];
+
+ 
 
    const modtabi = document.createElement("div");
    const modDialog = document.createElement("div");
@@ -219,7 +221,7 @@ link.addEventListener("click", (e)=>{
    btnClose.setAttribute("type","button");
    btnClose.setAttribute("data-bs-dismiss","modal");
    btnClose.setAttribute("aria-label","Close");
-   contCards.setAttribute("class", "row p-5 text-center justify-content-center");
+   contCards.setAttribute("class", "row p-5 text-center justify-content-center gx-2 gy-2");
   titulo.innerHTML = "Medios de pago";
    modtabi.appendChild(modDialog);
    modDialog.appendChild(modContent);
@@ -232,8 +234,9 @@ link.addEventListener("click", (e)=>{
    modBody.appendChild(contCards);
    urls.forEach(url => {
      const divCards = document.createElement("div");
-     divCards.setAttribute("class", "col-lg-4 col p-3")
+     divCards.setAttribute("class", "col-3 p-3 border m-2 ")
      let imgCard = document.createElement("img");
+     imgCard.setAttribute("class", "img-fluid");
      imgCard.src = url;
      contCards.appendChild(divCards);
      divCards.appendChild(imgCard);

@@ -95,13 +95,13 @@ const PostRecuPass = async (req, res)=>{
      try {
         const UserEmail = await req.body.mail;
         const transport = nodemailer.createTransport({
-            host: "smtp.freesmtpservers.com", 
-            port:25 ,
+            host: "smtp.gmail.com", 
+            port:587,
             secure: false, 
-            auth:{
-                user: "", 
-                pass:"",
-            },
+           auth:{ 
+				user: process.env.EMAIL_USER,
+				pass: process.env.EMAIL_PASS,
+			},
             
            
         });
@@ -111,7 +111,7 @@ const PostRecuPass = async (req, res)=>{
                 expiresIn: '1h'
             });
             const info = await transport.sendMail({
-                from: '"Loto Indumentaria <Loto_Indumentaria@gmail.com>',
+                from: '"Loto Indumentaria <indumentaria.Loto@gmail.com>',
                 to: `${UserEmail}`,
                 subject: "Cambio de contraseña",
                 text:'',
@@ -119,7 +119,7 @@ const PostRecuPass = async (req, res)=>{
 			  flex-direction: column;
 			  align-items: center;
 			  justify-content: center;
-			  background-color: rgb(156, 6, 8,0.40);
+			  background-color: rgb(156, 6, 8);
 			  padding: 2em;
 			  margin:2em;
 			  box-shadow: 2px 2px 12px #444545;">

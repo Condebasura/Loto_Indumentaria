@@ -82,7 +82,7 @@ Login.addEventListener("click", (e)=>{
          btn.setAttribute("class", "btn btn-primary");
          
         
-        NoPass.setAttribute("class", "NoPass mt-2");
+        NoPass.setAttribute("class", "NoPass mt-2 me-1");
         parrafo.setAttribute("class", "link-danger m-2")
 
          titulo.innerHTML = "Iniciar Sesion";
@@ -184,7 +184,7 @@ Login.addEventListener("click", (e)=>{
            IniSesion(InputEmail.value , InputPass.value)
 
            const loader = document.createElement("div");
-           loader.setAttribute("class", "fa-solid fa-circle-notch"); 
+           loader.setAttribute("class", "spinner-border spinner-border-sm text-primary ms-1"); 
            NoPass.addEventListener("click", async(e)=>{
              e.preventDefault();
              NoPass.appendChild(loader);
@@ -206,12 +206,12 @@ Login.addEventListener("click", (e)=>{
                   try{
                     if(res.status === 250){
        
-                          modal.innerHTML = "";
+                          modBody.innerHTML = "";
                           let parrafoRecu = document.createElement("h2");
-                          parrafoRecu.setAttribute("class", "SendEmail");
+                          parrafoRecu.setAttribute("class", "SendEmail text-center justify-content-center");
                           parrafoRecu.innerHTML = datos.mensaje;
-                          modal.appendChild(parrafoRecu);
-                          modal.showModal();
+                          modBody.appendChild(parrafoRecu);
+                          
                           NoPass.removeChild(loader);
                        }
                        

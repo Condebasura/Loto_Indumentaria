@@ -1,5 +1,5 @@
 
-const modal = document.getElementById("modal");
+const modalcontainer = document.getElementById("modalContainer");
 
 window.addEventListener("DOMContentLoaded", (e)=>{
     if(e.target){

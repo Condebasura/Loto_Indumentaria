@@ -99,9 +99,10 @@ height: 90%;
         .cards{
             display: flex;
             flex-direction: row;
-            gap: 1em;
             flex-wrap: wrap;
         }
+
+      
      
     .cond_Pago{
         color: rgb(71, 71, 248);
