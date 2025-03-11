@@ -82,7 +82,7 @@ Login.addEventListener("click", (e)=>{
          btn.setAttribute("class", "btn btn-primary");
          
         
-        NoPass.setAttribute("class", "NoPass mt-2 me-1");
+        NoPass.setAttribute("class", "NoPass mt-2 me-1 link-danger");
         parrafo.setAttribute("class", "link-danger m-2")
 
          titulo.innerHTML = "Iniciar Sesion";
