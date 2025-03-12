@@ -53,15 +53,19 @@ const CrearUsuario = async (req, res)=>{
             password: req.body.InputPassword,
 
          }
+         let usPass = usuario.password;
            const EnUso = await bd.EmailenUso(usuario)
-           if(!EnUso){
+           if(!EnUso && usPass.length >= 6){
               await bd.CrearUsuario(usuario);
               res.status(200);
               res.json({mensaje: "Usuario creado con exito"});
            }else if(EnUso){
             res.status(409);
-            res.json({mensaje:`El email ${usuario.email} Ya esta en uso`});
+            res.json({mensaje:`El email ya esta en uso`});
 
+           }else if(usPass.length < 6){
+            res.status(400);
+            res.json({mensaje: "Ingrese mas de 6 caracteres"})
            }
 
     } catch (error) {
@@ -153,7 +157,6 @@ const ChangePass = async(req, res)=>{
     let datos = await bd.DataUser({email:usuario.email});
     
     if(usuario.password.length < 6){
-       console.log("esta vacio");
         res.status(409);
         res.json({mensaje: "Ingrese al menos 6 digitos"});
     }else{

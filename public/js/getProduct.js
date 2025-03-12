@@ -344,6 +344,7 @@ const pagar = async (bestPrecio) => {
   const precnmb = precio.innerHTML;
   const Elnum = precnmb.slice(1, 8);
   const EnNumeros = Number(Elnum);
+  
 
 
 
