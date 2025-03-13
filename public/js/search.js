@@ -179,12 +179,27 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
    interes.textContent = interes.textContent + interes.value.toFixed(2);
  }
  
- for (let i = 0; i < el.stock; i++) {
+ for (let i = 1; i < el.stock; i++) {
    let valor = document.createElement("option");
-   valor.innerHTML = `${i + 1}/u de ${el.stock} disp`
+   valor.innerHTML = `${i} de ${el.stock} disp`
    Cant.appendChild(valor);
- }
- 
+ };
+
+
+ let CantSelec = 1;
+const CantSelecEnNumeros = ()=>{
+  Cant.addEventListener("change", (e)=>{
+      
+      let cant = e.target.value;
+      let PrimerosCaracteres = cant.substring(0,2);
+      CantSelec = Number(PrimerosCaracteres);
+      
+    
+  
+  })
+};
+
+CantSelecEnNumeros();
 
 let link = document.querySelector(".med_pago");
 
@@ -339,7 +354,7 @@ polit.addEventListener("click",(e)=>{
    const Elnum = precnmb.slice(1, 8);
    const EnNumeros = Number(Elnum);
 
-
+ let total =  CantSelec * EnNumeros;
  
  
  
@@ -364,7 +379,7 @@ polit.addEventListener("click",(e)=>{
          /*
            "amount" es el monto total a pagar por todos los medios de pago con excepción de la Cuenta de Mercado Pago y Cuotas sin tarjeta de crédito, las cuales tienen su valor de procesamiento determinado en el backend a través del "preferenceId"
          */
-         amount: EnNumeros,
+         amount: total,
          description: el.producto,
          preferenceId: "15967463",
          payer: {
