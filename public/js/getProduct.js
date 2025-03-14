@@ -139,7 +139,7 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
           let ProdStock = document.querySelector(".con_Stock");
            interes = document.querySelector(".int");
           let Cant = document.querySelector(".cantidad");
-          const btn = document.querySelector(".comprar");
+          let btn = document.querySelector(".comprar");
 
             
 
@@ -172,6 +172,7 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
           ProdStock.classList.remove("con_Stock");
           ProdStock.classList.add("sin_Stock");
           ProdStock.innerHTML = "sin stock";
+          btn.setAttribute("disabled", "");
         };
          
         let cuo = el.cuotas;
@@ -193,21 +194,19 @@ for (let i = 1; i < el.stock; i++) {
 }
 
 
-
+console.log(el.stock);
 let CantSelec = 1;
-const CantSelecEnNumeros = ()=>{
+const CantSelecEnNumeros = (CantSelec)=>{
   Cant.addEventListener("change", (e)=>{
-      
-      let cant = e.target.value;
-      let PrimerosCaracteres = cant.substring(0,2);
-      CantSelec = Number(PrimerosCaracteres);
-      
     
+        let cant = e.target.value;
+        let PrimerosCaracteres = cant.substring(0,2);
+        CantSelec = Number(PrimerosCaracteres);
   
   })
 };
-
 CantSelecEnNumeros();
+
 
 let link = document.querySelector(".med_pago");
 

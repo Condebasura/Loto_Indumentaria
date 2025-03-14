@@ -98,9 +98,18 @@ text-shadow: 2px 2px 2px #dbdadd;
 
 /* Small devices (landscape phones, 576px and up)*/
 @media (max-width: 576px) { 
+    .box_body{
+        background-color: white !important;
+
+    }
+    
+   .box_select{
+    background-color:  rgba(25, 9, 238, 0.829) !important;
+   }
+    
     .box_cargas{
         background-color: transparent !important;
-        
+        justify-content: center !important;
     }
     .form{
         background-color: rgb(194, 198, 194) !important;

@@ -839,11 +839,11 @@ const DataProductos = async (data) => {
             } else if (el.stock === 0) {
                 stock.innerHTML = `<small class="link-secondary"> sin stock </small>`;
             }
-            boxContent.classList.add("boxContent", "row", "gy-sm-3" , "gx-sm-5", "gx-0", "gy-0" , "ps-0" );
+            boxContent.classList.add("boxContent", "row", "gy-md-3" , "gx-md-5", "gx-0", "gy-0" , "ps-0" );
             boxContent.classList.remove("text-center", "justify-content-center", "mt-4" ,"col-md-6" ,"col-12");
             
 
-            box.setAttribute("class", "box_pilcha card col-sm-6 col m-3 ");
+            box.setAttribute("class", "box_pilcha card col-sm-6 col ms-0 me-0 mb-0 mt-2 m-md-3 ");
             img.setAttribute("class", "image card-img-top");
 
             datosProducto.setAttribute("class", "datos card-body");

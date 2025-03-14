@@ -132,7 +132,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
            let ProdStock = document.querySelector(".con_Stock");
             interes = document.querySelector(".int");
            let Cant = document.querySelector(".cantidad");
-           const btn = document.querySelector(".comprar");
+           let btn = document.querySelector(".comprar");
  
              
  
@@ -166,6 +166,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
            ProdStock.classList.remove("con_Stock");
            ProdStock.classList.add("sin_Stock");
            ProdStock.innerHTML = "sin stock";
+           btn.setAttribute("disabled", "");
          };
           
          let cuo = el.cuotas;
