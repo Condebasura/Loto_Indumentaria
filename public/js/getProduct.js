@@ -194,7 +194,7 @@ for (let i = 1; i < el.stock; i++) {
 }
 
 
-console.log(el.stock);
+
 let CantSelec = 1;
 const CantSelecEnNumeros = (CantSelec)=>{
   Cant.addEventListener("change", (e)=>{
@@ -363,7 +363,7 @@ const pagar = async (bestPrecio) => {
   let EnNumeros = Number(Elnum);
   
   let total =  CantSelec * EnNumeros;
-  console.log(total);
+  
 
   const modal = document.getElementById("modal");
 
@@ -400,7 +400,7 @@ const pagar = async (bestPrecio) => {
       customization: {
         visual: {
           style: {
-            theme: "default",
+            theme: "bootstrap",
           },
         },
         paymentMethods: {
@@ -431,9 +431,9 @@ const pagar = async (bestPrecio) => {
 
               .then((response) =>  response.json())
               .then((response) => {
-                console.log("despues del post , dentro de then, despues de response");
+                
 
-                console.log("El response",response);
+               
                   const url = window.location.href;
                 resolve(response)
 
@@ -456,7 +456,7 @@ const pagar = async (bestPrecio) => {
                         hideStatusDetails: true,
                         hideTransactionDate: true,
                         style: {
-                          theme: 'default', // 'default' | 'dark' | 'bootstrap' | 'flat'
+                          theme: 'bootstrap', // 'default' | 'dark' | 'bootstrap' | 'flat'
                         }
                       },
                       backUrls: {
@@ -479,7 +479,10 @@ const pagar = async (bestPrecio) => {
                 
                 
                 const statusScreen = document.createElement("div");
+                console.log(statusScreen)
+                statusScreen.setAttribute("class", "d-flex text-center justify-content-center m-5")
                 statusScreen.setAttribute("id", "statusScreenBrick_container");
+              
                 
                 
                 

@@ -395,7 +395,7 @@ polit.addEventListener("click",(e)=>{
        customization: {
          visual: {
            style: {
-             theme: "default",
+             theme: "bootstrap",
            },
          },
          paymentMethods: {
@@ -426,9 +426,9 @@ polit.addEventListener("click",(e)=>{
  
                .then((response) =>  response.json())
                .then((response) => {
-                 console.log("despues del post , dentro de then, despues de response");
+                 
  
-                 console.log("El response",response);
+                 
                    const url = window.location.href;
                  resolve(response)
  
@@ -451,7 +451,7 @@ polit.addEventListener("click",(e)=>{
                          hideStatusDetails: true,
                          hideTransactionDate: true,
                          style: {
-                           theme: 'default', // 'default' | 'dark' | 'bootstrap' | 'flat'
+                           theme: 'bootstrap', // 'default' | 'dark' | 'bootstrap' | 'flat'
                          }
                        },
                        backUrls: {
