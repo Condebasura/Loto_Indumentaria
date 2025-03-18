@@ -29,7 +29,7 @@ const USER_SECRET = "Doyo-Tacho-Picho";
 const __dirname = (process.platform === "win32")? fileURLToPath(new URL(".", import.meta.url)):path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
-const port = 443;
+const port = 8080;
 
 // Middleware para usuario
 const usuarioAuth = expressjwt({
