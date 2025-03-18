@@ -4,6 +4,8 @@ import path from "path";
 import helmet from "helmet";
 import morgan from "morgan";
 import multer from "multer";
+import fs from "fs";
+import https from "https";
 import { expressjwt } from "express-jwt";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
@@ -27,7 +29,7 @@ const USER_SECRET = "Doyo-Tacho-Picho";
 const __dirname = (process.platform === "win32")? fileURLToPath(new URL(".", import.meta.url)):path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
-const port = 3000;
+const port = 443;
 
 // Middleware para usuario
 const usuarioAuth = expressjwt({
@@ -89,7 +91,10 @@ const corsOptions = {
   
 };
 
-
+const options = {
+  key: fs.readFileSync('/etc/letsencrypt/live/loto.hopto.org/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/loto.hopto.org/fullchain.pem')
+}
 
 
 app.use(morgan("dev"));
@@ -185,10 +190,9 @@ app.get("/logout", UsuarioControllers.Logout)
 app.post("/process_payment", AdminControllers.pago);
 
  
-app.listen(port, ()=>{
-    console.log(`la app esta escuchando el pueto ${port}` );
-}
-)
+https.createServer(options, app).listen(port, ()=>{
+  console.log(`Servidor HTTPS coriendo en el puerto ${port}`);
+});
 
 export  {
     __dirname,

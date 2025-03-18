@@ -404,7 +404,7 @@ newArchivo.addEventListener("change", (e)=>{
         
        let imgChang  =  e.target.files[0].name;
        // Se reemplaza el archivo de imagen por el nuevo selecionado.
-    let cambioArchivo =   newArchivo.replace(newArchivo, `http://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${imgChang}`);
+    let cambioArchivo =   newArchivo.replace(newArchivo, `https://${ip}:${port}/${carpeta}/${seccion}/${sub_seccion}/${imgChang}`);
 
    // El evento hace que al precionar el boton "Finalizar edicion" se envien las  modificaciones al archivo json.
 formulario.addEventListener("submit", (e) => {
