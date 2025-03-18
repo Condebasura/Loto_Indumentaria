@@ -194,7 +194,7 @@ https.createServer(options, app).listen(port, ()=>{
   console.log(`Servidor HTTPS coriendo en el puerto ${port}`);
 });
 
-export  {
+export default {
     __dirname,
     ADMIN_SECRET,
     USER_SECRET,
