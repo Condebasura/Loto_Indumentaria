@@ -186,7 +186,7 @@ app.post("/process_payment", AdminControllers.pago);
 
  
 app.listen(port,'localhost', ()=>{
-    console.log(`la app esta escuchando el pueto https://localhost:${port}` );
+    console.log(`la app esta escuchando el pueto http://localhost:${port}` );
 }
 )
 
