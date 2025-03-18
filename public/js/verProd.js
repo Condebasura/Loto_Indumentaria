@@ -275,13 +275,7 @@ const CodeError = () => {
 }
 
 const informeImg = async () => {
-  // Hacer que si no se ingresan la 5 imagenes para mostrar , se agreguen a la bd como imagenes por defecto, asi se traen, se convierten y se colocan por defecto
-
-  /*let imgDefault = `http:/localhost:3000/img/noimg.jpg`;
-  let imagenDefoulRes = await fetch(imgDefault );
-  let imgBlobDef = await imagenDefoulRes.blob();
-  let imagenObjectDefault = URL.createObjectURL(imgBlobDef);
-   console.log(imagenObjectDefault)*/
+  
 
   let url = new URL(window.location);
   const id = url.searchParams.get("id");
@@ -297,7 +291,7 @@ const informeImg = async () => {
   let img = EstaImg.split(",");
 
 
-  let imgURl = `http://localhost:8080/uploads/${img[0]}`;
+  let imgURl = `https://loto.hopto.org/uploads/${img[0]}`;
   let imagenResponse = await fetch(imgURl);
   let imgBlob = await imagenResponse.blob();
   let imagenObjectURL = URL.createObjectURL(imgBlob);
@@ -308,21 +302,21 @@ const informeImg = async () => {
     e.preventDefault();
 
   })
-  let imgURl1 = `http://localhost:8080/uploads/${img[1]}`;
+  let imgURl1 = `https://loto.hopto.org/uploads/${img[1]}`;
   let imagenResponse1 = await fetch(imgURl1);
   let imgBlob1 = await imagenResponse1.blob();
   let imagenObjectURL1 = URL.createObjectURL(imgBlob1);
   archivo1.src = imagenObjectURL1;
 
 
-  let imgURl2 = `http://localhost:8080/uploads/${img[2]}`;
+  let imgURl2 = `https://loto.hopto.org/uploads/${img[2]}`;
   let imagenResponse2 = await fetch(imgURl2);
   let imgBlob2 = await imagenResponse2.blob();
   let imagenObjectURL2 = URL.createObjectURL(imgBlob2);
   archivo2.src = imagenObjectURL2;
 
 
-  let imgURl3 = `http://localhost:8080/uploads/${img[3]}`;
+  let imgURl3 = `https://loto.hopto.org/uploads/${img[3]}`;
   let imagenResponse3 = await fetch(imgURl3);
   let imgBlob3 = await imagenResponse3.blob();
   let imagenObjectURL3 = URL.createObjectURL(imgBlob3);
@@ -330,7 +324,7 @@ const informeImg = async () => {
 
 
 
-  let imgURl4 = `http://localhost:8080/uploads/${img[4]}`;
+  let imgURl4 = `https://loto.hopto.org/uploads/${img[4]}`;
   let imagenResponse4 = await fetch(imgURl4);
   let imgBlob4 = await imagenResponse4.blob();
   let imagenObjectURL4 = URL.createObjectURL(imgBlob4);

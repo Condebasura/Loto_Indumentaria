@@ -23,7 +23,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
    let lasImgs = el.imagen.split(",");
   
   const loadImage = async (imgName) => {
-  let imgURL = `http://localhost:8080/uploads/${imgName}`;
+  let imgURL = `https://loto.hopto.org/uploads/${imgName}`;
   let response = await fetch(imgURL);
   let blob = await response.blob();
   return URL.createObjectURL(blob);
@@ -668,7 +668,7 @@ const Editar = async (el) => {
         const img = document.createElement("img");
         img.setAttribute("class", "border border-success ms-1")
 
-        let imgURl = `http://localhost:8080/uploads/${imagen}`;
+        let imgURl = `https://loto.hopto.org/uploads/${imagen}`;
         let imagenResponse = await fetch(imgURl);
         let imgBlob = await imagenResponse.blob();
         let imagenObjectURL = URL.createObjectURL(imgBlob);
@@ -861,7 +861,7 @@ const DataProductos = async (data) => {
             delet.setAttribute("class", "fa-solid fa-trash-can");
 
             let img1 = el.imagen.split(",")[0];
-            let imgURl = `http://localhost:8080/uploads/${img1}`;
+            let imgURl = `https://loto.hopto.org/uploads/${img1}`;
             let imagenResponse = await fetch(imgURl);
             let imgBlob = await imagenResponse.blob();
             let imagenObjectURL = URL.createObjectURL(imgBlob);
