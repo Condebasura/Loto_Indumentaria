@@ -4,8 +4,6 @@ import path from "path";
 import helmet from "helmet";
 import morgan from "morgan";
 import multer from "multer";
-import fs from "fs";
-import https from "https";
 import { expressjwt } from "express-jwt";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
@@ -91,10 +89,7 @@ const corsOptions = {
   
 };
 
-const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/loto.hopto.org/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/loto.hopto.org/fullchain.pem')
-}
+
 
 
 app.use(morgan("dev"));
@@ -190,9 +185,10 @@ app.get("/logout", UsuarioControllers.Logout)
 app.post("/process_payment", AdminControllers.pago);
 
  
-https.createServer(options, app).listen(port, ()=>{
-  console.log(`Servidor HTTPS coriendo en el puerto ${port}`);
-});
+app.listen(port,'localhost', ()=>{
+    console.log(`la app esta escuchando el pueto https://localhost:${port}` );
+}
+)
 
 export  {
     __dirname,
