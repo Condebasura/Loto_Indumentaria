@@ -58,7 +58,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
                     <img class="MinImg3 border-1 " src="${imagenes[4]}" alt="">
                 </div>
             </figure>
-            <figure class="cont_zoom col-md-10 col">
+            <figure class="cont_zoom mt-5 mt-md-0 col-md-10 col">
                 <div class="box_img__zoom">
                     <img class="image_zoom img-fluid pt-3" src="" alt="">
   
