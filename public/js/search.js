@@ -118,7 +118,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
  `
            boxCargas.style.backgroundColor = "rgb(223, 226, 228)";
             let contVisuProd = document.createElement("div")
-            contVisuProd.setAttribute("class", "contVisuProd z-n1 row mt-5  gx-5")
+            contVisuProd.setAttribute("class", "contVisuProd z-n1 row mt-5 m-1 gx-5")
            contVisuProd.appendChild(boxImg);
            contVisuProd.appendChild(datProd);
            boxCargas.appendChild(Prod);

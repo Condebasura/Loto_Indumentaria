@@ -121,7 +121,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
   `
             
              let contVisuProd = document.createElement("div")
-             contVisuProd.setAttribute("class", "contVisuProd row mt-5  gx-5")
+             contVisuProd.setAttribute("class", "contVisuProd row mt-5 m-1  gx-5")
             contVisuProd.appendChild(boxImg);
             contVisuProd.appendChild(datProd);
             boxCargas.appendChild(contVisuProd);
