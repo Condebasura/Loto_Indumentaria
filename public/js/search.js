@@ -353,7 +353,7 @@ polit.addEventListener("click",(e)=>{
    const precio = document.querySelector(".bestprecio");
    const precnmb = precio.innerHTML;
    const Elnum = precnmb.slice(1, 8);
-   const EnNumeros = Number(Elnum);
+   let EnNumeros = Number(Elnum);
 
  let total =  CantSelec * EnNumeros;
  
