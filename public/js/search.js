@@ -36,7 +36,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
  
  
   const boxImg = document.createElement("div");
-  boxImg.setAttribute("class", "content  col-lg-7 ms-5 mt-5 p-2 me-2 bg-light text-dark border");
+  boxImg.setAttribute("class", "content  col-lg-7  mt-5 p-2 me-2 bg-light text-dark border");
   boxImg.innerHTML = `<div class="img-prod conteiner-fluid">
   <div class="contenedor_img row">
   <figure class="img_cont col-md-2 col ms-0">
