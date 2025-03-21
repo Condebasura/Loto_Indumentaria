@@ -296,17 +296,17 @@ const EliminarProducto = async (req , res)=>{
 
         let id = await req.params.id;
          let img = await req.params.img;
-         const imgDef = path.join(__dirname, './public/uploads/',"a4937c6a789a8856d0632422c7af52fa");
+         const imgDef = ("a4937c6a789a8856d0632422c7af52fa");
 
          let imgbox = path.join(__dirname, './public/uploads', img);
-        const paths = imgDef.split('uploads\\');
-        const imgDefault = paths[1];
+        const paths = imgDef.split(path.sep + 'uploads' + path.sep);
+        const imgDefault = paths[1] > 1 ? paths[1] : '';
 
-        const data = imgbox.split('uploads\\');
-        const imgData = data[1].split(",");
-               imgData.map(img =>{
-            if(img !== imgDefault){
-                const imagPath = path.join(__dirname, './public/uploads', img);
+        
+        const imgData = new Set(img.split(","))
+               imgData.forEach(imgName =>{
+            if(imgName !== imgDef){
+                const imagPath = path.join(__dirname, './public/uploads', imgName);
                 fs.unlink(imagPath , (err)=>{
                     if(err){
                         console.error("Se produjo un error al eliminar las imagenes", err);
