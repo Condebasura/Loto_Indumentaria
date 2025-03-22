@@ -196,7 +196,7 @@ for (let i = 1; i < el.stock; i++) {
 
 
 let CantSelec = 1;
-const CantSelecEnNumeros = (CantSelec)=>{
+const CantSelecEnNumeros = ()=>{
   Cant.addEventListener("change", (e)=>{
     
         let cant = e.target.value;
