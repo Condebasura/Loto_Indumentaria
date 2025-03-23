@@ -9,9 +9,10 @@ const caja = document.createElement("div");
 const texto = document.createElement("h3");
 const footer = document.querySelector("footer");
 const cajaUltimas = document.querySelector(".cajaUltimas");
-const spiner = document.createElement("div");
 const span = document.createElement("span");
 let modalcontainer = document.getElementById("modalContainer");
+let cajaContSpi = document.createElement("div");
+let spiner = document.createElement("div");
 const $fragment = document.createDocumentFragment();
 
 
@@ -535,19 +536,23 @@ const DatosProdClient = async (data) =>{
        // prodSearch.classList.remove("product_search")
         prodSearch.classList.add("product", "d-none");
         
-    
-          
-
+             
         texto.innerHTML = "No hay productos!!";
         $fragment.appendChild(texto);
 
     } else {
-        
-      for(let el of obj){
-          
-          boxCargas.innerHTML = "";
-        contUltimas.innerHTML = "";
+        boxCargas.innerHTML = "";     
+  contUltimas.innerHTML = "";
           caja.innerHTML = "";
+         
+          cajaContSpi.setAttribute("class"," text-center mt-5");
+          spiner.setAttribute("class","spinner-border spiProd p-4 text-primary mt-5"); 
+           spiner.setAttribute("rule","status");         
+       cajaContSpi.appendChild(spiner);  
+     $fragment.appendChild(cajaContSpi);
+boxCargas.appendChild($fragment)
+
+for(let el of obj){
           
      
            //prodSearch.classList.add("product_search");
@@ -617,7 +622,7 @@ const DatosProdClient = async (data) =>{
         verProd(el, bestPrecio, rebajadoDe, imagenObjectURL);
        }
       })
-   
+       
        $fragment.appendChild(box);
        box.appendChild(img);
        box.appendChild(datosProducto);
@@ -643,10 +648,13 @@ const DatosProdClient = async (data) =>{
    
    }
 }
+boxCargas.innerHTML = "";     
+  contUltimas.innerHTML = "";
+          caja.innerHTML = "";
 boxCargas.appendChild(prodSearch);
-boxCargas.appendChild(caja);
-
+boxCargas.appendChild(caja)
 caja.appendChild($fragment);
+
    
 };
 

@@ -1,3 +1,8 @@
+.spiProd{
+width: 3rem; 
+height: 3rem;
+}
+
 .box_pilcha {
     max-width: 18rem !important;
     min-width: 18rem !important;
