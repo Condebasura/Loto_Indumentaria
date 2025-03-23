@@ -6,6 +6,8 @@ const Prod = document.querySelector(".product");
 const contUltimas = document.querySelector(".contUltimas");
 let textH1 = document.createElement("h1");
 let modalcontainer = document.getElementById("modalContainer");
+let cajaContSpi = document.createElement("div");
+let spiner = document.createElement("div");
 const fragment = document.createDocumentFragment();
 
 const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
@@ -574,6 +576,13 @@ search.addEventListener("search", async (e) => {
       Prod.classList.remove("product", "d-none");
       Prod.classList.add("product_search","row" , "gy-sm-3" , "gx-sm-5" ,"gx-0", "gy-0" ,  "mt-5", "text-center", "justify-content-center","fixed-top", "z-3", "border","border-2" ,"text-bg-success", "bg-opacity-75", "p-5", "overflow-y-auto");
        
+      cajaContSpi.setAttribute("class"," text-center mt-5");
+      spiner.setAttribute("class","spinner-border spiProd p-4 text-primary mt-5"); 
+       spiner.setAttribute("rule","status");         
+   cajaContSpi.appendChild(spiner);
+    fragment.appendChild(cajaContSpi);
+   Prod.appendChild(fragment);
+
       for (let el of result) {
           
           
