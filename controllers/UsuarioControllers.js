@@ -9,10 +9,13 @@ import dotenv from 'dotenv';
 
 
 dotenv.config();
+
+// Recuperar contraseña
 const getRecuPassword = (req, res) =>{
     res.sendFile(path.join(__dirname , 'public', 'html', 'RecuPass.html'))
 }
 
+// Post para iniciar sesión
 const PostUsuario = async (req, res)=>{
     try {
          
@@ -45,6 +48,7 @@ const PostUsuario = async (req, res)=>{
     }
 };
 
+// Crear usuario
 const CrearUsuario = async (req, res)=>{
     try {
          const usuario = {
@@ -73,7 +77,7 @@ const CrearUsuario = async (req, res)=>{
     }
 }
 
-
+// Autentica que el usuario exista e inicia sesion.
 const GetUsuario = async (req, res)=>{
 try {
     const token = req.cookies.mitoken;
@@ -94,6 +98,8 @@ jwt.verify(token, secret, async(err, usuario)=>{
 }
 };
 
+
+// Envia un Email de recuperacion de contraseña
 const PostRecuPass = async (req, res)=>{
     
      try {
@@ -146,7 +152,7 @@ const PostRecuPass = async (req, res)=>{
      }
 }
 
-
+// Permite cambiar la contraseña 
 const ChangePass = async(req, res)=>{
     try{
    
@@ -172,7 +178,7 @@ const ChangePass = async(req, res)=>{
    }
 
 
-
+// cierra la session del usuario
 const Logout = async (req, res)=>{
     try {
         await res.cookie('mitoken', '', {expires: new Date(0), httpOnly: true});

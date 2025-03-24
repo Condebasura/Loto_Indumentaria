@@ -1,5 +1,7 @@
 let cuerpo = document.querySelector(".body");
 const modalContainer = document.getElementById("modalContainer"); 
+
+// Carga la card par el inicio de sesion
 document.addEventListener("DOMContentLoaded", (e)=>{
     e.preventDefault();
 
@@ -170,7 +172,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
             
       
         })
-
+   // Carga la card para crear un usuario.
     Create.addEventListener("click",(e)=>{
         e.preventDefault();
         if(e.target){
@@ -246,7 +248,7 @@ document.addEventListener("DOMContentLoaded", (e)=>{
          elBody.appendChild(cardCreate);
          elBody.removeChild(card);
 
-
+         // Vuelve al inicio 
         Login.addEventListener("click", (e)=>{
             e.preventDefault();
             if(e.target){

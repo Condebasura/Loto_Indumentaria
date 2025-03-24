@@ -3,7 +3,7 @@ const logout = document.querySelector(".salir");
 
 
 
-
+// Muestra el formulario para agregar productos
 Add.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
@@ -24,7 +24,7 @@ Add.addEventListener("click", (e)=>{
     }
 })
 
-
+// Cierra la sesion
 logout.addEventListener("click", async (e) => {
     try {
 
@@ -41,7 +41,7 @@ logout.addEventListener("click", async (e) => {
     }
 
 });
-// Configurar si es posible la salida sin hacer logout, o dar aviso previo si no es posible
+// Sierra la sesion al salir de la pagina (cerrarla)
 logout.addEventListener("unload", async (e) => {
     try {
 

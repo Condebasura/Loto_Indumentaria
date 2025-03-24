@@ -4,7 +4,7 @@ const PolDeDevolucion = document.querySelector(".PolDeDevolucion");
 const Contacto  = document.querySelector(".Contacto");
 const PregFrec = document.querySelector(".pregFrecu");
 
-
+// Cuadro de dialogo general para los enlaces del footer
 const funcModal = (textBody, titulo)=>{
     modalcontainer.innerHTML = "";
     
@@ -54,7 +54,7 @@ const funcModal = (textBody, titulo)=>{
         modtabi.setAttribute("inert", "")
       })
 }
-
+// Muestra los datos de AcercaDe
 acercaDe.addEventListener("click", (e)=>{
   e.preventDefault();
   if(e.target){
@@ -70,6 +70,7 @@ acercaDe.addEventListener("click", (e)=>{
 
 });
 
+// Muestra los datos para Politicas de devoluciones
 PolDeDevolucion.addEventListener("click",(e)=>{
   e.preventDefault();
   if(e.target){
@@ -83,6 +84,7 @@ PolDeDevolucion.addEventListener("click",(e)=>{
   }
 });
 
+// Muestra los datos para Contacto
 Contacto.addEventListener("click", (e)=>{
   e.preventDefault();
   if(e.target){
@@ -96,6 +98,7 @@ Contacto.addEventListener("click", (e)=>{
   }
 });
 
+// Muestra los datos para Preguntas frecuentes
 PregFrec.addEventListener("click",(e)=>{
   e.preventDefault();
   if(e.target){

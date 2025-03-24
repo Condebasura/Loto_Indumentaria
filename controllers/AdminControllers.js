@@ -15,7 +15,7 @@ const getAdmin = (req, res )=>{
 }
 
 
-
+// hace el post para el inicio de sesión
 const PostUser = async(req, res)=>{
     try {
         const User ={
@@ -51,6 +51,7 @@ const PostUser = async(req, res)=>{
     }
 }
 
+// Carga el dashbord al iniciar sesión
 const getDashbord = async(req,res)=>{
     
     try {
@@ -72,7 +73,7 @@ const getDashbord = async(req,res)=>{
     }
         
 }
-
+// Crea un usuario
 const CrearUser = async(req, res)=>{
   try{
 
@@ -99,7 +100,7 @@ const CrearUser = async(req, res)=>{
 
 
 
-
+// Envia el producto a la DB
 const postProduct = async (req , res)=>{
 
    let imgDefoult = 'a4937c6a789a8856d0632422c7af52fa';
@@ -133,7 +134,7 @@ const postProduct = async (req , res)=>{
     }
 };
 
-
+// Carga los datos desde la DB
 const DataProd = async (req, res)=>{
 try{
   console.log(req.body);
@@ -155,7 +156,7 @@ try{
 
 };
 
-
+// Actualiza los datos de productos en la DB 
 const ActualizarProd = async (req, res)=>{
     let imgDefoult = 'a4937c6a789a8856d0632422c7af52fa';
     const validar = await bd.validaDatos(req.params.id);
@@ -245,6 +246,7 @@ res.status(409).json({mwnsaje: "Ocurrio un problema al actualizar el producto!!"
 }
 } 
 
+// Carga los datos del producto a pagar
 const pago = async (req, res)=>{
 
     try{
@@ -289,7 +291,9 @@ idempotencyKey: req.body.requestOptions || `key-${Date.now()}`,
     
   
 }
-}
+};
+
+// Elimina el producto de la DB
 const EliminarProducto = async (req , res)=>{
     
     try{
@@ -328,7 +332,7 @@ const EliminarProducto = async (req , res)=>{
 }
 
 
-
+// Sale de la sesión
 const logout = async (req,res)=>{
 	try{
 			await res.cookie('mitoken', '', {expires: new Date(0), httpOnly: true});

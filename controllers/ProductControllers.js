@@ -26,6 +26,7 @@ const GetVisualProducto = (req, res) =>{
   res.sendFile(path.join(__dirname, 'public', 'html', 'visualProducto.html'))
 };
 
+// Buscador de productos
 const SearchProd = async (req, res)=>{
     try {
        
@@ -53,6 +54,8 @@ const SearchProd = async (req, res)=>{
         console.log("el error",error )
     }
 }
+
+
 
 const DataProdHomR = async (req, res)=>{
     try {

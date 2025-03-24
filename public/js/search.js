@@ -10,6 +10,7 @@ let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
 const fragment = document.createDocumentFragment();
 
+// Muestra los datos del producto seleccionado
 const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
 
           
@@ -153,7 +154,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
            document.addEventListener("mousedown", (e) =>{
                if(e.target != foto || imgZoom.getAttribute("src") == "null"){
               
-                   imgZoom.setAttribute("src", imagenObjectURL)
+                   imgZoom.setAttribute("src", imgSrc)
                }
            })
        });
@@ -206,7 +207,7 @@ const CantSelecEnNumeros = ()=>{
 CantSelecEnNumeros();
 
 let link = document.querySelector(".med_pago");
-
+//Muestra los medios de pago
  link.addEventListener("click", (e)=>{
   e.preventDefault();
   if(e.target){
@@ -271,7 +272,7 @@ modtabi.removeAttribute("aria-hidden");
 
   }
 });
-
+// Cuadro de dialogo general para las diferentes funciones 
 const funcModal = (textBody, titulo)=>{
   modalcontainer.innerHTML = "";
   
@@ -519,7 +520,7 @@ polit.addEventListener("click",(e)=>{
   
  }
 
-
+// Buscador
 search.addEventListener("search", async (e) => {
    e.preventDefault()
    if (e.target) {
@@ -658,7 +659,7 @@ if(e.key.trim() === "Escape" || search.value.trim() === "") {
    
    
 }
-})
+});
 
      
 

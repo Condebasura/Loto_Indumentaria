@@ -1,6 +1,6 @@
 const mujer = document.querySelector(".Mujeres");
 
-
+// Muestra las subsecciones en la seccion "Mujeres";
 mujer.addEventListener("click", (e)=>{
     e.preventDefault();
 

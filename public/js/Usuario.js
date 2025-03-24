@@ -2,6 +2,8 @@ let modalcontainer = document.getElementById("modalContainer");
 const DivUser = document.querySelector(".Login_Regis");
 const Create = document.querySelector(".Create");
 const Login = document.querySelector(".Login");
+
+// Carga los datos del usuario al logearse
 const dataUsuario = async () => {
 
     const tokenName = 'mitoken';

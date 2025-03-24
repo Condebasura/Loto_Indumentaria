@@ -1,4 +1,5 @@
 
+// Carga la targeta con los datos para la recuperacion de contraseña
 window.addEventListener("DOMContentLoaded", (e) => {
     if (e.target) {
         const urlparams = new URLSearchParams(window.location.search);

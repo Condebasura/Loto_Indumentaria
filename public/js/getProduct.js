@@ -15,7 +15,7 @@ let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
 const $fragment = document.createDocumentFragment();
 
-
+// Muestra los datos del producto seleccionado
 const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
 
           
@@ -158,7 +158,7 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
 
           document.addEventListener("mousedown", (e) =>{
               if(e.target != foto || imgZoom.getAttribute("src") == "null"){
-                  imgZoom.setAttribute("src", imagenObjectURL)
+                  imgZoom.setAttribute("src", imgSrc)
               }
           })
       });
@@ -277,7 +277,7 @@ modtabi.removeAttribute("aria-hidden");
 
   }
 });
-
+// Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
 const funcModal = (textBody, titulo)=>{
   modalcontainer.innerHTML = "";
   
@@ -526,7 +526,7 @@ btn.addEventListener("click", pagar);
  
 }
 
-
+// Carga los datos de los productos
 const DatosProdClient = async (data) =>{
   boxCargas.classList.remove("boxCargasVisu", "conteiner-fluid");
   boxCargas.classList.add("boxCargas", "conteiner-fluid");
@@ -957,7 +957,7 @@ ChPant.addEventListener("click",async (e)=>{
 
 });
 
-
+// Carga lo último que se ingreso de cada sección
 const UltimasEntradasH  = async ()=>{
 
     const titulo = document.createElement("h3");
@@ -1034,8 +1034,10 @@ try {
 }
 
 
-}
+};
 
+
+// Carga lo último que se ingreso de cada sección
 const UltimasEntradasM = async ()=>{
 
     try {
@@ -1103,7 +1105,7 @@ const UltimasEntradasM = async ()=>{
     
     };
 
-
+// Carga lo último que se ingreso de cada sección
     const UltimasEntradasN = async ()=>{
 
         try {

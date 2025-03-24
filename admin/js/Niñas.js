@@ -1,6 +1,6 @@
 const nenas = document.querySelector(".Nenas");
 
-
+// Muestra las subsecciones en la seccion "Niñas";
 nenas.addEventListener("click", (e)=>{
     e.preventDefault();
 

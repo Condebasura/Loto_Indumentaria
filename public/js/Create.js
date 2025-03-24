@@ -1,6 +1,7 @@
 const Create =  document.querySelector(".Create");
 let modalcontainer = document.getElementById("modalContainer"); 
 
+// Muestra el cuadro de dialogo para crear usuario
 Create.addEventListener("click", (e)=>{
     e.preventDefault()
     if(e.target){

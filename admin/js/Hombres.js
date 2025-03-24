@@ -13,6 +13,8 @@ const boxSelect = document.querySelector(".box_select");
 const $fragment = document.createDocumentFragment();
 const modalContainer = document.getElementById("modalContainer");
 
+
+// Muestra el producto seleccionado
 const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
 
           
@@ -21,7 +23,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
    
        
    let lasImgs = el.imagen.split(",");
-  
+  // Carga las imagenes del producto seleccionado
   const loadImage = async (imgName) => {
   let imgURL = `https://loto.hopto.org/uploads/${imgName}`;
   let response = await fetch(imgURL);
@@ -142,13 +144,13 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
             
             imgZoom.src = imagenObjectURL;
             console.log(miniImg);
-  
+  // Cambia la imagen grande al seleccionar la miniatura
         miniImg.addEventListener("mousedown", (e)=>{
             foto = e.target;
              
             let imgSrc = foto.getAttribute("src");
             imgZoom.setAttribute("src", imgSrc);
-  
+        // Si se hace click fuera de las imagenes se mantiene la última imagen que se seleccionó
             document.addEventListener("mousedown", (e) =>{
                 if(e.target != foto || imgZoom.getAttribute("src") == null){
                     imgZoom.setAttribute("src", imgSrc)
@@ -186,6 +188,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
     Cant.appendChild(valor);
   }
   
+  // Muestra las distintas formas de pago
   const pagar = async (bestPrecio) => {
     const precio = document.querySelector(".bestprecio");
     const precnmb = precio.innerHTML;
@@ -350,7 +353,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
    
   }
 
-
+// Elimina el producto seleccionado
 const Eliminar = async (el) => {
     const res = await fetch("/Product/delete", {
         method: "POST",
@@ -444,6 +447,7 @@ aceptar.textContent = "Aceptar";
 
 };
 
+// Edita el producto seleccionado
 const Editar = async (el) => {
     const formEdit = document.createElement("form");
     const Nombre = document.createElement("h3");
@@ -573,12 +577,14 @@ const Editar = async (el) => {
     divProd.appendChild(LabelProd);
     divStock.appendChild(InpStock);
     divStock.appendChild(LabelStock);
-    divDesc.appendChild(InpDesc)
-    divDesc.appendChild(LabelDesc)
-    divPrecio.appendChild(InpPrecio)
-    divPrecio.appendChild(LabPrecio)
-    divSInt.appendChild(InpSInt)
-    divSInt.appendChild(LabSInt)
+    divDesc.appendChild(InpDesc);
+    divDesc.appendChild(LabelDesc);
+    divPrecio.appendChild(InpPrecio);
+    divPrecio.appendChild(LabPrecio);
+    divSInt.appendChild(InpSInt);
+    divSInt.appendChild(LabSInt);
+
+
     let Nums = ["1", "2", "3", "6", "9", "12"];
     for (let i of Nums) {
         if (i.length > 0) {
@@ -785,6 +791,8 @@ const Editar = async (el) => {
 
 };
 
+
+// Carga los datos de los productos en cada seccion
 const DataProductos = async (data) => {
     let datos = JSON.stringify(data);
 
@@ -916,6 +924,8 @@ const DataProductos = async (data) => {
     boxContent.appendChild($fragment);
 };
 
+
+// Muestra las subsecciones en la seccion "Hombres";
 hombre.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -955,7 +965,9 @@ hombre.addEventListener("click", (e) => {
                 boxNames.innerHTML = "";
                 boxContent.innerHTML = "";
             }
-        })
+        });
+
+        // Muestra los datos de la seccion
         remeras.addEventListener("click", async (e) => {
             e.preventDefault();
 
@@ -969,6 +981,8 @@ hombre.addEventListener("click", (e) => {
             }
 
         });
+
+        // Muestra los datos de la seccion
         pantalones.addEventListener("click", async (e) => {
             e.preventDefault();
 
@@ -982,6 +996,8 @@ hombre.addEventListener("click", (e) => {
             }
 
         });
+
+        // Muestra los datos de la seccion
         accesorios.addEventListener("click", async (e) => {
             e.preventDefault();
 

@@ -3,7 +3,7 @@ const Create = document.querySelector(".Create");
 const Login = document.querySelector(".Login");
 let modalcontainer = document.getElementById("modalContainer");
 
-
+// si el tamaño de la pantalla es menor que 1024px se cambia el boton de "iniciar sesion" a "iniciar".
 window.addEventListener("resize", (e)=>{
 
   
@@ -16,8 +16,9 @@ window.addEventListener("resize", (e)=>{
    return Login.innerHTML = "Iniciar Sesion";
    
   }
-})
+});
 
+// Muestra el cuadro de dialogo para iniciar sesion.
 Login.addEventListener("click", (e)=>{
 
   if(e.target){

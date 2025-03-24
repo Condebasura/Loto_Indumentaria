@@ -10,12 +10,13 @@ archivos = document.querySelector(".imagen");
 let modalContainer = document.getElementById("modalContainer");
 console.log(modalContainer);
 
-
+// Muestra la cantidad de archivos (fotos) seleccionadas
 archivos.addEventListener("change", (e)=>{
    const ElArchivo = e.target.files;
    console.log(`se seleccionaron ${ElArchivo.length} archivos`)
 })
 
+// Envia los datos al precionar el boton "Agregar Producto".
 form.addEventListener("submit",async (e)=>{
     e.preventDefault();
     
