@@ -124,7 +124,7 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
   </div>
 
 `
-          boxCargas.style.backgroundColor = "rgb(223, 226, 228)";
+         
            let contVisuProd = document.createElement("div")
            contVisuProd.setAttribute("class", "contVisuProd z-n1 row mt-5 m-1 gx-5")
           contVisuProd.appendChild(boxImg);
@@ -527,6 +527,7 @@ btn.addEventListener("click", pagar);
 
 
 const DatosProdClient = async (data) =>{
+
     let datos = JSON.stringify(data);
     let obj = JSON.parse(datos);
     if (obj.length === 0) {
@@ -537,10 +538,11 @@ const DatosProdClient = async (data) =>{
         prodSearch.classList.add("product", "d-none");
         
              
-        texto.innerHTML = "No hay productos!!";
-        $fragment.appendChild(texto);
+        textotexto.innerHTML = "No hay productos!!";
+        $fragment.appendChil 
+    }
+ else {
 
-    } else {
         boxCargas.innerHTML = "";     
   contUltimas.innerHTML = "";
           caja.innerHTML = "";
