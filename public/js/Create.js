@@ -39,7 +39,7 @@ Create.addEventListener("click", (e)=>{
         modTbi.setAttribute("inert", "");
         
         modDialog.setAttribute("class", "modal-dialog");
-        modContent.setAttribute("class", "modal-content");
+        modContent.setAttribute("class", "modal-content ms-2 ms-lg-0");
         modHeader.setAttribute("class", "modal-header text-bg-primary text-center justify-content-center");
         title.setAttribute("class", "modal-title");
         title.setAttribute("id", "exampleModalLabel");
