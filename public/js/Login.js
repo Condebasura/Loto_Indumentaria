@@ -52,7 +52,7 @@ Login.addEventListener("click", (e)=>{
                 modTbi.setAttribute("inert", "");
 
                 modDialog.setAttribute("class", "modal-dialog");
-                modContent.setAttribute("class", "modal-content ms-2 ms-lg-0");
+                modContent.setAttribute("class", "modal-content ms-4 ms-lg-0");
                 modHeader.setAttribute("class", "modal-header text-bg-success text-center justify-content-center");
                 titulo.setAttribute("class", "modal-title");
                 titulo.setAttribute("id", "exampleModalLabel");
