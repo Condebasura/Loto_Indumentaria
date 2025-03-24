@@ -124,8 +124,8 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
   </div>
 
 `
-           boxCargas.classList.remove("boxCargas");
-           boxCargas.classList.add("boxCargasVisu");
+           boxCargas.classList.remove("boxCargas","conteiner-fluid");
+           boxCargas.classList.add("boxCargasVisu", "conteiner-fluid");
            let contVisuProd = document.createElement("div")
            contVisuProd.setAttribute("class", "contVisuProd z-n1 row mt-5 m-1 gx-5")
           contVisuProd.appendChild(boxImg);
@@ -528,8 +528,8 @@ btn.addEventListener("click", pagar);
 
 
 const DatosProdClient = async (data) =>{
-  boxCargas.classList.remove("boxCargasVisu");
-  boxCargas.classList.add("boxCargas");
+  boxCargas.classList.remove("boxCargasVisu", "conteiner-fluid");
+  boxCargas.classList.add("boxCargas", "conteiner-fluid");
     let datos = JSON.stringify(data);
     let obj = JSON.parse(datos);
     if (obj.length === 0) {
