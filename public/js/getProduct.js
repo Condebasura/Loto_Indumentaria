@@ -541,7 +541,7 @@ const DatosProdClient = async (data) =>{
         
              
         texto.innerHTML = "No hay productos!!";
-        $fragment.appendChil 
+        $fragment.appendChild(texto); 
     }
  else {
 
