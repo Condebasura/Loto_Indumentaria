@@ -540,7 +540,7 @@ const DatosProdClient = async (data) =>{
         prodSearch.classList.add("product", "d-none");
         
              
-        textotexto.innerHTML = "No hay productos!!";
+        texto.innerHTML = "No hay productos!!";
         $fragment.appendChil 
     }
  else {
