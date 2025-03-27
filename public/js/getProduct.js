@@ -29,7 +29,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
  let lasImgs = el.imagen.split(",");
 
 const loadImage = async (imgName) => {
-let imgURL = `https://loto.hopto.org/uploads/${imgName}`;
+let imgURL = `http://localhost:3000/uploads/${imgName}`;
 let response = await fetch(imgURL);
 let blob = await response.blob();
 return URL.createObjectURL(blob);
@@ -188,9 +188,9 @@ if(cuoNum === 1){
   interes.textContent = interes.textContent + interes.value.toFixed(2);
 }
 
-for (let i = 1; i < el.stock; i++) {
+for (let i = 0; i < el.stock; i++) {
   let valor = document.createElement("option");
-  valor.innerHTML = `${i} de ${el.stock} disp`;
+  valor.innerHTML = `${i+1} de ${el.stock} disp`;
   Cant.appendChild(valor);
  
 }
@@ -605,7 +605,7 @@ for(let el of obj){
        fav.setAttribute("class", "fa-solid fa-heart heart mt-2 col-3");
        cardFotter.setAttribute("class", "card-footer text-center");
        let img1 = el.imagen.split(",")[0];
-       let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+       let imgURl = `http://localhost:3000/uploads/${img1}`;
        let imagenResponse = await fetch(imgURl);
        let imgBlob = await imagenResponse.blob();
        let imagenObjectURL = URL.createObjectURL(imgBlob);
@@ -993,7 +993,7 @@ try {
 
     
     let img1 = dataRandom.imagen.split(",")[0];
-    let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+    let imgURl = `http://localhost:3000/uploads/${img1}`;
     let imagenResponse = await fetch(imgURl);
     let imgBlob = await imagenResponse.blob();
     let imagenObjectURL = URL.createObjectURL(imgBlob);
@@ -1066,7 +1066,7 @@ const UltimasEntradasM = async ()=>{
     
         
         let img1 = dataRandom.imagen.split(",")[0];
-        let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+        let imgURl = `http://localhost:3000/uploads/${img1}`;
         let imagenResponse = await fetch(imgURl);
         let imgBlob = await imagenResponse.blob();
         let imagenObjectURL = URL.createObjectURL(imgBlob);
@@ -1134,7 +1134,7 @@ const UltimasEntradasM = async ()=>{
         
           
             let img1 = dataRandom.imagen.split(",")[0];
-            let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+            let imgURl = `http://localhost:3000/uploads/${img1}`;
             let imagenResponse = await fetch(imgURl);
             let imgBlob = await imagenResponse.blob();
             let imagenObjectURL = URL.createObjectURL(imgBlob);
