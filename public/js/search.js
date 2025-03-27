@@ -184,9 +184,9 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
    interes.textContent = interes.textContent + interes.value.toFixed(2);
  }
  
- for (let i = 1; i < el.stock; i++) {
+ for (let i = 0; i < el.stock; i++) {
    let valor = document.createElement("option");
-   valor.innerHTML = `${i} de ${el.stock} disp`
+   valor.innerHTML = `${i+1} de ${el.stock} disp`
    Cant.appendChild(valor);
  };
 
