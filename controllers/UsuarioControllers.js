@@ -181,29 +181,30 @@ const ChangePass = async(req, res)=>{
    
    };
 
-
+// Actualiza el perfil 
    const ActualizarPerfil = async (req, res)=>{
 	         
-    console.log(req.body)
+    
     let usuario = {
-        nombre: req.body.inputNombre,
-        apellido: req.body.inputApellido,
-        email: req.body.inputEmail,
-        password: req.body.inputPass,
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        email: req.body.correo,
+        password: req.body.password,
         
         
     }
     
        let UserPas = usuario.password;
-       console.log(usuario);
+       
        
          let datos = await bd.DataUser({email: usuario.email});
-        
+       
           try{
               const secret = USER_SECRET;
               if(UserPas === '' || UserPas === undefined){
-                  
-                  console.log("se mantiene la contraseña anterior" , UserPas)
+                  let PasAnterior = datos.password;
+                  UserPas = PasAnterior;
+                  console.log("se mantiene la contraseña anterior")
                  
             const newtoken = jwt.sign(usuario = {
                 nombre: usuario.nombre, 
