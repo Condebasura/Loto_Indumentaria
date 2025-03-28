@@ -181,6 +181,7 @@ app.post("/RecuperarPass", UsuarioControllers.PostRecuPass);
 app.get("/RecuPass", UsuarioControllers.getRecuPassword)
 app.get("/usuario", UsuarioControllers.GetUsuario);
 app.put("/RecuPass/changPass", UsuarioControllers.ChangePass);
+app.put("/usuario/update", UsuarioControllers.ActualizarPerfil);
 app.get("/logout", UsuarioControllers.Logout)
 app.post("/process_payment", AdminControllers.pago);
 

@@ -13,13 +13,12 @@ const dataUsuario = async () => {
     const tokenValue = cookie[1];
     const tokenPayload = tokenValue.split('.')[1];
     const decodedPayload = JSON.parse(window.atob(tokenPayload));
-
     const getCookie = (name) => {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
         if (parts.length === 2) return parts.pop().split(';').shift();
     }
-
+    
     const res = await fetch('usuario', {
         method: 'GET',
         headers: {
@@ -33,7 +32,7 @@ const dataUsuario = async () => {
 
 
     } else {
-        const datos = decodedPayload;
+        let datos = decodedPayload;
         
         const Logout = document.createElement("button");
         const editPerfil = document.createElement("a");
@@ -134,6 +133,7 @@ const dataUsuario = async () => {
         perfil.addEventListener("click", (e)=>{
             modalcontainer.innerHTML = "";
 
+        let datos = decodedPayload;
            
             
             if(e.target){
@@ -158,9 +158,9 @@ const dataUsuario = async () => {
              <input
              name="nombre"
              id="name floatingInput"
-             class="form-control"
+             class="form-control Nombre"
              type="text"
-             placeholder="Nombre"
+             placeholder=
              />
              <label class="input-label" for="floatingInput">Nombre
              </label>
@@ -170,9 +170,9 @@ const dataUsuario = async () => {
              <input
              name=" app apellido"
              id="floatingInput"
-             class="form-control"
+             class="form-control Apellido"
              type="text"
-             placeholder="Apellido"
+             placeholder=
              />
              <label class="input-label" for="floatingInput">Apellido
              </label>
@@ -183,7 +183,7 @@ const dataUsuario = async () => {
              <input
              name="Correo electronico"
              id="email floatingInput"
-             class="form-control"
+             class="form-control email"
              type="email"
              placeholder=${datos.email}
              disabled
@@ -196,7 +196,7 @@ const dataUsuario = async () => {
              <input
              name="Contraseña"
              id=" pass floatingInput"
-             class="form-control"
+             class="form-control Password"
              type="password"
              placeholder="password"
              />
@@ -204,68 +204,24 @@ const dataUsuario = async () => {
              </label>
 
             </div>
-            
-            <div class="col-6 form-floating">
-             <input
-             name="Telefono"
-             id="fone floatingInput"
-             class="form-control"
-             type="number"
-             placeholder="Telefono"
-             />
-             <label class="input-label" for="floatingInput">Telefono
-             </label>
 
             </div>
-
-            <div class="col-6 form-floating">
-             <input
-             name="Direccion"
-             id=" dir floatingInput"
-             class="form-control"
-             type="text"
-             placeholder="Direccion"
-             />
-             <label class="input-label" for="floatingInput">Direccion
-             </label>
-
-            </div>
-              
-            <div class="col-6 form-floating">
-             <input
-             name="Pais"
-             id=" country floatingInput"
-             class="form-control"
-             type="text"
-             placeholder="Pais"
-             />
-             <label class="input-label" for="floatingInput">Pais
-             </label>
-
-            </div>
-
-             <div class="col-6  text-bg-danger p-1 rounded ">
-             <span> Los datos ingresados en el formulario no se guardaran, es solo de muestra !!
-             </span>
-             
-
-            </div>
-
-            </div>
-            </form>
-            </div>
-            <div class="modal-footer border-0 text-bg-dark p-3">
             <button type="button" class="btn btn-outline-warning   " id="Cancelar">Cancelar
             </button>
-            <button type="button" class="btn btn-outline-success " id="Guardar">Guardar
+            <button type="submit" class="btn btn-outline-success " id="Guardar">Guardar
             </button>
+            </form>
             </div>
+            
+            
             </div>
             </div>`
             ;
-
-            modalcontainer.innerHTML = "";
+            
+             modalcontainer.innerHTML = "";
+             
             modalcontainer.appendChild(modalPerf);
+           
 
             modalPerf.removeAttribute("inert");
             modalPerf.removeAttribute("aria-hidden");
@@ -277,22 +233,86 @@ const dataUsuario = async () => {
                   modalPerf.setAttribute("aria-hidden", "true");
                   modalPerf.setAttribute("inert", "");
                 })
-                document.getElementById("Cancelar").addEventListener("click", ()=>{
-                    modalcontainer.innerHTML = "";
-                    modalPerf.setAttribute("aria-hidden", "true");
-                    modalPerf.setAttribute("inert", "");
-                    bootstrapModal.hide();
-                });
 
-                document.getElementById("Guardar").addEventListener("click", ()=>{
-                    modalcontainer.innerHTML = "";
-                    modalPerf.setAttribute("aria-hidden", "true");
-                    modalPerf.setAttribute("inert", "");
-                    bootstrapModal.hide();
-                })
+                const form = document.querySelector("form");
+                let inputNombre = document.querySelector(".Nombre");
+                
+                let inputApellido = document.querySelector(".Apellido");
+                let inputEmail = document.querySelector(".email")
+                let inputPass = document.querySelector(".Password");
+                
+                inputNombre.value = `${datos.nombre}`;  
+                inputApellido.value = `${datos.apellido}`;
+                console.log(datos);
+                
+                // solucionar esto!!
+                   
+                   form.addEventListener("submit", async(e)=>{
+                    e.preventDefault();
+                    
+                    let formdata = new FormData(e.target);
+                    formdata.append("inputNombre", inputNombre.value);
+                    formdata.append("inputApellido", inputApellido.value);
+                    formdata.append("inputEmail", `${datos.email}`);
+                    formdata.append("inputPass", inputPass.value);
+                    
+                    
+                    try {
+                        const res = await fetch('/usuario/update',{
+                            method: "PUT",
+                            headers: {
+                                'Authorization': `Bearer ${getCookie('mitoken')}`
+                            },
+                            body: formdata
+                        });
+
+                        if(!res.ok){
+                            console.log("Ocurrio un error al actualizar los datos");
+                        }
+                        else{
+
+                            const dat = await res.json();
+                            let newToken = dat.token;
+                            console.log(newToken);
+                            const newtokens = `${tokenName}=${newToken}`.split(';').map(cookie => cookie.trim().split('='));
+                            console.log(newtokens);
+                            const lecokie = newtokens.find(([name, value]) => name === tokenName);
+                            const tokVlue = lecokie[1];
+                            console.log(tokVlue)
+                            
+                            const toquepayloda = tokVlue.split('.')[1];
+                            const delcodepaylodad = JSON.parse(window.atob(toquepayloda));
+                            console.log(delcodepaylodad)
+                            
+                            let newdatos = delcodepaylodad;
+                            console.log(newdatos)
+                            editPerfil.innerHTML = `${newdatos.nombre[0]}`;
+                            title.innerHTML = `${newdatos.nombre}`;
+                            document.cookie = `${tokenName}=${newToken}`;
+                            return window.location.reload();
+                        }
+
+                        document.getElementById("Cancelar").addEventListener("click", ()=>{
+                            modalcontainer.innerHTML = "";
+                            modalPerf.setAttribute("aria-hidden", "true");
+                            modalPerf.setAttribute("inert", "");
+                            bootstrapModal.hide();
+                        });
+
+                    } catch (error) {
+                        
+                    }
+
+                   })
+
+               
+
+               
               
             }
-        })
+        });
+
+
         
         Logout.addEventListener("click", async (e)=>{
             try {

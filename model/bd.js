@@ -6,7 +6,7 @@ import sqlite3 from "sqlite3";
 
  bd.run('CREATE TABLE IF NOT EXISTS products (id TEXT PRIMARY KEY, producto TEXT ,stock INTEGER, descuento INTEGER, precio INTEGER, cuotas INTEGER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
  bd.run('CREATE TABLE IF NOT EXISTS admin (user TEXT , password TEXT )');
- bd.run('CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT , nombre TEXT ,email TEXT, password TEXT )')
+ bd.run('CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT , nombre TEXT ,apellido TEXT, email TEXT, password TEXT )')
  const ConsultProduct = ()=>{
  
          bd.all('SELECT * FROM products', (err, rows)=>{
@@ -425,8 +425,8 @@ const ConsultUser = ()=>{
 const CrearUsuario = async (usuario)=>{
  try {
     const hashedPasword = await bcrypt.hash(usuario.password, saltRounds)
-    let stmt = bd.prepare('INSERT INTO usuarios(nombre , email, password) VALUES(?,?,?)');
-    stmt.run(usuario.nombre , usuario.email , hashedPasword );
+    let stmt = bd.prepare('INSERT INTO usuarios(nombre ,apellido, email, password) VALUES(?,?,?,?)');
+    stmt.run(usuario.nombre ,usuario.apellido, usuario.email , hashedPasword );
     stmt.finalize();
     return 'usuario creado con exito';
 

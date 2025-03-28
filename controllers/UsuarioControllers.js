@@ -28,6 +28,7 @@ const PostUsuario = async (req, res)=>{
             const data = await bd.DataUser(usuario);
             const payload = {usuario,
                 nombre: data.nombre,
+                apellido: data.apellido,
                 email: data.email, 
                 password: data.password
             };
@@ -53,6 +54,7 @@ const CrearUsuario = async (req, res)=>{
     try {
          const usuario = {
             nombre: req.body.InputNombre,
+            apellido: req.body.InputApellido,
             email: req.body.InputCorreo, 
             password: req.body.InputPassword,
 
@@ -90,6 +92,8 @@ jwt.verify(token, secret, async(err, usuario)=>{
         console.error(err.message);
 					return res.status(409).json({mensaje: "Ocurio un error al cargar los datos del usuario"});
     }else{
+        
+        
         res.status(200).json({token});
     }
 })
@@ -175,14 +179,64 @@ const ChangePass = async(req, res)=>{
        console.log(err)
    }
    
-   }
+   };
+
+
+   const ActualizarPerfil = async (req, res)=>{
+	         
+    console.log(req.body)
+    let usuario = {
+        nombre: req.body.inputNombre,
+        apellido: req.body.inputApellido,
+        email: req.body.inputEmail,
+        password: req.body.inputPass,
+        
+        
+    }
+    
+       let UserPas = usuario.password;
+       console.log(usuario);
+       
+         let datos = await bd.DataUser({email: usuario.email});
+        
+          try{
+              const secret = USER_SECRET;
+              if(UserPas === '' || UserPas === undefined){
+                  
+                  console.log("se mantiene la contraseña anterior" , UserPas)
+                 
+            const newtoken = jwt.sign(usuario = {
+                nombre: usuario.nombre, 
+                apellido: usuario.apellido,
+                email: usuario.email,
+                
+            }, secret) 
+            
+            
+        
+        await bd.UpdatePerfilSinPassword(usuario);
+        res.status(200).json({token: newtoken})
+        }else{
+            const newtoken = jwt.sign(usuario , secret);
+            await bd.UpdatePerfil(usuario);
+            res.status(200).json({token: newtoken})
+        }
+    }
+           
+    catch(err){
+        console.log(err),
+        res.status(500).json({err: "Ocurrio un error al querer actualizar los datos , intente nuevamente"});
+    }
+
+};
 
 
 // cierra la session del usuario
 const Logout = async (req, res)=>{
     try {
+        await res.cookie('SesionTks', '', {expires: new Date(0), httpOnly: true});
+        await res.cookie('SesionTks', '', {expires: new Date(0), httpOnly: true});
         await res.cookie('mitoken', '', {expires: new Date(0), httpOnly: true});
-			await res.cookie('SesionTks', '', {expires: new Date(0), httpOnly: true});
             return res.sendFile(path.join(__dirname , '/'))
     } catch (error) {
         console.log(error);
@@ -196,5 +250,6 @@ export default{
     PostRecuPass,
     GetUsuario,
     ChangePass,
+    ActualizarPerfil,
     Logout,
 }
