@@ -7,6 +7,7 @@ import sqlite3 from "sqlite3";
  bd.run('CREATE TABLE IF NOT EXISTS products (id TEXT PRIMARY KEY, producto TEXT ,stock INTEGER, descuento INTEGER, precio INTEGER, cuotas INTEGER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
  bd.run('CREATE TABLE IF NOT EXISTS admin (user TEXT , password TEXT )');
  bd.run('CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT , nombre TEXT ,apellido TEXT, email TEXT, password TEXT )')
+ bd.run('CREATE TABLE IF NOT EXISTS favoritos(Usuario TEXT , Producto_id TEXT , PRIMARY KEY (Usuario, Producto_id), FOREIGN KEY(Usuario) REFERENCES usuarios(email), FOREIGN KEY(Producto_id) REFERENCES products(id))')
  const ConsultProduct = ()=>{
  
          bd.all('SELECT * FROM products', (err, rows)=>{
@@ -558,18 +559,21 @@ const UpdatePerfilSinPassword = async (usuario)=>{
 }
 };
 
-const ConsultaTabla = ()=>{
 
-    const column = bd.prepare("PRAGMA table_info(usuarios)").all();
-    if(!column.find(c => c.name === "favoritos")){
-        bd.prepare("ALTER TABLE usuarios ADD COLUMN favoritos TEXT").run();
-    }
-};
+const AddFavorito  = async (usuario)=>{
 
-const AddFavorito = ()=>{
+   try {
+    
+    const smtm = bd.prepare('INSERT INTO favoritos(Usuario , Producto_id ) VALUES(?,?)');
+    smtm.run(usuario.email , usuario.favorito);
+    smtm.finalize();
+    return "Se agrego favorito";
 
-    const sql = 'UPDATE usuarios SET favoritos = ? WHERE email = ?'
+} catch (error) {
+    throw  console.log(error);
+    
 }
+};
 
 
      export default {bd,
@@ -602,7 +606,8 @@ const AddFavorito = ()=>{
         UpdatePass,
         UpdatePerfil, 
         UpdatePerfilSinPassword,
-        ConsultaTabla,
+        AddFavorito,
+        
 
 
      }

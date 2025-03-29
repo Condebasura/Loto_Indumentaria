@@ -36,9 +36,8 @@ const PostUsuario = async (req, res)=>{
                const token = jwt.sign(payload, secret);
                res.cookie('mitoken', token,  { sameSite: 'Strict' } , {
 					httpOnly: true
-				});
-                res.cookie('SesionTks', token ,{sameSite: 'Strict'},{
-                    httpOnly:true});
+				}, {path:'/'});
+                
                      res.status(200).json({token});
         }else if(!User){
             res.status(409);
@@ -231,11 +230,27 @@ const ChangePass = async(req, res)=>{
 
 };
 
+const AFavoritos = async(req, res)=>{
+    
+const usuario={
+    email:req.body.email,
+    favorito:req.body.favoritos,
+}
+try {
+    await bd.AddFavorito(usuario);
+    res.status(200).json({mensaje: "Se agrego a favoritos"})
+    
+} catch (error) {
+    res.status(500).json({err: "Ocurrio un error al querer agregar favorito"});
+    
+}
+
+}
+
 
 // cierra la session del usuario
 const Logout = async (req, res)=>{
     try {
-        await res.cookie('SesionTks', '', {expires: new Date(0), httpOnly: true});
         await res.cookie('SesionTks', '', {expires: new Date(0), httpOnly: true});
         await res.cookie('mitoken', '', {expires: new Date(0), httpOnly: true});
             return res.sendFile(path.join(__dirname , '/'))
@@ -252,5 +267,6 @@ export default{
     GetUsuario,
     ChangePass,
     ActualizarPerfil,
+    AFavoritos,
     Logout,
 }

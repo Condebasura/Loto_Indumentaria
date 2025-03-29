@@ -40,7 +40,8 @@ const usuarioAuth = expressjwt({
       req.headers.authorization.split(" ")[0] === "Bearer"
     ) {
       return req.headers.authorization.split(" ")[1];
-    } else if (req.query && req.query.token) {
+    }
+     else if (req.query && req.query.token) {
       return req.query.token;
     }
     return null;
@@ -182,7 +183,8 @@ app.get("/RecuPass", UsuarioControllers.getRecuPassword)
 app.get("/usuario", UsuarioControllers.GetUsuario);
 app.put("/RecuPass/changPass", UsuarioControllers.ChangePass);
 app.put("/usuario/update", upload.none(), UsuarioControllers.ActualizarPerfil);
-app.get("/logout", UsuarioControllers.Logout)
+app.post("/usuario/favorito", UsuarioControllers.AFavoritos);
+app.get("/logout", UsuarioControllers.Logout);
 app.post("/process_payment", AdminControllers.pago);
 
  

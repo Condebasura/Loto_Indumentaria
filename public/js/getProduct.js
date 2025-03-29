@@ -14,9 +14,58 @@ let modalcontainer = document.getElementById("modalContainer");
 let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
 const $fragment = document.createDocumentFragment();
+// Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
+const funcModal = (textBody, titulo)=>{
+  modalcontainer.innerHTML = "";
+  
+   const modtabi = document.createElement("div");
+   const modDialog = document.createElement("div");
+   const modContent = document.createElement("div")
+   const modHeader = document.createElement("div");
+  
+   const btnClose = document.createElement("button");
+   const modBody = document.createElement("div");
+   
+  
+   modtabi.setAttribute("class","modal");
+   modtabi.setAttribute("tabindex","-1");
+   modDialog.setAttribute("class","modal-dialog");
+   modContent.setAttribute("class","modal-content");
+   modHeader.setAttribute("class","modal-header text-bg-primary");
+   titulo.setAttribute("class","modal-title");
+   btnClose.setAttribute("class","btn-close");
+   btnClose.setAttribute("type","button");
+   btnClose.setAttribute("data-bs-dismiss","modal");
+   btnClose.setAttribute("aria-label","Close");
+   textBody.setAttribute("class", "row p-5 justify-content-center");
+  
+   modtabi.appendChild(modDialog);
+   modDialog.appendChild(modContent);
+   modContent.appendChild(modHeader);
+   modContent.appendChild(modBody);
 
+   modHeader.appendChild(titulo);
+   modHeader.appendChild(btnClose);
+
+   modBody.appendChild(textBody);
+ 
+    
+ modalcontainer.innerHTML = "";
+modalcontainer.appendChild(modtabi);
+
+modtabi.removeAttribute("inert");
+modtabi.removeAttribute("aria-hidden");
+    const bootstrapModal = new bootstrap.Modal(modtabi);
+            bootstrapModal.show();
+       
+    modtabi.addEventListener("hidden.bs.modal", ()=>{
+      modalcontainer.innerHTML = "";
+      modtabi.setAttribute("aria-hidden", "true");
+      modtabi.setAttribute("inert", "")
+    })
+  }
 // Muestra los datos del producto seleccionado
-const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
+const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes, ) =>{
 
           
        
@@ -277,56 +326,7 @@ modtabi.removeAttribute("aria-hidden");
 
   }
 });
-// Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
-const funcModal = (textBody, titulo)=>{
-  modalcontainer.innerHTML = "";
-  
-   const modtabi = document.createElement("div");
-   const modDialog = document.createElement("div");
-   const modContent = document.createElement("div")
-   const modHeader = document.createElement("div");
-  
-   const btnClose = document.createElement("button");
-   const modBody = document.createElement("div");
-   
-  
-   modtabi.setAttribute("class","modal");
-   modtabi.setAttribute("tabindex","-1");
-   modDialog.setAttribute("class","modal-dialog");
-   modContent.setAttribute("class","modal-content");
-   modHeader.setAttribute("class","modal-header text-bg-primary");
-   titulo.setAttribute("class","modal-title");
-   btnClose.setAttribute("class","btn-close");
-   btnClose.setAttribute("type","button");
-   btnClose.setAttribute("data-bs-dismiss","modal");
-   btnClose.setAttribute("aria-label","Close");
-   textBody.setAttribute("class", "row p-5 justify-content-center");
-  
-   modtabi.appendChild(modDialog);
-   modDialog.appendChild(modContent);
-   modContent.appendChild(modHeader);
-   modContent.appendChild(modBody);
 
-   modHeader.appendChild(titulo);
-   modHeader.appendChild(btnClose);
-
-   modBody.appendChild(textBody);
- 
-    
- modalcontainer.innerHTML = "";
-modalcontainer.appendChild(modtabi);
-
-modtabi.removeAttribute("inert");
-modtabi.removeAttribute("aria-hidden");
-    const bootstrapModal = new bootstrap.Modal(modtabi);
-            bootstrapModal.show();
-       
-    modtabi.addEventListener("hidden.bs.modal", ()=>{
-      modalcontainer.innerHTML = "";
-      modtabi.setAttribute("aria-hidden", "true");
-      modtabi.setAttribute("inert", "")
-    })
-  }
   
   let formEnv = document.querySelector(".form_Env");
   let polit = document.querySelector(".polit");
@@ -611,10 +611,60 @@ for(let el of obj){
        let imagenObjectURL = URL.createObjectURL(imgBlob);
        img.src = imagenObjectURL;
        
-        fav.addEventListener("click", (e)=>{
+        fav.addEventListener("click", async(e)=>{
           e.preventDefault();
+             
+          const tokenName = 'mitoken';
+          const cookies = document.cookie.split(';').map(cookie => cookie.trim().split('='));
+          
+          const cookie = cookies.find(([name, value]) => name === tokenName);
+          const tokenValue = cookie[1];
+          const tokenPayload = tokenValue.split('.')[1];
+          const decodedPayload = JSON.parse(window.atob(tokenPayload));
+          const getCookie = (name) => {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+          }
+
         
           
+          const res = await fetch('usuario', {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${getCookie('mitoken')}`,
+            }
+          });
+          
+          let DatosUser = decodedPayload;
+          let favoritos = el.id;
+          let email = DatosUser.email;
+          
+          const EnviarFavorito = async(email,favoritos)=>{
+            try {
+            const res = await fetch("/usuario/favorito",{
+            method: 'POST',
+            headers:{
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, favoritos})
+          });
+
+          if(!email){
+            let titulo = document.createElement("h4");
+            titulo.innerHTML = "Oops!!";
+            let textBody = document.createElement("div");
+            textBody.innerHTML ="<p class='mb-4'><strong> Para agregar Favoritos es nesesario iniciar sesion o crear una cuenta</strong></p>"
+          
+            funcModal(textBody, titulo);
+          }
+        }
+        
+       catch (error) {
+        console.log("ocurrio un error")
+      }
+    }   
+    EnviarFavorito(email, favoritos);
         })
        
        

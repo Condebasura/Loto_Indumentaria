@@ -22,7 +22,7 @@ const dataUsuario = async () => {
     const res = await fetch('usuario', {
         method: 'GET',
         headers: {
-            Authorization: `Bearer ${getCookie('mitoken')}`,
+            Authorization: `Bearer ${getCookie('token')}`,
         }
     });
 
