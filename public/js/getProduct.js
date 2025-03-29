@@ -613,8 +613,8 @@ for(let el of obj){
        
         fav.addEventListener("click", (e)=>{
           e.preventDefault();
-         // configurar como vamos a guardarlo para cada usuario (¿en la DB?)
-          console.log(el.id);
+        
+          
         })
        
        

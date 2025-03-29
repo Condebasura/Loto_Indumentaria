@@ -522,6 +522,8 @@ const UpdatePass = async (usuario)=>{
     }
 };
 
+
+
 const UpdatePerfil = async (usuario)=>{
     try{
         const hashedPassword = await bcrypt.hash(usuario.password , saltRounds);
@@ -554,7 +556,21 @@ const UpdatePerfilSinPassword = async (usuario)=>{
     catch(error){
         console.log(error.message)
 }
+};
+
+const ConsultaTabla = ()=>{
+
+    const column = bd.prepare("PRAGMA table_info(usuarios)").all();
+    if(!column.find(c => c.name === "favoritos")){
+        bd.prepare("ALTER TABLE usuarios ADD COLUMN favoritos TEXT").run();
+    }
+};
+
+const AddFavorito = ()=>{
+
+    const sql = 'UPDATE usuarios SET favoritos = ? WHERE email = ?'
 }
+
 
      export default {bd,
         ConsultProduct,
@@ -585,7 +601,8 @@ const UpdatePerfilSinPassword = async (usuario)=>{
         DataUser, 
         UpdatePass,
         UpdatePerfil, 
-        UpdatePerfilSinPassword
+        UpdatePerfilSinPassword,
+        ConsultaTabla,
 
 
      }
