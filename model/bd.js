@@ -46,6 +46,36 @@ import sqlite3 from "sqlite3";
         }
      }
 
+     const ConsultProdID = async (products)=>{
+
+        try {
+
+            if (!products) {
+                throw new Error("ID de producto inválido");
+            }else{
+
+                return await new Promise((resolve, reject)=>{
+                    let sql = 'SELECT * FROM products WHERE id = ?';
+                    let prod = products.prod;
+                    
+                bd.all(sql, [prod], (err, rows)=>{
+                    if(err){
+                        console.log("El error del reject",err);
+                        reject(err);
+                    }else{
+                        console.log("Resultado de ConsultProdID:", rows);
+                        resolve(rows);
+                        
+                    }
+                })
+            })
+            
+        }
+            
+        } catch (error) {
+            console.log({error: "Error al encontrar el id"});
+        }
+     }
 
 const GetProdHomR = async ()=>{
     try {
@@ -575,6 +605,30 @@ const AddFavorito  = async (usuario)=>{
 }
 };
 
+const ConsultFavorito = async(favorito)=>{
+
+    try{
+        return  await new Promise((resolve, reject)=>{
+   
+            let sql = 'SELECT * FROM favoritos WHERE Usuario = ? ';
+            let Usuario =  favorito.Usuario;  
+       
+       bd.all(sql , [Usuario], (err, rows)=>{
+           if(err){
+               reject(err);
+           }else{
+               resolve(rows);
+               
+           }
+       })
+       
+   })
+   }catch(err){
+   console.log({err: "Ocurrio un error al consultar los favoritos"})
+   }
+}
+
+
 
      export default {bd,
         ConsultProduct,
@@ -607,6 +661,8 @@ const AddFavorito  = async (usuario)=>{
         UpdatePerfil, 
         UpdatePerfilSinPassword,
         AddFavorito,
+        ConsultFavorito,
+        ConsultProdID,
         
 
 

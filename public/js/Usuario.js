@@ -1,3 +1,5 @@
+
+
 let modalcontainer = document.getElementById("modalContainer");
 const DivUser = document.querySelector(".Login_Regis");
 const Create = document.querySelector(".Create");
@@ -314,7 +316,33 @@ const dataUsuario = async () => {
             }
         });
 
+        favoritos.addEventListener("click",  (e)=>{
+            e.preventDefault();
+          
 
+            console.log(datos.email)
+            let usuario = datos.email;
+
+            const verFavoritos = async (usuario)=>{
+                    
+                const res = await fetch("/usuario/getFavoritos", {
+                    method: "POST",
+                    headers:{
+                         'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({usuario})
+                });
+
+                let DatosFavoritos = await res.json();
+                
+
+
+
+            }
+            verFavoritos(usuario);
+          
+              
+        })
         
         Logout.addEventListener("click", async (e)=>{
             e.preventDefault();

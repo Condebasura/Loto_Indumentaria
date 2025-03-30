@@ -247,6 +247,46 @@ try {
     
 }
 
+};
+
+const GetFavoritos = async (req, res)=>{
+     
+    const favorito ={
+        Usuario: req.body.usuario,
+    }
+try {
+    
+    let favDeuser = await bd.ConsultFavorito({Usuario: favorito.Usuario})
+    
+    // console.log(favDeuser.Producto_id)
+    const productosFavoritos = [];
+    for(let favoProdu of favDeuser){
+         
+        let prod = favoProdu.Producto_id;
+        
+
+       let ProdFavorito = await bd.ConsultProdID({prod});
+       
+      if(!ProdFavorito){
+        return res.status(404).json({mensaje:"Sin Favoritos"});
+
+      }else{
+         console.log(ProdFavorito);
+         return res.status(200).json({ProdFavorito});
+      }
+     
+    }
+
+  
+  
+
+  
+  
+} catch (error) {
+   console.log("Error en GetFavoritos:", error)    
+}
+  
+    
 }
 
 
@@ -275,5 +315,6 @@ export default{
     ChangePass,
     ActualizarPerfil,
     AFavoritos,
+    GetFavoritos,
     Logout
 }

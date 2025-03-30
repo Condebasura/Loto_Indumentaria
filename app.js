@@ -184,6 +184,7 @@ app.get("/usuario", UsuarioControllers.GetUsuario);
 app.put("/RecuPass/changPass", UsuarioControllers.ChangePass);
 app.put("/usuario/update", upload.none(), UsuarioControllers.ActualizarPerfil);
 app.post("/usuario/favorito", UsuarioControllers.AFavoritos);
+app.post("/usuario/getFavoritos", UsuarioControllers.GetFavoritos);
 app.get("/logout", UsuarioControllers.Logout);
 app.post("/process_payment", AdminControllers.pago);
 
