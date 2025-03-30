@@ -5,7 +5,7 @@ const Login = document.querySelector(".Login");
 
 // Carga los datos del usuario al logearse
 const dataUsuario = async () => {
-
+ 
     const tokenName = 'mitoken';
     const cookies = document.cookie.split(';').map(cookie => cookie.trim().split('='));
 
@@ -48,7 +48,7 @@ const dataUsuario = async () => {
         const LogoPerfil = document.createElement("i");
         const spanPerfil = document.createElement("span");
 
-        const favoritos = document.createElement("li");
+        const favoritos = document.createElement("div");
         const LogoFav = document.createElement("i");
         const spanFav = document.createElement("span");
 
@@ -317,11 +317,14 @@ const dataUsuario = async () => {
 
         
         Logout.addEventListener("click", async (e)=>{
+            e.preventDefault();
             try {
                 if(e.target){
-                    await fetch("/logout",{
+                  const res =   await fetch("/logout",{
                         method:"GET",
                     });
+
+                    
                     const offcanvasInstance = bootstrap.Offcanvas.getInstance(CajaCanvas)
                     offcanvasInstance.hide();
                     DivUser.removeChild(editPerfil);

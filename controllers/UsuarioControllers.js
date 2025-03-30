@@ -34,6 +34,8 @@ const PostUsuario = async (req, res)=>{
             };
                const secret = USER_SECRET;
                const token = jwt.sign(payload, secret);
+
+               console.log("Creo token")
                res.cookie('mitoken', token,  { sameSite: 'Strict' } , {
 					httpOnly: true
 				}, {path:'/'});
@@ -251,13 +253,18 @@ try {
 // cierra la session del usuario
 const Logout = async (req, res)=>{
     try {
+         await res.clearCookie('SesionTKs');
         await res.cookie('SesionTks', '', {expires: new Date(0), httpOnly: true});
         await res.cookie('mitoken', '', {expires: new Date(0), httpOnly: true});
-            return res.sendFile(path.join(__dirname , '/'))
+        return res.json({ message: "Sesión cerrada correctamente" });
+        
+            
     } catch (error) {
         console.log(error);
+        res.status(500).json({ error: "Error al cerrar sesión" });
     }
 }
+    
 
 export default{
     getRecuPassword,
@@ -268,5 +275,5 @@ export default{
     ChangePass,
     ActualizarPerfil,
     AFavoritos,
-    Logout,
+    Logout
 }

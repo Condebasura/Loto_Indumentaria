@@ -613,10 +613,19 @@ for(let el of obj){
        
         fav.addEventListener("click", async(e)=>{
           e.preventDefault();
-             
-          const tokenName = 'mitoken';
-          const cookies = document.cookie.split(';').map(cookie => cookie.trim().split('='));
+          let dCokie = document.cookie;
+          if(dCokie === ""){
+            let titulo = document.createElement("h4");
+            titulo.innerHTML = "Oops!!";
+            let textBody = document.createElement("div");
+            textBody.innerHTML ="<h5 class='mb-4'><strong> Para agregar Favoritos es nesesario iniciar sesion o crear una cuenta</strong></h5>"
           
+            funcModal(textBody, titulo);
+          }else{
+
+            const tokenName = 'mitoken';
+            const cookies = document.cookie.split(';').map(cookie => cookie.trim().split('='));
+            
           const cookie = cookies.find(([name, value]) => name === tokenName);
           const tokenValue = cookie[1];
           const tokenPayload = tokenValue.split('.')[1];
@@ -627,7 +636,7 @@ for(let el of obj){
             if (parts.length === 2) return parts.pop().split(';').shift();
           }
 
-        
+          
           
           const res = await fetch('usuario', {
             method: 'GET',
@@ -642,29 +651,23 @@ for(let el of obj){
           
           const EnviarFavorito = async(email,favoritos)=>{
             try {
-            const res = await fetch("/usuario/favorito",{
-            method: 'POST',
-            headers:{
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({email, favoritos})
-          });
-
-          if(!email){
-            let titulo = document.createElement("h4");
-            titulo.innerHTML = "Oops!!";
-            let textBody = document.createElement("div");
-            textBody.innerHTML ="<p class='mb-4'><strong> Para agregar Favoritos es nesesario iniciar sesion o crear una cuenta</strong></p>"
-          
-            funcModal(textBody, titulo);
-          }
-        }
-        
-       catch (error) {
-        console.log("ocurrio un error")
-      }
-    }   
-    EnviarFavorito(email, favoritos);
+              const res = await fetch("/usuario/favorito",{
+                method: 'POST',
+                headers:{
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({email, favoritos})
+              });
+              
+              
+            }
+            
+            catch (error) {
+              console.log("ocurrio un error")
+            }
+          }   
+          EnviarFavorito(email, favoritos);
+        }  
         })
        
        
