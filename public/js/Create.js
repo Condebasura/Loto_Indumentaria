@@ -56,16 +56,16 @@ Create.addEventListener("click", (e)=>{
         divNombre.setAttribute("class", "form-floating mb-3");
         InputNombre.setAttribute("class", "form-control");
         InputNombre.setAttribute("required", "");
-        InputNombre.setAttribute("id", "floatingInput");
+        InputNombre.setAttribute("id", "floatingNombre");
         InputNombre.setAttribute("placeholder", "Nombre");
-        LabelNombre.setAttribute("for", "floatingInput");
+        LabelNombre.setAttribute("for", "floatingNombre");
 
         divApellido.setAttribute("class", "form-floating mb-3");
         InputApellido.setAttribute("class", "form-control");
         InputApellido.setAttribute("required", "");
-        InputApellido.setAttribute("id", "floatingInput");
+        InputApellido.setAttribute("id", "floatingApellido");
         InputApellido.setAttribute("placeholder", "Apellido");
-        LabelApellido.setAttribute("for", "floatingInput");
+        LabelApellido.setAttribute("for", "floatingApellido");
         
         
         divCorreo.setAttribute("class", "form-floating mb-3");

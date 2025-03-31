@@ -265,17 +265,15 @@ try {
     for(let favoProdu of favDeuser){
          
         let prod = favoProdu.Producto_id;
-        console.log(prod)
 
        let ProdFavorito = await bd.ConsultProdID({prod: prod});
-       console.log(ProdFavorito);
        
      if(ProdFavorito){
          productosFavoritos.push(ProdFavorito);
     }
     
 }
-return res.status(200).json({productosFavoritos});
+       return res.status(200).json({productosFavoritos});
 
   
   
