@@ -63,7 +63,7 @@ import sqlite3 from "sqlite3";
                         console.log("El error del reject",err);
                         reject(err);
                     }else{
-                        console.log(rows);
+                        
                         resolve(rows);
                         
                     }
