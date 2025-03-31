@@ -6,7 +6,19 @@
     cursor: pointer;
    
 }
-.per:hover,.fav:hover, .comp:hover{
+.accordion-button:not(.collapsed){
+    background-color: white !important;
+    
+    box-shadow: 1px 1px 1px white !important;
+    
+
+}
+
+.accordion-button:not(.collapsed):hover{
+    background-color: rgb(47, 170, 9) !important;
+    color: white;
+}
+.per:hover, .comp:hover{
     background-color: rgb(47, 170, 9);
     color: white;
 }
