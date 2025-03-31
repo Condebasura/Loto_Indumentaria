@@ -58,12 +58,12 @@ import sqlite3 from "sqlite3";
                     let sql = 'SELECT * FROM products WHERE id = ?';
                     let prod = products.prod;
                     
-                bd.all(sql, [prod], (err, rows)=>{
+                bd.all(sql, prod, (err, rows)=>{
                     if(err){
                         console.log("El error del reject",err);
                         reject(err);
                     }else{
-                        console.log("Resultado de ConsultProdID:", rows);
+                        console.log(rows);
                         resolve(rows);
                         
                     }

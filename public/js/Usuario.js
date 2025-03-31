@@ -1,5 +1,3 @@
-
-
 let modalcontainer = document.getElementById("modalContainer");
 const DivUser = document.querySelector(".Login_Regis");
 const Create = document.querySelector(".Create");
@@ -334,6 +332,11 @@ const dataUsuario = async () => {
                 });
 
                 let DatosFavoritos = await res.json();
+                 let DatFav = DatosFavoritos.productosFavoritos;
+                for(let dFav of DatFav){
+                    let inFav = dFav[0];
+                    console.log(inFav.producto)
+                }
                 
 
 

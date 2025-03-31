@@ -257,25 +257,25 @@ const GetFavoritos = async (req, res)=>{
 try {
     
     let favDeuser = await bd.ConsultFavorito({Usuario: favorito.Usuario})
-    
+    if (!favDeuser.length) {
+        return res.status(404).json({ mensaje: "Sin Favoritos" });
+    }
     // console.log(favDeuser.Producto_id)
     const productosFavoritos = [];
     for(let favoProdu of favDeuser){
          
         let prod = favoProdu.Producto_id;
-        
+        console.log(prod)
 
-       let ProdFavorito = await bd.ConsultProdID({prod});
+       let ProdFavorito = await bd.ConsultProdID({prod: prod});
+       console.log(ProdFavorito);
        
-      if(!ProdFavorito){
-        return res.status(404).json({mensaje:"Sin Favoritos"});
-
-      }else{
-         console.log(ProdFavorito);
-         return res.status(200).json({ProdFavorito});
-      }
-     
+     if(ProdFavorito){
+         productosFavoritos.push(ProdFavorito);
     }
+    
+}
+return res.status(200).json({productosFavoritos});
 
   
   
@@ -283,7 +283,8 @@ try {
   
   
 } catch (error) {
-   console.log("Error en GetFavoritos:", error)    
+   console.log("Error en GetFavoritos:", error)   
+   return res.status(500).json({ mensaje: "Error interno del servidor" }); 
 }
   
     
