@@ -612,7 +612,7 @@ const dataUsuario = async () => {
 
         canBody.setAttribute("class", "offcanvas-body p-0");
         ulFavComp.setAttribute("class", "list-group border-1 mt-5");
-        favoritos.setAttribute("class", "fav accordion-button");
+        favoritos.setAttribute("class", "fav list-group-item accordion-button");
         favoritos.setAttribute("type", "button");
         favoritos.setAttribute("data-bs-toggle", "collapse");
         favoritos.setAttribute("data-bs-target", "#colapseOne");
