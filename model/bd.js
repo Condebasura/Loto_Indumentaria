@@ -628,6 +628,37 @@ const ConsultFavorito = async(favorito)=>{
    }
 };
 
+const ConsultfavID = async (Usuario, favorito)=>{
+
+    try {
+
+        if (!favorito || !Usuario) {
+            throw new Error("ID de favorito inválido");
+        }else{
+
+            return await new Promise((resolve, reject)=>{
+                let sql =  'SELECT EXISTS (SELECT 1 FROM favoritos WHERE Usuario = ? AND Producto_id = ?) AS existe';
+                
+                
+            bd.get(sql, [Usuario, favorito], (err, row)=>{
+                if(err){
+                    console.log("El error del reject",err);
+                    reject(err);
+                }else{
+                    
+                    resolve(row.existe);
+                    
+                }
+            })
+        })
+        
+    }
+        
+    } catch (error) {
+        console.log({error: "Error al encontrar el id"});
+    }
+ }
+
 const DeleteFav = (id) =>{
 
     let sql = 'DELETE FROM favoritos WHERE Producto_id = ?';
@@ -675,6 +706,7 @@ const DeleteFav = (id) =>{
         AddFavorito,
         ConsultFavorito,
         ConsultProdID,
+        ConsultfavID,
         DeleteFav,
         
 

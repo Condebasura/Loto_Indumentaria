@@ -239,8 +239,20 @@ const usuario={
     favorito:req.body.favoritos,
 }
 try {
-    await bd.AddFavorito(usuario);
-    res.status(200).json({mensaje: "Se agrego a favoritos"})
+    let favorito = usuario.favorito;
+    let Usuario = usuario.email;
+      let contieneElId = await bd.ConsultfavID(Usuario ,favorito)
+     
+      if (contieneElId) {
+        return res.status(404).json({ mensaje: "El favorito ya existe en su lista" });
+    }else{
+        
+        await bd.AddFavorito(usuario);
+        res.status(200).json({mensaje: "Se agrego a favoritos"})
+    }
+      
+    
+     
     
 } catch (error) {
     res.status(500).json({err: "Ocurrio un error al querer agregar favorito"});

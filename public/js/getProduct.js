@@ -646,6 +646,8 @@ for(let el of obj){
             }
           });
           
+
+          
           let DatosUser = decodedPayload;
           let favoritos = el.id;
           let email = DatosUser.email;
@@ -660,15 +662,25 @@ for(let el of obj){
                 body: JSON.stringify({email, favoritos})
               });
               
+              if(res.status === 404){
+
+                let Dto =  await res.json();
+                let titulo = document.createElement("h4");
+                console.log(obj.mensaje);
+                titulo.innerHTML = "Oops!!";
+                let textBody = document.createElement("div");
+                textBody.innerHTML = Dto.mensaje;
+                return funcModal(textBody, titulo);
+              }
               
-            }
             
-            catch (error) {
+            }catch (error) {
               console.log("ocurrio un error")
             }
           }   
           EnviarFavorito(email, favoritos);
-        }  
+        }
+         
         })
        
        
