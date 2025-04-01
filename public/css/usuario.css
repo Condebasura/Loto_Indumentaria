@@ -46,7 +46,12 @@
 .favo:active{
     box-shadow: 2px 2px 5px #fdfcfc;
 }
-
+.delFav{
+    cursor: pointer;
+}
+.delFav:hover{
+    color: red;
+}
 .contenido{
     width: 80vh !important;
 }

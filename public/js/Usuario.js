@@ -893,7 +893,7 @@ const dataUsuario = async () => {
                     let fav = document.createElement("li");
 
                     spFav.setAttribute("class", "ms-2 ")
-                    deleteFav.setAttribute("class", "fa-solid fa-trash-can link-danger");
+                    deleteFav.setAttribute("class", "fa-solid fa-trash-can delFav");
                     fav.setAttribute("class", "list-group-item favo mb-1 text-truncate border-0");
                     spFav.innerHTML = el.producto;
                     fav.appendChild(deleteFav);
@@ -917,9 +917,14 @@ const dataUsuario = async () => {
 
                         verProd(el, bestPrecio, rebajadoDe, imagenObjectURL)
                     })
-
+                      
+                    deleteFav.addEventListener("click", (e)=>{
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log("delete", el.id);
+                    })
                 })
-
+                      
                 accBody.appendChild(ulFav);
 
             }
