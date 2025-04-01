@@ -2,7 +2,7 @@
     width: 30vh !important;
 }
 
-.per,.fav, .comp{
+.per,.fav,.favo, .comp{
     cursor: pointer;
    
 }
@@ -14,13 +14,37 @@
 
 }
 
+.accordion-button:not(.collapsed):focus{
+    background-color: rgb(47, 170, 9) !important;
+    color: white;
+}
 .accordion-button:not(.collapsed):hover{
     background-color: rgb(47, 170, 9) !important;
     color: white;
 }
+.accordion-button:focus{
+    border-color: transparent !important;
+    box-shadow: none !important;
+    
+}
+.accordion-button:hover{
+    background-color: rgb(47, 170, 9);
+    color: white;
+}
+
 .per:hover, .comp:hover{
     background-color: rgb(47, 170, 9);
     color: white;
+}
+
+.favo:hover{
+    background-color: blue;
+    color: aliceblue;
+    
+}
+
+.favo:active{
+    box-shadow: 2px 2px 5px #fdfcfc;
 }
 
 .contenido{

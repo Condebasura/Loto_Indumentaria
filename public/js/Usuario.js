@@ -608,7 +608,7 @@ const dataUsuario = async () => {
         accColapse.setAttribute("id","colapseOne");
         accColapse.setAttribute("class","accordion-collapse collapse");
         accColapse.setAttribute("data-bs-parent","#accordionExample");
-        accBody.setAttribute("class", "accordion-body");
+        accBody.setAttribute("class", "accordion-body ps-1 pe-1  text bg-secondary ");
 
         canBody.setAttribute("class", "offcanvas-body p-0");
         ulFavComp.setAttribute("class", "list-group border-1 mt-5");
@@ -888,10 +888,17 @@ const dataUsuario = async () => {
 
                 ulFav.setAttribute("class", "list-group border-1");
                 LosFavoritos.forEach(async (el) => {
-
+                    let spFav = document.createElement("span");
+                    let deleteFav = document.createElement("i");
                     let fav = document.createElement("li");
-                    fav.setAttribute("class", "list-group-item fav");
-                    fav.innerHTML = el.producto;
+
+                    spFav.setAttribute("class", "ms-2 ")
+                    deleteFav.setAttribute("class", "fa-solid fa-trash-can link-danger");
+                    fav.setAttribute("class", "list-group-item favo mb-1 text-truncate border-0");
+                    spFav.innerHTML = el.producto;
+                    fav.appendChild(deleteFav);
+                    fav.appendChild(spFav);
+                    
                     ulFav.appendChild(fav);
                     
                     let bestPrecio = Number(el.precio);

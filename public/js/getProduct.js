@@ -207,7 +207,8 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
 
           document.addEventListener("mousedown", (e) =>{
               if(e.target != foto || imgZoom.getAttribute("src") == "null"){
-                  imgZoom.setAttribute("src", imgSrc)
+                 
+                imgZoom.setAttribute("src", imgSrc)
               }
           })
       });
