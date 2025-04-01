@@ -626,6 +626,18 @@ const ConsultFavorito = async(favorito)=>{
    }catch(err){
    console.log({err: "Ocurrio un error al consultar los favoritos"})
    }
+};
+
+const DeleteFav = (id) =>{
+
+    let sql = 'DELETE FROM favoritos WHERE Producto_id = ?';
+    bd.run(sql, [id], (err)=>{
+        if(err){
+            console.log("ocurrio un error al querer eliminar favorito")
+        }else{
+            console.log("el producto se elimino de favoritos con exito")
+        }
+    })
 }
 
 
@@ -663,6 +675,7 @@ const ConsultFavorito = async(favorito)=>{
         AddFavorito,
         ConsultFavorito,
         ConsultProdID,
+        DeleteFav,
         
 
 

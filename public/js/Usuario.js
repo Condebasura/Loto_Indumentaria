@@ -7,55 +7,55 @@ const cajaUltimas = document.querySelector(".cajaUltimas");
 const contUltimas = document.querySelector(".contUltimas");
 const prodSearch = document.querySelector(".product");
 
-const funcModal = (textBody, titulo)=>{
+const funcModal = (textBody, titulo) => {
     modalcontainer.innerHTML = "";
-    
-     const modtabi = document.createElement("div");
-     const modDialog = document.createElement("div");
-     const modContent = document.createElement("div")
-     const modHeader = document.createElement("div");
-    
-     const btnClose = document.createElement("button");
-     const modBody = document.createElement("div");
-     
-    
-     modtabi.setAttribute("class","modal");
-     modtabi.setAttribute("tabindex","-1");
-     modDialog.setAttribute("class","modal-dialog");
-     modContent.setAttribute("class","modal-content");
-     modHeader.setAttribute("class","modal-header text-bg-primary");
-     titulo.setAttribute("class","modal-title");
-     btnClose.setAttribute("class","btn-close");
-     btnClose.setAttribute("type","button");
-     btnClose.setAttribute("data-bs-dismiss","modal");
-     btnClose.setAttribute("aria-label","Close");
-     textBody.setAttribute("class", "row p-5 justify-content-center");
-    
-     modtabi.appendChild(modDialog);
-     modDialog.appendChild(modContent);
-     modContent.appendChild(modHeader);
-     modContent.appendChild(modBody);
-  
-     modHeader.appendChild(titulo);
-     modHeader.appendChild(btnClose);
-  
-     modBody.appendChild(textBody);
-   
-      
-   modalcontainer.innerHTML = "";
-  modalcontainer.appendChild(modtabi);
-  
-  modtabi.removeAttribute("inert");
-  modtabi.removeAttribute("aria-hidden");
-      const bootstrapModal = new bootstrap.Modal(modtabi);
-              bootstrapModal.show();
-         
-      modtabi.addEventListener("hidden.bs.modal", ()=>{
+
+    const modtabi = document.createElement("div");
+    const modDialog = document.createElement("div");
+    const modContent = document.createElement("div")
+    const modHeader = document.createElement("div");
+
+    const btnClose = document.createElement("button");
+    const modBody = document.createElement("div");
+
+
+    modtabi.setAttribute("class", "modal");
+    modtabi.setAttribute("tabindex", "-1");
+    modDialog.setAttribute("class", "modal-dialog");
+    modContent.setAttribute("class", "modal-content");
+    modHeader.setAttribute("class", "modal-header text-bg-primary");
+    titulo.setAttribute("class", "modal-title");
+    btnClose.setAttribute("class", "btn-close");
+    btnClose.setAttribute("type", "button");
+    btnClose.setAttribute("data-bs-dismiss", "modal");
+    btnClose.setAttribute("aria-label", "Close");
+    textBody.setAttribute("class", "row p-5 justify-content-center");
+
+    modtabi.appendChild(modDialog);
+    modDialog.appendChild(modContent);
+    modContent.appendChild(modHeader);
+    modContent.appendChild(modBody);
+
+    modHeader.appendChild(titulo);
+    modHeader.appendChild(btnClose);
+
+    modBody.appendChild(textBody);
+
+
+    modalcontainer.innerHTML = "";
+    modalcontainer.appendChild(modtabi);
+
+    modtabi.removeAttribute("inert");
+    modtabi.removeAttribute("aria-hidden");
+    const bootstrapModal = new bootstrap.Modal(modtabi);
+    bootstrapModal.show();
+
+    modtabi.addEventListener("hidden.bs.modal", () => {
         modalcontainer.innerHTML = "";
         modtabi.setAttribute("aria-hidden", "true");
         modtabi.setAttribute("inert", "")
-      })
-    }
+    })
+}
 
 const verProd = async (el, bestPrecio, rebajadoDe, imagenObjectURL, interes) => {
 
@@ -601,13 +601,13 @@ const dataUsuario = async () => {
         btnClose.setAttribute("data-bs-dismiss", "offcanvas");
         btnClose.setAttribute("aria-label", "Close");
 
-        accordion.setAttribute("class","accordion");
-        accordion.setAttribute("id","accordionExample");
+        accordion.setAttribute("class", "accordion");
+        accordion.setAttribute("id", "accordionExample");
         accItem.setAttribute("class", "accordion-item");
         accHeader.setAttribute("class", "accordion-header");
-        accColapse.setAttribute("id","colapseOne");
-        accColapse.setAttribute("class","accordion-collapse collapse");
-        accColapse.setAttribute("data-bs-parent","#accordionExample");
+        accColapse.setAttribute("id", "colapseOne");
+        accColapse.setAttribute("class", "accordion-collapse collapse");
+        accColapse.setAttribute("data-bs-parent", "#accordionExample");
         accBody.setAttribute("class", "accordion-body ps-1 pe-1  text bg-secondary ");
 
         canBody.setAttribute("class", "offcanvas-body p-0");
@@ -645,16 +645,16 @@ const dataUsuario = async () => {
 
         compras.appendChild(LogoComp);
         compras.appendChild(spanCompras);
-         
-        
-       accordion.appendChild(accItem);
-       accItem.appendChild(accHeader);
-       accHeader.appendChild(favoritos);
-       accItem.appendChild(accColapse);
+
+
+        accordion.appendChild(accItem);
+        accItem.appendChild(accHeader);
+        accHeader.appendChild(favoritos);
+        accItem.appendChild(accColapse);
         accColapse.appendChild(accBody);
         favoritos.appendChild(LogoFav);
         favoritos.appendChild(spanFav);
-         
+
         ulFavComp.appendChild(compras);
         ulFavComp.appendChild(accordion)
         canBody.appendChild(ulFavComp);
@@ -853,13 +853,13 @@ const dataUsuario = async () => {
 
             }
         });
-              // agrega y visualiza favoritos
+        // agrega y visualiza favoritos
         favoritos.addEventListener("click", (e) => {
             e.preventDefault();
-           
-             accBody.innerHTML = "";
-             
-             
+
+            accBody.innerHTML = "";
+
+
             let usuario = datos.email;
 
             const verFavoritos = async (usuario) => {
@@ -882,7 +882,7 @@ const dataUsuario = async () => {
                     LosFavoritos.push(inFav);
                 };
 
-               
+
 
                 const ulFav = document.createElement("ul");
 
@@ -898,9 +898,9 @@ const dataUsuario = async () => {
                     spFav.innerHTML = el.producto;
                     fav.appendChild(deleteFav);
                     fav.appendChild(spFav);
-                    
+
                     ulFav.appendChild(fav);
-                    
+
                     let bestPrecio = Number(el.precio);
                     let desc = Number(el.descuento);
                     let porcentaje = (bestPrecio * desc) / 100;
@@ -911,20 +911,30 @@ const dataUsuario = async () => {
                     let imagenResponse = await fetch(imgURl);
                     let imgBlob = await imagenResponse.blob();
                     let imagenObjectURL = URL.createObjectURL(imgBlob);
-                    
+
                     fav.addEventListener("click", (e) => {
                         e.preventDefault();
 
                         verProd(el, bestPrecio, rebajadoDe, imagenObjectURL)
                     })
-                      
-                    deleteFav.addEventListener("click", (e)=>{
+
+                    deleteFav.addEventListener("click", async (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        console.log("delete", el.id);
+
+                        try {
+                            let id = el.id;
+                            ulFav.removeChild(fav);
+                            await fetch(`/favorito/delete/${id}`,{
+                              method: "DELETE",
+                            });
+                        } catch (error) {
+                           console.log("Error al eliminar de favoritos", error);
+                        }
+                        
                     })
                 })
-                      
+
                 accBody.appendChild(ulFav);
 
             }

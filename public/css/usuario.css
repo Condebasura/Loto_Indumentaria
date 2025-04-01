@@ -13,7 +13,10 @@
     
 
 }
-
+.accordion-button:not(.collapsed):active{
+    background-color: rgb(47, 170, 9) !important;
+    color: white;
+}
 .accordion-button:not(.collapsed):focus{
     background-color: rgb(47, 170, 9) !important;
     color: white;
@@ -43,6 +46,9 @@
     
 }
 
+.favo{
+    font-size: 13px;
+}
 .favo:active{
     box-shadow: 2px 2px 5px #fdfcfc;
 }

@@ -231,7 +231,7 @@ const ChangePass = async(req, res)=>{
     }
 
 };
-
+  // Reparar el problema en sqlite al querer ingresar un mismo favorito
 const AFavoritos = async(req, res)=>{
     
 const usuario={
@@ -286,6 +286,18 @@ try {
 }
   
     
+};
+
+const EliminarFavorito = async(req,res)=>{
+    let id = await req.params.id;
+   
+    if(!id){
+        console.log("no se encontro ningun favorito")
+    }else{
+        bd.DeleteFav(id);
+        console.log("favorito eliminado con exito");
+    }
+
 }
 
 
@@ -315,5 +327,6 @@ export default{
     ActualizarPerfil,
     AFavoritos,
     GetFavoritos,
+    EliminarFavorito,
     Logout
 }
