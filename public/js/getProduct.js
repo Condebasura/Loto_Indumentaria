@@ -13,7 +13,19 @@ const span = document.createElement("span");
 let modalcontainer = document.getElementById("modalContainer");
 let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
+const tooltip = document.createElement("div");
 const $fragment = document.createDocumentFragment();
+// corregir este problema 
+/*setTimeout(() => { tooltip.remove()
+  console.log("Eliminado por setTimeout")
+}, 300);
+
+document.addEventListener("click", (e) => {
+  if (e.target) {
+      tooltip.remove(); 
+      console.log("Eliminado por Click")
+  }
+});*/
 // Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
 const funcModal = (textBody, titulo)=>{
   modalcontainer.innerHTML = "";
@@ -612,6 +624,7 @@ for(let el of obj){
        let imagenObjectURL = URL.createObjectURL(imgBlob);
        img.src = imagenObjectURL;
        
+       
         fav.addEventListener("click", async(e)=>{
           e.preventDefault();
           let dCokie = document.cookie;
@@ -663,17 +676,40 @@ for(let el of obj){
               });
               
               if(res.status === 404){
-
+                const existingTooltip = document.getElementById("tooltip");
+                if (existingTooltip) {
+                  
+                    existingTooltip.remove();
+               
+                }
                 let Dto =  await res.json();
-                let titulo = document.createElement("h4");
+                fav.setAttribute("id","button");
+                fav.setAttribute("aria-describedby","tooltip");
+                
+                tooltip.setAttribute("id","tooltip");
+                tooltip.setAttribute("role","tooltip");
+                tooltip.innerHTML = Dto.mensaje;
+                tooltip.setAttribute('data-show', '');
+                liCompFav.appendChild(tooltip)
+                const popperInstance = Popper.createPopper(fav, tooltip);
+                
+                
+              
+               
+              
+                return popperInstance;
+
+               /* let titulo = document.createElement("h4");
                 console.log(obj.mensaje);
                 titulo.innerHTML = "Oops!!";
                 let textBody = document.createElement("div");
                 textBody.innerHTML = Dto.mensaje;
-                return funcModal(textBody, titulo);
+                return funcModal(textBody, titulo);*/
+
+
               }
               
-            
+             
             }catch (error) {
               console.log("ocurrio un error")
             }
@@ -682,7 +718,7 @@ for(let el of obj){
         }
          
         })
-       
+      
        
        descuento.innerHTML = `Antes: $ ${el.precio}`
        precio.innerHTML = `$ ${rebajadoDe} <small class="text-bg-success p-1 rounded">   ${el.descuento}  %OFF </small>`;
@@ -729,7 +765,7 @@ boxCargas.appendChild(prodSearch);
 boxCargas.appendChild(caja)
 caja.appendChild($fragment);
 
-   
+
 };
 
 

@@ -80,6 +80,18 @@ height: 3rem;
             
 
           }
+          #tooltip {
+            display: none;
+            background: #333;
+            color: white;
+            font-weight: bold;
+            padding: 4px 8px;
+            font-size: 10px;
+            border-radius: 4px;
+          }
+          #tooltip[data-show] {
+            display: block;
+          }
 
           .car:hover{
             color: rgb(14, 199, 14) !important;
