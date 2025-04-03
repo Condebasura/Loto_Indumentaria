@@ -603,7 +603,7 @@ for(let el of obj){
        stock.setAttribute("class", "list-group-item");
        liCompFav.setAttribute("class", " row justify-content-center");
        car.setAttribute("class", "fas fa-shopping-cart car mt-2 col-3");
-       fav.setAttribute("class", "fa-solid fa-heart heart mt-2 col-3");
+       fav.setAttribute("class", "fa-regular fa-heart heart mt-2 col-3"); 
        cardFotter.setAttribute("class", "card-footer text-center");
        let img1 = el.imagen.split(",")[0];
        let imgURl = `http://localhost:3000/uploads/${img1}`;

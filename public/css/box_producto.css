@@ -69,9 +69,16 @@ height: 3rem;
            
          }
 
+
+
+          .heart{
+            color: blue;
+          }
+
           .heart:hover{
-            color: rgb(27, 27, 236) !important;
-            text-shadow: 1px 1px 8px #8f8e8e;
+            color: rgb(14, 199, 14);
+            
+
           }
 
           .car:hover{

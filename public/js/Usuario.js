@@ -742,7 +742,8 @@ const dataUsuario = async () => {
              />
              <label class="input-label" for="floatingInput">password
              </label>
-
+<i class="fa-solid fa-circle-exclamation link-danger  "></i>
+            <span class="AddPass link-danger "> Si esta en blanco se mantiene el anterior</span>
             </div>
 
             </div>
