@@ -304,10 +304,10 @@ const EliminarFavorito = async(req,res)=>{
     let id = await req.params.id;
    
     if(!id){
-        console.log("no se encontro ningun favorito")
+         return res.status(404).json({mensaje:"no se encontro ningun favorito"})
     }else{
         bd.DeleteFav(id);
-        console.log("favorito eliminado con exito");
+       return res.status(200).json({mensaje:"favorito eliminado con exito"});
     }
 
 }

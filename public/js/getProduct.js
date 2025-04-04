@@ -13,19 +13,13 @@ const span = document.createElement("span");
 let modalcontainer = document.getElementById("modalContainer");
 let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
-const tooltip = document.createElement("div");
 const $fragment = document.createDocumentFragment();
 // corregir este problema 
 /*setTimeout(() => { tooltip.remove()
   console.log("Eliminado por setTimeout")
 }, 300);
 
-document.addEventListener("click", (e) => {
-  if (e.target) {
-      tooltip.remove(); 
-      console.log("Eliminado por Click")
-  }
-});*/
+*/
 // Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
 const funcModal = (textBody, titulo)=>{
   modalcontainer.innerHTML = "";
@@ -675,39 +669,43 @@ for(let el of obj){
                 body: JSON.stringify({email, favoritos})
               });
               
-              if(res.status === 404){
-                const existingTooltip = document.getElementById("tooltip");
-                if (existingTooltip) {
-                  
-                    existingTooltip.remove();
-               
+                if(res.status === 200){
+                  setTimeout(()=>{
+                    tooltip.hide();
+                                  
+                 },3000)
+ 
+                 let Data =  await res.json();
+                 fav.setAttribute("type","button");
+                 fav.setAttribute("data-bs-toggle","tooltip");
+                 fav.setAttribute("data-bs-placement","bottom");
+                 fav.setAttribute("title",Data.mensaje);
+                 
+                 let tooltip = new bootstrap.Tooltip(fav, { trigger: "manual" });
+                 tooltip.show();
                 }
-                let Dto =  await res.json();
-                fav.setAttribute("id","button");
-                fav.setAttribute("aria-describedby","tooltip");
-                
-                tooltip.setAttribute("id","tooltip");
-                tooltip.setAttribute("role","tooltip");
-                tooltip.innerHTML = Dto.mensaje;
-                tooltip.setAttribute('data-show', '');
-                liCompFav.appendChild(tooltip)
-                const popperInstance = Popper.createPopper(fav, tooltip);
-                
-                
-              
-               
-              
-                return popperInstance;
+             
+              if(res.status === 404){
+                setTimeout(()=>{
+                   tooltip.hide();
+                                 
+                },3000)
 
-               /* let titulo = document.createElement("h4");
-                console.log(obj.mensaje);
-                titulo.innerHTML = "Oops!!";
-                let textBody = document.createElement("div");
-                textBody.innerHTML = Dto.mensaje;
-                return funcModal(textBody, titulo);*/
+                let Dto =  await res.json();
+                fav.setAttribute("type","button");
+                fav.setAttribute("data-bs-toggle","tooltip");
+                fav.setAttribute("data-bs-placement","bottom");
+                fav.setAttribute("title",Dto.mensaje);
+                
+                let tooltip = new bootstrap.Tooltip(fav, { trigger: "manual" });
+                tooltip.show();
+                
+
 
 
               }
+            
+             
               
              
             }catch (error) {
@@ -768,7 +766,8 @@ caja.appendChild($fragment);
 
 };
 
-
+                  
+  
 
 hombre.addEventListener("click", async(e)=>{
  e.preventDefault();
