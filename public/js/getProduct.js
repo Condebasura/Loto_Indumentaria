@@ -760,7 +760,7 @@ boxCargas.innerHTML = "";
   contUltimas.innerHTML = "";
           caja.innerHTML = "";
 boxCargas.appendChild(prodSearch);
-boxCargas.appendChild(caja)
+boxCargas.appendChild(caja);
 caja.appendChild($fragment);
 
 
@@ -773,6 +773,10 @@ hombre.addEventListener("click", async(e)=>{
  e.preventDefault();
  if(e.target){
 boxRutas.innerHTML = "";
+hombre.classList.add("border-top","border-bottom","border-primary");
+mujer.classList.remove("border-top","border-bottom","border-primary");
+Nena.classList.remove("border-top","border-bottom","border-primary");
+Child.classList.remove("border-top","border-bottom","border-primary");
 
 const HRem = document.createElement("a");
 const HPant = document.createElement("a");
@@ -780,6 +784,8 @@ const HAcce = document.createElement("a");
 HRem.innerHTML = "Remeras";
 HPant.innerHTML = "Pantalones";
 HAcce.innerHTML = "Accesorios";
+
+
 boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2 d-flex flex-column flex-lg-row");
 HRem.setAttribute("class", "link-success link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
 HPant.setAttribute("class", "link-primary link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
@@ -797,12 +803,14 @@ HAcce.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0
 
     HRem.addEventListener("click",async (e)=>{
         e.preventDefault();
-       
+       HRem.classList.add("border-top","border-bottom","border-primary");
+       HPant.classList.remove("border-top","border-bottom","border-primary");
+       HAcce.classList.remove("border-top","border-bottom","border-primary");
      if(e.target){
-     
+            
         const res = await fetch("/Hombres/Remeras").then(res =>  res.json()).then(async data=>{
            
-    
+          
           DatosProdClient(data);
         
             }).catch(err => console.log("error", err))
@@ -813,7 +821,9 @@ HAcce.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0
 
 HPant.addEventListener("click",async (e)=>{
     e.preventDefault();
-   
+       HPant.classList.add("border-top","border-bottom","border-primary");
+      HRem.classList.remove("border-top","border-bottom","border-primary");
+       HAcce.classList.remove("border-top","border-bottom","border-primary");
  if(e.target){
   
     const res = await fetch("/Hombres/Pantalones").then(res =>  res.json()).then(async data=>{
@@ -828,7 +838,9 @@ HPant.addEventListener("click",async (e)=>{
 
 HAcce.addEventListener("click",async (e)=>{
     e.preventDefault();
-   
+       HAcce.classList.add("border-top","border-bottom","border-primary");
+      HRem.classList.remove("border-top","border-bottom","border-primary");
+       HPant.classList.remove("border-top","border-bottom","border-primary");
  if(e.target){
   
     const res = await fetch("/Hombres/Accesorios").then(res =>  res.json()).then(async data=>{
@@ -850,6 +862,10 @@ mujer.addEventListener("click", (e)=>{
     e.preventDefault();
 
     if(e.target){
+    mujer.classList.add("border-top","border-bottom","border-primary");
+hombre.classList.remove("border-top","border-bottom","border-primary");
+Nena.classList.remove("border-top","border-bottom","border-primary");
+Child.classList.remove("border-top","border-bottom","border-primary");
         boxRutas.innerHTML = "";
 
         const MRem = document.createElement("a");
@@ -877,7 +893,10 @@ MRem.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-   
+   MRem.classList.add("border-top","border-bottom","border-primary");
+   MPant.classList.remove("border-top","border-bottom","border-primary");
+   MVest.classList.remove("border-top","border-bottom","border-primary");
+   MAcce.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Mujeres/Remeras").then(res =>  res.json()).then(async data=>{
         
       DatosProdClient(data);
@@ -892,7 +911,10 @@ MPant.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+   MPant.classList.add("border-top","border-bottom","border-primary");
+   MRem.classList.remove("border-top","border-bottom","border-primary");
+   MVest.classList.remove("border-top","border-bottom","border-primary");
+   MAcce.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Mujeres/Pantalones").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data);
@@ -906,7 +928,10 @@ MVest.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+   MVest.classList.add("border-top","border-bottom","border-primary");
+   MRem.classList.remove("border-top","border-bottom","border-primary");
+   MPant.classList.remove("border-top","border-bottom","border-primary");
+   MAcce.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Mujeres/Vestidos").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data)
@@ -919,7 +944,10 @@ MAcce.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+   MAcce.classList.add("border-top","border-bottom","border-primary");
+   MRem.classList.remove("border-top","border-bottom","border-primary");
+   MPant.classList.remove("border-top","border-bottom","border-primary");
+   MVest.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Mujeres/Accesorios").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data);
@@ -937,7 +965,10 @@ Nena.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
     boxRutas.innerHTML = "";
-
+           mujer.classList.remove("border-top","border-bottom","border-primary");
+hombre.classList.remove("border-top","border-bottom","border-primary");
+Nena.classList.add("border-top","border-bottom","border-primary");
+Child.classList.remove("border-top","border-bottom","border-primary");
         const NRem = document.createElement("a");
         const NPant = document.createElement("a");
         const NVest = document.createElement("a");
@@ -960,7 +991,9 @@ Nena.addEventListener("click", (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+  NRem.classList.add("border-top","border-bottom","border-primary");
+   NPant.classList.remove("border-top","border-bottom","border-primary");
+   NVest.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Nena/Remeras").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data);
@@ -976,7 +1009,9 @@ NPant.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+  NRem.classList.remove("border-top","border-bottom","border-primary");
+   NPant.classList.add("border-top","border-bottom","border-primary");
+   NVest.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Nena/Pantalones").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data);
@@ -991,7 +1026,9 @@ NVest.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+  NRem.classList.remove("border-top","border-bottom","border-primary");
+   NPant.classList.remove("border-top","border-bottom","border-primary");
+   NVest.classList.add("border-top","border-bottom","border-primary");
     const res = await fetch("/Nena/Vestidos").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data);
@@ -1013,7 +1050,10 @@ e.preventDefault();
 if(e.target){
 
      boxRutas.innerHTML = "";
-
+   mujer.classList.remove("border-top","border-bottom","border-primary");
+hombre.classList.remove("border-top","border-bottom","border-primary");
+Nena.classList.remove("border-top","border-bottom","border-primary");
+Child.classList.add("border-top","border-bottom","border-primary");
 
      const ChRem =  document.createElement("a");
      const ChPant =  document.createElement("a");
@@ -1032,7 +1072,8 @@ if(e.target){
         e.preventDefault();
         
  if(e.target){
-  
+  ChRem.classList.add("border-top","border-bottom","border-primary");
+  ChPant.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Nene/Remeras").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data)
@@ -1047,7 +1088,8 @@ if(e.target){
 
 ChPant.addEventListener("click",async (e)=>{
     e.preventDefault();
-    
+     ChRem.classList.remove("border-top","border-bottom","border-primary");
+  ChPant.classList.add("border-top","border-bottom","border-primary");
     if(e.target){
         
         const res = await fetch("/Nene/Pantalones").then(res =>  res.json()).then(async data=>{
