@@ -715,6 +715,18 @@ for(let el of obj){
           EnviarFavorito(email, favoritos);
         }
          
+        });
+         
+        // No se borran los datos al cerrar sesion!!
+        car.addEventListener("click",async (e)=>{
+          e.preventDefault();
+          const AddCar = ()=>{
+             let dats = JSON.parse(sessionStorage.getItem('car')) || [];
+            
+             dats.push(el.producto , rebajadoDe);
+             sessionStorage.setItem('car', JSON.stringify(dats))
+            }
+            AddCar();
         })
       
        
