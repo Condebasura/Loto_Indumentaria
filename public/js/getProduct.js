@@ -14,12 +14,7 @@ let modalcontainer = document.getElementById("modalContainer");
 let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
 const $fragment = document.createDocumentFragment();
-// corregir este problema 
-/*setTimeout(() => { tooltip.remove()
-  console.log("Eliminado por setTimeout")
-}, 300);
 
-*/
 // Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
 const funcModal = (textBody, titulo)=>{
   modalcontainer.innerHTML = "";
@@ -723,7 +718,11 @@ for(let el of obj){
           const AddCar = ()=>{
              let dats = JSON.parse(sessionStorage.getItem('car')) || [];
             
-             dats.push(el.producto , rebajadoDe);
+             dats.push({
+              id: el.id,
+              producto: el.producto,
+              rebajadoDe
+             });
              sessionStorage.setItem('car', JSON.stringify(dats))
             }
             AddCar();

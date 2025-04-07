@@ -549,6 +549,7 @@ const dataUsuario = async () => {
         let datos = decodedPayload;
 
         const Logout = document.createElement("button");
+        const ShopCar = document.createElement("i");
         const editPerfil = document.createElement("a");
         const CajaCanvas = document.createElement("div");
         const canHeader = document.createElement("div");
@@ -579,7 +580,7 @@ const dataUsuario = async () => {
 
 
         Logout.setAttribute("class", "Logout  btn btn-danger");
-
+        ShopCar.setAttribute("class", "fas fa-shopping-cart ms-2 mt-3 me-2 mb-2");
         editPerfil.setAttribute("class", "btn btn-outline-success rounded-circle");
         editPerfil.setAttribute("data-bs-toggle", "offcanvas");
         editPerfil.setAttribute("href", "#offcanvasExample");
@@ -668,7 +669,24 @@ const dataUsuario = async () => {
 
         DivUser.removeChild(Login);
         DivUser.removeChild(Create);
+        DivUser.appendChild(ShopCar);
         DivUser.appendChild(editPerfil);
+      
+       // Encontrar la forma de que se vea en vivo el cambio en sesionStorage
+           const verCarrito = ()=>{
+               
+               let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
+               if(cantCarrito.length > 0){
+                   console.log(cantCarrito);
+                }
+            }
+            
+            verCarrito();
+            
+    
+
+
+
 
         perfil.addEventListener("click", (e) => {
             modalcontainer.innerHTML = "";
