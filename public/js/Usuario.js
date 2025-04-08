@@ -6,8 +6,10 @@ const boxCargas = document.querySelector(".boxCargas");
 const cajaUltimas = document.querySelector(".cajaUltimas");
 const contUltimas = document.querySelector(".contUltimas");
 const prodSearch = document.querySelector(".product");
+const ShopCar = document.createElement("i");
 
-const funcModal = (textBody, titulo) => {
+
+const funcModal = (titulo, textBody) => {
     modalcontainer.innerHTML = "";
 
     const modtabi = document.createElement("div");
@@ -549,7 +551,6 @@ const dataUsuario = async () => {
         let datos = decodedPayload;
 
         const Logout = document.createElement("button");
-        const ShopCar = document.createElement("i");
         const editPerfil = document.createElement("a");
         const CajaCanvas = document.createElement("div");
         const canHeader = document.createElement("div");
@@ -580,7 +581,7 @@ const dataUsuario = async () => {
 
 
         Logout.setAttribute("class", "Logout  btn btn-danger");
-        ShopCar.setAttribute("class", "fas fa-shopping-cart ms-2 mt-3 me-2 mb-2");
+        ShopCar.setAttribute("class", "fas fa-shopping-cart ms-2 mt-4 me-2 mb-0");
         editPerfil.setAttribute("class", "btn btn-outline-success rounded-circle");
         editPerfil.setAttribute("data-bs-toggle", "offcanvas");
         editPerfil.setAttribute("href", "#offcanvasExample");
@@ -673,19 +674,53 @@ const dataUsuario = async () => {
         DivUser.appendChild(editPerfil);
       
        // Encontrar la forma de que se vea en vivo el cambio en sesionStorage
-           const verCarrito = ()=>{
-               
-               let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
-               if(cantCarrito.length > 0){
-                   console.log(cantCarrito);
-                }
-            }
+         
             
-            verCarrito();
-            
+       window.addEventListener("AgregadoAlCarrito", ()=>{
+
+        let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
+
+        
+        ShopCar.setAttribute("type","button");
+        ShopCar.setAttribute("data-bs-toggle","tooltip");
+        ShopCar.setAttribute("data-bs-placement","top");
+        ShopCar.setAttribute("title",cantCarrito.length);
+        let tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
+            placement: "top",   
+         customClass: "carrito-tooltip"});
     
+        if(cantCarrito.length > 0){
+            tooltip.show();
+        }else{
+            tooltip.hide();
+        }
 
+        ShopCar.addEventListener("click", (e)=>{
+            let titulo = document.createElement("h4");
+            if(cantCarrito.length > 0){
+                // seguir intentando que te muestre los datos por separado
+            let prodCar =  cantCarrito.filter(prod=> prod.producto);
+               
+           
+                   
 
+            
+                
+                
+                
+            
+
+            }else{
+                titulo.innerHTML = "Carrito";
+              textBody.innerHTML = "Sin Productos!!";
+                
+              funcModal(titulo, textBody);
+
+            }
+        })
+    }) 
+
+     
 
 
         perfil.addEventListener("click", (e) => {
@@ -987,4 +1022,9 @@ const dataUsuario = async () => {
 }
 
 
+            
+    
+ 
+ 
+ 
 dataUsuario();

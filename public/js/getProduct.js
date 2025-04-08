@@ -723,7 +723,8 @@ for(let el of obj){
               producto: el.producto,
               rebajadoDe
              });
-             sessionStorage.setItem('car', JSON.stringify(dats))
+             sessionStorage.setItem('car', JSON.stringify(dats));
+             window.dispatchEvent(new Event("AgregadoAlCarrito"));
             }
             AddCar();
         })

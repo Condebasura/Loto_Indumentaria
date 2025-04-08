@@ -61,6 +61,15 @@
 .contenido{
     width: 80vh !important;
 }
+.carrito-tooltip .tooltip-inner {
+    background-color: red;
+    color: white;
+    padding-top: 1px;
+    
+}
+.tooltip-arrow::before{
+    border-top-color: red !important;
+}
 
 .AddPass , .fa-circle-exclamation{
     font-size: 10px !important;
