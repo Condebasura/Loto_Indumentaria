@@ -9,7 +9,7 @@ const prodSearch = document.querySelector(".product");
 const ShopCar = document.createElement("i");
 
 
-const funcModal = (titulo, textBody) => {
+const funcModal = (textBody,titulo) => {
     modalcontainer.innerHTML = "";
 
     const modtabi = document.createElement("div");
@@ -673,12 +673,12 @@ const dataUsuario = async () => {
         DivUser.appendChild(ShopCar);
         DivUser.appendChild(editPerfil);
       
-       // Encontrar la forma de que se vea en vivo el cambio en sesionStorage
-         
-            
-       window.addEventListener("AgregadoAlCarrito", ()=>{
+    
+        
+        
+        window.addEventListener("AgregadoAlCarrito", ()=>{
+           let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
 
-        let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
 
         
         ShopCar.setAttribute("type","button");
@@ -696,25 +696,77 @@ const dataUsuario = async () => {
         }
 
         ShopCar.addEventListener("click", (e)=>{
-            let titulo = document.createElement("h4");
+            
+            
             if(cantCarrito.length > 0){
-                // seguir intentando que te muestre los datos por separado
+                
             let prodCar =  cantCarrito.filter(prod=> prod.producto);
-               
-           
-                   
-
+              
             
-                
-                
-                
-            
+                modalcontainer.innerHTML = "";
+  
+   const modtabi = document.createElement("div");
+   const modDialog = document.createElement("div");
+   const modContent = document.createElement("div")
+   const modHeader = document.createElement("div");
+   let titulo = document.createElement("h4");
+   const btnClose = document.createElement("button");
+   const modBody = document.createElement("div");
+   const ulBody = document.createElement("ul");
+   
+   
+   modtabi.setAttribute("class","modal");
+   modtabi.setAttribute("tabindex","-1");
+   modDialog.setAttribute("class","modal-dialog");
+   modContent.setAttribute("class","modal-content");
+   modHeader.setAttribute("class","modal-header text-bg-primary");
+   titulo.setAttribute("class","modal-title");
+   btnClose.setAttribute("class","btn-close");
+   btnClose.setAttribute("type","button");
+   btnClose.setAttribute("data-bs-dismiss","modal");
+   btnClose.setAttribute("aria-label","Close");
+   ulBody.setAttribute("class", "list-group justify-content-center text-center p-3 ")
+   
+   titulo.innerHTML = "Carrito";
+   prodCar.forEach(pro =>{
+       let textBody = document.createElement("li");
+       textBody.setAttribute("class", "list-group-item mb-2");
+        textBody.innerHTML = `${pro.producto} x $${pro.rebajadoDe}`;
+        ulBody.appendChild(textBody);
+        modBody.appendChild(ulBody);
+      })
+   modtabi.appendChild(modDialog);
+   modDialog.appendChild(modContent);
+   modContent.appendChild(modHeader);
+   modContent.appendChild(modBody);
 
+   modHeader.appendChild(titulo);
+   modHeader.appendChild(btnClose);
+
+ 
+    
+ modalcontainer.innerHTML = "";
+modalcontainer.appendChild(modtabi);
+
+modtabi.removeAttribute("inert");
+modtabi.removeAttribute("aria-hidden");
+    const bootstrapModal = new bootstrap.Modal(modtabi);
+            bootstrapModal.show();
+       
+    modtabi.addEventListener("hidden.bs.modal", ()=>{
+      modalcontainer.innerHTML = "";
+      modtabi.setAttribute("aria-hidden", "true");
+      modtabi.setAttribute("inert", "")
+    })
+            
+        
             }else{
+                let titulo = document.createElement("h4");
+            let textBody = document.createElement("p");
                 titulo.innerHTML = "Carrito";
               textBody.innerHTML = "Sin Productos!!";
                 
-              funcModal(titulo, textBody);
+              funcModal( textBody, titulo);
 
             }
         })
@@ -1028,3 +1080,100 @@ const dataUsuario = async () => {
  
  
 dataUsuario();
+
+document.addEventListener("DOMContentLoaded",()=>{
+    let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
+    
+    ShopCar.setAttribute("type","button");
+    ShopCar.setAttribute("data-bs-toggle","tooltip");
+    ShopCar.setAttribute("data-bs-placement","top");
+    ShopCar.setAttribute("title",cantCarrito.length);
+    let tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
+        placement: "top",   
+        customClass: "carrito-tooltip"});
+        
+        if(cantCarrito.length > 0){
+            setTimeout(() => tooltip.show(), 100);
+    }else{
+        
+        tooltip.hide();
+    }
+
+    ShopCar.addEventListener("click", (e)=>{
+            
+            
+        if(cantCarrito.length > 0){
+            
+        let prodCar =  cantCarrito.filter(prod=> prod.producto);
+          
+        
+            modalcontainer.innerHTML = "";
+
+const modtabi = document.createElement("div");
+const modDialog = document.createElement("div");
+const modContent = document.createElement("div")
+const modHeader = document.createElement("div");
+let titulo = document.createElement("h4");
+const btnClose = document.createElement("button");
+const modBody = document.createElement("div");
+const ulBody = document.createElement("ul");
+
+
+modtabi.setAttribute("class","modal");
+modtabi.setAttribute("tabindex","-1");
+modDialog.setAttribute("class","modal-dialog");
+modContent.setAttribute("class","modal-content");
+modHeader.setAttribute("class","modal-header text-bg-primary");
+titulo.setAttribute("class","modal-title");
+btnClose.setAttribute("class","btn-close");
+btnClose.setAttribute("type","button");
+btnClose.setAttribute("data-bs-dismiss","modal");
+btnClose.setAttribute("aria-label","Close");
+ulBody.setAttribute("class", "list-group justify-content-center text-center p-3 ")
+
+titulo.innerHTML = "Carrito";
+prodCar.forEach(pro =>{
+   let textBody = document.createElement("li");
+   textBody.setAttribute("class", "list-group-item mb-2");
+    textBody.innerHTML = `${pro.producto} x $${pro.rebajadoDe}`;
+    ulBody.appendChild(textBody);
+    modBody.appendChild(ulBody);
+  })
+modtabi.appendChild(modDialog);
+modDialog.appendChild(modContent);
+modContent.appendChild(modHeader);
+modContent.appendChild(modBody);
+
+modHeader.appendChild(titulo);
+modHeader.appendChild(btnClose);
+
+
+
+modalcontainer.innerHTML = "";
+modalcontainer.appendChild(modtabi);
+
+modtabi.removeAttribute("inert");
+modtabi.removeAttribute("aria-hidden");
+const bootstrapModal = new bootstrap.Modal(modtabi);
+        bootstrapModal.show();
+   
+modtabi.addEventListener("hidden.bs.modal", ()=>{
+  modalcontainer.innerHTML = "";
+  modtabi.setAttribute("aria-hidden", "true");
+  modtabi.setAttribute("inert", "")
+})
+        
+    
+        }else{
+            let titulo = document.createElement("h4");
+        let textBody = document.createElement("p");
+            titulo.innerHTML = "Carrito";
+          textBody.innerHTML = "Sin Productos!!";
+            
+          funcModal( textBody, titulo);
+
+        }
+    })
+}) 
+
+
