@@ -704,55 +704,98 @@ const dataUsuario = async () => {
               
             
                 modalcontainer.innerHTML = "";
-  
-   const modtabi = document.createElement("div");
-   const modDialog = document.createElement("div");
-   const modContent = document.createElement("div")
-   const modHeader = document.createElement("div");
-   let titulo = document.createElement("h4");
-   const btnClose = document.createElement("button");
-   const modBody = document.createElement("div");
-   const ulBody = document.createElement("ul");
-   
-   
-   modtabi.setAttribute("class","modal");
-   modtabi.setAttribute("tabindex","-1");
-   modDialog.setAttribute("class","modal-dialog");
-   modContent.setAttribute("class","modal-content");
-   modHeader.setAttribute("class","modal-header text-bg-primary");
-   titulo.setAttribute("class","modal-title");
-   btnClose.setAttribute("class","btn-close");
-   btnClose.setAttribute("type","button");
-   btnClose.setAttribute("data-bs-dismiss","modal");
-   btnClose.setAttribute("aria-label","Close");
-   ulBody.setAttribute("class", "list-group justify-content-center text-center p-3 ")
-   
-   titulo.innerHTML = "Carrito";
-   prodCar.forEach(pro =>{
+    
+    const modtabi = document.createElement("div");
+    const modDialog = document.createElement("div");
+    const modContent = document.createElement("div")
+    const modHeader = document.createElement("div");
+    let titulo = document.createElement("h4");
+    const btnClose = document.createElement("button");
+    const modBody = document.createElement("div");
+    const ulBody = document.createElement("ul");
+    const producto = document.createElement("li");
+    const cantidad = document.createElement("li");
+    const precio = document.createElement("li");
+    
+    
+    
+    modtabi.setAttribute("class","modal");
+    modtabi.setAttribute("tabindex","-1");
+    modDialog.setAttribute("class","modal-dialog");
+    modContent.setAttribute("class","modal-content m-5");
+    modHeader.setAttribute("class","modal-header");
+    modBody.setAttribute("class", "modal-body")
+    titulo.setAttribute("class","modal-title");
+    btnClose.setAttribute("class","btn-close");
+    btnClose.setAttribute("type","button");
+    btnClose.setAttribute("data-bs-dismiss","modal");
+    btnClose.setAttribute("aria-label","Close");
+    ulBody.setAttribute("class", "list-group");
+    producto.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  mt-2 ms-4 me-4 mb-2 text-bg-success border-3 fs-5");
+    cantidad.setAttribute("class", "list-group-item border-0 text-bg-success fs-5");
+    precio.setAttribute("class", "list-group-item border-0 text-bg-success fs-5")
+    
+    producto.innerHTML = "Producto";
+    cantidad.innerHTML = "Cantidad";
+    precio.innerHTML = "Precio";
+    
+    producto.appendChild(cantidad);
+    producto.appendChild(precio);
+    ulBody.appendChild(producto);
+    titulo.innerHTML = "Carrito de Compras";
+    let total = 0;
+    prodCar.forEach(pro =>{
        let textBody = document.createElement("li");
-       textBody.setAttribute("class", "list-group-item mb-2");
-        textBody.innerHTML = `${pro.producto} x $${pro.rebajadoDe}`;
+       let cantProd = document.createElement("li");
+       let PrecioProd = document.createElement("li")
+       textBody.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-4 me-4 mb-4 p-1 border-3");
+       cantProd.setAttribute("class" , " list-group-item  border-0 fw-bold  ");
+        PrecioProd.setAttribute("class", "list-group-item rebajadoDE text-bg-secondary")
+        textBody.innerHTML = `${pro.producto}`;
+        cantProd.innerHTML = '1';
+        PrecioProd.innerHTML = `$${pro.rebajadoDe}`;
+        textBody.appendChild(cantProd);
+        textBody.appendChild(PrecioProd);
         ulBody.appendChild(textBody);
         modBody.appendChild(ulBody);
-      })
-   modtabi.appendChild(modDialog);
-   modDialog.appendChild(modContent);
-   modContent.appendChild(modHeader);
-   modContent.appendChild(modBody);
-
-   modHeader.appendChild(titulo);
-   modHeader.appendChild(btnClose);
-
- 
+      
+        total += parseFloat(pro.rebajadoDe);
     
- modalcontainer.innerHTML = "";
-modalcontainer.appendChild(modtabi);
-
-modtabi.removeAttribute("inert");
-modtabi.removeAttribute("aria-hidden");
+        
+    });
+    
+    let contTotal = document.createElement("li");
+    let PrecioTotal = document.createElement("li");
+    contTotal.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-4 me-4 mb-4 p-1 fs-4 link-success fw-bold ");
+    PrecioTotal.setAttribute("class", "list-group-item  border-0 fs-4 link-success fw-medium");
+    contTotal.innerHTML = "Total";
+    PrecioTotal.innerHTML = `$${total}`;   
+    
+    contTotal.appendChild(PrecioTotal);
+    modBody.appendChild(contTotal);
+    
+    
+    modtabi.appendChild(modDialog);
+    modDialog.appendChild(modContent);
+    modContent.appendChild(modHeader);
+    modContent.appendChild(modBody);
+    
+    modHeader.appendChild(titulo);
+    modHeader.appendChild(btnClose);
+    
+    
+    
+    modalcontainer.innerHTML = "";
+    modalcontainer.appendChild(modtabi);
+    
+    modtabi.removeAttribute("inert");
+    modtabi.removeAttribute("aria-hidden");
     const bootstrapModal = new bootstrap.Modal(modtabi);
             bootstrapModal.show();
-       
+             
+         
+    
+           
     modtabi.addEventListener("hidden.bs.modal", ()=>{
       modalcontainer.innerHTML = "";
       modtabi.setAttribute("aria-hidden", "true");
@@ -767,10 +810,11 @@ modtabi.removeAttribute("aria-hidden");
               textBody.innerHTML = "Sin Productos!!";
                 
               funcModal( textBody, titulo);
-
+    
             }
         })
     }) 
+    
 
      
 
@@ -1117,28 +1161,68 @@ let titulo = document.createElement("h4");
 const btnClose = document.createElement("button");
 const modBody = document.createElement("div");
 const ulBody = document.createElement("ul");
+const producto = document.createElement("li");
+const cantidad = document.createElement("li");
+const precio = document.createElement("li");
+
 
 
 modtabi.setAttribute("class","modal");
 modtabi.setAttribute("tabindex","-1");
 modDialog.setAttribute("class","modal-dialog");
-modContent.setAttribute("class","modal-content");
-modHeader.setAttribute("class","modal-header text-bg-primary");
+modContent.setAttribute("class","modal-content m-5");
+modHeader.setAttribute("class","modal-header");
+modBody.setAttribute("class", "modal-body")
 titulo.setAttribute("class","modal-title");
 btnClose.setAttribute("class","btn-close");
 btnClose.setAttribute("type","button");
 btnClose.setAttribute("data-bs-dismiss","modal");
 btnClose.setAttribute("aria-label","Close");
-ulBody.setAttribute("class", "list-group justify-content-center text-center p-3 ")
+ulBody.setAttribute("class", "list-group");
+producto.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  mt-2 ms-4 me-4 mb-2 text-bg-success border-3 fs-5");
+cantidad.setAttribute("class", "list-group-item border-0 text-bg-success fs-5");
+precio.setAttribute("class", "list-group-item border-0 text-bg-success fs-5")
 
-titulo.innerHTML = "Carrito";
+producto.innerHTML = "Producto";
+cantidad.innerHTML = "Cantidad";
+precio.innerHTML = "Precio";
+
+producto.appendChild(cantidad);
+producto.appendChild(precio);
+ulBody.appendChild(producto);
+titulo.innerHTML = "Carrito de Compras";
+let total = 0;
 prodCar.forEach(pro =>{
    let textBody = document.createElement("li");
-   textBody.setAttribute("class", "list-group-item mb-2");
-    textBody.innerHTML = `${pro.producto} x $${pro.rebajadoDe}`;
+   let cantProd = document.createElement("li");
+   let PrecioProd = document.createElement("li")
+   textBody.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-4 me-4 mb-4 p-1 border-3");
+   cantProd.setAttribute("class" , " list-group-item  border-0 fw-bold  ");
+    PrecioProd.setAttribute("class", "list-group-item rebajadoDE text-bg-secondary")
+    textBody.innerHTML = `${pro.producto}`;
+    cantProd.innerHTML = '1';
+    PrecioProd.innerHTML = `$${pro.rebajadoDe}`;
+    textBody.appendChild(cantProd);
+    textBody.appendChild(PrecioProd);
     ulBody.appendChild(textBody);
     modBody.appendChild(ulBody);
-  })
+  
+    total += parseFloat(pro.rebajadoDe);
+
+    
+});
+
+let contTotal = document.createElement("li");
+let PrecioTotal = document.createElement("li");
+contTotal.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-4 me-4 mb-4 p-1 fs-4 link-success fw-bold ");
+PrecioTotal.setAttribute("class", "list-group-item  border-0 fs-4 link-success fw-medium");
+contTotal.innerHTML = "Total";
+PrecioTotal.innerHTML = `$${total}`;   
+
+contTotal.appendChild(PrecioTotal);
+modBody.appendChild(contTotal);
+
+
 modtabi.appendChild(modDialog);
 modDialog.appendChild(modContent);
 modContent.appendChild(modHeader);
@@ -1156,7 +1240,10 @@ modtabi.removeAttribute("inert");
 modtabi.removeAttribute("aria-hidden");
 const bootstrapModal = new bootstrap.Modal(modtabi);
         bootstrapModal.show();
-   
+         
+     
+
+       
 modtabi.addEventListener("hidden.bs.modal", ()=>{
   modalcontainer.innerHTML = "";
   modtabi.setAttribute("aria-hidden", "true");
