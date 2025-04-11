@@ -7,7 +7,323 @@ const cajaUltimas = document.querySelector(".cajaUltimas");
 const contUltimas = document.querySelector(".contUltimas");
 const prodSearch = document.querySelector(".product");
 const ShopCar = document.createElement("i");
+let tooltip = null;
+// Muestra la cantidad de productos que se van a comprar
+const MostrarCarritoModal = ()=>{
 
+    let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
+
+    if(cantCarrito.length > 0){
+        
+        let prodCar =  cantCarrito.filter(prod=> prod.producto);
+          
+        
+            modalcontainer.innerHTML = "";
+
+const modtabi = document.createElement("div");
+const modDialog = document.createElement("div");
+const modContent = document.createElement("div")
+const modHeader = document.createElement("div");
+let titulo = document.createElement("h4");
+const btnClose = document.createElement("button");
+const modBody = document.createElement("div");
+const ulBody = document.createElement("ul");
+const producto = document.createElement("li");
+const cantidad = document.createElement("li");
+const precio = document.createElement("li");
+const modFooter = document.createElement("div"); 
+const btnFinCompra = document.createElement("button");
+
+
+
+modtabi.setAttribute("class","modal");
+modtabi.setAttribute("tabindex","-1");
+modDialog.setAttribute("class","modal-dialog");
+modContent.setAttribute("class","modal-content m-5");
+modHeader.setAttribute("class","modal-header");
+modBody.setAttribute("class", "modal-body ");
+modFooter.setAttribute("class", "modal-footer justify-content-center align-items-center");
+titulo.setAttribute("class","modal-title");
+btnClose.setAttribute("class","btn-close");
+btnClose.setAttribute("type","button");
+btnClose.setAttribute("data-bs-dismiss","modal");
+btnClose.setAttribute("aria-label","Close");
+ulBody.setAttribute("class", "list-group");
+producto.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  mt-2 ms-1 me-1 mb-2 text-bg-success border-3 fs-5");
+cantidad.setAttribute("class", "list-group-item border-0 text-bg-success fs-5");
+precio.setAttribute("class", "list-group-item border-0 text-bg-success fs-5")
+btnFinCompra.setAttribute("class", "btn btn-outline-primary btnFinCompra btn-lg");
+producto.innerHTML = "Producto";
+cantidad.innerHTML = "Cantidad";
+precio.innerHTML = "Precio";
+
+btnFinCompra.innerHTML = "Finalizar Compra";
+producto.appendChild(cantidad);
+producto.appendChild(precio);
+ulBody.appendChild(producto);
+titulo.innerHTML = "Carrito de Compras";
+let total = 0;
+prodCar.forEach(pro =>{
+   let textBody = document.createElement("li");
+   let cantProd = document.createElement("li");
+   let PrecioProd = document.createElement("li")
+   textBody.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-1 me-1 mb-4 p-1 border-3");
+   cantProd.setAttribute("class" , " list-group-item  border-0 fw-bold  ");
+    PrecioProd.setAttribute("class", "list-group-item rebajadoDE text-bg-secondary")
+    textBody.innerHTML = `${pro.producto}`;
+    cantProd.innerHTML = '1';
+    PrecioProd.innerHTML = `$${pro.rebajadoDe}`;
+    textBody.appendChild(cantProd);
+    textBody.appendChild(PrecioProd);
+    ulBody.appendChild(textBody);
+    modBody.appendChild(ulBody);
+  
+    total += parseFloat(pro.rebajadoDe);
+
+    
+});
+
+let contTotal = document.createElement("li");
+let PrecioTotal = document.createElement("li");
+contTotal.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-4 me-4 mb-4 p-1 fs-4 link-success fw-bold ");
+PrecioTotal.setAttribute("class", "list-group-item  border-0 fs-4 link-success fw-medium");
+contTotal.innerHTML = "Total";
+PrecioTotal.innerHTML = `$${total}`;   
+
+contTotal.appendChild(PrecioTotal);
+modBody.appendChild(contTotal);
+
+modFooter.appendChild(btnFinCompra);
+modtabi.appendChild(modDialog);
+modDialog.appendChild(modContent);
+modContent.appendChild(modHeader);
+modContent.appendChild(modBody);
+modContent.appendChild(modFooter);
+
+modHeader.appendChild(titulo);
+modHeader.appendChild(btnClose);
+
+
+
+modalcontainer.innerHTML = "";
+modalcontainer.appendChild(modtabi);
+
+modtabi.removeAttribute("inert");
+modtabi.removeAttribute("aria-hidden");
+const bootstrapModal = new bootstrap.Modal(modtabi);
+        bootstrapModal.show();
+         
+     
+
+       
+modtabi.addEventListener("hidden.bs.modal", ()=>{
+  modalcontainer.innerHTML = "";
+  modtabi.setAttribute("aria-hidden", "true");
+  modtabi.setAttribute("inert", "")
+})
+        
+    
+ const pagar = () =>{
+
+    
+    const modal = document.getElementById("modal");
+
+    if (typeof MercadoPago === 'undefined') {
+        console.error('El SDK de MercadoPago no está definido. Verifica que se haya cargado correctamente.');
+        return;
+    }
+    const mp = new MercadoPago('TEST-cda8ecd5-5002-43a8-a7d3-172588165057', {
+        locale: 'es-AR'
+    });
+    const bricksBuilder = mp.bricks();
+    if (window.paymentBrickController) {
+        // Opcional: elimina el Brick previo para evitar duplicados
+        window.paymentBrickController.unmount();
+    }
+    const renderPaymentBrick = async (bricksBuilder) => {
+        const settings = {
+            initialization: {
+                /*
+                  "amount" es el monto total a pagar por todos los medios de pago con excepción de la Cuenta de Mercado Pago y Cuotas sin tarjeta de crédito, las cuales tienen su valor de procesamiento determinado en el backend a través del "preferenceId"
+                */
+                amount: total,
+                description: producto,
+                preferenceId: "15967463",
+                payer: {
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+
+
+                },
+
+            },
+            customization: {
+                visual: {
+                    style: {
+                        theme: "bootstrap",
+                    },
+                },
+                paymentMethods: {
+                    creditCard: "all",
+                    debitCard: "all",
+                    ticket: "all",
+                    bankTransfer: "all",
+                    atm: "all",
+                    onboarding_credits: "all",
+                    wallet_purchase: "all",
+                    maxInstallments: 12,
+                },
+            },
+            callbacks: {
+                onReady: () => {
+
+                },
+                onSubmit: ({ selectedPaymentMethod, formData }) => {
+                    // callback llamado al hacer clic en el botón de envío de datos
+                    return new Promise((resolve, reject) => {
+                        fetch("/process_payment", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify(formData),
+                        })
+
+                            .then((response) => response.json())
+                            .then((response) => {
+
+
+
+                                const url = window.location.href;
+                                resolve(response)
+
+
+
+                                const mp = new MercadoPago('TEST-cda8ecd5-5002-43a8-a7d3-172588165057', { // Add your public key credential
+                                    locale: 'es-AR'
+                                })
+
+                                const bricksStatus = mp.bricks();
+                                const renderStatusScreenBrick = async (bricksStatus) => {
+
+
+                                    const settings = {
+                                        initialization: {
+                                            paymentId: response, // Payment identifier, from which the status will be checked
+                                        },
+                                        customization: {
+                                            visual: {
+                                                hideStatusDetails: true,
+                                                hideTransactionDate: true,
+                                                style: {
+                                                    theme: 'bootstrap', // 'default' | 'dark' | 'bootstrap' | 'flat'
+                                                }
+                                            },
+                                            backUrls: {
+                                                'error': `${url}`,
+                                                'return': `${url}`,
+                                            }
+                                        },
+                                        callbacks: {
+                                            onReady: () => {
+
+                                            },
+                                            onError: (error) => {
+                                                // Callback called for all Brick error cases
+                                            },
+                                        },
+                                    };
+
+                                    window.statusScreenBrickController = await bricksStatus.create('statusScreen', 'statusScreenBrick_container', settings);
+                                };
+
+
+                                const statusScreen = document.createElement("div");
+                                console.log(statusScreen)
+                                statusScreen.setAttribute("class", "d-flex text-center justify-content-center m-5")
+                                statusScreen.setAttribute("id", "statusScreenBrick_container");
+
+
+
+
+                                boxCargas.removeChild(PayBrinck);
+                                renderStatusScreenBrick(bricksStatus);
+                                boxCargas.appendChild(statusScreen);
+
+                            })
+
+                            .catch((error) => {
+                                // manejar la respuesta de error al intentar crear el pago
+                                reject(error);
+                            });
+                    });
+                },
+                onError: (error) => {
+                    // callback llamado para todos los casos de error de Brick
+                    console.error(error);
+                },
+            },
+        };
+
+        window.paymentBrickController = await bricksBuilder.create(
+            "payment",
+            "paymentBrick_container",
+            settings,
+
+        );
+    };
+    const PayBrinck = document.createElement("div");
+    PayBrinck.setAttribute("id", "paymentBrick_container");
+    PayBrinck.setAttribute("class", "m-5 p-5 gy-4 border")
+    renderPaymentBrick(bricksBuilder);
+    bootstrapModal.hide();
+    boxCargas.innerHTML = "";
+    cajaUltimas.innerHTML = "";
+    boxCargas.appendChild(PayBrinck)
+}
+
+btnFinCompra.addEventListener("click", pagar);
+ 
+
+
+        }else{
+            let titulo = document.createElement("h4");
+        let textBody = document.createElement("p");
+            titulo.innerHTML = "Carrito";
+          textBody.innerHTML = "Sin Productos!!";
+            
+          funcModal( textBody, titulo);
+
+        }
+}
+// Actualiza la cantidad de productos que se agregan al carrito
+const ActualizarTooltip = ()=>{
+
+    let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
+    
+    ShopCar.removeAttribute("data-bs-original-title");
+    ShopCar.removeAttribute("data-bs-toggle");
+    ShopCar.setAttribute("type","button");
+    ShopCar.setAttribute("data-bs-toggle","tooltip");
+    ShopCar.setAttribute("data-bs-placement","top");
+    ShopCar.setAttribute("title",cantCarrito.length);
+   if(tooltip){
+    tooltip.dispose();
+    tooltip = null;
+   }
+
+     tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
+        placement: "top",   
+        customClass: "carrito-tooltip"});
+        
+        if(cantCarrito.length > 0){
+            setTimeout(() => tooltip.show(), 100);
+        }else{
+            
+            tooltip.hide();
+        }
+}
 
 const funcModal = (textBody,titulo) => {
     modalcontainer.innerHTML = "";
@@ -517,6 +833,11 @@ const verProd = async (el, bestPrecio, rebajadoDe, imagenObjectURL, interes) => 
     }
 
     btn.addEventListener("click", pagar);
+// Ver problema de porque no actualiza el tooltip
+   const addCar = document.querySelector(".add");
+   addCar.addEventListener("click",()=>{
+    ActualizarTooltip();
+   });
 
 }
 // Carga los datos del usuario al logearse
@@ -677,142 +998,8 @@ const dataUsuario = async () => {
         
         
         window.addEventListener("AgregadoAlCarrito", ()=>{
-           let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
-
-
-        
-        ShopCar.setAttribute("type","button");
-        ShopCar.setAttribute("data-bs-toggle","tooltip");
-        ShopCar.setAttribute("data-bs-placement","top");
-        ShopCar.setAttribute("title",cantCarrito.length);
-        let tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
-            placement: "top",   
-         customClass: "carrito-tooltip"});
-    
-        if(cantCarrito.length > 0){
-            tooltip.show();
-        }else{
-            tooltip.hide();
-        }
-
-        ShopCar.addEventListener("click", (e)=>{
-            
-            
-            if(cantCarrito.length > 0){
-                
-            let prodCar =  cantCarrito.filter(prod=> prod.producto);
-              
-            
-                modalcontainer.innerHTML = "";
-    
-    const modtabi = document.createElement("div");
-    const modDialog = document.createElement("div");
-    const modContent = document.createElement("div")
-    const modHeader = document.createElement("div");
-    let titulo = document.createElement("h4");
-    const btnClose = document.createElement("button");
-    const modBody = document.createElement("div");
-    const ulBody = document.createElement("ul");
-    const producto = document.createElement("li");
-    const cantidad = document.createElement("li");
-    const precio = document.createElement("li");
-    
-    
-    
-    modtabi.setAttribute("class","modal");
-    modtabi.setAttribute("tabindex","-1");
-    modDialog.setAttribute("class","modal-dialog");
-    modContent.setAttribute("class","modal-content m-5");
-    modHeader.setAttribute("class","modal-header");
-    modBody.setAttribute("class", "modal-body")
-    titulo.setAttribute("class","modal-title");
-    btnClose.setAttribute("class","btn-close");
-    btnClose.setAttribute("type","button");
-    btnClose.setAttribute("data-bs-dismiss","modal");
-    btnClose.setAttribute("aria-label","Close");
-    ulBody.setAttribute("class", "list-group");
-    producto.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  mt-2 ms-4 me-4 mb-2 text-bg-success border-3 fs-5");
-    cantidad.setAttribute("class", "list-group-item border-0 text-bg-success fs-5");
-    precio.setAttribute("class", "list-group-item border-0 text-bg-success fs-5")
-    
-    producto.innerHTML = "Producto";
-    cantidad.innerHTML = "Cantidad";
-    precio.innerHTML = "Precio";
-    
-    producto.appendChild(cantidad);
-    producto.appendChild(precio);
-    ulBody.appendChild(producto);
-    titulo.innerHTML = "Carrito de Compras";
-    let total = 0;
-    prodCar.forEach(pro =>{
-       let textBody = document.createElement("li");
-       let cantProd = document.createElement("li");
-       let PrecioProd = document.createElement("li")
-       textBody.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-4 me-4 mb-4 p-1 border-3");
-       cantProd.setAttribute("class" , " list-group-item  border-0 fw-bold  ");
-        PrecioProd.setAttribute("class", "list-group-item rebajadoDE text-bg-secondary")
-        textBody.innerHTML = `${pro.producto}`;
-        cantProd.innerHTML = '1';
-        PrecioProd.innerHTML = `$${pro.rebajadoDe}`;
-        textBody.appendChild(cantProd);
-        textBody.appendChild(PrecioProd);
-        ulBody.appendChild(textBody);
-        modBody.appendChild(ulBody);
-      
-        total += parseFloat(pro.rebajadoDe);
-    
-        
-    });
-    
-    let contTotal = document.createElement("li");
-    let PrecioTotal = document.createElement("li");
-    contTotal.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-4 me-4 mb-4 p-1 fs-4 link-success fw-bold ");
-    PrecioTotal.setAttribute("class", "list-group-item  border-0 fs-4 link-success fw-medium");
-    contTotal.innerHTML = "Total";
-    PrecioTotal.innerHTML = `$${total}`;   
-    
-    contTotal.appendChild(PrecioTotal);
-    modBody.appendChild(contTotal);
-    
-    
-    modtabi.appendChild(modDialog);
-    modDialog.appendChild(modContent);
-    modContent.appendChild(modHeader);
-    modContent.appendChild(modBody);
-    
-    modHeader.appendChild(titulo);
-    modHeader.appendChild(btnClose);
-    
-    
-    
-    modalcontainer.innerHTML = "";
-    modalcontainer.appendChild(modtabi);
-    
-    modtabi.removeAttribute("inert");
-    modtabi.removeAttribute("aria-hidden");
-    const bootstrapModal = new bootstrap.Modal(modtabi);
-            bootstrapModal.show();
-             
-         
-    
-           
-    modtabi.addEventListener("hidden.bs.modal", ()=>{
-      modalcontainer.innerHTML = "";
-      modtabi.setAttribute("aria-hidden", "true");
-      modtabi.setAttribute("inert", "")
-    })
-            
-        
-            }else{
-                let titulo = document.createElement("h4");
-            let textBody = document.createElement("p");
-                titulo.innerHTML = "Carrito";
-              textBody.innerHTML = "Sin Productos!!";
-                
-              funcModal( textBody, titulo);
-    
-            }
-        })
+          
+            ActualizarTooltip();
     }) 
     
 
@@ -1126,141 +1313,11 @@ const dataUsuario = async () => {
 dataUsuario();
 
 document.addEventListener("DOMContentLoaded",()=>{
-    let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
-    
-    ShopCar.setAttribute("type","button");
-    ShopCar.setAttribute("data-bs-toggle","tooltip");
-    ShopCar.setAttribute("data-bs-placement","top");
-    ShopCar.setAttribute("title",cantCarrito.length);
-    let tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
-        placement: "top",   
-        customClass: "carrito-tooltip"});
-        
-        if(cantCarrito.length > 0){
-            setTimeout(() => tooltip.show(), 100);
-    }else{
-        
-        tooltip.hide();
-    }
-
-    ShopCar.addEventListener("click", (e)=>{
+   
+      ActualizarTooltip();
+      ShopCar.addEventListener("click", MostrarCarritoModal);
             
-            
-        if(cantCarrito.length > 0){
-            
-        let prodCar =  cantCarrito.filter(prod=> prod.producto);
-          
         
-            modalcontainer.innerHTML = "";
-
-const modtabi = document.createElement("div");
-const modDialog = document.createElement("div");
-const modContent = document.createElement("div")
-const modHeader = document.createElement("div");
-let titulo = document.createElement("h4");
-const btnClose = document.createElement("button");
-const modBody = document.createElement("div");
-const ulBody = document.createElement("ul");
-const producto = document.createElement("li");
-const cantidad = document.createElement("li");
-const precio = document.createElement("li");
-
-
-
-modtabi.setAttribute("class","modal");
-modtabi.setAttribute("tabindex","-1");
-modDialog.setAttribute("class","modal-dialog");
-modContent.setAttribute("class","modal-content m-5");
-modHeader.setAttribute("class","modal-header");
-modBody.setAttribute("class", "modal-body")
-titulo.setAttribute("class","modal-title");
-btnClose.setAttribute("class","btn-close");
-btnClose.setAttribute("type","button");
-btnClose.setAttribute("data-bs-dismiss","modal");
-btnClose.setAttribute("aria-label","Close");
-ulBody.setAttribute("class", "list-group");
-producto.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  mt-2 ms-4 me-4 mb-2 text-bg-success border-3 fs-5");
-cantidad.setAttribute("class", "list-group-item border-0 text-bg-success fs-5");
-precio.setAttribute("class", "list-group-item border-0 text-bg-success fs-5")
-
-producto.innerHTML = "Producto";
-cantidad.innerHTML = "Cantidad";
-precio.innerHTML = "Precio";
-
-producto.appendChild(cantidad);
-producto.appendChild(precio);
-ulBody.appendChild(producto);
-titulo.innerHTML = "Carrito de Compras";
-let total = 0;
-prodCar.forEach(pro =>{
-   let textBody = document.createElement("li");
-   let cantProd = document.createElement("li");
-   let PrecioProd = document.createElement("li")
-   textBody.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-4 me-4 mb-4 p-1 border-3");
-   cantProd.setAttribute("class" , " list-group-item  border-0 fw-bold  ");
-    PrecioProd.setAttribute("class", "list-group-item rebajadoDE text-bg-secondary")
-    textBody.innerHTML = `${pro.producto}`;
-    cantProd.innerHTML = '1';
-    PrecioProd.innerHTML = `$${pro.rebajadoDe}`;
-    textBody.appendChild(cantProd);
-    textBody.appendChild(PrecioProd);
-    ulBody.appendChild(textBody);
-    modBody.appendChild(ulBody);
-  
-    total += parseFloat(pro.rebajadoDe);
-
-    
-});
-
-let contTotal = document.createElement("li");
-let PrecioTotal = document.createElement("li");
-contTotal.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-4 me-4 mb-4 p-1 fs-4 link-success fw-bold ");
-PrecioTotal.setAttribute("class", "list-group-item  border-0 fs-4 link-success fw-medium");
-contTotal.innerHTML = "Total";
-PrecioTotal.innerHTML = `$${total}`;   
-
-contTotal.appendChild(PrecioTotal);
-modBody.appendChild(contTotal);
-
-
-modtabi.appendChild(modDialog);
-modDialog.appendChild(modContent);
-modContent.appendChild(modHeader);
-modContent.appendChild(modBody);
-
-modHeader.appendChild(titulo);
-modHeader.appendChild(btnClose);
-
-
-
-modalcontainer.innerHTML = "";
-modalcontainer.appendChild(modtabi);
-
-modtabi.removeAttribute("inert");
-modtabi.removeAttribute("aria-hidden");
-const bootstrapModal = new bootstrap.Modal(modtabi);
-        bootstrapModal.show();
-         
-     
-
-       
-modtabi.addEventListener("hidden.bs.modal", ()=>{
-  modalcontainer.innerHTML = "";
-  modtabi.setAttribute("aria-hidden", "true");
-  modtabi.setAttribute("inert", "")
-})
-        
-    
-        }else{
-            let titulo = document.createElement("h4");
-        let textBody = document.createElement("p");
-            titulo.innerHTML = "Carrito";
-          textBody.innerHTML = "Sin Productos!!";
-            
-          funcModal( textBody, titulo);
-
-        }
-    })
 }) 
 
 
