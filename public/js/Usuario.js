@@ -63,23 +63,42 @@ producto.appendChild(precio);
 ulBody.appendChild(producto);
 titulo.innerHTML = "Carrito de Compras";
 let total = 0;
+
+const eliminarProductoDelCarrito = (id) => {
+    let carrito = JSON.parse(sessionStorage.getItem("car")) || [];
+    carrito = carrito.filter(pro => pro.id !== id); 
+    sessionStorage.setItem("car", JSON.stringify(carrito)); 
+  };
+
 prodCar.forEach(pro =>{
    let textBody = document.createElement("li");
    let cantProd = document.createElement("li");
-   let PrecioProd = document.createElement("li")
+   let PrecioProd = document.createElement("li");
+   let EliminarProducto = document.createElement("i");
+
    textBody.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-1 me-1 mb-4 p-1 border-3");
    cantProd.setAttribute("class" , " list-group-item  border-0 fw-bold  ");
-    PrecioProd.setAttribute("class", "list-group-item rebajadoDE text-bg-secondary")
+    PrecioProd.setAttribute("class", "list-group-item rebajadoDE text-bg-secondary");
+    EliminarProducto.setAttribute("class", "fa-solid fa-xmark link-danger");
+    
     textBody.innerHTML = `${pro.producto}`;
     cantProd.innerHTML = '1';
     PrecioProd.innerHTML = `$${pro.rebajadoDe}`;
     textBody.appendChild(cantProd);
     textBody.appendChild(PrecioProd);
+    textBody.appendChild(EliminarProducto);
     ulBody.appendChild(textBody);
     modBody.appendChild(ulBody);
   
     total += parseFloat(pro.rebajadoDe);
+EliminarProducto.addEventListener("click", ()=>{
+    total -= parseFloat(pro.rebajadoDe);
+PrecioTotal.innerHTML = `$${total}`;   
 
+  eliminarProductoDelCarrito(pro.id);
+  ulBody.removeChild(textBody);
+ ActualizarTooltip();    
+})
     
 });
 
@@ -318,7 +337,8 @@ const ActualizarTooltip = ()=>{
         customClass: "carrito-tooltip"});
         
         if(cantCarrito.length > 0){
-            setTimeout(() => tooltip.show(), 100);
+           setTimeout(() => tooltip.show(), 100);
+            
         }else{
             
             tooltip.hide();
@@ -375,9 +395,20 @@ const funcModal = (textBody,titulo) => {
     })
 }
 
+
 const verProd = async (el, bestPrecio, rebajadoDe, imagenObjectURL, interes) => {
 
-
+    const AddCar = ()=>{
+        let dats = JSON.parse(sessionStorage.getItem('car')) || [];
+       
+        dats.push({
+         id: el.id,
+         producto: el.producto,
+         rebajadoDe
+        });
+        sessionStorage.setItem('car', JSON.stringify(dats));
+       
+       }
 
     boxCargas.innerHTML = "";
     contUltimas.classList.add("d-none");
@@ -477,7 +508,7 @@ const verProd = async (el, bestPrecio, rebajadoDe, imagenObjectURL, interes) => 
   
                     <button type="button" class="comprar btn btn-success"><span>Comprar </span><i class="fa-solid fa-bag-shopping"></i></button>
                 
-                <button type="button" class="add btn btn-outline-primary"><span>Agregar </span><i class="fa-solid fa-cart-shopping"></i></button>
+                <button type="button" class="add btn btn-outline-primary">Agregar <i class="fa-solid fa-cart-shopping"></i></button>
             
         </div>
     </div>
@@ -502,7 +533,16 @@ const verProd = async (el, bestPrecio, rebajadoDe, imagenObjectURL, interes) => 
     let Cant = document.querySelector(".cantidad");
     let btn = document.querySelector(".comprar");
 
+  
 
+    let addCar = document.querySelector(".add");
+    addCar.addEventListener("click",(e)=>{
+e.preventDefault();
+console.log(e.target);
+     
+       AddCar();
+         ActualizarTooltip();
+ })
 
 
 
@@ -833,11 +873,8 @@ const verProd = async (el, bestPrecio, rebajadoDe, imagenObjectURL, interes) => 
     }
 
     btn.addEventListener("click", pagar);
-// Ver problema de porque no actualiza el tooltip
-   const addCar = document.querySelector(".add");
-   addCar.addEventListener("click",()=>{
-    ActualizarTooltip();
-   });
+
+  
 
 }
 // Carga los datos del usuario al logearse
