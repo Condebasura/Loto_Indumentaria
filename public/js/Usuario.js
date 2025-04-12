@@ -1026,8 +1026,8 @@ const dataUsuario = async () => {
         CajaCanvas.appendChild(canFooter);
         document.body.appendChild(CajaCanvas);
 
-        DivUser.removeChild(Login);
-        DivUser.removeChild(Create);
+        Login.style.display = "none";
+        Create.style.display = "none";
         DivUser.appendChild(ShopCar);
         DivUser.appendChild(editPerfil);
       
@@ -1325,12 +1325,14 @@ const dataUsuario = async () => {
                         method: "GET",
                     });
 
-
+                     sessionStorage.removeItem("car");
                     const offcanvasInstance = bootstrap.Offcanvas.getInstance(CajaCanvas)
                     offcanvasInstance.hide();
+
                     DivUser.removeChild(editPerfil);
-                    DivUser.appendChild(Login);
-                    DivUser.appendChild(Create);
+                    DivUser.removeChild(ShopCar);
+                    Login.style.display = "flex";
+                    Create.style.display = "flex";
 
 
                 }

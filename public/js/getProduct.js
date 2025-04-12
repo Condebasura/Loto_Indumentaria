@@ -98,7 +98,7 @@ modtabi.removeAttribute("aria-hidden");
     })
   }
 // Muestra los datos del producto seleccionado
-const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes, ) =>{
+const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes,  ) =>{
 
   const AddCar = ()=>{
     let dats = JSON.parse(sessionStorage.getItem('car')) || [];
@@ -236,10 +236,9 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
           let btn = document.querySelector(".comprar");
           let addCar = document.querySelector(".add");
 
+         
 
-
-          addCar.addEventListener("click",(e)=>{
-          e.preventDefault();
+          addCar.addEventListener("click",()=>{
             AddCar();
             ActualizarTooltip();
        });
