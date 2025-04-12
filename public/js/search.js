@@ -8,12 +8,54 @@ let textH1 = document.createElement("h1");
 let modalcontainer = document.getElementById("modalContainer");
 let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
+const ShopCar = document.createElement("i");
+let tooltip = null;
 const fragment = document.createDocumentFragment();
+
+const ActualizarTooltip = ()=>{
+  
+  let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
+  
+  ShopCar.removeAttribute("data-bs-original-title");
+  ShopCar.removeAttribute("data-bs-toggle");
+  ShopCar.setAttribute("type","button");
+  ShopCar.setAttribute("data-bs-toggle","tooltip");
+  ShopCar.setAttribute("data-bs-placement","top");
+  ShopCar.setAttribute("title",cantCarrito.length);
+
+
+ if(tooltip){
+  tooltip.dispose();
+  tooltip = null;
+ }
+
+   tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
+      placement: "top",   
+      customClass: "carrito-tooltip"});
+      
+      if(cantCarrito.length > 0){
+         setTimeout(() => tooltip.show(), 100);
+      
+      }else{
+          
+          tooltip.hide();
+      }
+};
 
 // Muestra los datos del producto seleccionado
 const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
 
-          
+  const AddCar = ()=>{
+    let dats = JSON.parse(sessionStorage.getItem('car')) || [];
+   
+    dats.push({
+     id: el.id,
+     producto: el.producto,
+     rebajadoDe
+    });
+    sessionStorage.setItem('car', JSON.stringify(dats));
+   
+   } 
        
    boxCargas.innerHTML = "";
    contUltimas.classList.add("d-none");
@@ -137,6 +179,16 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
             interes = document.querySelector(".int");
            let Cant = document.querySelector(".cantidad");
            let btn = document.querySelector(".comprar");
+           let addCar = document.querySelector(".add");
+
+
+
+          addCar.addEventListener("click",()=>{
+          
+            AddCar();
+            ActualizarTooltip();
+       });
+
  
              
  

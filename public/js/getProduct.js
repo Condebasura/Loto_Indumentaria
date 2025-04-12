@@ -14,6 +14,38 @@ let modalcontainer = document.getElementById("modalContainer");
 let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
 const $fragment = document.createDocumentFragment();
+const ShopCar = document.createElement("i");
+let tooltip = null;
+
+const ActualizarTooltip = ()=>{
+  
+  let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
+  
+  ShopCar.removeAttribute("data-bs-original-title");
+  ShopCar.removeAttribute("data-bs-toggle");
+  ShopCar.setAttribute("type","button");
+  ShopCar.setAttribute("data-bs-toggle","tooltip");
+  ShopCar.setAttribute("data-bs-placement","top");
+  ShopCar.setAttribute("title",cantCarrito.length);
+
+
+ if(tooltip){
+  tooltip.dispose();
+  tooltip = null;
+ }
+
+   tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
+      placement: "top",   
+      customClass: "carrito-tooltip"});
+      
+      if(cantCarrito.length > 0){
+         setTimeout(() => tooltip.show(), 100);
+      
+      }else{
+          
+          tooltip.hide();
+      }
+};
 
 // Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
 const funcModal = (textBody, titulo)=>{
@@ -68,7 +100,17 @@ modtabi.removeAttribute("aria-hidden");
 // Muestra los datos del producto seleccionado
 const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes, ) =>{
 
-          
+  const AddCar = ()=>{
+    let dats = JSON.parse(sessionStorage.getItem('car')) || [];
+   
+    dats.push({
+     id: el.id,
+     producto: el.producto,
+     rebajadoDe
+    });
+    sessionStorage.setItem('car', JSON.stringify(dats));
+   
+   } 
        
   boxCargas.innerHTML = "";
   contUltimas.classList.add("d-none");
@@ -168,7 +210,7 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
 
                   <button type="button" class="comprar btn btn-success"><span>Comprar </span><i class="fa-solid fa-bag-shopping"></i></button>
               
-              <button type="button" class="add btn btn-outline-primary"><span>Agregar </span><i class="fa-solid fa-cart-shopping"></i></button>
+              <button type="button" class="add btn btn-outline-primary">Agregar <i class="fa-solid fa-cart-shopping"></i></button>
           
       </div>
   </div>
@@ -192,8 +234,15 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
            interes = document.querySelector(".int");
           let Cant = document.querySelector(".cantidad");
           let btn = document.querySelector(".comprar");
+          let addCar = document.querySelector(".add");
 
-            
+
+
+          addCar.addEventListener("click",(e)=>{
+          e.preventDefault();
+            AddCar();
+            ActualizarTooltip();
+       });
 
           
           

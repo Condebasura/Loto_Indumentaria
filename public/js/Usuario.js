@@ -537,8 +537,8 @@ const verProd = async (el, bestPrecio, rebajadoDe, imagenObjectURL, interes) => 
 
     let addCar = document.querySelector(".add");
     addCar.addEventListener("click",(e)=>{
-e.preventDefault();
-console.log(e.target);
+      e.preventDefault();
+
      
        AddCar();
          ActualizarTooltip();
