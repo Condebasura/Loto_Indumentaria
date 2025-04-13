@@ -31,6 +31,7 @@ const ulBody = document.createElement("ul");
 const producto = document.createElement("li");
 const cantidad = document.createElement("li");
 const precio = document.createElement("li");
+const Eliminar = document.createElement("li");
 const modFooter = document.createElement("div"); 
 const btnFinCompra = document.createElement("button");
 
@@ -49,17 +50,20 @@ btnClose.setAttribute("type","button");
 btnClose.setAttribute("data-bs-dismiss","modal");
 btnClose.setAttribute("aria-label","Close");
 ulBody.setAttribute("class", "list-group");
-producto.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  mt-2 ms-1 me-1 mb-2 text-bg-success border-3 fs-5");
+producto.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-1 me-1 mb-4 p-1 text-bg-success border-3 fs-5");
 cantidad.setAttribute("class", "list-group-item border-0 text-bg-success fs-5");
 precio.setAttribute("class", "list-group-item border-0 text-bg-success fs-5")
+Eliminar.setAttribute("class", "list-group-item border-0 text-bg-success fs-5")
 btnFinCompra.setAttribute("class", "btn btn-outline-primary btnFinCompra btn-lg");
+
 producto.innerHTML = "Producto";
 cantidad.innerHTML = "Cantidad";
 precio.innerHTML = "Precio";
-
+Eliminar.innerHTML = "Quitar";
 btnFinCompra.innerHTML = "Finalizar Compra";
 producto.appendChild(cantidad);
 producto.appendChild(precio);
+producto.appendChild(Eliminar);
 ulBody.appendChild(producto);
 titulo.innerHTML = "Carrito de Compras";
 let total = 0;
@@ -72,18 +76,21 @@ const eliminarProductoDelCarrito = (id) => {
 
 prodCar.forEach(pro =>{
    let textBody = document.createElement("li");
+   let ProdName = document.createElement("li");
    let cantProd = document.createElement("li");
    let PrecioProd = document.createElement("li");
    let EliminarProducto = document.createElement("i");
 
-   textBody.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-1 me-1 mb-4 p-1 border-3");
+   textBody.setAttribute("class", "list-group-item d-flex justify-content-around align-items-center  ms-1 me-1 mb-4 ps-0 pe-0 pt-1 pb-1 border-3");
+   ProdName.setAttribute("class", "list-group-item border-0 text-truncate");
    cantProd.setAttribute("class" , " list-group-item  border-0 fw-bold  ");
     PrecioProd.setAttribute("class", "list-group-item rebajadoDE text-bg-secondary");
     EliminarProducto.setAttribute("class", "fa-solid fa-xmark link-danger");
     
-    textBody.innerHTML = `${pro.producto}`;
+    ProdName.innerHTML = `${pro.producto}`;
     cantProd.innerHTML = '1';
     PrecioProd.innerHTML = `$${pro.rebajadoDe}`;
+    textBody.appendChild(ProdName);
     textBody.appendChild(cantProd);
     textBody.appendChild(PrecioProd);
     textBody.appendChild(EliminarProducto);

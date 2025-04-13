@@ -20,26 +20,26 @@ let tooltip = null;
 const ActualizarTooltip = ()=>{
   
   let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
-  
   ShopCar.removeAttribute("data-bs-original-title");
   ShopCar.removeAttribute("data-bs-toggle");
   ShopCar.setAttribute("type","button");
   ShopCar.setAttribute("data-bs-toggle","tooltip");
   ShopCar.setAttribute("data-bs-placement","top");
   ShopCar.setAttribute("title",cantCarrito.length);
-
-
- if(tooltip){
-  tooltip.dispose();
-  tooltip = null;
- }
-
-   tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
-      placement: "top",   
-      customClass: "carrito-tooltip"});
-      
-      if(cantCarrito.length > 0){
-         setTimeout(() => tooltip.show(), 100);
+  
+  
+  if(tooltip){
+    tooltip.dispose();
+    tooltip = null;
+  }
+  
+  tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
+    placement: "top",   
+    customClass: "carrito-tooltip"});
+    
+    
+    if(cantCarrito.length > 0){
+      setTimeout(() => tooltip.show(), 100);
       
       }else{
           
@@ -763,18 +763,29 @@ for(let el of obj){
         // No se borran los datos al cerrar sesion!!
         car.addEventListener("click",async (e)=>{
           e.preventDefault();
-          const AddCar = ()=>{
-             let dats = JSON.parse(sessionStorage.getItem('car')) || [];
-            
-             dats.push({
-              id: el.id,
-              producto: el.producto,
-              rebajadoDe
-             });
-             sessionStorage.setItem('car', JSON.stringify(dats));
-             window.dispatchEvent(new Event("AgregadoAlCarrito"));
+          let dkoky = document.cookie;
+          if(dkoky){
+
+            const AddCar = ()=>{
+              let dats = JSON.parse(sessionStorage.getItem('car')) || [];
+              
+              dats.push({
+                id: el.id,
+                producto: el.producto,
+                rebajadoDe
+              });
+              sessionStorage.setItem('car', JSON.stringify(dats));
+              window.dispatchEvent(new Event("AgregadoAlCarrito"));
             }
             AddCar();
+          }else{
+            let titulo = document.createElement("h4");
+        let textBody = document.createElement("p");
+            titulo.innerHTML = "Oops!!";
+          textBody.innerHTML = "Para agragar productos es nescesario registrarse o iniciar sesion!!";
+            
+          funcModal( textBody, titulo);
+          }
         })
       
        
@@ -847,9 +858,9 @@ HAcce.innerHTML = "Accesorios";
 
 
 boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2 d-flex flex-column flex-lg-row");
-HRem.setAttribute("class", "link-success link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-HPant.setAttribute("class", "link-primary link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-HAcce.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
+HRem.setAttribute("class", "link-success link-underline-opacity-0 ms-2");
+HPant.setAttribute("class", "link-primary link-underline-opacity-0 ms-2");
+HAcce.setAttribute("class", "link-danger link-underline-opacity-0 ms-2");
 
         boxRutas.appendChild(HRem);
         boxRutas.appendChild(HPant);
@@ -938,10 +949,10 @@ Child.classList.remove("border-top","border-bottom","border-primary");
         MAcce.innerHTML = "Accesorios";
 
         boxRutas.setAttribute("class", "nav-item ms-lg-5  ms-0 m-2 d-flex flex-column flex-lg-row");
-        MRem.setAttribute("class", "link-success link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-        MPant.setAttribute("class", "link-primary link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-        MVest.setAttribute("class", "link-danger link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-        MAcce.setAttribute("class", "link-warning link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
+        MRem.setAttribute("class", "link-success  link-underline-opacity-0 ms-2");
+        MPant.setAttribute("class", "link-primary link-underline-opacity-0  ms-2");
+        MVest.setAttribute("class", "link-danger  link-underline-opacity-0 ms-2");
+        MAcce.setAttribute("class", "link-warning link-underline-opacity-0  ms-2");
         boxRutas.appendChild(MRem);
         boxRutas.appendChild(MPant);
         boxRutas.appendChild(MVest);
@@ -1037,9 +1048,9 @@ Child.classList.remove("border-top","border-bottom","border-primary");
          NVest.innerHTML = "Vestidos";
          
          boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2 d-flex flex-column flex-lg-row");
-         NRem.setAttribute("class", "link-success link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-         NPant.setAttribute("class", "link-primary link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-         NVest.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
+         NRem.setAttribute("class", "link-success link-underline-opacity-0  ms-2");
+         NPant.setAttribute("class", "link-primary link-underline-opacity-0  ms-2");
+         NVest.setAttribute("class", "link-danger link-underline-opacity-0  ms-2");
 
          boxRutas.appendChild(NRem);
          boxRutas.appendChild(NPant);
@@ -1121,8 +1132,8 @@ Child.classList.add("border-top","border-bottom","border-primary");
      ChPant.innerHTML = "Pantalones";
       
      boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2 d-flex flex-column flex-lg-row");
-     ChRem.setAttribute("class","link-success link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-     ChPant.setAttribute("class", "link-primary link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2")
+     ChRem.setAttribute("class","link-success link-underline-opacity-0  ms-2");
+     ChPant.setAttribute("class", "link-primary  link-underline-opacity-0   ms-2")
 
      boxRutas.appendChild(ChRem);
      boxRutas.appendChild(ChPant);
@@ -1211,7 +1222,7 @@ try {
           let datos = JSON.stringify(dataRandom);
     let obj = JSON.parse(datos);
         let el = obj;
-        console.log(el)
+        
           
         
           verProd(el,bestPrecio, rebajadoDe,imagenObjectURL );
