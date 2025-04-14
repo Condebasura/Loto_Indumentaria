@@ -14,16 +14,17 @@ let modalcontainer = document.getElementById("modalContainer");
 let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
 const $fragment = document.createDocumentFragment();
-const ShopCar = document.createElement("i");
+const ShopCar = document.querySelector(".fa-shopping-cart");
+console.log(ShopCar )
+
 let tooltip = null;
 
 const ActualizarTooltip = ()=>{
   
   let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
-  ShopCar.removeAttribute("data-bs-original-title");
-  ShopCar.removeAttribute("data-bs-toggle");
-  ShopCar.setAttribute("type","button");
-  ShopCar.setAttribute("data-bs-toggle","tooltip");
+  // Resolver problemas en la creacion y eliminacion !!
+
+  //ShopCar.setAttribute("data-bs-toggle","tooltip");
   ShopCar.setAttribute("data-bs-placement","top");
   ShopCar.setAttribute("title",cantCarrito.length);
   

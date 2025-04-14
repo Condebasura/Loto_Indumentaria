@@ -7,6 +7,8 @@ const cajaUltimas = document.querySelector(".cajaUltimas");
 const contUltimas = document.querySelector(".contUltimas");
 const prodSearch = document.querySelector(".product");
 const ShopCar = document.createElement("i");
+ShopCar.setAttribute("class", "fas fa-shopping-cart ms-2 mt-4 me-2 mb-0");
+
 let tooltip = null;
 // Muestra la cantidad de productos que se van a comprar
 const MostrarCarritoModal = ()=>{
@@ -960,7 +962,6 @@ const dataUsuario = async () => {
 
 
         Logout.setAttribute("class", "Logout  btn btn-danger");
-        ShopCar.setAttribute("class", "fas fa-shopping-cart ms-2 mt-4 me-2 mb-0");
         editPerfil.setAttribute("class", "btn btn-outline-success rounded-circle");
         editPerfil.setAttribute("data-bs-toggle", "offcanvas");
         editPerfil.setAttribute("href", "#offcanvasExample");
