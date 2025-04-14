@@ -27,11 +27,15 @@ const modHeader = document.createElement("div");
 let titulo = document.createElement("h4");
 const btnClose = document.createElement("button");
 const modBody = document.createElement("div");
-const ulBody = document.createElement("ul");
-const producto = document.createElement("li");
-const cantidad = document.createElement("li");
-const precio = document.createElement("li");
-const Eliminar = document.createElement("li");
+const table = document.createElement("table");
+const thead = document.createElement("thead");
+const tBody = document.createElement("tbody");
+const trBody = document.createElement("tr");
+let trHead = thead.insertRow();
+let producto = trHead.insertCell();
+let cantidad = trHead.insertCell();
+let precio = trHead.insertCell();
+let Eliminar = trHead.insertCell();
 const modFooter = document.createElement("div"); 
 const btnFinCompra = document.createElement("button");
 
@@ -49,11 +53,18 @@ btnClose.setAttribute("class","btn-close");
 btnClose.setAttribute("type","button");
 btnClose.setAttribute("data-bs-dismiss","modal");
 btnClose.setAttribute("aria-label","Close");
-ulBody.setAttribute("class", "list-group");
-producto.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-1 me-1 mb-4 p-1 text-bg-success border-3 fs-5");
-cantidad.setAttribute("class", "list-group-item border-0 text-bg-success fs-5");
-precio.setAttribute("class", "list-group-item border-0 text-bg-success fs-5")
-Eliminar.setAttribute("class", "list-group-item border-0 text-bg-success fs-5")
+table.setAttribute("class","table");
+trBody.setAttribute("class","text-center mt-2")
+
+
+producto.setAttribute("class", " text-center text-bg-success fs-5 ");
+producto.setAttribute("scope", "col");
+cantidad.setAttribute("class", " text-center text-bg-success fs-5");
+cantidad.setAttribute("scope", "col")
+precio.setAttribute("class", "text-center text-bg-success fs-5")
+precio.setAttribute("scope", "col")
+Eliminar.setAttribute("class", " text-center text-bg-success fs-5")
+Eliminar.setAttribute("scope", "col")
 btnFinCompra.setAttribute("class", "btn btn-outline-primary btnFinCompra btn-lg");
 
 producto.innerHTML = "Producto";
@@ -61,10 +72,11 @@ cantidad.innerHTML = "Cantidad";
 precio.innerHTML = "Precio";
 Eliminar.innerHTML = "Quitar";
 btnFinCompra.innerHTML = "Finalizar Compra";
-producto.appendChild(cantidad);
-producto.appendChild(precio);
-producto.appendChild(Eliminar);
-ulBody.appendChild(producto);
+
+
+thead.appendChild(trHead);
+
+
 titulo.innerHTML = "Carrito de Compras";
 let total = 0;
 
@@ -75,46 +87,48 @@ const eliminarProductoDelCarrito = (id) => {
   };
 
 prodCar.forEach(pro =>{
-   let textBody = document.createElement("li");
-   let ProdName = document.createElement("li");
-   let cantProd = document.createElement("li");
-   let PrecioProd = document.createElement("li");
-   let EliminarProducto = document.createElement("i");
+let trBody = tBody.insertRow();
+   let ProdName = trBody.insertCell();
+   let cantProd = trBody.insertCell();
+   let PrecioProd = trBody.insertCell();
+   let EliminarProducto = trBody.insertCell();
+   trBody.setAttribute("class","text-center  ")
+   ProdName.setAttribute("class", "  text-truncate");
+   cantProd.setAttribute("class" , "   fw-bold  ");
+    PrecioProd.setAttribute("class", " rebajadoDE text-bg-secondary");
+    EliminarProducto.setAttribute("class", "fa-solid fa-xmark link-danger border-0 ");
 
-   textBody.setAttribute("class", "list-group-item d-flex justify-content-around align-items-center  ms-1 me-1 mb-4 ps-0 pe-0 pt-1 pb-1 border-3");
-   ProdName.setAttribute("class", "list-group-item border-0 text-truncate");
-   cantProd.setAttribute("class" , " list-group-item  border-0 fw-bold  ");
-    PrecioProd.setAttribute("class", "list-group-item rebajadoDE text-bg-secondary");
-    EliminarProducto.setAttribute("class", "fa-solid fa-xmark link-danger");
     
     ProdName.innerHTML = `${pro.producto}`;
     cantProd.innerHTML = '1';
     PrecioProd.innerHTML = `$${pro.rebajadoDe}`;
-    textBody.appendChild(ProdName);
-    textBody.appendChild(cantProd);
-    textBody.appendChild(PrecioProd);
-    textBody.appendChild(EliminarProducto);
-    ulBody.appendChild(textBody);
-    modBody.appendChild(ulBody);
-  
+    
+    tBody.appendChild(trBody);
+    
+    
     total += parseFloat(pro.rebajadoDe);
-EliminarProducto.addEventListener("click", ()=>{
-    total -= parseFloat(pro.rebajadoDe);
-PrecioTotal.innerHTML = `$${total}`;   
-
-  eliminarProductoDelCarrito(pro.id);
-  ulBody.removeChild(textBody);
- ActualizarTooltip();    
-})
+    EliminarProducto.addEventListener("click", ()=>{
+        total -= parseFloat(pro.rebajadoDe);
+        PrecioTotal.innerHTML = `$${total}`;   
+        
+        eliminarProductoDelCarrito(pro.id);
+        tBody.removeChild(trBody);
+        ActualizarTooltip();   
+        return total; 
+    })
     
 });
+table.appendChild(thead);
+table.appendChild(tBody);
+modBody.appendChild(table);
 
 let contTotal = document.createElement("li");
 let PrecioTotal = document.createElement("li");
-contTotal.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center  ms-4 me-4 mb-4 p-1 fs-4 link-success fw-bold ");
+contTotal.setAttribute("class", "list-group-item d-flex justify-content-around align-items-center    mb-4 ps-1 pe-1 pt-4 fs-4 link-success fw-bold ");
 PrecioTotal.setAttribute("class", "list-group-item  border-0 fs-4 link-success fw-medium");
 contTotal.innerHTML = "Total";
 PrecioTotal.innerHTML = `$${total}`;   
+
 
 contTotal.appendChild(PrecioTotal);
 modBody.appendChild(contTotal);
