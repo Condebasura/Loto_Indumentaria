@@ -14,38 +14,44 @@ let modalcontainer = document.getElementById("modalContainer");
 let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
 const $fragment = document.createDocumentFragment();
-const ShopCar = document.querySelector(".fa-shopping-cart");
-console.log(ShopCar )
 
-let tooltip = null;
 
+// Actualiza la cantidad de productos que se agregan al carrito
 const ActualizarTooltip = ()=>{
   
   let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
-  // Resolver problemas en la creacion y eliminacion !!
 
-  //ShopCar.setAttribute("data-bs-toggle","tooltip");
-  ShopCar.setAttribute("data-bs-placement","top");
-  ShopCar.setAttribute("title",cantCarrito.length);
   
-  
-  if(tooltip){
-    tooltip.dispose();
-    tooltip = null;
-  }
-  
-  tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
-    placement: "top",   
-    customClass: "carrito-tooltip"});
-    
-    
-    if(cantCarrito.length > 0){
-      setTimeout(() => tooltip.show(), 100);
+  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el =>{
+    let t = null;
+
+     t = bootstrap.Tooltip.getInstance(el);
+    if(t){
+      t.dispose();
+      t = null;
+     
+    }
       
-      }else{
-          
-          tooltip.hide();
-      }
+    el.removeAttribute('data-bs-toggle');
+    el.removeAttribute('title')
+     el.setAttribute("type","button");
+    el.setAttribute("data-bs-toggle","tooltip");
+    el.setAttribute("data-bs-placement","top");
+    el.setAttribute("title",cantCarrito.length);
+    if(cantCarrito.length > 0){
+
+     t =  new bootstrap.Tooltip(el,{trigger: "manual",
+      placement: "top",   
+      customClass: "carrito-tooltip"});
+      setTimeout(() => t.show(), 100);
+    } 
+      
+  })
+  
+  
+ 
+  
+
 };
 
 // Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
@@ -239,10 +245,23 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
 
          
 
-          addCar.addEventListener("click",()=>{
-            AddCar();
-            ActualizarTooltip();
-       });
+          addCar.addEventListener("click",(e)=>{
+            e.preventDefault();
+      
+           let koki = document.cookie;
+           if(koki){
+      
+               AddCar();
+               ActualizarTooltip();
+              }else{
+                  let titulo = document.createElement("h4");
+              let textBody = document.createElement("p");
+                  titulo.innerHTML = "Oops!!";
+                textBody.innerHTML = "Para agragar productos es nescesario registrarse o iniciar sesion!!";
+                  
+                funcModal( textBody, titulo);
+                }
+       })
 
           
           

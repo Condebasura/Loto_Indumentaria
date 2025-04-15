@@ -8,43 +8,44 @@ let textH1 = document.createElement("h1");
 let modalcontainer = document.getElementById("modalContainer");
 let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
-const ShopCar = document.querySelector(".fa-shopping-cart");
-console.log(ShopCar)
-let tooltip = null;
-const fragment = document.createDocumentFragment();
 
+const fragment = document.createDocumentFragment();
+// Actualiza la cantidad de productos que se agregan al carrito
 const ActualizarTooltip = ()=>{
   
   let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
-  // Resolver problemas en la creacion y eliminacion !!
   
- // ShopCar.removeAttribute("data-bs-original-title");
-  //ShopCar.removeAttribute("data-bs-toggle");
-  //ShopCar.setAttribute("type","button");
   
+  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el =>{
+    
 
-    //ShopCar.setAttribute("data-bs-toggle","tooltip");
-    ShopCar.setAttribute("data-bs-placement","top");
-    ShopCar.setAttribute("title",cantCarrito.length);
-  
+   let  t = bootstrap.Tooltip.getInstance(el);
+    if(t){
+      t.dispose();
+      t = null;
+     
+    }
+      
+    el.removeAttribute('data-bs-toggle');
+    el.removeAttribute('title')
+     el.setAttribute("type","button");
+    el.setAttribute("data-bs-toggle","tooltip");
+    el.setAttribute("data-bs-placement","top");
+    el.setAttribute("title",cantCarrito.length);
+    if(cantCarrito.length > 0){
 
-
- if(tooltip){
-  tooltip.dispose();
-  tooltip = null;
- }
-
-   tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
+     t =  new bootstrap.Tooltip(el,{trigger: "manual",
       placement: "top",   
       customClass: "carrito-tooltip"});
+      setTimeout(() => t.show(), 100);
+    } 
       
-      if(cantCarrito.length > 0){
-         setTimeout(() => tooltip.show(), 100);
-      
-      }else{
-          
-          tooltip.hide();
-      }
+  })
+  
+  
+ 
+  
+
 };
 
 // Muestra los datos del producto seleccionado
@@ -188,11 +189,23 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
 
 
 
-          addCar.addEventListener("click",()=>{
-          
-            AddCar();
-            ActualizarTooltip();
-       });
+           addCar.addEventListener("click",(e)=>{
+            e.preventDefault();
+      
+           let koki = document.cookie;
+           if(koki){
+      
+               AddCar();
+               ActualizarTooltip();
+              }else{
+                  let titulo = document.createElement("h4");
+              let textBody = document.createElement("p");
+                  titulo.innerHTML = "Oops!!";
+                textBody.innerHTML = "Para agragar productos es nescesario registrarse o iniciar sesion!!";
+                  
+                funcModal( textBody, titulo);
+                }
+       })
 
  
              

@@ -9,7 +9,7 @@ const prodSearch = document.querySelector(".product");
 const ShopCar = document.createElement("i");
 ShopCar.setAttribute("class", "fas fa-shopping-cart ms-2 mt-4 me-2 mb-0");
 
-let tooltip = null;
+
 // Muestra la cantidad de productos que se van a comprar
 const MostrarCarritoModal = ()=>{
 
@@ -344,18 +344,23 @@ const ActualizarTooltip = ()=>{
 
     let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
     
+   
+    let tooltip = null;
+    tooltip = bootstrap.Tooltip.getInstance(ShopCar);
+    if(tooltip){
+    tooltip.dispose();
+    tooltip = null;
+  
+    
+   }
+
     ShopCar.removeAttribute("data-bs-original-title");
     ShopCar.removeAttribute("data-bs-toggle");
     ShopCar.setAttribute("type","button");
     ShopCar.setAttribute("data-bs-toggle","tooltip");
     ShopCar.setAttribute("data-bs-placement","top");
     ShopCar.setAttribute("title",cantCarrito.length);
-   if(tooltip){
-    tooltip.dispose();
-    tooltip = null;
-   }
-
-     tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
+  tooltip = new bootstrap.Tooltip(ShopCar,{trigger: "manual",
         placement: "top",   
         customClass: "carrito-tooltip"});
         
@@ -363,8 +368,10 @@ const ActualizarTooltip = ()=>{
            setTimeout(() => tooltip.show(), 100);
             
         }else{
+      
             
-            tooltip.hide();
+            tooltip.hide()
+            
         }
 }
 
@@ -562,9 +569,19 @@ const verProd = async (el, bestPrecio, rebajadoDe, imagenObjectURL, interes) => 
     addCar.addEventListener("click",(e)=>{
       e.preventDefault();
 
-     
-       AddCar();
+     let koki = document.cookie;
+     if(koki){
+
+         AddCar();
          ActualizarTooltip();
+        }else{
+            let titulo = document.createElement("h4");
+        let textBody = document.createElement("p");
+            titulo.innerHTML = "Oops!!";
+          textBody.innerHTML = "Para agragar productos es nescesario registrarse o iniciar sesion!!";
+            
+          funcModal( textBody, titulo);
+          }
  })
 
 
@@ -1355,7 +1372,7 @@ const dataUsuario = async () => {
                     DivUser.removeChild(ShopCar);
                     Login.style.display = "flex";
                     Create.style.display = "flex";
-
+                   window.location.reload();
 
                 }
             } catch (error) {
@@ -1374,6 +1391,8 @@ const dataUsuario = async () => {
 dataUsuario();
 
 document.addEventListener("DOMContentLoaded",()=>{
+   let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
+   
    
       ActualizarTooltip();
       ShopCar.addEventListener("click", MostrarCarritoModal);
