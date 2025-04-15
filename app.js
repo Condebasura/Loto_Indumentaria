@@ -27,7 +27,7 @@ const USER_SECRET = "Doyo-Tacho-Picho";
 const __dirname = (process.platform === "win32")? fileURLToPath(new URL(".", import.meta.url)):path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
-const port = 8080;
+const port = 3000;
 
 // Middleware para usuario
 const usuarioAuth = expressjwt({
@@ -40,7 +40,8 @@ const usuarioAuth = expressjwt({
       req.headers.authorization.split(" ")[0] === "Bearer"
     ) {
       return req.headers.authorization.split(" ")[1];
-    } else if (req.query && req.query.token) {
+    }
+     else if (req.query && req.query.token) {
       return req.query.token;
     }
     return null;
@@ -99,15 +100,16 @@ app.use(helmet({ contentSecurityPolicy:{
       defaultSrc:["'self'"],
       frameSrc: ["'self'", 
         "https://api-static.mercadopago.com", 
-        "https://www.mercadopago.com"],
+        "https://www.mercadopago.com",
+        ],
       scriptSrc: [
         "'self'",
         "https://sdk.mercadopago.com",
         "https://http2.mlstatic.com",
+        "https://cdn.jsdelivr.net",
         "https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js",
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js",
-         
-         
+        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js", 
+        
       ],
       connectSrc: [
         "'self'",
@@ -181,7 +183,11 @@ app.post("/RecuperarPass", UsuarioControllers.PostRecuPass);
 app.get("/RecuPass", UsuarioControllers.getRecuPassword)
 app.get("/usuario", UsuarioControllers.GetUsuario);
 app.put("/RecuPass/changPass", UsuarioControllers.ChangePass);
-app.get("/logout", UsuarioControllers.Logout)
+app.put("/usuario/update", upload.none(), UsuarioControllers.ActualizarPerfil);
+app.post("/usuario/favorito", UsuarioControllers.AFavoritos);
+app.post("/usuario/getFavoritos", UsuarioControllers.GetFavoritos);
+app.delete("/favorito/delete/:id", UsuarioControllers.EliminarFavorito);
+app.get("/logout", UsuarioControllers.Logout);
 app.post("/process_payment", AdminControllers.pago);
 
  

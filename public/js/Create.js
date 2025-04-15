@@ -18,6 +18,9 @@ Create.addEventListener("click", (e)=>{
          const divNombre = document.createElement("div");
          const LabelNombre = document.createElement("label");
          const InputNombre = document.createElement("input");
+         const divApellido = document.createElement("div");
+         const LabelApellido = document.createElement("label");
+         const InputApellido = document.createElement("input");
          const divCorreo = document.createElement("div");
          const LabelCorreo = document.createElement("label");
          const InputCorreo = document.createElement("input");
@@ -53,9 +56,16 @@ Create.addEventListener("click", (e)=>{
         divNombre.setAttribute("class", "form-floating mb-3");
         InputNombre.setAttribute("class", "form-control");
         InputNombre.setAttribute("required", "");
-        InputNombre.setAttribute("id", "floatingInput");
-        InputNombre.setAttribute("placeholder", "Nombre Completo");
-        LabelNombre.setAttribute("for", "floatingInput");
+        InputNombre.setAttribute("id", "floatingNombre");
+        InputNombre.setAttribute("placeholder", "Nombre");
+        LabelNombre.setAttribute("for", "floatingNombre");
+
+        divApellido.setAttribute("class", "form-floating mb-3");
+        InputApellido.setAttribute("class", "form-control");
+        InputApellido.setAttribute("required", "");
+        InputApellido.setAttribute("id", "floatingApellido");
+        InputApellido.setAttribute("placeholder", "Apellido");
+        LabelApellido.setAttribute("for", "floatingApellido");
         
         
         divCorreo.setAttribute("class", "form-floating mb-3");
@@ -82,7 +92,8 @@ Create.addEventListener("click", (e)=>{
          textPass.setAttribute("class", "link-danger mt-2");
 
          title.innerHTML = "Crear Cuenta";
-         LabelNombre.innerHTML = "Nombre Completo";
+         LabelNombre.innerHTML = "Nombre";
+         LabelApellido.innerHTML = "Apellido";
          LabelCorreo.innerHTML = "Email";
          LabelPassword.innerHTML = "Password";
          BtnReg.innerHTML = "Crear";
@@ -100,11 +111,14 @@ Create.addEventListener("click", (e)=>{
          modHeader.appendChild(title);
          divNombre.appendChild(InputNombre);
          divNombre.appendChild(LabelNombre);
+         divApellido.appendChild(InputApellido);
+         divApellido.appendChild(LabelApellido);
          divCorreo.appendChild(InputCorreo);
          divCorreo.appendChild(LabelCorreo);
          divPassword.appendChild(InputPassword);
          divPassword.appendChild(LabelPassword);
          form.appendChild(divNombre);
+         form.appendChild(divApellido);
          form.appendChild(divCorreo);
          form.appendChild(divPassword);
          form.appendChild(BtnReg);
@@ -131,7 +145,7 @@ Create.addEventListener("click", (e)=>{
         form.addEventListener("submit", (e)=>{
           e.preventDefault();
 
-          const PastData = async (InputNombre, InputCorreo , InputPassword)=>{
+          const PastData = async (InputNombre,InputApellido, InputCorreo , InputPassword)=>{
             try {
                 
                 const res = await fetch("CrearUsuario",{
@@ -139,7 +153,7 @@ Create.addEventListener("click", (e)=>{
                   headers:{
                     "Content-Type": "application/json"
                   },
-                  body: JSON.stringify({InputNombre, InputCorreo, InputPassword})
+                  body: JSON.stringify({InputNombre,InputApellido, InputCorreo, InputPassword})
                  });
                  const data = await res.text();
 
@@ -174,7 +188,7 @@ Create.addEventListener("click", (e)=>{
             }
           }
 
-          PastData(InputNombre.value, InputCorreo.value, InputPassword.value)
+          PastData(InputNombre.value,InputApellido.value, InputCorreo.value, InputPassword.value)
         })
 
         }

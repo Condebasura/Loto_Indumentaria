@@ -2,20 +2,79 @@
     width: 30vh !important;
 }
 
-.per,.fav, .comp{
+.per,.fav,.favo, .comp{
     cursor: pointer;
    
 }
-.per:hover,.fav:hover, .comp:hover{
+.accordion-button:not(.collapsed){
+    background-color: white !important;
+    
+    box-shadow: 1px 1px 1px white !important;
+    
+
+}
+.accordion-button:not(.collapsed):active{
+    background-color: rgb(47, 170, 9) !important;
+    color: white;
+}
+.accordion-button:not(.collapsed):focus{
+    background-color: rgb(47, 170, 9) !important;
+    color: white;
+}
+.accordion-button:not(.collapsed):hover{
+    background-color: rgb(47, 170, 9) !important;
+    color: white;
+}
+.accordion-button:focus{
+    border-color: transparent !important;
+    box-shadow: none !important;
+    
+}
+.accordion-button:hover{
     background-color: rgb(47, 170, 9);
     color: white;
 }
 
+.per:hover, .comp:hover{
+    background-color: rgb(47, 170, 9);
+    color: white;
+}
+
+.favo:hover{
+    background-color: blue;
+    color: aliceblue;
+    
+}
+
+.favo{
+    font-size: 13px;
+}
+.favo:active{
+    box-shadow: 2px 2px 5px #fdfcfc;
+}
+.delFav{
+    cursor: pointer;
+}
+.delFav:hover{
+    color: red;
+}
 .contenido{
     width: 80vh !important;
 }
+.carrito-tooltip .tooltip-inner {
+    background-color: red;
+    color: white;
+    padding-top: 1px;
+    
+    
+}
+.tooltip-arrow::before{
+    border-top-color: red !important;
+}
 
- 
+.AddPass , .fa-circle-exclamation{
+    font-size: 10px !important;
+} 
 @media (max-width: 576px) {
 
     .contenido{

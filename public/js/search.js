@@ -8,12 +8,60 @@ let textH1 = document.createElement("h1");
 let modalcontainer = document.getElementById("modalContainer");
 let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
+
 const fragment = document.createDocumentFragment();
+// Actualiza la cantidad de productos que se agregan al carrito
+const ActualizarTooltip = ()=>{
+  
+  let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
+  
+  
+  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el =>{
+    
+
+   let  t = bootstrap.Tooltip.getInstance(el);
+    if(t){
+      t.dispose();
+      t = null;
+     
+    }
+      
+    el.removeAttribute('data-bs-toggle');
+    el.removeAttribute('title')
+     el.setAttribute("type","button");
+    el.setAttribute("data-bs-toggle","tooltip");
+    el.setAttribute("data-bs-placement","top");
+    el.setAttribute("title",cantCarrito.length);
+    if(cantCarrito.length > 0){
+
+     t =  new bootstrap.Tooltip(el,{trigger: "manual",
+      placement: "top",   
+      customClass: "carrito-tooltip"});
+      setTimeout(() => t.show(), 100);
+    } 
+      
+  })
+  
+  
+ 
+  
+
+};
 
 // Muestra los datos del producto seleccionado
 const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
 
-          
+  const AddCar = ()=>{
+    let dats = JSON.parse(sessionStorage.getItem('car')) || [];
+   
+    dats.push({
+     id: el.id,
+     producto: el.producto,
+     rebajadoDe
+    });
+    sessionStorage.setItem('car', JSON.stringify(dats));
+   
+   } 
        
    boxCargas.innerHTML = "";
    contUltimas.classList.add("d-none");
@@ -24,7 +72,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
   let lasImgs = el.imagen.split(",");
  
  const loadImage = async (imgName) => {
- let imgURL = `https://loto.hopto.org/uploads/${imgName}`;
+ let imgURL = `http://localhost:3000/uploads/${imgName}`;
  let response = await fetch(imgURL);
  let blob = await response.blob();
  return URL.createObjectURL(blob);
@@ -137,6 +185,28 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
             interes = document.querySelector(".int");
            let Cant = document.querySelector(".cantidad");
            let btn = document.querySelector(".comprar");
+           let addCar = document.querySelector(".add");
+
+
+
+           addCar.addEventListener("click",(e)=>{
+            e.preventDefault();
+      
+           let koki = document.cookie;
+           if(koki){
+      
+               AddCar();
+               ActualizarTooltip();
+              }else{
+                  let titulo = document.createElement("h4");
+              let textBody = document.createElement("p");
+                  titulo.innerHTML = "Oops!!";
+                textBody.innerHTML = "Para agragar productos es nescesario registrarse o iniciar sesion!!";
+                  
+                funcModal( textBody, titulo);
+                }
+       })
+
  
              
  
@@ -184,9 +254,9 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
    interes.textContent = interes.textContent + interes.value.toFixed(2);
  }
  
- for (let i = 1; i < el.stock; i++) {
+ for (let i = 0; i < el.stock; i++) {
    let valor = document.createElement("option");
-   valor.innerHTML = `${i} de ${el.stock} disp`
+   valor.innerHTML = `${i+1} de ${el.stock} disp`
    Cant.appendChild(valor);
  };
 
@@ -594,7 +664,7 @@ search.addEventListener("search", async (e) => {
          let rebajadoDe = bestPrecio - porcentaje;
 
          let img1 = el.imagen.split(",")[0];
-         let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+         let imgURl = `http://localhost:3000/uploads/${img1}`;
          let imagenResponse = await fetch(imgURl);
          let imgBlob = await imagenResponse.blob();
          let imagenObjectURL = URL.createObjectURL(imgBlob);

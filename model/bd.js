@@ -6,7 +6,8 @@ import sqlite3 from "sqlite3";
 
  bd.run('CREATE TABLE IF NOT EXISTS products (id TEXT PRIMARY KEY, producto TEXT ,stock INTEGER, descuento INTEGER, precio INTEGER, cuotas INTEGER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
  bd.run('CREATE TABLE IF NOT EXISTS admin (user TEXT , password TEXT )');
- bd.run('CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT , nombre TEXT ,email TEXT, password TEXT )')
+ bd.run('CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT , nombre TEXT ,apellido TEXT, email TEXT, password TEXT )')
+ bd.run('CREATE TABLE IF NOT EXISTS favoritos(Usuario TEXT , Producto_id TEXT , PRIMARY KEY (Usuario, Producto_id), FOREIGN KEY(Usuario) REFERENCES usuarios(email), FOREIGN KEY(Producto_id) REFERENCES products(id))')
  const ConsultProduct = ()=>{
  
          bd.all('SELECT * FROM products', (err, rows)=>{
@@ -45,6 +46,36 @@ import sqlite3 from "sqlite3";
         }
      }
 
+     const ConsultProdID = async (products)=>{
+
+        try {
+
+            if (!products) {
+                throw new Error("ID de producto inválido");
+            }else{
+
+                return await new Promise((resolve, reject)=>{
+                    let sql = 'SELECT * FROM products WHERE id = ?';
+                    let prod = products.prod;
+                    
+                bd.all(sql, prod, (err, rows)=>{
+                    if(err){
+                        console.log("El error del reject",err);
+                        reject(err);
+                    }else{
+                        
+                        resolve(rows);
+                        
+                    }
+                })
+            })
+            
+        }
+            
+        } catch (error) {
+            console.log({error: "Error al encontrar el id"});
+        }
+     }
 
 const GetProdHomR = async ()=>{
     try {
@@ -425,8 +456,8 @@ const ConsultUser = ()=>{
 const CrearUsuario = async (usuario)=>{
  try {
     const hashedPasword = await bcrypt.hash(usuario.password, saltRounds)
-    let stmt = bd.prepare('INSERT INTO usuarios(nombre , email, password) VALUES(?,?,?)');
-    stmt.run(usuario.nombre , usuario.email , hashedPasword );
+    let stmt = bd.prepare('INSERT INTO usuarios(nombre ,apellido, email, password) VALUES(?,?,?,?)');
+    stmt.run(usuario.nombre ,usuario.apellido, usuario.email , hashedPasword );
     stmt.finalize();
     return 'usuario creado con exito';
 
@@ -522,6 +553,8 @@ const UpdatePass = async (usuario)=>{
     }
 };
 
+
+
 const UpdatePerfil = async (usuario)=>{
     try{
         const hashedPassword = await bcrypt.hash(usuario.password , saltRounds);
@@ -554,7 +587,91 @@ const UpdatePerfilSinPassword = async (usuario)=>{
     catch(error){
         console.log(error.message)
 }
+};
+
+
+const AddFavorito  = async (usuario)=>{
+
+   try {
+    
+    const smtm = bd.prepare('INSERT INTO favoritos(Usuario , Producto_id ) VALUES(?,?)');
+    smtm.run(usuario.email , usuario.favorito);
+    smtm.finalize();
+    return "Se agrego favorito";
+
+} catch (error) {
+    throw  console.log(error);
+    
 }
+};
+
+const ConsultFavorito = async(favorito)=>{
+
+    try{
+        return  await new Promise((resolve, reject)=>{
+   
+            let sql = 'SELECT * FROM favoritos WHERE Usuario = ? ';
+            let Usuario =  favorito.Usuario;  
+       
+       bd.all(sql , [Usuario], (err, rows)=>{
+           if(err){
+               reject(err);
+           }else{
+               resolve(rows);
+               
+           }
+       })
+       
+   })
+   }catch(err){
+   console.log({err: "Ocurrio un error al consultar los favoritos"})
+   }
+};
+
+const ConsultfavID = async (Usuario, favorito)=>{
+
+    try {
+
+        if (!favorito || !Usuario) {
+            throw new Error("ID de favorito inválido");
+        }else{
+
+            return await new Promise((resolve, reject)=>{
+                let sql =  'SELECT EXISTS (SELECT 1 FROM favoritos WHERE Usuario = ? AND Producto_id = ?) AS existe';
+                
+                
+            bd.get(sql, [Usuario, favorito], (err, row)=>{
+                if(err){
+                    console.log("El error del reject",err);
+                    reject(err);
+                }else{
+                    
+                    resolve(row.existe);
+                    
+                }
+            })
+        })
+        
+    }
+        
+    } catch (error) {
+        console.log({error: "Error al encontrar el id"});
+    }
+ }
+
+const DeleteFav = (id) =>{
+
+    let sql = 'DELETE FROM favoritos WHERE Producto_id = ?';
+    bd.run(sql, [id], (err)=>{
+        if(err){
+            console.log("ocurrio un error al querer eliminar favorito")
+        }else{
+            console.log("el producto se elimino de favoritos con exito")
+        }
+    })
+}
+
+
 
      export default {bd,
         ConsultProduct,
@@ -585,7 +702,13 @@ const UpdatePerfilSinPassword = async (usuario)=>{
         DataUser, 
         UpdatePass,
         UpdatePerfil, 
-        UpdatePerfilSinPassword
+        UpdatePerfilSinPassword,
+        AddFavorito,
+        ConsultFavorito,
+        ConsultProdID,
+        ConsultfavID,
+        DeleteFav,
+        
 
 
      }

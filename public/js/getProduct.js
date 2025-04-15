@@ -15,10 +15,109 @@ let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
 const $fragment = document.createDocumentFragment();
 
-// Muestra los datos del producto seleccionado
-const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
 
-          
+// Actualiza la cantidad de productos que se agregan al carrito
+const ActualizarTooltip = ()=>{
+  
+  let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
+
+  
+  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el =>{
+    let t = null;
+
+     t = bootstrap.Tooltip.getInstance(el);
+    if(t){
+      t.dispose();
+      t = null;
+     
+    }
+      
+    el.removeAttribute('data-bs-toggle');
+    el.removeAttribute('title')
+     el.setAttribute("type","button");
+    el.setAttribute("data-bs-toggle","tooltip");
+    el.setAttribute("data-bs-placement","top");
+    el.setAttribute("title",cantCarrito.length);
+    if(cantCarrito.length > 0){
+
+     t =  new bootstrap.Tooltip(el,{trigger: "manual",
+      placement: "top",   
+      customClass: "carrito-tooltip"});
+      setTimeout(() => t.show(), 100);
+    } 
+      
+  })
+  
+  
+ 
+  
+
+};
+
+// Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
+const funcModal = (textBody, titulo)=>{
+  modalcontainer.innerHTML = "";
+  
+   const modtabi = document.createElement("div");
+   const modDialog = document.createElement("div");
+   const modContent = document.createElement("div")
+   const modHeader = document.createElement("div");
+  
+   const btnClose = document.createElement("button");
+   const modBody = document.createElement("div");
+   
+  
+   modtabi.setAttribute("class","modal");
+   modtabi.setAttribute("tabindex","-1");
+   modDialog.setAttribute("class","modal-dialog");
+   modContent.setAttribute("class","modal-content");
+   modHeader.setAttribute("class","modal-header text-bg-primary");
+   titulo.setAttribute("class","modal-title");
+   btnClose.setAttribute("class","btn-close");
+   btnClose.setAttribute("type","button");
+   btnClose.setAttribute("data-bs-dismiss","modal");
+   btnClose.setAttribute("aria-label","Close");
+   textBody.setAttribute("class", "row p-5 justify-content-center");
+  
+   modtabi.appendChild(modDialog);
+   modDialog.appendChild(modContent);
+   modContent.appendChild(modHeader);
+   modContent.appendChild(modBody);
+
+   modHeader.appendChild(titulo);
+   modHeader.appendChild(btnClose);
+
+   modBody.appendChild(textBody);
+ 
+    
+ modalcontainer.innerHTML = "";
+modalcontainer.appendChild(modtabi);
+
+modtabi.removeAttribute("inert");
+modtabi.removeAttribute("aria-hidden");
+    const bootstrapModal = new bootstrap.Modal(modtabi);
+            bootstrapModal.show();
+       
+    modtabi.addEventListener("hidden.bs.modal", ()=>{
+      modalcontainer.innerHTML = "";
+      modtabi.setAttribute("aria-hidden", "true");
+      modtabi.setAttribute("inert", "")
+    })
+  }
+// Muestra los datos del producto seleccionado
+const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes,  ) =>{
+
+  const AddCar = ()=>{
+    let dats = JSON.parse(sessionStorage.getItem('car')) || [];
+   
+    dats.push({
+     id: el.id,
+     producto: el.producto,
+     rebajadoDe
+    });
+    sessionStorage.setItem('car', JSON.stringify(dats));
+   
+   } 
        
   boxCargas.innerHTML = "";
   contUltimas.classList.add("d-none");
@@ -29,7 +128,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
  let lasImgs = el.imagen.split(",");
 
 const loadImage = async (imgName) => {
-let imgURL = `https://loto.hopto.org/uploads/${imgName}`;
+let imgURL = `http://localhost:3000/uploads/${imgName}`;
 let response = await fetch(imgURL);
 let blob = await response.blob();
 return URL.createObjectURL(blob);
@@ -118,7 +217,7 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
 
                   <button type="button" class="comprar btn btn-success"><span>Comprar </span><i class="fa-solid fa-bag-shopping"></i></button>
               
-              <button type="button" class="add btn btn-outline-primary"><span>Agregar </span><i class="fa-solid fa-cart-shopping"></i></button>
+              <button type="button" class="add btn btn-outline-primary">Agregar <i class="fa-solid fa-cart-shopping"></i></button>
           
       </div>
   </div>
@@ -142,8 +241,27 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
            interes = document.querySelector(".int");
           let Cant = document.querySelector(".cantidad");
           let btn = document.querySelector(".comprar");
+          let addCar = document.querySelector(".add");
 
-            
+         
+
+          addCar.addEventListener("click",(e)=>{
+            e.preventDefault();
+      
+           let koki = document.cookie;
+           if(koki){
+      
+               AddCar();
+               ActualizarTooltip();
+              }else{
+                  let titulo = document.createElement("h4");
+              let textBody = document.createElement("p");
+                  titulo.innerHTML = "Oops!!";
+                textBody.innerHTML = "Para agragar productos es nescesario registrarse o iniciar sesion!!";
+                  
+                funcModal( textBody, titulo);
+                }
+       })
 
           
           
@@ -158,7 +276,8 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
 
           document.addEventListener("mousedown", (e) =>{
               if(e.target != foto || imgZoom.getAttribute("src") == "null"){
-                  imgZoom.setAttribute("src", imgSrc)
+                 
+                imgZoom.setAttribute("src", imgSrc)
               }
           })
       });
@@ -188,9 +307,9 @@ if(cuoNum === 1){
   interes.textContent = interes.textContent + interes.value.toFixed(2);
 }
 
-for (let i = 1; i < el.stock; i++) {
+for (let i = 0; i < el.stock; i++) {
   let valor = document.createElement("option");
-  valor.innerHTML = `${i} de ${el.stock} disp`;
+  valor.innerHTML = `${i+1} de ${el.stock} disp`;
   Cant.appendChild(valor);
  
 }
@@ -277,56 +396,7 @@ modtabi.removeAttribute("aria-hidden");
 
   }
 });
-// Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
-const funcModal = (textBody, titulo)=>{
-  modalcontainer.innerHTML = "";
-  
-   const modtabi = document.createElement("div");
-   const modDialog = document.createElement("div");
-   const modContent = document.createElement("div")
-   const modHeader = document.createElement("div");
-  
-   const btnClose = document.createElement("button");
-   const modBody = document.createElement("div");
-   
-  
-   modtabi.setAttribute("class","modal");
-   modtabi.setAttribute("tabindex","-1");
-   modDialog.setAttribute("class","modal-dialog");
-   modContent.setAttribute("class","modal-content");
-   modHeader.setAttribute("class","modal-header text-bg-primary");
-   titulo.setAttribute("class","modal-title");
-   btnClose.setAttribute("class","btn-close");
-   btnClose.setAttribute("type","button");
-   btnClose.setAttribute("data-bs-dismiss","modal");
-   btnClose.setAttribute("aria-label","Close");
-   textBody.setAttribute("class", "row p-5 justify-content-center");
-  
-   modtabi.appendChild(modDialog);
-   modDialog.appendChild(modContent);
-   modContent.appendChild(modHeader);
-   modContent.appendChild(modBody);
 
-   modHeader.appendChild(titulo);
-   modHeader.appendChild(btnClose);
-
-   modBody.appendChild(textBody);
- 
-    
- modalcontainer.innerHTML = "";
-modalcontainer.appendChild(modtabi);
-
-modtabi.removeAttribute("inert");
-modtabi.removeAttribute("aria-hidden");
-    const bootstrapModal = new bootstrap.Modal(modtabi);
-            bootstrapModal.show();
-       
-    modtabi.addEventListener("hidden.bs.modal", ()=>{
-      modalcontainer.innerHTML = "";
-      modtabi.setAttribute("aria-hidden", "true");
-      modtabi.setAttribute("inert", "")
-    })
-  }
   
   let formEnv = document.querySelector(".form_Env");
   let polit = document.querySelector(".polit");
@@ -602,17 +672,142 @@ for(let el of obj){
        stock.setAttribute("class", "list-group-item");
        liCompFav.setAttribute("class", " row justify-content-center");
        car.setAttribute("class", "fas fa-shopping-cart car mt-2 col-3");
-       fav.setAttribute("class", "fa-solid fa-heart heart mt-2 col-3");
+       fav.setAttribute("class", "fa-regular fa-heart heart mt-2 col-3"); 
        cardFotter.setAttribute("class", "card-footer text-center");
        let img1 = el.imagen.split(",")[0];
-       let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+       let imgURl = `http://localhost:3000/uploads/${img1}`;
        let imagenResponse = await fetch(imgURl);
        let imgBlob = await imagenResponse.blob();
        let imagenObjectURL = URL.createObjectURL(imgBlob);
        img.src = imagenObjectURL;
        
-
        
+        fav.addEventListener("click", async(e)=>{
+          e.preventDefault();
+          let dCokie = document.cookie;
+          if(dCokie === ""){
+            let titulo = document.createElement("h4");
+            titulo.innerHTML = "Oops!!";
+            let textBody = document.createElement("div");
+            textBody.innerHTML ="<h5 class='mb-4'><strong> Para agregar Favoritos es nesesario iniciar sesion o crear una cuenta</strong></h5>"
+          
+            funcModal(textBody, titulo);
+          }else{
+
+            const tokenName = 'mitoken';
+            const cookies = document.cookie.split(';').map(cookie => cookie.trim().split('='));
+            
+          const cookie = cookies.find(([name, value]) => name === tokenName);
+          const tokenValue = cookie[1];
+          const tokenPayload = tokenValue.split('.')[1];
+          const decodedPayload = JSON.parse(window.atob(tokenPayload));
+          const getCookie = (name) => {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+          }
+
+          
+          
+          const res = await fetch('usuario', {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${getCookie('mitoken')}`,
+            }
+          });
+          
+
+          
+          let DatosUser = decodedPayload;
+          let favoritos = el.id;
+          let email = DatosUser.email;
+          
+          const EnviarFavorito = async(email,favoritos)=>{
+            try {
+              const res = await fetch("/usuario/favorito",{
+                method: 'POST',
+                headers:{
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({email, favoritos})
+              });
+              
+                if(res.status === 200){
+                  setTimeout(()=>{
+                    tooltip.hide();
+                                  
+                 },3000)
+ 
+                 let Data =  await res.json();
+                 fav.setAttribute("type","button");
+                 fav.setAttribute("data-bs-toggle","tooltip");
+                 fav.setAttribute("data-bs-placement","bottom");
+                 fav.setAttribute("title",Data.mensaje);
+                 
+                 let tooltip = new bootstrap.Tooltip(fav, { trigger: "manual" });
+                 tooltip.show();
+                }
+             
+              if(res.status === 404){
+                setTimeout(()=>{
+                   tooltip.hide();
+                                 
+                },3000)
+
+                let Dto =  await res.json();
+                fav.setAttribute("type","button");
+                fav.setAttribute("data-bs-toggle","tooltip");
+                fav.setAttribute("data-bs-placement","bottom");
+                fav.setAttribute("title",Dto.mensaje);
+                
+                let tooltip = new bootstrap.Tooltip(fav, { trigger: "manual" });
+                tooltip.show();
+                
+
+
+
+              }
+            
+             
+              
+             
+            }catch (error) {
+              console.log("ocurrio un error")
+            }
+          }   
+          EnviarFavorito(email, favoritos);
+        }
+         
+        });
+         
+        // No se borran los datos al cerrar sesion!!
+        car.addEventListener("click",async (e)=>{
+          e.preventDefault();
+          let dkoky = document.cookie;
+          if(dkoky){
+
+            const AddCar = ()=>{
+              let dats = JSON.parse(sessionStorage.getItem('car')) || [];
+              
+              dats.push({
+                id: el.id,
+                producto: el.producto,
+                rebajadoDe
+              });
+              sessionStorage.setItem('car', JSON.stringify(dats));
+              window.dispatchEvent(new Event("AgregadoAlCarrito"));
+            }
+            AddCar();
+          }else{
+            let titulo = document.createElement("h4");
+        let textBody = document.createElement("p");
+            titulo.innerHTML = "Oops!!";
+          textBody.innerHTML = "Para agragar productos es nescesario registrarse o iniciar sesion!!";
+            
+          funcModal( textBody, titulo);
+          }
+        })
+      
        
        descuento.innerHTML = `Antes: $ ${el.precio}`
        precio.innerHTML = `$ ${rebajadoDe} <small class="text-bg-success p-1 rounded">   ${el.descuento}  %OFF </small>`;
@@ -656,18 +851,23 @@ boxCargas.innerHTML = "";
   contUltimas.innerHTML = "";
           caja.innerHTML = "";
 boxCargas.appendChild(prodSearch);
-boxCargas.appendChild(caja)
+boxCargas.appendChild(caja);
 caja.appendChild($fragment);
 
-   
+
 };
 
-
+                  
+  
 
 hombre.addEventListener("click", async(e)=>{
  e.preventDefault();
  if(e.target){
 boxRutas.innerHTML = "";
+hombre.classList.add("border-top","border-bottom","border-primary");
+mujer.classList.remove("border-top","border-bottom","border-primary");
+Nena.classList.remove("border-top","border-bottom","border-primary");
+Child.classList.remove("border-top","border-bottom","border-primary");
 
 const HRem = document.createElement("a");
 const HPant = document.createElement("a");
@@ -675,10 +875,12 @@ const HAcce = document.createElement("a");
 HRem.innerHTML = "Remeras";
 HPant.innerHTML = "Pantalones";
 HAcce.innerHTML = "Accesorios";
+
+
 boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2 d-flex flex-column flex-lg-row");
-HRem.setAttribute("class", "link-success link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-HPant.setAttribute("class", "link-primary link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-HAcce.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
+HRem.setAttribute("class", "link-success link-underline-opacity-0 ms-2");
+HPant.setAttribute("class", "link-primary link-underline-opacity-0 ms-2");
+HAcce.setAttribute("class", "link-danger link-underline-opacity-0 ms-2");
 
         boxRutas.appendChild(HRem);
         boxRutas.appendChild(HPant);
@@ -692,12 +894,14 @@ HAcce.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0
 
     HRem.addEventListener("click",async (e)=>{
         e.preventDefault();
-       
+       HRem.classList.add("border-top","border-bottom","border-primary");
+       HPant.classList.remove("border-top","border-bottom","border-primary");
+       HAcce.classList.remove("border-top","border-bottom","border-primary");
      if(e.target){
-     
+            
         const res = await fetch("/Hombres/Remeras").then(res =>  res.json()).then(async data=>{
            
-    
+          
           DatosProdClient(data);
         
             }).catch(err => console.log("error", err))
@@ -708,7 +912,9 @@ HAcce.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0
 
 HPant.addEventListener("click",async (e)=>{
     e.preventDefault();
-   
+       HPant.classList.add("border-top","border-bottom","border-primary");
+      HRem.classList.remove("border-top","border-bottom","border-primary");
+       HAcce.classList.remove("border-top","border-bottom","border-primary");
  if(e.target){
   
     const res = await fetch("/Hombres/Pantalones").then(res =>  res.json()).then(async data=>{
@@ -723,7 +929,9 @@ HPant.addEventListener("click",async (e)=>{
 
 HAcce.addEventListener("click",async (e)=>{
     e.preventDefault();
-   
+       HAcce.classList.add("border-top","border-bottom","border-primary");
+      HRem.classList.remove("border-top","border-bottom","border-primary");
+       HPant.classList.remove("border-top","border-bottom","border-primary");
  if(e.target){
   
     const res = await fetch("/Hombres/Accesorios").then(res =>  res.json()).then(async data=>{
@@ -745,6 +953,10 @@ mujer.addEventListener("click", (e)=>{
     e.preventDefault();
 
     if(e.target){
+    mujer.classList.add("border-top","border-bottom","border-primary");
+hombre.classList.remove("border-top","border-bottom","border-primary");
+Nena.classList.remove("border-top","border-bottom","border-primary");
+Child.classList.remove("border-top","border-bottom","border-primary");
         boxRutas.innerHTML = "";
 
         const MRem = document.createElement("a");
@@ -757,10 +969,10 @@ mujer.addEventListener("click", (e)=>{
         MAcce.innerHTML = "Accesorios";
 
         boxRutas.setAttribute("class", "nav-item ms-lg-5  ms-0 m-2 d-flex flex-column flex-lg-row");
-        MRem.setAttribute("class", "link-success link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-        MPant.setAttribute("class", "link-primary link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-        MVest.setAttribute("class", "link-danger link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-        MAcce.setAttribute("class", "link-warning link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
+        MRem.setAttribute("class", "link-success  link-underline-opacity-0 ms-2");
+        MPant.setAttribute("class", "link-primary link-underline-opacity-0  ms-2");
+        MVest.setAttribute("class", "link-danger  link-underline-opacity-0 ms-2");
+        MAcce.setAttribute("class", "link-warning link-underline-opacity-0  ms-2");
         boxRutas.appendChild(MRem);
         boxRutas.appendChild(MPant);
         boxRutas.appendChild(MVest);
@@ -772,7 +984,10 @@ MRem.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-   
+   MRem.classList.add("border-top","border-bottom","border-primary");
+   MPant.classList.remove("border-top","border-bottom","border-primary");
+   MVest.classList.remove("border-top","border-bottom","border-primary");
+   MAcce.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Mujeres/Remeras").then(res =>  res.json()).then(async data=>{
         
       DatosProdClient(data);
@@ -787,7 +1002,10 @@ MPant.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+   MPant.classList.add("border-top","border-bottom","border-primary");
+   MRem.classList.remove("border-top","border-bottom","border-primary");
+   MVest.classList.remove("border-top","border-bottom","border-primary");
+   MAcce.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Mujeres/Pantalones").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data);
@@ -801,7 +1019,10 @@ MVest.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+   MVest.classList.add("border-top","border-bottom","border-primary");
+   MRem.classList.remove("border-top","border-bottom","border-primary");
+   MPant.classList.remove("border-top","border-bottom","border-primary");
+   MAcce.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Mujeres/Vestidos").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data)
@@ -814,7 +1035,10 @@ MAcce.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+   MAcce.classList.add("border-top","border-bottom","border-primary");
+   MRem.classList.remove("border-top","border-bottom","border-primary");
+   MPant.classList.remove("border-top","border-bottom","border-primary");
+   MVest.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Mujeres/Accesorios").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data);
@@ -832,7 +1056,10 @@ Nena.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target){
     boxRutas.innerHTML = "";
-
+           mujer.classList.remove("border-top","border-bottom","border-primary");
+hombre.classList.remove("border-top","border-bottom","border-primary");
+Nena.classList.add("border-top","border-bottom","border-primary");
+Child.classList.remove("border-top","border-bottom","border-primary");
         const NRem = document.createElement("a");
         const NPant = document.createElement("a");
         const NVest = document.createElement("a");
@@ -841,9 +1068,9 @@ Nena.addEventListener("click", (e)=>{
          NVest.innerHTML = "Vestidos";
          
          boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2 d-flex flex-column flex-lg-row");
-         NRem.setAttribute("class", "link-success link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-         NPant.setAttribute("class", "link-primary link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-         NVest.setAttribute("class", "link-danger link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
+         NRem.setAttribute("class", "link-success link-underline-opacity-0  ms-2");
+         NPant.setAttribute("class", "link-primary link-underline-opacity-0  ms-2");
+         NVest.setAttribute("class", "link-danger link-underline-opacity-0  ms-2");
 
          boxRutas.appendChild(NRem);
          boxRutas.appendChild(NPant);
@@ -855,7 +1082,9 @@ Nena.addEventListener("click", (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+  NRem.classList.add("border-top","border-bottom","border-primary");
+   NPant.classList.remove("border-top","border-bottom","border-primary");
+   NVest.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Nena/Remeras").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data);
@@ -871,7 +1100,9 @@ NPant.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+  NRem.classList.remove("border-top","border-bottom","border-primary");
+   NPant.classList.add("border-top","border-bottom","border-primary");
+   NVest.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Nena/Pantalones").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data);
@@ -886,7 +1117,9 @@ NVest.addEventListener("click",async (e)=>{
     e.preventDefault();
    
  if(e.target){
-  
+  NRem.classList.remove("border-top","border-bottom","border-primary");
+   NPant.classList.remove("border-top","border-bottom","border-primary");
+   NVest.classList.add("border-top","border-bottom","border-primary");
     const res = await fetch("/Nena/Vestidos").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data);
@@ -908,7 +1141,10 @@ e.preventDefault();
 if(e.target){
 
      boxRutas.innerHTML = "";
-
+   mujer.classList.remove("border-top","border-bottom","border-primary");
+hombre.classList.remove("border-top","border-bottom","border-primary");
+Nena.classList.remove("border-top","border-bottom","border-primary");
+Child.classList.add("border-top","border-bottom","border-primary");
 
      const ChRem =  document.createElement("a");
      const ChPant =  document.createElement("a");
@@ -916,8 +1152,8 @@ if(e.target){
      ChPant.innerHTML = "Pantalones";
       
      boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2 d-flex flex-column flex-lg-row");
-     ChRem.setAttribute("class","link-success link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2");
-     ChPant.setAttribute("class", "link-primary link-offset-2  link-underline-opacity-0 link-underline-opacity-50-hover ms-2")
+     ChRem.setAttribute("class","link-success link-underline-opacity-0  ms-2");
+     ChPant.setAttribute("class", "link-primary  link-underline-opacity-0   ms-2")
 
      boxRutas.appendChild(ChRem);
      boxRutas.appendChild(ChPant);
@@ -927,7 +1163,8 @@ if(e.target){
         e.preventDefault();
         
  if(e.target){
-  
+  ChRem.classList.add("border-top","border-bottom","border-primary");
+  ChPant.classList.remove("border-top","border-bottom","border-primary");
     const res = await fetch("/Nene/Remeras").then(res =>  res.json()).then(async data=>{
         
         DatosProdClient(data)
@@ -942,7 +1179,8 @@ if(e.target){
 
 ChPant.addEventListener("click",async (e)=>{
     e.preventDefault();
-    
+     ChRem.classList.remove("border-top","border-bottom","border-primary");
+  ChPant.classList.add("border-top","border-bottom","border-primary");
     if(e.target){
         
         const res = await fetch("/Nene/Pantalones").then(res =>  res.json()).then(async data=>{
@@ -993,7 +1231,7 @@ try {
 
     
     let img1 = dataRandom.imagen.split(",")[0];
-    let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+    let imgURl = `http://localhost:3000/uploads/${img1}`;
     let imagenResponse = await fetch(imgURl);
     let imgBlob = await imagenResponse.blob();
     let imagenObjectURL = URL.createObjectURL(imgBlob);
@@ -1004,7 +1242,7 @@ try {
           let datos = JSON.stringify(dataRandom);
     let obj = JSON.parse(datos);
         let el = obj;
-        console.log(el)
+        
           
         
           verProd(el,bestPrecio, rebajadoDe,imagenObjectURL );
@@ -1066,7 +1304,7 @@ const UltimasEntradasM = async ()=>{
     
         
         let img1 = dataRandom.imagen.split(",")[0];
-        let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+        let imgURl = `http://localhost:3000/uploads/${img1}`;
         let imagenResponse = await fetch(imgURl);
         let imgBlob = await imagenResponse.blob();
         let imagenObjectURL = URL.createObjectURL(imgBlob);
@@ -1134,7 +1372,7 @@ const UltimasEntradasM = async ()=>{
         
           
             let img1 = dataRandom.imagen.split(",")[0];
-            let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+            let imgURl = `http://localhost:3000/uploads/${img1}`;
             let imagenResponse = await fetch(imgURl);
             let imgBlob = await imagenResponse.blob();
             let imagenObjectURL = URL.createObjectURL(imgBlob);

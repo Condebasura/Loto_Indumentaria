@@ -28,16 +28,18 @@ const PostUsuario = async (req, res)=>{
             const data = await bd.DataUser(usuario);
             const payload = {usuario,
                 nombre: data.nombre,
+                apellido: data.apellido,
                 email: data.email, 
                 password: data.password
             };
                const secret = USER_SECRET;
                const token = jwt.sign(payload, secret);
+
+               console.log("Creo token")
                res.cookie('mitoken', token,  { sameSite: 'Strict' } , {
 					httpOnly: true
-				});
-                res.cookie('SesionTks', token ,{sameSite: 'Strict'},{
-                    httpOnly:true});
+				}, {path:'/'});
+                
                      res.status(200).json({token});
         }else if(!User){
             res.status(409);
@@ -53,6 +55,7 @@ const CrearUsuario = async (req, res)=>{
     try {
          const usuario = {
             nombre: req.body.InputNombre,
+            apellido: req.body.InputApellido,
             email: req.body.InputCorreo, 
             password: req.body.InputPassword,
 
@@ -90,6 +93,8 @@ jwt.verify(token, secret, async(err, usuario)=>{
         console.error(err.message);
 					return res.status(409).json({mensaje: "Ocurio un error al cargar los datos del usuario"});
     }else{
+        
+        
         res.status(200).json({token});
     }
 })
@@ -134,7 +139,7 @@ const PostRecuPass = async (req, res)=>{
 			  margin:2em;
 			  box-shadow: 2px 2px 12px #444545;">
 			  <h2>En el siguiente enlace podras cambiar tu contraseña</h2>
-			  <a href= "https://loto.hopto.org/RecuPass?token=${token}"  style="border-style: none;
+			  <a href= "http://localhost:3000/RecuPass?token=${token}"  style="border-style: none;
       background-color: rgba(28, 60, 202, 1);
       color: white;
       padding: 3px;
@@ -175,19 +180,154 @@ const ChangePass = async(req, res)=>{
        console.log(err)
    }
    
-   }
+   };
+
+// Actualiza el perfil 
+   const ActualizarPerfil = async (req, res)=>{
+	         
+    
+    let usuario = {
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        email: req.body.correo,
+        password: req.body.password,
+        
+        
+    }
+    
+       let UserPas = usuario.password;
+       
+       
+         let datos = await bd.DataUser({email: usuario.email});
+       
+          try{
+              const secret = USER_SECRET;
+              if(UserPas === '' || UserPas === undefined){
+                  let PasAnterior = datos.password;
+                  UserPas = PasAnterior;
+                  console.log("se mantiene la contraseña anterior")
+                 
+            const newtoken = jwt.sign(usuario = {
+                nombre: usuario.nombre, 
+                apellido: usuario.apellido,
+                email: usuario.email,
+                
+            }, secret) 
+            
+            
+        
+        await bd.UpdatePerfilSinPassword(usuario);
+        res.status(200).json({token: newtoken})
+        }else{
+            const newtoken = jwt.sign(usuario , secret);
+            await bd.UpdatePerfil(usuario);
+            res.status(200).json({token: newtoken})
+        }
+    }
+           
+    catch(err){
+        console.log(err),
+        res.status(500).json({err: "Ocurrio un error al querer actualizar los datos , intente nuevamente"});
+    }
+
+};
+  // Reparar el problema en sqlite al querer ingresar un mismo favorito
+const AFavoritos = async(req, res)=>{
+    
+const usuario={
+    email:req.body.email,
+    favorito:req.body.favoritos,
+}
+try {
+    let favorito = usuario.favorito;
+    let Usuario = usuario.email;
+      let contieneElId = await bd.ConsultfavID(Usuario ,favorito)
+     
+      if (contieneElId) {
+        return res.status(404).json({ mensaje: "El favorito ya existe en su lista" });
+    }else{
+        
+        await bd.AddFavorito(usuario);
+        res.status(200).json({mensaje: "Se agrego a favoritos"})
+    }
+      
+    
+     
+    
+} catch (error) {
+    res.status(500).json({err: "Ocurrio un error al querer agregar favorito"});
+    
+}
+
+};
+
+const GetFavoritos = async (req, res)=>{
+     
+    const favorito ={
+        Usuario: req.body.usuario,
+    }
+try {
+    
+    let favDeuser = await bd.ConsultFavorito({Usuario: favorito.Usuario})
+    if (!favDeuser.length) {
+        return res.status(404).json({ mensaje: "Sin Favoritos" });
+    }
+    // console.log(favDeuser.Producto_id)
+    const productosFavoritos = [];
+    for(let favoProdu of favDeuser){
+         
+        let prod = favoProdu.Producto_id;
+
+       let ProdFavorito = await bd.ConsultProdID({prod: prod});
+       
+     if(ProdFavorito){
+         productosFavoritos.push(ProdFavorito);
+    }
+    
+}
+       return res.status(200).json({productosFavoritos});
+
+  
+  
+
+  
+  
+} catch (error) {
+   console.log("Error en GetFavoritos:", error)   
+   return res.status(500).json({ mensaje: "Error interno del servidor" }); 
+}
+  
+    
+};
+
+const EliminarFavorito = async(req,res)=>{
+    let id = await req.params.id;
+   
+    if(!id){
+         return res.status(404).json({mensaje:"no se encontro ningun favorito"})
+    }else{
+        bd.DeleteFav(id);
+       return res.status(200).json({mensaje:"favorito eliminado con exito"});
+    }
+
+}
 
 
 // cierra la session del usuario
 const Logout = async (req, res)=>{
     try {
+         await res.clearCookie('SesionTKs');
+        await res.cookie('SesionTks', '', {expires: new Date(0), httpOnly: true});
         await res.cookie('mitoken', '', {expires: new Date(0), httpOnly: true});
-			await res.cookie('SesionTks', '', {expires: new Date(0), httpOnly: true});
-            return res.sendFile(path.join(__dirname , '/'))
+        return res.json({ message: "Sesión cerrada correctamente" });
+        
+            
     } catch (error) {
         console.log(error);
+        res.status(500).json({ error: "Error al cerrar sesión" });
     }
 }
+    
 
 export default{
     getRecuPassword,
@@ -196,5 +336,9 @@ export default{
     PostRecuPass,
     GetUsuario,
     ChangePass,
-    Logout,
+    ActualizarPerfil,
+    AFavoritos,
+    GetFavoritos,
+    EliminarFavorito,
+    Logout
 }

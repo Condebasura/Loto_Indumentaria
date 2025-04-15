@@ -71,9 +71,9 @@ Login.addEventListener("click", (e)=>{
            
           divPass.setAttribute("class","form-floating");
           InputPass.setAttribute("class", "form-control");
-          InputPass.setAttribute("id", "floatingInput");
+          InputPass.setAttribute("id", "floatingPassword");
           InputPass.setAttribute("placeholder", "Password");
-          LabelPass.setAttribute("for", "floatingInput");
+          LabelPass.setAttribute("for", "floatingPassword");
 
 
          InputEmail.setAttribute("type","email");
