@@ -3,7 +3,7 @@ import sqlite3 from "sqlite3";
  import { v4 as uuidv4 } from 'uuid';
  import bcrypt from 'bcrypt';
  const saltRounds = 10;
- db.run('PRAGMA foreign_keys = ON;');
+ bd.run('PRAGMA foreign_keys = ON;');
  bd.run('CREATE TABLE IF NOT EXISTS products (id TEXT PRIMARY KEY, producto TEXT ,stock INTEGER, descuento INTEGER, precio INTEGER, cuotas INTEGER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
  bd.run('CREATE TABLE IF NOT EXISTS admin (user TEXT , password TEXT )');
  bd.run('CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT , nombre TEXT ,apellido TEXT, email TEXT, password TEXT )')
