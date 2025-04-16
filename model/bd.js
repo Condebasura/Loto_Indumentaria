@@ -7,7 +7,14 @@ import sqlite3 from "sqlite3";
  bd.run('CREATE TABLE IF NOT EXISTS products (id TEXT PRIMARY KEY, producto TEXT ,stock INTEGER, descuento INTEGER, precio INTEGER, cuotas INTEGER , seccion TEXT , subSeccion TEXT , imagen TEXT )');
  bd.run('CREATE TABLE IF NOT EXISTS admin (user TEXT , password TEXT )');
  bd.run('CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT , nombre TEXT ,apellido TEXT, email TEXT, password TEXT )')
- bd.run('CREATE TABLE IF NOT EXISTS favoritos(Usuario TEXT , Producto_id TEXT , PRIMARY KEY (Usuario, Producto_id), FOREIGN KEY(Usuario) REFERENCES usuarios(email) ON DELETE CASCADE, FOREIGN KEY(Producto_id) REFERENCES products(id)) ON DELETE CASCADE')
+ bd.run(`
+    CREATE TABLE IF NOT EXISTS favoritos(
+      Usuario TEXT,
+      Producto_id TEXT,
+      PRIMARY KEY (Usuario, Producto_id)
+    )
+  `);
+  
  const ConsultProduct = ()=>{
  
          bd.all('SELECT * FROM products', (err, rows)=>{
