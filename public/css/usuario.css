@@ -89,12 +89,14 @@
 
   }
 
-
-@media (min-width: 768px) { 
-
+  @media (min-width: 576px) { 
     .table>:not(caption)>*>*{
         padding: 0 !important;
     }
+   }
+@media (min-width: 768px) { 
+
+    
 }
 
 
