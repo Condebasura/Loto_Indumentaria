@@ -45,8 +45,8 @@ const btnFinCompra = document.createElement("button");
 
 modtabi.setAttribute("class","modal");
 modtabi.setAttribute("tabindex","-1");
-modDialog.setAttribute("class","modal-dialog");
-modContent.setAttribute("class","modal-content m-5");
+modDialog.setAttribute("class","modal-dialog m-ms-0");
+modContent.setAttribute("class","modal-content m-5 m-ms-0");
 modHeader.setAttribute("class","modal-header");
 modBody.setAttribute("class", "modal-body ");
 modFooter.setAttribute("class", "modal-footer justify-content-center align-items-center");
