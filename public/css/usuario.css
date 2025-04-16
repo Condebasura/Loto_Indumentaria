@@ -86,14 +86,13 @@
         flex-direction: column !important;
 
     }
-
-  }
-
-  @media (max-width: 576px) { 
     .table>:not(caption)>*>*{
         padding: 0 !important;
     }
-   }
+
+  }
+
+ 
 @media (min-width: 768px) { 
 
     
