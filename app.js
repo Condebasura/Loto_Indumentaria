@@ -92,43 +92,54 @@ const corsOptions = {
 
 
 
-
+app.use(helmet());
 app.use(morgan("dev"));
 app.use(cors(corsOptions));
-app.use(helmet({ contentSecurityPolicy:{
-    directives:{
-      defaultSrc:["'self'"],
-      frameSrc: ["'self'", 
-        "https://api-static.mercadopago.com", 
-        "https://www.mercadopago.com",
-        ],
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      frameSrc: [
+        "'self'",
+        "https://api-static.mercadopago.com",
+        "https://www.mercadopago.com"
+      ],
       scriptSrc: [
         "'self'",
         "https://sdk.mercadopago.com",
         "https://http2.mlstatic.com",
         "https://fonts.googleapis.com",
         "https://cdn.jsdelivr.net",
+        "https://cdnjs.cloudflare.com",
         "https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js",
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js","https://cdnjs.cloudflare.com", 
-        
+        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       ],
       connectSrc: [
         "'self'",
         "https://sdk.mercadopago.com",
         "https://http2.mlstatic.com",
         "https://api.mercadopago.com",
-          "https://events.mercadopago.com",
+        "https://events.mercadopago.com",
         "https://api.mercadolibre.com",
-        "https://api-static.mercadopago.com/secure-fields",
-        
+        "https://api-static.mercadopago.com/secure-fields"
       ],
-      styleSrc: ["'self'", "https://kit.fontawesome.com/523f183385.js",
-        "statusScreen.js","https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" ,"'unsafe-inline'", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",],
-  
-      fontSrc: ["'self'", "https://kit.fontawesome.com/",  "cdnjs.cloudflare.com",],
-  imgSrc: ["'self'", "data:", "blob:", 'https://http2.mlstatic.com'],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://fonts.googleapis.com",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css",
+        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      ],
+      fontSrc: [
+        "'self'",
+        "https://fonts.gstatic.com",
+        "https://kit.fontawesome.com",
+        "https://cdnjs.cloudflare.com"
+      ],
+      imgSrc: ["'self'", "data:", "blob:", "https://http2.mlstatic.com"]
     }
-  }}));
+  })
+);
   
 
 
