@@ -13,7 +13,7 @@ console.log(modalContainer);
 // Muestra la cantidad de archivos (fotos) seleccionadas
 archivos.addEventListener("change", (e)=>{
    const ElArchivo = e.target.files;
-   console.log(`se seleccionaron ${ElArchivo.length} archivos`)
+   
 })
 
 // Envia los datos al precionar el boton "Agregar Producto".

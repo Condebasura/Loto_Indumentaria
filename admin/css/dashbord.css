@@ -23,6 +23,11 @@
    
 }
 
+.spiProd{
+    width: 3rem; 
+    height: 3rem;
+    }
+
    .form{
     border-radius: 2em !important;
       max-width: 70vh !important;

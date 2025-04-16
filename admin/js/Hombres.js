@@ -10,6 +10,8 @@ const ulNombres = document.querySelector(".list-group");
 const MinEdit = document.querySelector(".Min_Edit");
 const texto = document.createElement("h3");
 const boxSelect = document.querySelector(".box_select");
+let cajaContSpi = document.createElement("div");
+let spiner = document.createElement("div");
 const $fragment = document.createDocumentFragment();
 const modalContainer = document.getElementById("modalContainer");
 
@@ -807,6 +809,14 @@ const DataProductos = async (data) => {
 
     } else {
 
+      boxContent.innerHTML = "";
+      boxCargas.innerHTML = "";
+      cajaContSpi.setAttribute("class"," text-center mt-5");
+      spiner.setAttribute("class","spinner-border spiProd p-4 text-primary mt-5"); 
+       spiner.setAttribute("rule","status");         
+   cajaContSpi.appendChild(spiner);  
+ $fragment.appendChild(cajaContSpi);
+boxCargas.appendChild($fragment)
         for (let el of obj) {
             
             if(!MinEdit.classList.contains("d-none")){
@@ -920,6 +930,7 @@ const DataProductos = async (data) => {
 
         }
     }
+    boxCargas.innerHTML = "";
     boxCargas.appendChild(boxContent);
     boxContent.appendChild($fragment);
 };

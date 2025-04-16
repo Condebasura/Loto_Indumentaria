@@ -106,9 +106,10 @@ app.use(helmet({ contentSecurityPolicy:{
         "'self'",
         "https://sdk.mercadopago.com",
         "https://http2.mlstatic.com",
+        "https://fonts.googleapis.com",
         "https://cdn.jsdelivr.net",
         "https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js",
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js", 
+        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js","https://cdnjs.cloudflare.com", 
         
       ],
       connectSrc: [
