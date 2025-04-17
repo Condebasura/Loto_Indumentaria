@@ -809,14 +809,15 @@ const DataProductos = async (data) => {
 
     } else {
 
-      boxContent.innerHTML = "";
-      boxCargas.innerHTML = "";
+     // boxContent.innerHTML = "";
+      
       cajaContSpi.setAttribute("class"," text-center mt-5");
       spiner.setAttribute("class","spinner-border spiProd p-4 text-primary mt-5"); 
-       spiner.setAttribute("rule","status");         
+       spiner.setAttribute("rule","status");  
+       spiner.innerHTML = "Soy un spiner"       
    cajaContSpi.appendChild(spiner);  
  $fragment.appendChild(cajaContSpi);
-boxCargas.appendChild($fragment)
+boxContent.appendChild($fragment)
         for (let el of obj) {
             
             if(!MinEdit.classList.contains("d-none")){
@@ -930,7 +931,8 @@ boxCargas.appendChild($fragment)
 
         }
     }
-    boxCargas.innerHTML = "";
+    
+    boxContent.innerHTML = "";
     boxCargas.appendChild(boxContent);
     boxContent.appendChild($fragment);
 };

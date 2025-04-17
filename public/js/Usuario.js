@@ -43,10 +43,10 @@ const btnFinCompra = document.createElement("button");
 
 
 
-modtabi.setAttribute("class","modal");
+modtabi.setAttribute("class","modal d-flex justify-content-center align-items-center");
 modtabi.setAttribute("tabindex","-1");
-modDialog.setAttribute("class","modal-dialog m-sm-0");
-modContent.setAttribute("class","modal-content  m-sm-0");
+modDialog.setAttribute("class","modal-dialog  m-0 m-md-5 m-lg-5");
+modContent.setAttribute("class","modal-content  m-0 m-md-5 m-lg-5");
 modHeader.setAttribute("class","modal-header");
 modBody.setAttribute("class", "modal-body ");
 modFooter.setAttribute("class", "modal-footer justify-content-center align-items-center");
@@ -55,7 +55,7 @@ btnClose.setAttribute("class","btn-close");
 btnClose.setAttribute("type","button");
 btnClose.setAttribute("data-bs-dismiss","modal");
 btnClose.setAttribute("aria-label","Close");
-table.setAttribute("class","table");
+table.setAttribute("class","table ms-0");
 trBody.setAttribute("class","text-center mt-2")
 
 
@@ -1094,7 +1094,7 @@ const dataUsuario = async () => {
             if (e.target) {
 
                 const modalPerf = document.createElement("div");
-                modalPerf.setAttribute("class", "modal  modalPerf");
+                modalPerf.setAttribute("class", "modal  modalPerf d-flex justify-content-center align-items-center");
                 modalPerf.setAttribute("tabindex", "-1");
 
 

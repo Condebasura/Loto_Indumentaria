@@ -872,15 +872,22 @@ Child.classList.remove("border-top","border-bottom","border-primary");
 const HRem = document.createElement("a");
 const HPant = document.createElement("a");
 const HAcce = document.createElement("a");
+
+HRem.setAttribute("data-vista", "HRem");
+HPant.setAttribute("data-vista", "HPant");
+HAcce.setAttribute("data-vista", "hAcce");
 HRem.innerHTML = "Remeras";
 HPant.innerHTML = "Pantalones";
 HAcce.innerHTML = "Accesorios";
+
 
 
 boxRutas.setAttribute("class", "nav-item ms-lg-5 ms-0 m-2 d-flex flex-column flex-lg-row");
 HRem.setAttribute("class", "link-success link-underline-opacity-0 ms-2");
 HPant.setAttribute("class", "link-primary link-underline-opacity-0 ms-2");
 HAcce.setAttribute("class", "link-danger link-underline-opacity-0 ms-2");
+
+            
 
         boxRutas.appendChild(HRem);
         boxRutas.appendChild(HPant);
@@ -889,7 +896,7 @@ HAcce.setAttribute("class", "link-danger link-underline-opacity-0 ms-2");
         
           
         
-    
+      
 
 
     HRem.addEventListener("click",async (e)=>{
@@ -899,11 +906,12 @@ HAcce.setAttribute("class", "link-danger link-underline-opacity-0 ms-2");
        HAcce.classList.remove("border-top","border-bottom","border-primary");
      if(e.target){
             
+
         const res = await fetch("/Hombres/Remeras").then(res =>  res.json()).then(async data=>{
-           
           
+
           DatosProdClient(data);
-        
+         
             }).catch(err => console.log("error", err))
                     
     }
@@ -963,6 +971,13 @@ Child.classList.remove("border-top","border-bottom","border-primary");
         const MPant = document.createElement("a");
         const MVest = document.createElement("a");
         const MAcce = document.createElement("a");
+       
+         MRem.setAttribute("data-vista", "MRem");
+         MPant.setAttribute("data-vista", "MPant");
+         MVest.setAttribute("data-vista", "MVest");
+         MAcce.setAttribute("data-vista", "MAcce");
+
+
         MRem.innerHTML = "Remeras";
         MPant.innerHTML = "Pantalones";
         MVest.innerHTML = "Vestidos";
@@ -1063,6 +1078,11 @@ Child.classList.remove("border-top","border-bottom","border-primary");
         const NRem = document.createElement("a");
         const NPant = document.createElement("a");
         const NVest = document.createElement("a");
+         
+        NRem.setAttribute("data-vista", "NRem");
+        NPant.setAttribute("data-vista", "NPant");
+        NVest.setAttribute("data-vista", "NVest");
+
          NRem.innerHTML = "Remeras";
          NPant.innerHTML = "Pantalones";
          NVest.innerHTML = "Vestidos";
@@ -1148,6 +1168,10 @@ Child.classList.add("border-top","border-bottom","border-primary");
 
      const ChRem =  document.createElement("a");
      const ChPant =  document.createElement("a");
+     
+     ChRem.setAttribute("data-vista", "ChRem");
+     ChPant.setAttribute("data-vista", "ChPant")
+
      ChRem.innerHTML = "Remeras";
      ChPant.innerHTML = "Pantalones";
       
@@ -1410,7 +1434,7 @@ const UltimasEntradasM = async ()=>{
         
         
         }
-
+      
 UltimasEntradasH();
 UltimasEntradasM();
 UltimasEntradasN();
