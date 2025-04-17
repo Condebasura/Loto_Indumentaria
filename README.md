@@ -27,7 +27,7 @@
 
 ## 🧰 Tecnologías utilizadas
 
-- **Frontend:** HTML, CSS, JavaScript
+- **Frontend:** HTML, CSS, Bootstrap , JavaScript
 - **Backend:** Node.js, Express.js
 - **Base de datos:** SQLite3
 - **Email:** Nodemailer (para funcionalidades como recuperación de contraseña)
