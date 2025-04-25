@@ -148,24 +148,24 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
  <div class="contenedor_img row">
  <figure class="img_cont col-md-2 col ms-0">
  <div class="box_img img-fluid">
-                  <img class="MinImg border-1  " src="${imagenes[0]}" alt="">
+                  <img class="MinImg border-1  " loading="lazy" src="${imagenes[0]}" alt="">
               </div>
               <div class="box_img img-fluid">
-                  <img class="MinImg1 border-1 " src="${imagenes[1]}" alt="">
+                  <img class="MinImg1 border-1 " loading="lazy" src="${imagenes[1]}" alt="">
               </div>
               <div class="box_img img-fluid">
-                  <img class="MinImg2 border-1 " src="${imagenes[2]}" alt="">
+                  <img class="MinImg2 border-1 " loading="lazy" src="${imagenes[2]}" alt="">
               </div>
               <div class="box_img img-fluid">
-                  <img class="MinImg3 border-1 " src="${imagenes[3]}" alt="">
+                  <img class="MinImg3 border-1 " loading="lazy" src="${imagenes[3]}" alt="">
               </div>
                    <div class="box_img img-fluid">
-                  <img class="MinImg3 border-1 " src="${imagenes[4]}" alt="">
+                  <img class="MinImg3 border-1 " loading="lazy" src="${imagenes[4]}" alt="">
               </div>
           </figure>
           <figure class="cont_zoom mt-5 mt-md-0 col-md-10 col">
               <div class="box_img__zoom">
-                  <img class="image_zoom img-fluid pt-3" src="" alt="">
+                  <img class="image_zoom img-fluid pt-3" loading="lazy" src="" alt="">
 
               </div>
           </figure>
@@ -375,6 +375,7 @@ link.addEventListener("click", (e)=>{
      divCards.setAttribute("class", "col-3 p-3 border m-2 ")
      let imgCard = document.createElement("img");
      imgCard.setAttribute("class", "img-fluid");
+     imgCard.setAttribute("loading","lazy");
      imgCard.src = url;
      contCards.appendChild(divCards);
      divCards.appendChild(imgCard);
@@ -661,6 +662,7 @@ for(let el of obj){
        caja.setAttribute("class", "cont-ul z-n1 justify-content-center text-center row gy-sm-3  gx-sm-5 gx-0 gy-0  ps-0 mt-5");
        box.setAttribute("class", "box_pilcha card col-sm-6 col m-3");
        img.setAttribute("class", "image card-img-top");
+       img.setAttribute("loading", "lazy");
         
         
        nombreProducto.setAttribute("class", "name card-title text-truncate");
@@ -1246,6 +1248,7 @@ try {
     card.setAttribute("class", "card cardUltimas mx-auto  border-2 col-12 ");
     let Imgtop = document.createElement("img");
     Imgtop.setAttribute("class", "image card-img-top");
+    Imgtop.setAttribute("loading", "lazy");
     
     
     let bestPrecio = Number(dataRandom.precio);
@@ -1319,6 +1322,8 @@ const UltimasEntradasM = async ()=>{
         card.setAttribute("class", "card cardUltimas mx-auto border-2 col-12 ");
         let Imgtop = document.createElement("img");
         Imgtop.setAttribute("class", "image card-img-top");
+        Imgtop.setAttribute("loading", "lazy");
+
         
         
         let bestPrecio = Number(dataRandom.precio);
@@ -1387,6 +1392,8 @@ const UltimasEntradasM = async ()=>{
             card.setAttribute("class", "card cardUltimas mx-auto border-2 col-12");
             let Imgtop = document.createElement("img");
             Imgtop.setAttribute("class", "image card-img-top");
+            Imgtop.setAttribute("loading", "lazy");
+            
             
             
             let bestPrecio = Number(dataRandom.precio);

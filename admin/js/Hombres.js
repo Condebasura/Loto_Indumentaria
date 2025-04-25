@@ -47,24 +47,24 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
    <div class="contenedor_img row">
    <figure class="img_cont col-md-2 col ms-0 ">
    <div class="box_img img-fluid">
-                    <img class="MinImg border-1  " src="${imagenes[0]}" alt="">
+                    <img class="MinImg border-1  " loading="lazy" src="${imagenes[0]}" alt="">
                 </div>
                 <div class="box_img img-fluid">
-                    <img class="MinImg1 border-1 " src="${imagenes[1]}" alt="">
+                    <img class="MinImg1 border-1 " loading="lazy" src="${imagenes[1]}" alt="">
                 </div>
                 <div class="box_img img-fluid">
-                    <img class="MinImg2 border-1 " src="${imagenes[2]}" alt="">
+                    <img class="MinImg2 border-1 " loading="lazy" src="${imagenes[2]}" alt="">
                 </div>
                 <div class="box_img img-fluid">
-                    <img class="MinImg3 border-1 " src="${imagenes[3]}" alt="">
+                    <img class="MinImg3 border-1 " loading="lazy" src="${imagenes[3]}" alt="">
                 </div>
                      <div class="box_img img-fluid">
-                    <img class="MinImg3 border-1 " src="${imagenes[4]}" alt="">
+                    <img class="MinImg3 border-1 " loading="lazy" src="${imagenes[4]}" alt="">
                 </div>
             </figure>
             <figure class="cont_zoom mt-5 mt-md-0 col-md-10 col">
                 <div class="box_img__zoom">
-                    <img class="image_zoom img-fluid pt-3" src="" alt="">
+                    <img class="image_zoom img-fluid pt-3" loading="lazy" src="" alt="">
   
                 </div>
             </figure>
@@ -674,7 +674,8 @@ const Editar = async (el) => {
     EstImg.forEach(async (imagen) => {
         const ImgDefault = "a4937c6a789a8856d0632422c7af52fa";
         const img = document.createElement("img");
-        img.setAttribute("class", "border border-success ms-1")
+        img.setAttribute("class", "border border-success ms-1");
+        img.setAttribute("loading", "lazy");
 
         let imgURl = `https://loto.hopto.org/uploads/${imagen}`;
         let imagenResponse = await fetch(imgURl);
@@ -864,6 +865,7 @@ boxContent.appendChild($fragment)
 
             box.setAttribute("class", "box_pilcha card col-sm-6 col ms-0 me-0 mb-0 mt-2 m-md-3 ");
             img.setAttribute("class", "image card-img-top");
+            img.setAttribute("loading", "lazy");
 
             datosProducto.setAttribute("class", "datos card-body");
             nombreProducto.setAttribute("class", "name card-title");

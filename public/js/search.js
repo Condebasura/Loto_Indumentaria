@@ -92,24 +92,24 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
   <div class="contenedor_img row">
   <figure class="img_cont col-md-2 col ms-0">
   <div class="box_img img-fluid">
-                   <img class="MinImg border-1  " src="${imagenes[0]}" alt="">
+                   <img class="MinImg border-1  " loading="lazy" src="${imagenes[0]}" alt="">
                </div>
                <div class="box_img img-fluid">
-                   <img class="MinImg1 border-1 " src="${imagenes[1]}" alt="">
+                   <img class="MinImg1 border-1 " loading="lazy" src="${imagenes[1]}" alt="">
                </div>
                <div class="box_img img-fluid">
-                   <img class="MinImg2 border-1 " src="${imagenes[2]}" alt="">
+                   <img class="MinImg2 border-1 " loading="lazy" src="${imagenes[2]}" alt="">
                </div>
                <div class="box_img img-fluid">
-                   <img class="MinImg3 border-1 " src="${imagenes[3]}" alt="">
+                   <img class="MinImg3 border-1 " loading="lazy" src="${imagenes[3]}" alt="">
                </div>
                     <div class="box_img img-fluid">
-                   <img class="MinImg3 border-1 " src="${imagenes[4]}" alt="">
+                   <img class="MinImg3 border-1 " loading="lazy" src="${imagenes[4]}" alt="">
                </div>
            </figure>
            <figure class="cont_zoom mt-5 mt-md-0 col-md-10 col">
                <div class="box_img__zoom">
-                   <img class="image_zoom img-fluid pt-3" src="" alt="">
+                   <img class="image_zoom img-fluid pt-3" loading="lazy" src="" alt="">
  
                </div>
            </figure>
@@ -678,6 +678,7 @@ search.addEventListener("search", async (e) => {
             template.querySelector("h3").setAttribute("class", "card-title text-truncate");
             template.querySelector("img").src = imagenObjectURL;
             template.querySelector("img").setAttribute("class", "img_search card-img-top");
+            template.querySelector("img").setAttribute("loading", "lazy");
             template.querySelector("button").textContent = "Ver";
             template.querySelector("button").setAttribute("class", "ver_prod card-text btn btn-outline-success py-0");
             template.querySelector("button").setAttribute("type", "button");
