@@ -148,9 +148,9 @@ app.use(express.static(path.join(__dirname, 'admin')));
 app.use( 'uploads/',express.static(path.join(__dirname, "public/uploads/"),
 {maxAge: '24h'}
 ));
-app.use( 'img/',express.static(path.join(__dirname, "public/img/", {
-  maxAge: '24h'
-})));
+app.use( 'img/',express.static(path.join(__dirname, "public/img/"),
+{maxAge: '24h'}
+));
 
 
 app.use(express.json());
