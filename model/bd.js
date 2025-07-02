@@ -1,5 +1,5 @@
 import sqlite3 from "sqlite3";
- let bd = new sqlite3.Database("Productos.bd");
+ let bd = new sqlite3.Database("./data/Productos.bd");
  import { v4 as uuidv4 } from 'uuid';
  import bcrypt from 'bcrypt';
  const saltRounds = 10;

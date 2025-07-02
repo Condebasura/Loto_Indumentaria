@@ -27,7 +27,7 @@ const USER_SECRET = "Doyo-Tacho-Picho";
 const __dirname = (process.platform === "win32")? fileURLToPath(new URL(".", import.meta.url)):path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 // Middleware para usuario
 const usuarioAuth = expressjwt({
@@ -207,8 +207,8 @@ app.get("/logout", UsuarioControllers.Logout);
 app.post("/process_payment", AdminControllers.pago);
 
  
-app.listen(port,'localhost', ()=>{
-    console.log(`la app esta escuchando el pueto http://localhost:${port}` );
+app.listen(port, ()=>{
+    console.log(`la app esta escuchando el pueto {port}` );
 }
 )
 
