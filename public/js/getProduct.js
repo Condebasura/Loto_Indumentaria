@@ -1258,7 +1258,7 @@ try {
 
     
     let img1 = dataRandom.imagen.split(",")[0];
-    let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+    let imgURl = `https://loto-indumentaria.onrender.com//uploads/${img1}`;
     let imagenResponse = await fetch(imgURl);
     let imgBlob = await imagenResponse.blob();
     let imagenObjectURL = URL.createObjectURL(imgBlob);
@@ -1333,7 +1333,7 @@ const UltimasEntradasM = async ()=>{
     
         
         let img1 = dataRandom.imagen.split(",")[0];
-        let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+        let imgURl = `https://loto-indumentaria.onrender.com//uploads/${img1}`;
         let imagenResponse = await fetch(imgURl);
         let imgBlob = await imagenResponse.blob();
         let imagenObjectURL = URL.createObjectURL(imgBlob);
@@ -1403,7 +1403,7 @@ const UltimasEntradasM = async ()=>{
         
           
             let img1 = dataRandom.imagen.split(",")[0];
-            let imgURl = `https://loto.hopto.org/uploads/${img1}`;
+            let imgURl = `https://loto-indumentaria.onrender.com//uploads/${img1}`;
             let imagenResponse = await fetch(imgURl);
             let imgBlob = await imagenResponse.blob();
             let imagenObjectURL = URL.createObjectURL(imgBlob);
