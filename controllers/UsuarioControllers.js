@@ -139,7 +139,7 @@ const PostRecuPass = async (req, res)=>{
 			  margin:2em;
 			  box-shadow: 2px 2px 12px #444545;">
 			  <h2>En el siguiente enlace podras cambiar tu contraseña</h2>
-			  <a href= "https://loto.hopto.org/RecuPass?token=${token}"  style="border-style: none;
+			  <a href= "https://loto-indumentaria.onrender.com/RecuPass?token=${token}"  style="border-style: none;
       background-color: rgba(28, 60, 202, 1);
       color: white;
       padding: 3px;
