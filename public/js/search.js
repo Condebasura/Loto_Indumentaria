@@ -72,7 +72,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
   let lasImgs = el.imagen.split(",");
  
  const loadImage = async (imgName) => {
- let imgURL = `https://loto-indumentaria.onrender.com/uploads/${imgName}`;
+ let imgURL = `https://loto-indumentaria.hopto.org/uploads/${imgName}`;
  let response = await fetch(imgURL);
  let blob = await response.blob();
  return URL.createObjectURL(blob);
@@ -664,7 +664,7 @@ search.addEventListener("search", async (e) => {
          let rebajadoDe = bestPrecio - porcentaje;
 
          let img1 = el.imagen.split(",")[0];
-         let imgURl = `https://loto-indumentaria.onrender.com/uploads/${img1}`;
+         let imgURl = `https://loto-indumentaria.hopto.org/uploads/${img1}`;
          let imagenResponse = await fetch(imgURl);
          let imgBlob = await imagenResponse.blob();
          let imagenObjectURL = URL.createObjectURL(imgBlob);
