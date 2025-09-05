@@ -33,4 +33,4 @@
 - **Email:** Nodemailer (para funcionalidades como recuperación de contraseña)
 - **Autenticación:** JWT + Cookies
 - **Servidor:** Apache2 + PM2
-- **Despliegue:** Render
+- **Despliegue:** Server cacero
