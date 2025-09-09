@@ -83,7 +83,7 @@ app.use("admin", adminAuth, (req, res) => {
 });
 
 const corsOptions = {
-    origin: '*' ,  // Origen permitido (puedes usar * para permitir todo)
+    origin: 'https://Loto-indumentaria.hopto.org' ,  // Origen permitido (puedes usar * para permitir todo)
     methods: 'GET,POST,PUT,DELETE', // Métodos permitidos
     allowedHeaders: 'Content-Type,Authorization',
      // Encabezados permitidos
