@@ -44,7 +44,7 @@ const PostUser = async(req, res)=>{
             res.cookie('SesionTks', token ,{sameSite: 'Strict'},{
            httpOnly:true});
             res.status(200).json({token});
-            console.log(`Los datos coinciden ${token}`);
+    
         }
     } catch (error) {
         console.log(error)
