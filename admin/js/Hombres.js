@@ -27,7 +27,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
    let lasImgs = el.imagen.split(",");
   // Carga las imagenes del producto seleccionado
   const loadImage = async (imgName) => {
-  let imgURL = `https://loto-indumentaria.hopto.org/uploads/${imgName}`;
+  let imgURL = `${process.env.API_URL}/uploads/${imgName}`;
   let response = await fetch(imgURL);
   let blob = await response.blob();
   return URL.createObjectURL(blob);
@@ -677,7 +677,7 @@ const Editar = async (el) => {
         img.setAttribute("class", "border border-success ms-1");
         img.setAttribute("loading", "lazy");
 
-        let imgURl = `https://loto-indumentaria.hopto.org/uploads/${imagen}`;
+        let imgURl = `${process.env.API_URL}/uploads/${imagen}`;
         let imagenResponse = await fetch(imgURl);
         let imgBlob = await imagenResponse.blob();
         let imagenObjectURL = URL.createObjectURL(imgBlob);
@@ -882,7 +882,7 @@ boxContent.appendChild($fragment)
             delet.setAttribute("class", "fa-solid fa-trash-can");
 
             let img1 = el.imagen.split(",")[0];
-            let imgURl = `https://loto-indumentaria.hopto.org/uploads/${img1}`;
+            let imgURl = `${process.env.API_URL}/uploads/${img1}`;
             let imagenResponse = await fetch(imgURl);
             let imgBlob = await imagenResponse.blob();
             let imagenObjectURL = URL.createObjectURL(imgBlob);

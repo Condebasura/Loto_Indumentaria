@@ -1,7 +1,6 @@
 import bd from "../model/bd.js";
 import jwt from "jsonwebtoken";
 import { __dirname } from "../app.js";
-import { USER_SECRET } from "../app.js";
 import path from 'path';
 import fs from 'fs';
 import nodemailer from 'nodemailer';
@@ -32,7 +31,7 @@ const PostUsuario = async (req, res)=>{
                 email: data.email, 
                 password: data.password
             };
-               const secret = USER_SECRET;
+               const secret = process.env.USER_SECRET;
                const token = jwt.sign(payload, secret);
 
                console.log("Creo token")
@@ -84,7 +83,7 @@ const CrearUsuario = async (req, res)=>{
 const GetUsuario = async (req, res)=>{
 try {
     const token = req.cookies.mitoken;
-    const secret = USER_SECRET;
+    const secret = process.env.USER_SECRET;
     if(!token){
         return res.status(401).render("CloseSesion", {mensaje: "La sesion ha caducado"})
     }
@@ -121,7 +120,7 @@ const PostRecuPass = async (req, res)=>{
            
         });
         async function main() {
-            const secret = USER_SECRET;
+            const secret = process.env.USER_SECRET;
             const token = jwt.sign({UserEmail}, secret,{
                 expiresIn: '1h'
             });
@@ -139,7 +138,7 @@ const PostRecuPass = async (req, res)=>{
 			  margin:2em;
 			  box-shadow: 2px 2px 12px #444545;">
 			  <h2>En el siguiente enlace podras cambiar tu contraseña</h2>
-			  <a href= "https://loto-indumentaria.hopto.org/RecuPass?token=${token}"  style="border-style: none;
+			  <a href= "${process.env.API_URL}/RecuPass?token=${token}"  style="border-style: none;
       background-color: rgba(28, 60, 202, 1);
       color: white;
       padding: 3px;

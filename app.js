@@ -12,26 +12,20 @@ import ProductControllers from "./controllers/ProductControllers.js";
 import AdminControllers from "./controllers/AdminControllers.js";
 import UsuarioControllers from "./controllers/UsuarioControllers.js";
 import bd from "./model/bd.js";
+import dotenv from "dotenv";
 
 
 
 
-
-
-
-
-
-const ADMIN_SECRET = "Puerto-Pasto-Coso";
-const USER_SECRET = "Doyo-Tacho-Picho";
 // Directorio dependiendo del tipo de sistema
 const __dirname = (process.platform === "win32")? fileURLToPath(new URL(".", import.meta.url)):path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
-const port = process.env.PORT || 8080;
-
+const port = process.env.PORT;
+dotenv.config();
 // Middleware para usuario
 const usuarioAuth = expressjwt({
-  secret: USER_SECRET,
+  secret:process.env.USER_SECRET,
   algorithms: ["HS256"],
   credentialsRequired: false,
   getToken: function fromHeaderOrQuerystring(req) {
@@ -50,7 +44,7 @@ const usuarioAuth = expressjwt({
 
 // Middleware para admin
 const adminAuth = expressjwt({
-  secret: ADMIN_SECRET,
+  secret: process.env.ADMIN_SECRET,
   algorithms: ["HS256"],
   credentialsRequired: false,
   getToken: function fromHeaderOrQuerystring(req) {
@@ -83,7 +77,7 @@ app.use("admin", adminAuth, (req, res) => {
 });
 
 const corsOptions = {
-    origin: 'https://loto-indumentaria.hopto.org' ,  // Origen permitido (puedes usar * para permitir todo)
+    origin: `${process.env.API_URL}` ,  // Origen permitido (puedes usar * para permitir todo)
     methods: 'GET,POST,PUT,DELETE', // Métodos permitidos
     allowedHeaders: 'Content-Type,Authorization',
      // Encabezados permitidos
@@ -214,6 +208,5 @@ app.listen(port, ()=>{
 
 export  {
     __dirname,
-    ADMIN_SECRET,
-    USER_SECRET,
+   
 }
