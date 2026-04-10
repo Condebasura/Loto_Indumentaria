@@ -9,6 +9,14 @@ const prodSearch = document.querySelector(".product");
 const ShopCar = document.createElement("i");
 ShopCar.setAttribute("class", "fas fa-shopping-cart ms-2 mt-4 me-2 mb-0");
 
+  const getURL = async () => {
+    const response = await fetch('/config');
+    const data =  await response.json();
+    let dataURL = data.API_URL;
+    return dataURL;
+  }
+let API_URL = await getURL();
+
 
 // Muestra la cantidad de productos que se van a comprar
 const MostrarCarritoModal = ()=>{
@@ -452,7 +460,7 @@ const verProd = async (el, bestPrecio, rebajadoDe, imagenObjectURL, interes) => 
     let lasImgs = el.imagen.split(",");
 
     const loadImage = async (imgName) => {
-        let imgURL = `${process.env.API_URL}/uploads/${imgName}`;
+        let imgURL = `${API_URL}/uploads/${imgName}`;
         let response = await fetch(imgURL);
         let blob = await response.blob();
         return URL.createObjectURL(blob);
@@ -1323,7 +1331,7 @@ const dataUsuario = async () => {
                     let rebajadoDe = bestPrecio - porcentaje;
 
                     let img1 = el.imagen.split(",")[0];
-                    let imgURl = `${process.env.API_URL}/uploads/${img1}`;
+                    let imgURl = `${API_URL}/uploads/${img1}`;
                     let imagenResponse = await fetch(imgURl);
                     let imgBlob = await imagenResponse.blob();
                     let imagenObjectURL = URL.createObjectURL(imgBlob);

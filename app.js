@@ -13,6 +13,8 @@ import AdminControllers from "./controllers/AdminControllers.js";
 import UsuarioControllers from "./controllers/UsuarioControllers.js";
 import bd from "./model/bd.js";
 import dotenv from "dotenv";
+import config from "./controllers/Config.js";
+
 
 
 
@@ -199,7 +201,7 @@ app.post("/usuario/getFavoritos", UsuarioControllers.GetFavoritos);
 app.delete("/favorito/delete/:id", UsuarioControllers.EliminarFavorito);
 app.get("/logout", UsuarioControllers.Logout);
 app.post("/process_payment", AdminControllers.pago);
-
+app.get("/config", config);
  
 app.listen(port, ()=>{
     console.log(`la app esta escuchando el pueto {port}` );

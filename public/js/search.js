@@ -10,6 +10,15 @@ let cajaContSpi = document.createElement("div");
 let spiner = document.createElement("div");
 
 const fragment = document.createDocumentFragment();
+
+  const getURL = async () => {
+    const response = await fetch('/config');
+    const data =  await response.json();
+    let dataURL = data.API_URL;
+    return dataURL;
+  }
+ let API_URL = await getURL();
+
 // Actualiza la cantidad de productos que se agregan al carrito
 const ActualizarTooltip = ()=>{
   
@@ -72,7 +81,7 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes) =>{
   let lasImgs = el.imagen.split(",");
  
  const loadImage = async (imgName) => {
- let imgURL = `${process.env.API_URL}/uploads/${imgName}`;
+ let imgURL = `${API_URL}/uploads/${imgName}`;
  let response = await fetch(imgURL);
  let blob = await response.blob();
  return URL.createObjectURL(blob);
@@ -591,10 +600,10 @@ polit.addEventListener("click",(e)=>{
  }
 
 // Buscador
-search.addEventListener("search", async (e) => {
+search.addEventListener("input", async (e) => {
    e.preventDefault()
+   
    if (e.target) {
-         
       const valor = search.value;
       
       
