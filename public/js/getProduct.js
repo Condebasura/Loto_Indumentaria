@@ -34,7 +34,7 @@ const ActualizarTooltip = ()=>{
   
   let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
 
-  
+ 
   document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el =>{
     let t = null;
 
@@ -51,13 +51,15 @@ const ActualizarTooltip = ()=>{
     el.setAttribute("data-bs-toggle","tooltip");
     el.setAttribute("data-bs-placement","top");
     el.setAttribute("title",cantCarrito.length);
+    console.log(cantCarrito.length)
     if(cantCarrito.length > 0){
-
      t =  new bootstrap.Tooltip(el,{trigger: "manual",
       placement: "top",   
       customClass: "carrito-tooltip"});
       setTimeout(() => t.show(), 100);
+      console.log(t)
     } 
+    
       
   })
   
@@ -66,6 +68,8 @@ const ActualizarTooltip = ()=>{
   
 
 };
+
+console.log(ActualizarTooltip())
 
 // Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
 const funcModal = (textBody, titulo)=>{
@@ -122,12 +126,12 @@ const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes,  ) 
 
   const AddCar = ()=>{
     let dats = JSON.parse(sessionStorage.getItem('car')) || [];
-   
     dats.push({
-     id: el.id,
-     producto: el.producto,
-     rebajadoDe
+      id: el.id,
+      producto: el.producto,
+      rebajadoDe
     });
+    
     sessionStorage.setItem('car', JSON.stringify(dats));
    
    } 
@@ -254,25 +258,25 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
            interes = document.querySelector(".int");
           let Cant = document.querySelector(".cantidad");
           let btn = document.querySelector(".comprar");
-          let addCar = document.querySelector(".add");
+          let addProdAlCarro = document.querySelector(".add");
 
          
 
-          addCar.addEventListener("click",(e)=>{
+          addProdAlCarro.addEventListener("click",  (e)=>{
             e.preventDefault();
-      
+     
            let koki = document.cookie;
-           if(koki){
-      
-               AddCar();
-               ActualizarTooltip();
-              }else{
-                  let titulo = document.createElement("h4");
-              let textBody = document.createElement("p");
-                  titulo.innerHTML = "Oops!!";
-                textBody.innerHTML = "Para agragar productos es nescesario registrarse o iniciar sesion!!";
+           if(!koki){
+             let titulo = document.createElement("h4");
+             let textBody = document.createElement("p");
+             titulo.innerHTML = "Oops!!";
+             textBody.innerHTML = "Para agragar productos es nescesario registrarse o iniciar sesion!!";
                   
                 funcModal( textBody, titulo);
+              }else{
+               
+            ActualizarTooltip();
+              
                 }
        })
 
@@ -799,11 +803,12 @@ for(let el of obj){
         car.addEventListener("click",async (e)=>{
           e.preventDefault();
           let dkoky = document.cookie;
+        
           if(dkoky){
 
             const AddCar = ()=>{
               let dats = JSON.parse(sessionStorage.getItem('car')) || [];
-              
+            
               dats.push({
                 id: el.id,
                 producto: el.producto,
