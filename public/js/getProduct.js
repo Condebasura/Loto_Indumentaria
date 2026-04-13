@@ -69,7 +69,7 @@ const ActualizarTooltip = ()=>{
 
 };
 
-console.log(ActualizarTooltip())
+
 
 // Funcion general para las distintas funciones que muestran un modal (cuadro de dialogo)
 const funcModal = (textBody, titulo)=>{
@@ -124,17 +124,7 @@ modtabi.removeAttribute("aria-hidden");
 // Muestra los datos del producto seleccionado
 const verProd = async (el ,bestPrecio,rebajadoDe, imagenObjectURL , interes,  ) =>{
 
-  const AddCar = ()=>{
-    let dats = JSON.parse(sessionStorage.getItem('car')) || [];
-    dats.push({
-      id: el.id,
-      producto: el.producto,
-      rebajadoDe
-    });
-    
-    sessionStorage.setItem('car', JSON.stringify(dats));
-   
-   } 
+
        
   boxCargas.innerHTML = "";
   contUltimas.classList.add("d-none");
@@ -274,8 +264,19 @@ let imagenes = await Promise.all(lasImgs.slice(0, 5).map(loadImage));
                   
                 funcModal( textBody, titulo);
               }else{
-               
-            ActualizarTooltip();
+               const AdCar = ()=>{
+                 let dats = JSON.parse(sessionStorage.getItem('car')) || [];
+            
+              dats.push({
+                id: el.id,
+                producto: el.producto,
+                rebajadoDe
+              });
+              sessionStorage.setItem('car', JSON.stringify(dats));
+              window.dispatchEvent(new Event("AgregadoAlCarrito"));
+              
+               }
+               AdCar();
               
                 }
        })
@@ -806,7 +807,7 @@ for(let el of obj){
         
           if(dkoky){
 
-            const AddCar = ()=>{
+           const AddCar = ()=>{
               let dats = JSON.parse(sessionStorage.getItem('car')) || [];
             
               dats.push({
@@ -816,6 +817,7 @@ for(let el of obj){
               });
               sessionStorage.setItem('car', JSON.stringify(dats));
               window.dispatchEvent(new Event("AgregadoAlCarrito"));
+            
             }
             AddCar();
           }else{

@@ -376,7 +376,7 @@ const ActualizarTooltip = ()=>{
         customClass: "carrito-tooltip"});
         
         if(cantCarrito.length > 0){
-           setTimeout(() => tooltip.show(), 100);
+           setTimeout(() => tooltip.show(), 50);
             
         }else{
       
@@ -1401,14 +1401,14 @@ const dataUsuario = async () => {
  
 dataUsuario();
 
-document.addEventListener("DOMContentLoaded",()=>{
-   let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
-   
-   
-      ActualizarTooltip();
-      ShopCar.addEventListener("click", MostrarCarritoModal);
-            
-        
-}) 
+
+
+
+ShopCar.addEventListener("click", ()=>{;
+    let cantCarrito = JSON.parse(sessionStorage.getItem('car')) || [];
+    ActualizarTooltip();
+            MostrarCarritoModal(cantCarrito);
+      })    
+
 
 

@@ -615,7 +615,7 @@ search.addEventListener("input", async (e) => {
          body: JSON.stringify({valor})
       });
       const result = await response.json();
-    
+    console.log(result);
       search.addEventListener("focus", ()=>{
          if(search.value.trim() === ""){
             Prod.classList.add("product", "d-none");
