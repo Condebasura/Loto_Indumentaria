@@ -819,6 +819,7 @@ for(let el of obj){
               window.dispatchEvent(new Event("AgregadoAlCarrito"));
             
             }
+          
             AddCar();
           }else{
             let titulo = document.createElement("h4");

@@ -36,9 +36,9 @@ import sqlite3 from "sqlite3";
         try {
             return await new Promise((resolve, reject)=>{
                 let sql = 'SELECT *  FROM products WHERE producto LIKE ?';
-                let prod = producto;
+                let primera = producto;
                 
-                bd.all(sql, [`%${prod}%`], (err, rows)=>{
+                bd.all(sql, [`${primera}%`], (err, rows)=>{
                     if(err){
                         console.log("El error del reject",err);
                         reject(err);

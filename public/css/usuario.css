@@ -67,9 +67,10 @@
     padding-top: 1px; 
     
     
+    
 }
 .tooltip-arrow::before{
-    border-top-color: red !important;
+    border-top-color: red| !important;
 }
 
 .AddPass , .fa-circle-exclamation{

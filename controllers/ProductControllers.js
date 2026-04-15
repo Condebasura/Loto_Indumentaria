@@ -31,19 +31,27 @@ const SearchProd = async (req, res)=>{
     try {
        
           const   producto = req.body.valor;
-        console.log(producto);
-
+          
+          
+                
         if(!producto){
             return res.status(400).json({mensaje: "Falta el valor de búsqueda"})
         }
 
-        const data = await bd.consProducto(producto);
+         const primera = producto[0];
+
+    const regex = new RegExp(
+      /^[A-Z][a-z]*/
+    ).test(primera) ? `${primera}${producto.slice(1)}` : producto;
+
+        const data = await bd.consProducto(regex);
+       
          
         if(!data || data.length === 0){
 
             return  res.status(404).json({mensaje: "Sin Resultados"})
         }
-        const DatProd = data[0].producto.toLowerCase();
+        
         res.status(200).json(data);
     
      
