@@ -34,7 +34,7 @@ const PostUsuario = async (req, res)=>{
                const secret = process.env.USER_SECRET;
                const token = jwt.sign(payload, secret);
 
-               console.log("Creo token")
+               
                res.cookie('mitoken', token,  { sameSite: 'Strict' } , {
 					httpOnly: true
 				}, {path:'/'});
@@ -138,7 +138,7 @@ const PostRecuPass = async (req, res)=>{
 			  margin:2em;
 			  box-shadow: 2px 2px 12px #444545;">
 			  <h2>En el siguiente enlace podras cambiar tu contraseña</h2>
-			  <a href= "${API_URL}/RecuPass?token=${token}"  style="border-style: none;
+			  <a href= "${process.env.API_URL}/RecuPass?token=${token}"  style="border-style: none;
       background-color: rgba(28, 60, 202, 1);
       color: white;
       padding: 3px;
