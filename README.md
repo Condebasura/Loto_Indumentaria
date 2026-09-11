@@ -2,7 +2,7 @@
 
 **Loto Indumentaria** es una tienda online de ropa moderna que permite a los usuarios crear cuentas, explorar productos, gestionar su perfil y realizar compras de forma simple y segura. También incluye un panel administrativo con control total sobre los productos.
 
-👉 Visitá el sitio en: [http://localhost:3000](http://localhost:3000)
+👉 Visitá el sitio en: https://loto-indumentaria.hopto.org
 
 ---
 
